@@ -29,7 +29,7 @@
                                         <p class="web-h5 text-white mb-0">{{$row_slider->text1}}</p>
                                         <h2 class="web-h2 text-white mb-4">{{$row_slider->text2}}</h2>
                                         <ul class="list-inline">
-                                            <li class="list-inline-item"><a id="contact_us" href="#" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
+                                            <li class="list-inline-item"><a id="contact_us" href="#" class="btn web-btn web-btn-white" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
                                             <li class="list-inline-item"><a href="#" class="blue-link">Learn more <i class="fas fa-chevron-right pl-1"></i></a></li>
                                         </ul>
 
@@ -737,7 +737,7 @@ $videos = DB::table('videos')->where('name', '=', $section_21[0]->video_name)->g
                                         <p class="web-h5 text-white mb-0">{{$row_slider->text1}}</p>
                                         <h2 class="web-h2 text-white mb-4">{{$row_slider->text2}}</h2>
                                         <ul class="list-inline">
-                                            <li class="list-inline-item"><a id="contact_us" href="#" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
+                                            <li class="list-inline-item"><a id="contact_us" href="#" class="btn web-btn web-btn-white" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
                                             <li class="list-inline-item"><a href="#" class="blue-link">Learn more <i class="fas fa-chevron-right pl-1"></i></a></li>
                                         </ul>
 
