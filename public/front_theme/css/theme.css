@@ -478,6 +478,7 @@ header.sticky {
 	-ms-flex-align: center;
 	align-items: center;
 	height: calc(100vh - 85px);
+	z-index: 2;
 }
 
 .home-slider .carousel-inner .carousel-item {
@@ -528,6 +529,7 @@ section.banner-with-video .web-container {
     flex-direction: column;
 	justify-content: center;
     align-items: flex-end;
+	z-index: 1;
 }
 
 .home-slider .carousel-indicators li {
