@@ -11,7 +11,6 @@
     .form-control {
         padding: 7px !important;
     }
-    
     .table td,
     .table th {
         padding: 7px !important;
@@ -412,8 +411,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                        Slider</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Slider</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -870,6 +868,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Section Name</th>
+                                                            <th>CSS Class Name</th>
                                                             <th>Main Service</th>
                                                             <th>Sub Service</th>
                                                             <th>Sub Service Link</th>
@@ -880,6 +879,7 @@
                                                         @foreach($services as $row_services)
                                                         <tr>
                                                             <td>{{$row_services->name}}</td>
+                                                            <td>{{$row_services->bootstra_class_name}}</td>
                                                             <td>{{$row_services->main_service}}</td>
                                                             <td>{{$row_services->sub_service}}</td>
                                                             <td>{{$row_services->sub_service_link}}</td>
@@ -1211,8 +1211,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                    Slider</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Slider</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -1444,8 +1443,7 @@
 
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                    Team</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Team</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -1655,8 +1653,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                    Client and Partner</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Client and Partner</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -2072,8 +2069,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                        Slider</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Slider</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -2276,8 +2272,7 @@
 
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                            Request a Meeting</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Request a Meeting</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -2536,8 +2531,7 @@
                                                                                     </div>
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                        Para Style 1</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Para Style 1</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -2810,8 +2804,7 @@
                                                                                     </div>
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                    Para Style 2</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Para Style 2</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -3073,8 +3066,7 @@
                                                                                     </div>
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                Para Style 3</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Para Style 3</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -3294,8 +3286,7 @@
 
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                Para Style 4</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Para Style 4</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -3532,8 +3523,7 @@
                                                                                     </div>
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                            Para Style 5</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Para Style 5</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -3763,8 +3753,7 @@
                                                                                     </div>
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                        Para Style 5</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Para Style 5</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -3998,8 +3987,7 @@
                                                                                     </div>
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                    Para Style 5</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Para Style 5</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -4177,7 +4165,7 @@
                               </button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <form method="POST" action="{{url('admin/edit_para_style_4')}}" enctype="multipart/form-data">
+                                                                            <form method="POST" action="{{url('admin/edit_section_17')}}" enctype="multipart/form-data">
                                                                                 @csrf
                                                                                 <input type="hidden" value="{{$row_section_17->id}}" name="id">
 
@@ -4203,27 +4191,19 @@
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <label for="account-username">Title</label>
-                                                                                                <input type="text" name="title" value="{{$row_section_17->title}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <label for="account-username">Paragraph</label>
+                                                                                                <input type="text" name="paragraph" value="{{$row_section_17->paragraph}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
 
 
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Text</label>
-                                                                                                <input type="text" name="paragraph" value="{{$row_section_17->title}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
+                                                                                   
 
 
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                  Section 17</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Section 17</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -4429,7 +4409,7 @@
                               </button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <form method="POST" action="{{url('admin/edit_row_section_18')}}" enctype="multipart/form-data">
+                                                                            <form method="POST" action="{{url('admin/edit_section_18')}}" enctype="multipart/form-data">
                                                                                 @csrf
                                                                                 <input type="hidden" value="{{$row_section_18->id}}" name="id">
 
@@ -4455,8 +4435,8 @@
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <label for="account-username">Title</label>
-                                                                                                <input type="text" name="title" value="{{$row_section_17->title}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <label for="account-username">Heading One</label>
+                                                                                                <input type="text" name="headingone" value="{{$row_section_18->headingone}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -4465,8 +4445,17 @@
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <label for="account-username">Text</label>
-                                                                                                <input type="text" name="paragraph" value="{{$row_section_17->title}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <label for="account-username">Heading Two</label>
+                                                                                                <input type="text" name="headingtwo" value="{{$row_section_18->headingtwo}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Image</label>
+                                                                                                <input type="file" name="image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -4474,8 +4463,7 @@
 
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                  Section 17</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Section 18</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -4604,7 +4592,7 @@
                               </button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <form method="POST" action="{{url('admin/edit_row_section_19')}}" enctype="multipart/form-data">
+                                                                            <form method="POST" action="{{url('admin/edit_section_19')}}" enctype="multipart/form-data">
                                                                                 @csrf
                                                                                 <input type="hidden" value="{{$row_section_19->id}}" name="id">
 
@@ -4649,8 +4637,7 @@
 
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                  Section 19</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Section 19</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -4878,8 +4865,7 @@
 
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                  Section 20</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Section 20</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -4921,7 +4907,7 @@
                                                     <img style="width:100%" src="{{asset('public/page_sections/slider_with_video.png')}}" />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <form method="POST" action="{{url('admin/store_slider')}}" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{url('admin/store_section_22')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
 
@@ -4961,11 +4947,11 @@
                                                                     <div class="controls">
                                                                         <label for="account-username">Video Name</label> @php $video_name = DB::table('videos')->get(); @endphp
                                                                         <select class="form-control" name="video_name">
-                                                                @foreach($video_name->unique('name') as $row_video_name)
-                                                                    <option value="{{$row_video_name->name}}">   {{$row_video_name->name}} </option>
-                                                                @endforeach
-                                                                
-                                                            </select>
+                                                                            @foreach($video_name->unique('name') as $row_video_name)
+                                                                                <option value="{{$row_video_name->name}}">   {{$row_video_name->name}} </option>
+                                                                            @endforeach
+                                                                            
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -4987,40 +4973,36 @@
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
+                                                        <th>Section Name</th>
                                                         <th>Slider Name</th>
                                                         <th>Video Name</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($sliders as $row_sliders)
+                                                    @foreach($section_21 as $row_section_21)
                                                     <tr>
-                                                        <td>{{$row_sliders->name}}</td>
+                                                        <td>{{$row_section_21->name}}</td>
+                                                        <td>{{$row_section_21->slider_name}}</td>
+                                                        <td>{{$row_section_21->video_name}}</td>
                                                         <td>
-                                                            <img style="width:100px" src="{{asset('public/slider/'.$row_sliders->image)}}" />
-                                                        </td>
-
-                                                        <td>{{$row_sliders->text1}}</td>
-                                                        <td>{{$row_sliders->text2}}</td>
-                                                        <td>{{$row_sliders->status}}</td>
-                                                        <td>
-                                                            <a data-toggle="modal" data-target="#sliderModalCenter{{$row_sliders->id}}"> Edit</a> |
-                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->id)}}"> Delete </a>
+                                                            <a data-toggle="modal" data-target="#sliderWithVideoModalCenter{{$row_section_21->id}}"> Edit</a> |
+                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_section_21->id)}}"> Delete </a>
 
                                                             <!-- Modal -->
-                                                            <div class="modal fade" id="sliderModalCenter{{$row_sliders->id}}" tabindex="-1" role="dialog" aria-labelledby="sliderModalCenter{{$row_sliders->id}}" aria-hidden="true">
+                                                            <div class="modal fade" id="sliderWithVideoModalCenter{{$row_section_21->id}}" tabindex="-1" role="dialog" aria-labelledby="sliderWithVideoModalCenter{{$row_sliders->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalLongTitle">{{$row_sliders->text1}}</h5>
+                                                                            <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_21->name}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                       <span aria-hidden="true">&times;</span>
                                                     </button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <form method="POST" action="{{url('admin/edit_slider')}}" enctype="multipart/form-data">
+                                                                            <form method="POST" action="{{url('admin/edit_section_21')}}" enctype="multipart/form-data">
                                                                                 @csrf
-                                                                                <input type="hidden" value="{{$row_sliders->id}}" name="id">
+                                                                                <input type="hidden" value="{{$row_section_21->id}}" name="id">
 
                                                                                 <div class="row">
                                                                                     <div class="col-12">
@@ -5033,62 +5015,48 @@
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <label for="account-username">Slider Name</label>
-                                                                                                <input type="text" name="name" value="{{$row_sliders->name}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <label for="account-username">Section Name</label>
+                                                                                                <input type="text" name="name" class="form-control" id="account-username" value="{{$row_section_21->name}}" required data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-
-                                                                                    <div class="col-8">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Slider Image : {{$row_sliders->image}}</label>
-                                                                                                <input type="file" name="slider_image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-4">
-                                                                                        <img style="width:100px" src="{{asset('public/slider/'.$row_sliders->image)}}" />
-                                                                                    </div>
-
+                        
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <label for="account-username">Status</label>
-                                                                                                <input type="text" name="status" class="form-control" value="{{$row_sliders->status}}" id="account-username" data-validation-required-message="This username field is required">
+                                                                                                <label for="account-username">Slider Name</label> @php $slider_name = DB::table('sliders')->get(); @endphp
+                                                                                                <select class="form-control" name="slider_name">
+                                                                                        @foreach($slider_name->unique('name') as $row_slider_name)
+                                                                                                    @if($row_section_21->slider_name == $row_slider_name->name)
+                                                                                                        <option selected value="{{$row_slider_name->name}}">{{$row_slider_name->name}}    </option>        
+                                                                                                    @endif
+                                                                                            <option value="{{$row_slider_name->name}}">{{$row_slider_name->name}}    </option>
+                                                                                        @endforeach
+                                                                                        
+                                                                                    </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                        
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Video Name</label> @php $video_name = DB::table('videos')->get(); @endphp
+                                                                                                <select class="form-control" name="video_name">
+                                                                                                    @foreach($video_name->unique('name') as $row_video_name)
+                                                                                                    @if($row_section_21->video_name == $row_video_name->name)
+                                                                                                        <option selected value="{{$row_video_name->name}}">{{$row_video_name->name}}    </option>        
+                                                                                                    @endif
+                                                                                                        <option value="{{$row_video_name->name}}">   {{$row_video_name->name}} </option>
+                                                                                                    @endforeach
+                                                                                                    
+                                                                                                </select>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Heading One</label>
-                                                                                                <input type="text" name="text1" class="form-control" value="{{$row_sliders->text1}}" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Heading Two</label>
-                                                                                                <input type="text" name="text2" value="{{$row_sliders->text2}}" class="form-control" value="heading2" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username"> Button Link</label>
-                                                                                                <input type="text" name="contact_button_link" value="{{$row_sliders->contact_button_link}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                        Slider</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Slider with Video</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -5108,12 +5076,9 @@
                                                 <tfoot>
                                                     <tr>
 
-                                                        <th>Slider Name</th>
-                                                        <th>Slider Image</th>
-
-                                                        <th>Slider Heading 1</th>
-                                                        <th>Slider Heading 2</th>
-                                                        <th>Status</th>
+                                                        <th>Section Name</th>
+                                                        <th>Slider  Name</th>
+                                                        <th>Video Name</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </tfoot>
@@ -5248,7 +5213,7 @@
                                                         <td>{{$row_section_22->text}}</td>
                                                         <td>
 
-                                                            <a data-toggle="modal" data-target="#sliderModalCenter{{$row_section_22->id}}"> Edit</a> |
+                                                            <a data-toggle="modal" data-target="#section_22_ModalCenter{{$row_section_22->id}}"> Edit</a> |
                                                             <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_22/'.$row_section_22->id)}}"> Delete </a>
 
                                                             <!-- Modal -->
@@ -5275,11 +5240,65 @@
                                                                                         </div>
                                                                                     </div>
 
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Section Name</label>
+                                                                                                <input type="text" name="name" class="form-control" value="{{$row_section_22->name}}" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                        
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">First Heading  </label>
+                                                                                                <input type="text" name="heading_1" class="form-control" value="{{$row_section_22->heading_1}}" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                        
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Second Heading  </label>
+                                                                                                <input type="text" name="heading_2" class="form-control" id="account-username" value="{{$row_section_22->heading_2}}" required data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                        
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Image</label>
+                                                                                                <input type="file" name="image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                        
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Video Link</label>
+                                                                                                <input type="text" name="video" class="form-control" value="{{$row_section_22->video}}" id="account-username" data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                        
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Text</label>
+                                                                                                <input type="text" name="text" class="form-control" value="{{$row_section_22->text}}" id="account-username" data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                        
+
 
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit
-                                                                        Section 22</button>
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Section 22</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>

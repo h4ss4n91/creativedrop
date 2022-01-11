@@ -757,34 +757,7 @@
 		<!-- Images slider - End -->
 
 
-		<!-- Video slider - Start -->
-		<div class="cdrop-video-slider d-none">
-			<div class="header-bg">
-				<div class="ml-0 mr-0" style="background-color: rgba(0,0,0,0.5); height: 100%;">
-					<div class="iframe-div-before">
-						<iframe style="width: 100vw;
-						height: 56.25vw;
-						min-height: 100vh;
-						min-width: 177.77vh;
-						position: absolute;
-						top: 50%;
-						left: 50%;
-						transform: translate(-50%, -50%);" src="https://player.vimeo.com/video/343159654?autoplay=1&amp;loop=1&amp;muted=1&amp;title=0&amp;byline=0&amp;portrait=0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-					</div>
 	
-					<div class="homepage-banner-content homepage-video-banner-content">
-						<p class="web-h5 text-white mb-0">Creative Agency</p>
-						<h2 class="web-h2 text-white mb-4">Designing, Branding &amp; Marketing Services</h2>
-						<ul class="list-inline">
-							<li class="list-inline-item"><a href="#" class="btn web-btn web-btn-white" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
-							<li class="list-inline-item"><a href="#" class="blue-link">Learn more <i class="fas fa-chevron-right pl-1"></i></a></li>
-						</ul>
-					</div>
-
-				</div>
-			</div>
-		</div>
-		<!-- Video slider - end -->
 		
 	</section>
     
@@ -796,7 +769,7 @@
     			<div class="row">
     				<div class="col-md-12">
     					<div class="home-video-content text-center">
-    						<h3 class="web-h3 text-black text-left">{{$row_video->video_title}}</h3>
+    						<h3 class="web-h3 text-white text-left">{{$row_video->video_title}}</h3>
     						<iframe class="w-100 web-border-radius-5" width="560" height="315" src="{{$row_video->video_link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     						<a href="javascript:void(0)" class="btn web-btn web-btn-blue mt-5" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
     					</div>

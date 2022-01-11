@@ -764,7 +764,7 @@ class BackendController extends Controller
                     'page_id' => $request->page_id,
                     'title' => $request->title,
                     // 'news_short_description' => $request->news_short_description,
-                    'link' => $request->link]
+                    'name' => $request->name]
         );
         return redirect()->back();
     }
@@ -1001,17 +1001,15 @@ class BackendController extends Controller
  
      public function edit_para_style_4(Request $request)
      {
-        $file = $request->file('image'); // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
-        $file->move(public_path('para_style_4') , $file_name); // move files to destination folder
+        // $file = $request->file('image'); // will get all files
+        // $file_name = $file->getClientOriginalName(); //Get file original name
+        // $file->move(public_path('para_style_4') , $file_name); // move files to destination folder
          $affected = DB::table('para_style_4')
          ->where('id', $request->id)
          ->update([
-            'image' => $file_name,
-            'page_id' => $request->page_id,
-            'title' => $request->title,
-            'paragraph' => $request->paragraph,
-            'link' => $request->link]
+
+                    'name' => $request->name,
+                    'title' => $request->paragraph]
          );
          return redirect()->back();
      }
@@ -1529,7 +1527,7 @@ class BackendController extends Controller
             // 'image' => $file_name,
             'page_id' => $request->page_id,
             'name' => $request->name,
-            'paragraph' => $request->text
+            'paragraph' => $request->paragraph
             ]
          );
          return redirect()->back();
@@ -1572,17 +1570,17 @@ class BackendController extends Controller
  
      public function edit_section_18(Request $request)
      {
-        // $file = $request->file('image'); // will get all files
-        // $file_name = $file->getClientOriginalName(); //Get file original name
-        // $file->move(public_path('para_style_5') , $file_name); // move files to destination folder
+        $file = $request->file('image'); // will get all files
+        $file_name = $file->getClientOriginalName(); //Get file original name
+        $file->move(public_path('section_18') , $file_name); // move files to destination folder
          $affected = DB::table('section_18')
          ->where('id', $request->id)
          ->update([
-            // 'image' => $file_name,
+            'image' => $file_name,
             'page_id' => $request->page_id,
             'name' => $request->name,
-            'text' => $request->text,
-            'heading' => $request->heading
+            'headingone' => $request->headingone,
+            'headingtwo' => $request->headingtwo
             ]
          );
          return redirect()->back();
@@ -1926,11 +1924,9 @@ class BackendController extends Controller
                 DB::table('section_21')->insert(
                     [
                      'name' => $request->name,
-                     'heading_1' => $data['heading_1'],
-                     'heading_2' => $data['heading_2'],
-                     'btn_class' => $data['btn_class'],
-                     'btn_label' => $data['btn_label']
-                    ]
+                     'slider_name' => $data['slider_name'],
+                     'video_name' => $data['video_name']
+                     ]
                 );
       
 
@@ -1952,10 +1948,8 @@ class BackendController extends Controller
             // 'image' => $file_name,
             
             'name' => $request->name,
-            'heading_1' => $request->heading_1,
-            'heading_2' => $request->heading_2,
-            'btn_class' => $request->btn_class,
-            'btn_label' => $request->btn_label
+            'slider_name' => $request->slider_name,
+            'video_name' => $request->video_name
             ]
          );
          return redirect()->back();
@@ -1984,11 +1978,6 @@ class BackendController extends Controller
             $file_name = "";
         }
     
-        
-            
-        
-        
-      
                 DB::table('section_22')->insert(
                     [
                      'name' => $request->name,
@@ -2010,19 +1999,28 @@ class BackendController extends Controller
  
      public function edit_section_22(Request $request)
      {
+        if(!empty($request->file('image'))) {
+            
+            $file = $request->file('image'); // will get all files
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('section_22') , $file_name); // move files to destination folder
+        
+        }else{
+            $file_name = "";
+        }
+
         // $file = $request->file('image'); // will get all files
         // $file_name = $file->getClientOriginalName(); //Get file original name
         // $file->move(public_path('para_style_5') , $file_name); // move files to destination folder
          $affected = DB::table('section_22')
          ->where('id', $request->id)
          ->update([
-            // 'image' => $file_name,
-            
-            'name' => $request->name,
-            'heading_1' => $request->heading_1,
-            'heading_2' => $request->heading_2,
-            'btn_class' => $request->btn_class,
-            'btn_label' => $request->btn_label
+                    'name' => $request->name,
+                    'heading_1' => $request->heading_1,
+                    'heading_2' => $request->heading_2,
+                    'image' => $file_name,
+                    'video' => $request->video,
+                    'text' => $request->text
             ]
          );
          return redirect()->back();
