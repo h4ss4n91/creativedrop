@@ -669,10 +669,19 @@
     @elseif( $row_pages->section== '19' )
     
     @php
+    
         $section_19 = DB::table('section_19')->where('name', '=', $row_pages->section_type)->get();
+        
     @endphp
 
-    
+    <section class="section-bg-white section-padtop-@if(!$section_19->isEmpty()){{$section_19[0]->padding_top}}@endif section-padbottom-@if(!$section_19->isEmpty()){{$section_19[0]->padding_bottom}}@endif design-detail">
+        <div class="web-container">
+            <div class="row">
+                
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            </div>
+        </div>
+    </section>
     
     
     
@@ -796,19 +805,24 @@
 
     
     <section class="section-bg-white section-padtop-50 section-padbottom-50 design-banner">
+
 	<div class="web-container">
 		<div class="row no-gutters">
 			<div class="col-md-12">
+                
+				
+				 @if(!empty($section_22[0]->heading_1))
+
 				<div class="design-banner-content text-center w-100">
 					<h1 class="web-h1 mb-0">{{$section_22[0]->heading_1}}</h1>
 					<h4 class="web-h4 mt-4 mb-4">{{$section_22[0]->heading_2}}</h4>
 					<a href="javascript:void(0)" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
 				</div>
-				@php
-				    $image = $section_22[0]->image;
-				@endphp
+
+                @endif
 				
-				 @if(!empty($image))
+				
+				 @if(!empty($section_22[0]->image))
 				
 				<div class="banner-image text-center mt-5 mb-3">
 					<div class="img-block web-border-radius-5">
@@ -819,25 +833,31 @@
 				
 				@endif
 				
-				@php
-				    $video = $section_22[0]->video;
-				@endphp
 				
-				 @if(!empty($video))
+				
+				@if(!empty($section_22[0]->video))
 				
     				<div class="banner-video text-center mt-5 mb-3">
     					<iframe class="w-100 web-border-radius-5" width="560" height="315" src="{{$section_22[0]->video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
     				</div>
 				@endif
-				
-				
+
+
 			</div>
-			<div class="col-sm-8 col-md-8 col-lg-9 align-self-center">
-				<h3 class="web-h3 mb-0">{{$section_22[0]->text}}</h3>
-			</div>
-			<div class="col-sm-4 col-md-4 col-lg-3 align-self-center">
-				<a href="javascript:void(0)" class="btn web-btn web-btn-blue float-right" data-toggle="modal" data-target="#creativeModal">Request for a meeting</a>
-			</div>
+
+            @if(!empty($section_22[0]->text))
+     
+            <div class="col-sm-8 col-md-8 col-lg-9 align-self-center">
+                <h3 class="web-h3 mb-0">{{$section_22[0]->text}}</h3>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-3 align-self-center">
+                <a href="javascript:void(0)" class="btn web-btn web-btn-blue float-right" data-toggle="modal" data-target="#creativeModal">Request for a meeting</a>
+            </div>
+            @endif
+                
+
+               
+			
 		</div>
 	</div>
 </section>

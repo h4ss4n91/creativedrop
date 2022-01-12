@@ -129,7 +129,7 @@
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-image-bellow-text-and-button" data-toggle="pill" href="#account-vertical-image-bellow-text-and-button" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Image Below Text and Button
+                                    <i class="feather icon-type"></i> Logos
                                 </a>
                             </li>
 
@@ -3555,13 +3555,17 @@
                                         <div class="tab-pane fade" id="account-vertical-image-bellow-text-and-button" role="tabpanel" aria-labelledby="account-pill-image-bellow-text-and-button" aria-expanded="false">
                                             <div class="media">
                                                 <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
-                                                    Image below text and button
+                                                    Logos
                                                 </div>
                                             </div>
                                             <hr/>
 
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
+                                                    <img style="width:100%" src="{{asset('public/page_sections/image_below_text_and_button.png')}}" />
+                                                </div>
+
+                                                <div class="col-12">
 
                                                     <form method="POST" action="{{url('admin/store_section_15')}}" enctype="multipart/form-data">
                                                         @csrf
@@ -3660,9 +3664,7 @@
 
                                                 </div>
 
-                                                <div class="col-6">
-                                                    <img style="width:100%" src="{{asset('public/page_sections/image_below_text_and_button.png')}}" />
-                                                </div>
+                                                
 
                                             </div>
                                             <hr/>
@@ -5016,7 +5018,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
-                                                                                                <input type="text" name="name" class="form-control" id="account-username" value="{{$row_section_21->name}}" required data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="name" class="form-control" id="account-username" value="{{$row_section_21->name}}" >
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -5244,7 +5246,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
-                                                                                                <input type="text" name="name" class="form-control" value="{{$row_section_22->name}}" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="name" class="form-control" value="{{$row_section_22->name}}" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -5253,7 +5255,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">First Heading  </label>
-                                                                                                <input type="text" name="heading_1" class="form-control" value="{{$row_section_22->heading_1}}" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="heading_1" class="form-control" value="{{$row_section_22->heading_1}}" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -5262,7 +5264,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Second Heading  </label>
-                                                                                                <input type="text" name="heading_2" class="form-control" id="account-username" value="{{$row_section_22->heading_2}}" required data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="heading_2" class="form-control" id="account-username" value="{{$row_section_22->heading_2}}"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

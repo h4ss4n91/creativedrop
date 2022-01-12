@@ -238,7 +238,7 @@
                                                     //    alert(page_section);
                                                 $.ajax({
                                                                         type:'GET',
-                                                                        url:'https://new.creativedrop.com/admin/page_section_id/'+page_section,
+                                                                        url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                                                         success:function(data){
                                                                             console.log(data);
                                                                         $('#dependent_page_sections_{{$row_pages->section_no}}').html(data);
@@ -283,7 +283,7 @@
                                                             // alert(page_section);
                                                         $.ajax({
                                                             type:'GET',
-                                                            url:'https://new.creativedrop.com/admin/page_section_id/'+page_section,
+                                                            url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                                             success:function(data){
                                                                 console.log(data);
                                                                 $(`#dependent_page_sections_${caseStudyrowIdx}`).html(data);
@@ -544,7 +544,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#dependent_page_sections_1').html(data);
@@ -560,7 +560,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#dependent_page_sections_2').html(data);
@@ -576,7 +576,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#dependent_page_sections_3').html(data);
@@ -592,7 +592,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#dependent_page_sections_4').html(data);
@@ -608,7 +608,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#dependent_page_sections_5').html(data);
@@ -624,7 +624,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#dependent_page_sections_6').html(data);
@@ -640,7 +640,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#dependent_page_sections_7').html(data);
@@ -656,7 +656,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#dependent_page_sections_8').html(data);
@@ -670,7 +670,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#dependent_page_sections_9').html(data);
@@ -695,7 +695,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#edit_dependent_page_sections_1').html(data);
@@ -711,7 +711,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#edit_dependent_page_sections_2').html(data);
@@ -727,7 +727,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#edit_dependent_page_sections_3').html(data);
@@ -743,7 +743,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#edit_dependent_page_sections_4').html(data);
@@ -759,7 +759,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#edit_dependent_page_sections_5').html(data);
@@ -775,7 +775,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#edit_dependent_page_sections_6').html(data);
@@ -791,7 +791,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#edit_dependent_page_sections_7').html(data);
@@ -807,7 +807,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#edit_dependent_page_sections_8').html(data);
@@ -823,7 +823,7 @@
         //    alert(page_section);
            $.ajax({
                                 type:'GET',
-                                url:'page_section_id/'+page_section,
+                                url:'http://localhost/creativedrop/creativedrop/admin/page_section_id/'+page_section,
                                 success:function(data){
                                      console.log(data);
                                    $('#edit_dependent_page_sections_9').html(data);
