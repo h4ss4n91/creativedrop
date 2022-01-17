@@ -105,7 +105,17 @@
                                             <div class="controls">
                                                         <label  style="font-weight:bold" for="account-username">Main Menu</label>
                                                         <select id="page_sections" class="form-control" name="main_menu_id">
-                                                            <option value="{{$page[0]->menu_id}}">  {{$page[0]->menu_id}} </option>
+                                                        @php    
+                                                                $menus = DB::table('menus')->where('id', '=', $page[0]->menu_id)->get();
+                                                        @endphp
+                                                            <option value="{{$page[0]->menu_id}}">  
+                                                                @if($page[0]->menu_id != '#')
+                                                                    @if($menus[0]->id == $page[0]->menu_id)
+                                                                    {{$menus[0]->menu_name}}
+                                                                    @endif
+                                                                @endif
+                                                                
+                                                                 </option>
                                                             @foreach($main_menu as $row_main_menu)
                                                                 <option value="{{$row_main_menu->id}}"> {{$row_main_menu->menu_name}} </option>
                                                             @endforeach
@@ -118,8 +128,18 @@
                                         <div class="form-group">
                                             <div class="controls">
                                                 <label  style="font-weight:bold" for="account-username">Sub Menu</label>
+                                                @php
+                                                        $sub_menus = DB::table('child_menus')->where('id', '=', $page[0]->sub_menu_id)->get();
+                                                @endphp
                                                         <select id="dependent_page_sections" class="form-control" name="sub_menu_id">
-                                                            <option value="{{$page[0]->sub_menu_id}}">  {{$page[0]->sub_menu_id}} </option>
+                                                            <option value="{{$page[0]->sub_menu_id}}"> 
+                                                                @if($page[0]->sub_menu_id != NULL)
+                                                                    @if($sub_menus[0]->id == $page[0]->sub_menu_id)
+                                                                        {{$sub_menus[0]->item_name}}
+                                                                    @endif
+                                                                @endif
+                                                                
+                                                                 </option>
                                                         </select>
                                             </div>
                                         </div>
@@ -129,8 +149,21 @@
                                         <div class="form-group">
                                             <div class="controls">
                                                 <label  style="font-weight:bold" for="account-username">Child Menu</label>
+                                                @php
+                                                        $sub_child_menus = DB::table('sub_child_menus')->where('id', '=', $page[0]->child_menu_id)->get();
+                                                @endphp
                                                         <select id="child_dependent_page_sections" class="form-control" name="child_menu_id">
-                                                            <option value="{{$page[0]->child_menu_id}}">  {{$page[0]->child_menu_id}} </option>
+                                                            <option value="{{$page[0]->child_menu_id}}">
+                                                                @if($page[0]->child_menu_id != NULL)
+                                                                
+                                                                @if($sub_child_menus[0]->id == $page[0]->child_menu_id)
+                                                                    {{$sub_child_menus[0]->item_name}}
+                                                                @endif
+
+                                                                @endif
+                                                                
+
+                                                                </option>
                                                         </select>
                                             </div>
                                         </div>
@@ -220,7 +253,7 @@
                                      <div class="col-2">
                                         <div class="form-group">
                                             <div class="controls">
-                                                <label style="font-weight:bold;"for="account-username">Section Number {{$row_pages->section_no}} 
+                                                <label style="font-weight:bold;"for="account-username">Place Number {{$row_pages->section_no}} 
                                                     
                                                 </label>
                                                     <input type="text" class="form-control" name="section_no[]" value="{{$row_pages->section_no}}"/>
@@ -275,6 +308,9 @@
                                                         <option></option>
                                                     </select>
                                                     </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="section_no[]" value=""/>
+                                                    </td>
                                                   <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
                                                   </tr>`);
 
@@ -327,6 +363,7 @@
                                                 <tr>
                                                   <th class="text-center">Section</th>
                                                   <th class="text-center">Select Section</th>
+                                                  <th class="text-center">Place</th>
                                                   <th style="width:100px;" class="text-center">Remove Row</th>
                                                 </tr>
                                               </thead>
@@ -846,7 +883,7 @@ $('#page_sections').change(function() {
         var dependent = $(this).data('dependent');
         var _token = $('input[name="_token"]').val();
         $.ajax({
-            url: "https://new.creativedrop.com/admin/services_by_id/" + value,
+            url: "http://localhost/creativedrop/creativedrop/admin/services_by_id/" + value,
             method: "GET",
             success: function(result) {
                 console.log(result);
@@ -870,7 +907,7 @@ $('#dependent_page_sections').change(function() {
         var dependent_page_sections = $(this).data('dependent');
         var _token = $('input[name="_token"]').val();
         $.ajax({
-            url: "https://new.creativedrop.com/admin/child_services_by_id/" + value,
+            url: "http://localhost/creativedrop/creativedrop/admin/child_services_by_id/" + value,
             method: "GET",
             success: function(result) {
                 console.log(result);

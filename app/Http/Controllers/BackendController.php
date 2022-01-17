@@ -108,6 +108,7 @@ class BackendController extends Controller
         $page = DB::table('page')
             ->join('page_detail', 'page_detail.page_id', '=', 'page.id')
             ->where('page.id', '=', $id)
+            ->orderBy('page_detail.section_no', 'ASC')
             ->get();
         // dd($pages);
         // die();
@@ -152,7 +153,7 @@ class BackendController extends Controller
                 DB::table('page_detail')->insert(
                     [
                         'page_id' => $id,
-                        'section_no' => $i+1,
+                        'section_no' => $data['section_no'][$i],
                         'section' => $data['section'][$i],
                         'section_type' => $data['section_type'][$i]
                     ]
@@ -166,7 +167,7 @@ class BackendController extends Controller
 
     public function pages()
     {
-        $main_menu = DB::table('menus')->where('menu_link','!=','#')->get();
+        $main_menu = DB::table('menus')->where('menu_link','!=','#')->orderBy('sorting', 'ASC')->get();
         $pages = DB::table('page')->get();
         $page_section = DB::table('page_section')->get();
         return view('pages', Compact('pages','main_menu','page_section'));
@@ -284,7 +285,7 @@ class BackendController extends Controller
     public function store_child_menu(Request $request)
     {
         DB::table('child_menus')->insert(
-            ['menu_id' => $request->main_menu_id, 'item_name' => $request->child_menu, 'featured_service' => $request->featured_service, 'item_link' => $request->child_menu_link]
+            ['menu_id' => $request->main_menu_id, 'item_name' => $request->child_menu, 'sorting' => $request->sorting,  'featured_service' => $request->featured_service, 'item_link' => $request->child_menu_link]
         );
         return redirect()->back();
     }
@@ -296,6 +297,7 @@ class BackendController extends Controller
         ->update([
             'menu_id' => $request->main_menu_id,
             'item_name' => $request->item_name,
+            'sorting' => $request->sorting, 
             'featured_service' => $request->featured_service,
             'item_link' => $request->item_link
           ]);
@@ -316,7 +318,7 @@ class BackendController extends Controller
     public function store_sub_child_menu(Request $request)
     {
         DB::table('sub_child_menus')->insert(
-            ['menu_id' => $request->main_menu_id, 'child_menu_id' => $request->child_menu_id, 'item_name' => $request->sub_child_item_name, 'item_link' => $request->sub_child_item_link]
+            ['menu_id' => $request->main_menu_id, 'child_menu_id' => $request->child_menu_id, 'sorting' => $request->sorting, 'item_name' => $request->sub_child_item_name, 'item_link' => $request->sub_child_item_link]
         );
         return redirect()->back();
     }
@@ -328,6 +330,7 @@ class BackendController extends Controller
         ->update([
             'child_menu_id' => $request->main_menu_id,
             'item_name' => $request->edit_sub_child_item_name,
+            'sorting' => $request->sorting, 
             'item_link' => $request->edit_sub_child_item_link
           ]);
 
@@ -1382,7 +1385,7 @@ class BackendController extends Controller
      {
         $data = $request->all();
         
-        for ($i = 0; $i < count($request->text); $i++) {
+        for ($i = 0; $i < count($request->image); $i++) {
 
             $file = $data['image'][$i]; // will get all files
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -1393,9 +1396,9 @@ class BackendController extends Controller
                      'page_id' => $request->page_id,
                      'name' => $request->name,
                      'image' => $file_name,
-                     'text' => $data['text'][$i],
-                     'heading1' => $data['heading1'][$i],
-                     'heading2' => $data['heading2'][$i]
+                     'heading1' => $data['heading'][$i],
+                     'flex_row_reverse' => $data['flex_row_reverse'][$i]
+                     
                     ]
                 );
         }
@@ -1409,18 +1412,17 @@ class BackendController extends Controller
  
      public function edit_section_15(Request $request)
      {
-        // $file = $request->file('image'); // will get all files
-        // $file_name = $file->getClientOriginalName(); //Get file original name
-        // $file->move(public_path('para_style_5') , $file_name); // move files to destination folder
+        $file = $request->file('image'); // will get all files
+        $file_name = $file->getClientOriginalName(); //Get file original name
+        $file->move(public_path('section_15') , $file_name); // move files to destination folder
          $affected = DB::table('section_15')
          ->where('id', $request->id)
          ->update([
-            // 'image' => $file_name,
+            'image' => $file_name,
             'page_id' => $request->page_id,
             'name' => $request->name,
-            'heading1' => $request->heading1,
-            'heading2' => $request->heading2,
-            'text' => $request->text]
+            'heading1' => $request->heading,
+            'flex_row_reverse' => $request->flex_row_reverse]
          );
          return redirect()->back();
      }

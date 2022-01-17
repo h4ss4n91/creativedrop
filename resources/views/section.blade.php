@@ -7,10 +7,12 @@
     @endphp
     
             <section class="home-slider section-bg-black creative-banner">
+               
                 <!-- Images slider - Start -->
                 <div class="web-container">
                     <div class="row">
                         <div class="col-12">
+                            
                             <div id="carouselExampleIndicators" class="position-relative scrollto-section carousel slide" data-ride="carousel">
                                 <a href="#section-2" id="sectionTwo" class="mouse" aria-hidden="true">
                                 <span class="mouse__wheel"></span>
@@ -23,7 +25,7 @@
                                         @endforeach
                                 </ol>
                                 <div class="carousel-inner">
-
+                                    
                                     @foreach($sliders as $row_slider)
                                         <div class="carousel-item {{$row_slider->status}}" style="background: url('{{asset('public/slider/'.$row_slider->image)}}') no-repeat center right;">
                                             <div class="slider-flex-wrap">
@@ -418,7 +420,7 @@
         <div class="web-container">
     
             @foreach($para_style_2 as $row_para_style_2)
-                <div class="row section-padtop-50 section-padbottom-50 {{$row_para_style_2->flex_row_reverse}}">
+                <div class="row section-padtop-50 section-padbottom-50 @if($row_para_style_2->flex_row_reverse != NULL)flex-row-reverse @endif">
                     <div class="col-sm-6 col-md-6 align-self-center">
                         <div class="brand-tile-content">
                             <p class="web-h5 mb-0"><b>{{$row_para_style_2->title}} –</b> {{$row_para_style_2->paragraph}}</p>
@@ -535,31 +537,28 @@
         $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_type)->get();
     @endphp
 
+@foreach($section_15 as $row_section_15)
 
-<section class="section-bg-white section-padtop-50 section-padbottom-50 design-banner">
+<section class="section-bg-white section-padtop-50 brand-tile book-design">
 	<div class="web-container">
-		<div class="row no-gutters">
-			<div class="col-md-12">
-				<div class="design-banner-content text-center">
-					<h1 class="web-h1 mb-0">{{$section_15[0]->heading1}}</h1>
-					<h4 class="web-h4 mt-4 mb-4">{{$section_15[0]->heading2}}</h4>
-					<a href="javascript:void(0)" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
-				</div>
-				<div class="banner-image text-center mt-5 mb-3">
-					<div class="img-block web-border-radius-5">
-                        <img class="obj-cover" src="{{asset('public/section_15/'.$section_15[0]->image)}}" alt="">
-					</div>
+		<div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
+			<div class="col-sm-6 col-md-6 align-self-center">
+				<div class="brand-tile-img">
+					<img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
 				</div>
 			</div>
-			<div class="col-sm-8 col-md-8 col-lg-9 align-self-center">
-				<h3 class="web-h3 mb-0">{{$section_15[0]->text}}</h3>
-			</div>
-			<div class="col-sm-4 col-md-4 col-lg-3 align-self-center">
-				<a href="javascript:void(0)" class="btn web-btn web-btn-blue float-right" data-toggle="modal" data-target="#creativeModal">Request for a meeting</a>
+			<div class="col-sm-6 col-md-6 align-self-center">
+				<div class="brand-tile-content">
+					<h3 class="web-h3">{{$row_section_15->heading1}}</h3>
+					<a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+
+@endforeach
 
 
 
@@ -726,7 +725,11 @@
 
 		<div class="web-container">
 			<div class="row">
+                
 				<div class="col-12">
+                    <div style="float:right !important;" >
+                        <a style="color:#fff !important;"> <i class="fas fa-edit"></i></a> &nbsp;<a style="color:#fff !important;"><i class="fas fa-trash"></i></a>
+                    </div>
 					<div id="carouselExampleIndicators" class="position-relative scrollto-section carousel slide" data-ride="carousel">
 						<a href="#section-2" id="sectionTwo" class="mouse" aria-hidden="true">
 						<span class="mouse__wheel"></span>
@@ -740,6 +743,7 @@
                                 </ol>
                                 
 						        <div class="carousel-inner">
+                                    
                                     @foreach($sliders as $row_slider)
                                         <div class="carousel-item {{$row_slider->status}}" style="background: url('{{asset('public/slider/'.$row_slider->image)}}') no-repeat center right;">
                                             <div class="slider-flex-wrap">

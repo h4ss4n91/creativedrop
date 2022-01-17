@@ -324,11 +324,9 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <div class="controls">
-                                                <label for="account-username">Featured Service</label>
-                                                <select name="featured_service" class="form-control">
-                                                    <option value="No"> No </option>
-                                                    <option value="yes"> Yes </option>
-                                                </select>
+                                                <label for="account-username">Sorting</label>
+                                                <input type="text" name="sorting" class="form-control" id="account-username" required
+                                                    data-validation-required-message="This username field is required">
                                             </div>
                                         </div>
                                     </div>
@@ -364,7 +362,7 @@
                                                             <th>Main Menu ID</th>
                                                             <th>Child Menu Name</th>
                                                             <th>Child Menu Link</th>
-                                                            <th>Featured Service</th>
+                                                            <th>Sorting</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -381,7 +379,7 @@
                                                               </td>
                                                           <td>{{$row_child_menus->item_name}}</td>
                                                           <td>{{$row_child_menus->item_link}}</td>
-                                                          <td>{{$row_child_menus->featured_service}}</td>
+                                                          <td>{{$row_child_menus->sorting}}</td>
                                                           <td>
                                                             <a href="javascript:void(0)" data-toggle="modal" data-target="#childMenuModal{{$row_child_menus->id}}"> Edit</a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_child_menu/'.$row_child_menus->id)}} "> Delete </a> 
                                                             <!-- Modal -->
@@ -437,17 +435,14 @@
                                                                                   </div>
                                                                               </div>
 
-                                                                              <div class="col-12">
-                                                                                <div class="form-group">
-                                                                                    <div class="controls">
-                                                                                        <label for="account-username">Featured Service : {{$row_child_menus->featured_service}}</label>
-                                                                                        <select name="featured_service" class="form-control">
-                                                                                            <option value="No"> No </option>
-                                                                                            <option value="yes"> Yes </option>
-                                                                                        </select>
+                                                                                <div class="col-12">
+                                                                                    <div class="form-group">
+                                                                                        <div class="controls">
+                                                                                            <label for="account-username">Sorting : {{$row_child_menus->sorting}}</label>
+                                                                                                <input type="text" class="form-control" name="sorting" value="{{$row_child_menus->sorting}}"/>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
                                                           
                                                                              
                                                                                 
@@ -537,6 +532,17 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <label for="account-username">Sorting</label>
+                                                <input type="text" name="sorting" class="form-control" id="account-username" required
+                                                    data-validation-required-message="This username field is required">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                       
                                       <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                           <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create
