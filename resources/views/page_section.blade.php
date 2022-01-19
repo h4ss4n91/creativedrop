@@ -1006,7 +1006,7 @@
                                             </div>
                                             <hr>
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <form method="POST" action="{{url('admin/store_case_study')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
@@ -1018,7 +1018,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-12">
+                                                            <div class="col-8">
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-username">Case Study Name</label>
@@ -1026,6 +1026,10 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-4">
+                                                                <img style="width:100%" src="{{asset('public/page_sections/case_study.png')}}" />
+                                                            </div>
+
 
 
                                                             <div class="col-12">
@@ -1106,9 +1110,7 @@
 
                                                 </div>
 
-                                                <div class="col-6">
-                                                    <img style="width:100%" src="{{asset('public/page_sections/case_study.png')}}" />
-                                                </div>
+                                                
 
                                             </div>
 
@@ -1728,6 +1730,10 @@
                                                   </tr>`);
                                                                         });
                                                                         // jQuery button click event to remove a row.
+                                                                        $('#industrytbody').on('change', '.form-control', function() {
+                                                                            var value = $(this).val();
+                                                                            alert(value);
+                                                                        });
                                                                         $('#industrytbody').on('click', '.remove', function() {
                                                                             // Getting all the rows next to the row
                                                                             // containing the clicked button
@@ -1779,8 +1785,7 @@
 
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                              Industries </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Industries </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -1801,7 +1806,7 @@
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
-
+                                                        <th>Section Name</th>
                                                         <th>Industry Name</th>
                                                         <th>Industry Image</th>
                                                         <th>Action</th>
@@ -1811,6 +1816,9 @@
                                                     @foreach($industries as $row_industries)
                                                     <tr>
 
+                                                        <td>
+                                                            {{$row_industries->name}}
+                                                        </td>
                                                         <td>
                                                             {{$row_industries->title}}
                                                         </td>
@@ -1836,7 +1844,8 @@
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-
+                                                                                                <label for="account-username">Section Name</label>
+                                                                                                <input type="text" name="name" class="form-control" id="account-username" value="{{$row_industries->name}}">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -1885,8 +1894,9 @@
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-
-                                                        <th>Client and Parter Image</th>
+                                                        <th>Section Name</th>
+                                                        <th>Industry Name</th>
+                                                        <th>Industry Image</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </tfoot>

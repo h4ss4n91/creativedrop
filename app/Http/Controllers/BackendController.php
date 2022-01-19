@@ -593,7 +593,7 @@ class BackendController extends Controller
                 // );
                 
                 DB::table('industries')->insert(
-                    ['image' => $file_name, 'page_id' => $request->page_id, 'title' => $data['title'][$i]]
+                    ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'title' => $data['title'][$i]]
                 );
         }
 
@@ -612,7 +612,7 @@ class BackendController extends Controller
         $affected = DB::table('industries')
         ->where('id', $request->id)
         ->update(
-            ['image' => $file_name, 'page_id' => $request->page_id]
+            ['image' => $file_name, 'name' => $request->name, 'page_id' => $request->page_id]
         );
         return redirect()->back();
     }

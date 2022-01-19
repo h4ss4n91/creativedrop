@@ -215,3 +215,5 @@ Route::post('/ajax_post', 'WelcomeController@ajax_post')->name('ajax_post');
 Route::post('/admin/store_service', 'BackendController@store_service')->name('store_service');
 Route::post('/admin/edit_service', 'BackendController@edit_service')->name('edit_service');
 Route::get('/admin/delete_service/{id}', 'BackendController@delete_service')->name('delete_service');
+
+
