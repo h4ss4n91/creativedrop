@@ -576,24 +576,22 @@ class BackendController extends Controller
         // die();
         $data = $request->all();
         
-        for ($i = 0; $i < count($request->industry_image); $i++) {
+        
 
-            $file = $data['industry_image'][$i]; // will get all files
+            $file = $data['industry_image']; // will get all files
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('industries') , $file_name); // move files to destination folder
             
-                // $file_industries = $request->file('industry_image'); // will get all files
-                // $file_name_file_industries = $file_industries->getClientOriginalName(); //Get file original name
-                // $file_industries->move(public_path('industries') , $file_name_file_industries); // move files to destination folder
-
-                // $file_name = $data['slider_image'][$i]->getClientOriginalName(); //Get file original name
-                // $file->move(public_path('slider') , $file_name); // move files to destination folder
-                // DB::table('teams')->insert(
-                //     ['image' => $file_name, 'section_name' => $data['name'], 'name' => $data['team_member_title'][$i], 'designation' => $data['team_member_designation'][$i]]
-                // );
-                
+            for ($i = 0; $i < count($request->service); $i++) {
                 DB::table('industries')->insert(
-                    ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'title' => $data['title'][$i]]
+                    [
+                        'image' => $file_name,
+                        'page_id' => $request->page_id,
+                        'name' => $request->name,
+                        'service_id' => $data['service'][$i],
+                        'sub_category_id' => $data['sub_menu_id'][$i],
+                        'title' => $data['title']
+                        ]
                 );
         }
 
