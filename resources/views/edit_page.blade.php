@@ -250,15 +250,23 @@
                                         </div>
                                     </div>
                                     
-                                     <div class="col-2">
+                                     <div class="col-1">
                                         <div class="form-group">
                                             <div class="controls">
-                                                <label style="font-weight:bold;"for="account-username">Place Number {{$row_pages->section_no}} 
-                                                    
-                                                </label>
+                                                <label style="font-weight:bold;"for="account-username">Row {{$row_pages->section_no}} </label>
                                                     <input type="text" class="form-control" name="section_no[]" value="{{$row_pages->section_no}}"/>
                                             </div>
+                                            
                                         </div>
+
+                                    </div>
+
+                                    <div class="col-1">
+                                        <div class="form-group">
+                                            <label style="font-weight:bold;"for="account-username">DeleteRow </label>
+                                            <a class="btn btn-danger" href="{{url('delete')}}">x</a>
+                                        </div>
+
                                     </div>
 
 

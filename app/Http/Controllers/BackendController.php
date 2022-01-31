@@ -431,24 +431,23 @@ class BackendController extends Controller {
 
     // Industry Section
     public function store_industries(Request $request) {
-
         $data = $request->all();
+        $file = $data['industry_image']; // will get all files
+        $file_name = $file->getClientOriginalName(); //Get file original name
+        $file->move(public_path('industries'), $file_name); // move files to destination folder
 
-        for ($i = 0; $i < count($request->industry_image); $i++) {
-
-            $file = $data['industry_image'][$i]; // will get all files
-            $file_name = $file->getClientOriginalName(); //Get file original name
-            $file->move(public_path('industries'), $file_name); // move files to destination folder
-
+        for ($i = 0; $i < count($request->service); $i++) {
             DB::table('industries')->insert(
-                    ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'title' => $data['title'][$i]]
+                    [
+                        'image' => $file_name,
+                        'page_id' => $request->page_id,
+                        'name' => $request->name,
+                        'service_id' => $data['service'][$i],
+                        'sub_category_id' => $data['sub_menu_id'][$i],
+                        'title' => $data['title']
+                    ]
             );
         }
-
-
-
-
-
         return redirect()->back();
     }
 

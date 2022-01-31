@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -65,6 +65,11 @@
                                     <i class="feather icon-info"></i> Services
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex" id="account-pill-connections" data-toggle="pill" href="#account-vertical-connections" aria-expanded="false">
+                                    <i class="feather icon-feather"></i> Industries
+                                </a>
+                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-info" data-toggle="pill" href="#account-vertical-info" aria-expanded="false">
@@ -81,11 +86,7 @@
                                     <i class="feather icon-camera"></i> Clients & Partners
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link d-flex" id="account-pill-connections" data-toggle="pill" href="#account-vertical-connections" aria-expanded="false">
-                                    <i class="feather icon-feather"></i> Industries
-                                </a>
-                            </li>
+                            
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-news" data-toggle="pill" href="#account-vertical-news" aria-expanded="false">
                                     <i class="feather icon-globe"></i> News & Opinions
@@ -1021,8 +1022,24 @@
                                                             <div class="col-8">
                                                                 <div class="form-group">
                                                                     <div class="controls">
-                                                                        <label for="account-username">Case Study Name</label>
+                                                                        <label for="account-username">Section Name</label>
                                                                         <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <div class="form-group">
+                                                                        <div class="controls">
+                                                                            <label for="account-username">Case Study Title</label>
+                                                                            <input type="text" name="case_study_name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <div class="form-group">
+                                                                        <div class="controls">
+                                                                            <label for="account-username">Case Study Image</label>
+                                                                            <input type="file" name="case_study_image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1030,9 +1047,21 @@
                                                                 <img style="width:100%" src="{{asset('public/page_sections/case_study.png')}}" />
                                                             </div>
 
-
+                                                           
+                                                            
 
                                                             <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Short Description</label>
+                                                                        <input type="text" name="short_description" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+
+                                                            <div class="col-5">
                                                                 <script>
                                                                     $(document).ready(function() {
                                                                         // Denotes total number of rows
@@ -1041,13 +1070,10 @@
                                                                         $('#caseStudyaddBtn').on('click', function() {
                                                                             // Adding a row inside the tbody.
                                                                             $('#caseStudytbody').append(`<tr id="R${++caseStudyrowIdx}">
+                                                              <td class="row-index text-center"><select class="form-control" name="option"><option value="image">Image</option><option value="video">Video</option></select></td>
                                                               <td class="row-index text-center"><input type="file" name="case_study_image[]" class="form-control"/></td>
-                                                              <td class="row-index text-center"><input type="text" name="case_study_title[]" class="form-control"/></td>
-                                                              <td class="row-index text-center"><input type="text" name="short_description[]" class="form-control"/></td>
-                                                              <td class="row-index text-center"><select id="service" name="service[]" class="form-control"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
-                                                              <td class="row-index text-center"><select  name="sub_category[]" class="form-control"><option>--Select Sub Category--</option>@foreach($sub_category as $row_sub_category)<option value="{{$row_sub_category->id}}">{{$row_sub_category->item_name}}</option>@endforeach</select></td>
-                                                              <td class="row-index text-center"><select  name="industry[]" class="form-control"><option>--Select Industry--</option><option value="1">industry 1</option><option value="2">industry 2</option><option value="3">industry 3</option></select></td>
-                                                              <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
+                                                              <td class="row-index text-center"><input type="text" name="video[]" class="form-control"/></td>
+                                                              <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
                                                               </tr>`);
 
                                                                         });
@@ -1079,21 +1105,140 @@
                                                                 </script>
 
                                                                 <div class="container pt-4">
-                                                                    <button class="btn btn-md btn-primary" id="caseStudyaddBtn" type="button"> Add Case Study </button>
+                                                                    <button class="btn btn-md btn-primary" id="caseStudyaddBtn" type="button"> Add Case Study Content </button>
                                                                     <div class="table-responsive">
                                                                         <table class="table table-bordered">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th class="text-center">Image Case Study</th>
-                                                                                    <th class="text-center">Title</th>
-                                                                                    <th class="text-center">Short Description</th>
-                                                                                    <th class="text-center">Service</th>
-                                                                                    <th class="text-center">Sub Category</th>
-                                                                                    <th class="text-center">Industry</th>
-                                                                                    <th class="text-center">Remove Row</th>
+                                                                                    <th class="text-center">Option</th>
+                                                                                    <th class="text-center">Case Study Image</th>
+                                                                                    <th class="text-center">Case Study Video</th>
+                                                                                    <th class="text-center"></th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody id="caseStudytbody">
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-5">
+                                                                <script>
+                                                                    $(document).ready(function() {
+                                                                        // Denotes total number of rows
+                                                                        var caseStudyServicesrowIdx = 0;
+                                                                        // jQuery button click event to add a row
+                                                                        $('#caseStudyServicesaddBtn').on('click', function() {
+                                                                            // Adding a row inside the tbody.
+                                                                            $('#caseStudyServicestbody').append(`<tr id="R${++caseStudyServicesrowIdx}">
+                                                                            <td class="row-index text-center"><select id="service" name="service[]" class="form-control"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
+                                                                            <td class="row-index text-center"><select  name="sub_category[]" class="form-control"><option>--Select Sub Category--</option>@foreach($sub_category as $row_sub_category)<option value="{{$row_sub_category->id}}">{{$row_sub_category->item_name}}</option>@endforeach</select></td>
+                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                            </tr>`);
+
+                                                                        });
+                                                                        // jQuery button click event to remove a row.
+                                                                        $('#caseStudyServicestbody').on('click', '.remove', function() {
+                                                                            // Getting all the rows next to the row
+                                                                            // containing the clicked button
+                                                                            var child = $(this).closest('tr').nextAll();
+                                                                            // Iterating across all the rows 
+                                                                            // obtained to change the index
+                                                                            child.each(function() {
+                                                                                // Getting <tr> id.
+                                                                                var id = $(this).attr('id');
+                                                                                // Getting the <p> inside the .row-index class.
+                                                                                var idx = $(this).children('.row-index').children('p');
+                                                                                // Gets the row number from <tr> id.
+                                                                                var dig = parseInt(id.substring(1));
+                                                                                // Modifying row index.
+                                                                                idx.html(`Row ${dig - 1}`);
+                                                                                // Modifying row id.
+                                                                                $(this).attr('id', `R${dig - 1}`);
+                                                                            });
+                                                                            // Removing the current row.
+                                                                            $(this).closest('tr').remove();
+                                                                            // Decreasing total number of rows by 1.
+                                                                            caseStudyServicesrowIdx--;
+                                                                        });
+                                                                    });
+                                                                </script>
+
+                                                                <div class="container pt-4">
+                                                                    <button class="btn btn-md btn-warning" id="caseStudyServicesaddBtn" type="button"> Add Case Study Services </button>
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-bordered">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="text-center">Service</th>
+                                                                                    <th class="text-center">Sub Category</th>
+                                                                                    <th class="text-center"></th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="caseStudyServicestbody">
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-2">
+                                                                <script>
+                                                                    $(document).ready(function() {
+                                                                        // Denotes total number of rows
+                                                                        var caseStudyIndustryrowIdx = 0;
+                                                                        // jQuery button click event to add a row
+                                                                        $('#caseStudyIndustryaddBtn').on('click', function() {
+                                                                            // Adding a row inside the tbody.
+                                                                            $('#caseStudyIndustrytbody').append(`<tr id="R${++caseStudyIndustryrowIdx}">
+                                                                            <td class="row-index text-center"><select  name="industry[]" class="form-control"><option>--Select Industry--</option><option value="1">industry 1</option><option value="2">industry 2</option><option value="3">industry 3</option></select></td>
+                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                            </tr>`);
+
+                                                                        });
+                                                                        // jQuery button click event to remove a row.
+                                                                        $('#caseStudyIndustrytbody').on('click', '.remove', function() {
+                                                                            // Getting all the rows next to the row
+                                                                            // containing the clicked button
+                                                                            var child = $(this).closest('tr').nextAll();
+                                                                            // Iterating across all the rows 
+                                                                            // obtained to change the index
+                                                                            child.each(function() {
+                                                                                // Getting <tr> id.
+                                                                                var id = $(this).attr('id');
+                                                                                // Getting the <p> inside the .row-index class.
+                                                                                var idx = $(this).children('.row-index').children('p');
+                                                                                // Gets the row number from <tr> id.
+                                                                                var dig = parseInt(id.substring(1));
+                                                                                // Modifying row index.
+                                                                                idx.html(`Row ${dig - 1}`);
+                                                                                // Modifying row id.
+                                                                                $(this).attr('id', `R${dig - 1}`);
+                                                                            });
+                                                                            // Removing the current row.
+                                                                            $(this).closest('tr').remove();
+                                                                            // Decreasing total number of rows by 1.
+                                                                            caseStudyIndustryrowIdx--;
+                                                                        });
+                                                                    });
+                                                                </script>
+
+                                                                <div class="container pt-4">
+                                                                    <button class="btn btn-md btn-success" id="caseStudyIndustryaddBtn" type="button"> Add Case Study Industries </button>
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-bordered">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="text-center">Industry</th>
+                                                                                    <th class="text-center"></th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="caseStudyIndustrytbody">
 
                                                                             </tbody>
                                                                         </table>
@@ -1689,7 +1834,7 @@
                                             <hr/>
 
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
 
                                                     <form method="POST" action="{{url('admin/store_industries')}}" enctype="multipart/form-data">
                                                         @csrf
@@ -1697,43 +1842,78 @@
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
-
+                                                                        
                                                                     </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-12">
+                                                            <div class="col-8">
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-username">Section Name</label>
                                                                         <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                     </div>
                                                                 </div>
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Industry Name</label>
+                                                                        <input type="text" name="title" class="form-control"/>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Industry Image</label>
+                                                                        <input type="file" name="industry_image" class="form-control"/>
+                                                                    </div>
+                                                                </div>
                                                             </div>
+                                                            <div class="col-4">
+                                                                <img style="width:100%" src="{{asset('public/page_sections/industries.png')}}" />
+                                                            </div>
+
 
 
                                                             <div class="col-12">
                                                                 <script>
+
                                                                     $(document).ready(function() {
+                                                                        
                                                                         // Denotes total number of rows
                                                                         var industryrowIdx = 0;
                                                                         // jQuery button click event to add a row
                                                                         $('#industryaddBtn').on('click', function() {
                                                                             // Adding a row inside the tbody.
                                                                             $('#industrytbody').append(`<tr id="R${++industryrowIdx}">
-                                                  <td class="row-index text-center"><input type="file" name="industry_image[]" class="form-control"/></td>
-                                                  <td class="row-index text-center"><input type="text" name="title[]" class="form-control"/></td>
-                                                  <td class="row-index text-center"><input type="text" name="short_description[]" class="form-control"/></td>
-                                                  <td class="row-index text-center"><select name="service[]" class="form-control"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
-                                                  <td class="row-index text-center"><select  name="sub_category[]" class="form-control"><option>--Select Sub Category--</option>@foreach($sub_category as $row_sub_category)<option value="{{$row_sub_category->id}}">{{$row_sub_category->item_name}}</option>@endforeach</select></td>
-                                                  <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                  </tr>`);
+                                                                            <td class="row-index text-center"><select name="service[]" id="industry_service" class="industry_service${industryrowIdx} form-control"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
+                                                                            <td class="row-index text-center"><select id="dependent_page_sections${industryrowIdx}" class="form-control" name="sub_menu_id[]"><option></option></select></td>
+                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
+                                                                            </tr>`);
+
+                                                                            $('#industrytbody').on('change', `.industry_service${industryrowIdx}`, function() {
+                                                                            if ($(this).val() != '') {
+                                                                                var select = $(this).attr("id");
+                                                                                var value = $(this).val();
+
+                                                                                var dependent = $(this).data('dependent');
+                                                                                var _token = $('input[name="_token"]').val();
+                                                                                $.ajax({
+                                                                                    url: "services_by_id/" + value,
+                                                                                    method: "GET",
+                                                                                    success: function(result) {
+                                                                                        
+                                                                                        $(`#dependent_page_sections${industryrowIdx}`).html(result);
+                                                                                    }
+
+                                                                                })
+                                                                            }
+                                                                        });
+
                                                                         });
                                                                         // jQuery button click event to remove a row.
-                                                                        $('#industrytbody').on('change', '.form-control', function() {
-                                                                            var value = $(this).val();
-                                                                            alert(value);
-                                                                        });
+
+                                                                       
+
+
                                                                         $('#industrytbody').on('click', '.remove', function() {
                                                                             // Getting all the rows next to the row
                                                                             // containing the clicked button
@@ -1757,18 +1937,20 @@
                                                                             // Decreasing total number of rows by 1.
                                                                             industryrowIdx--;
                                                                         });
+
+
+
+
+
                                                                     });
                                                                 </script>
 
                                                                 <div class="container pt-4">
-                                                                    <button class="btn btn-md btn-primary" id="industryaddBtn" type="button"> Add Industry </button>
+                                                                    <button class="btn btn-md btn-primary" id="industryaddBtn" type="button"> Add Services for Industry </button>
                                                                     <div class="table-responsive">
                                                                         <table class="table table-bordered">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th class="text-center">Image Industry</th>
-                                                                                    <th class="text-center">Title</th>
-                                                                                    <th class="text-center">Short Description</th>
                                                                                     <th class="text-center">Service</th>
                                                                                     <th class="text-center">Sub Category</th>
                                                                                     <th class="text-center">Remove Row</th>
@@ -1785,7 +1967,8 @@
 
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Industries </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
+                                              Industries </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -1793,9 +1976,7 @@
 
                                                 </div>
 
-                                                <div class="col-6">
-                                                    <img style="width:100%" src="{{asset('public/page_sections/industries.png')}}" />
-                                                </div>
+                                                
 
                                             </div>
 
@@ -1806,24 +1987,50 @@
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
+
                                                         <th>Section Name</th>
                                                         <th>Industry Name</th>
                                                         <th>Industry Image</th>
+                                                        <th>Services</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($industries as $row_industries)
+                                                    @foreach($industries->unique('title') as $row_industries)
                                                     <tr>
 
                                                         <td>
                                                             {{$row_industries->name}}
                                                         </td>
+
                                                         <td>
                                                             {{$row_industries->title}}
                                                         </td>
                                                         <td>
                                                             <img style="width:100px;" src="{{asset('public/industries/'.$row_industries->image)}}" />
+                                                        </td>
+                                                        <td>
+                                                            @php
+                                                                $industries_services = DB::table('industries')
+                                                                ->join('menus', 'menus.id', '=', 'industries.service_id')
+                                                                ->join('child_menus', 'child_menus.id', '=', 'industries.sub_category_id')
+                                                                ->where('industries.name', '=', $row_industries->name)->get();
+                                                            @endphp
+                                                            <table>
+                                                                <tr>
+                                                                    <th>Services</th>
+                                                                    <th>Sub Services</th>
+                                                                </tr>
+                                                            
+                                                            @foreach($industries_services as $row_industries_services)
+                                                            <tr>
+                                                                <td>{{$row_industries_services->menu_name}}</td>
+                                                                <td>{{$row_industries_services->item_name}}</td>
+                                                            </tr>
+                                                                 
+                                                            @endforeach
+                                                        </table>
+
                                                         </td>
                                                         <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_industry/'.$row_industries->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#industryModalCenter{{$row_industries->id}}"> Edit</a>
                                                             <div class="modal fade" id="industryModalCenter{{$row_industries->id}}" tabindex="-1" role="dialog" aria-labelledby="industryModalCenter{{$row_industries->id}}" aria-hidden="true">
@@ -1844,8 +2051,7 @@
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <label for="account-username">Section Name</label>
-                                                                                                <input type="text" name="name" class="form-control" id="account-username" value="{{$row_industries->name}}">
+
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -1894,9 +2100,11 @@
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
+
                                                         <th>Section Name</th>
                                                         <th>Industry Name</th>
                                                         <th>Industry Image</th>
+                                                        <th>Services</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </tfoot>
@@ -5382,5 +5590,8 @@
 </div>
 </div>
 <!-- END: Content-->
+
+
+
 
 @endsection
