@@ -367,22 +367,53 @@
     @elseif( $row_pages->section== '9' )
 
     @php
-        $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)->get();
+        $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)->first();
     @endphp
-<div class="container">
-            <section class="section-bg-dark-grey section-padtop-50 section-padbottom-50 discuss-block">
-                <div class="web-container">
+    @if($requests->style == 'style1')
+        <div class="web-container">
+                <section class="section-bg-black section-padtop-30 section-padbottom-30 web-border-radius-5 mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-md-12">
+                            <div class="center-content text-center">
+                                <h4 class="web-h4 text-white">Are you looking for a customize proposal? STYLE ! BY GOOGLE MEET</h4>
+                                <a href="#" class="btn web-btn web-btn-blue mt-3" data-toggle="modal" data-target="#creativeModal">Request for a meeting style1</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        </div>
+    @elseif($requests->style == 'style2')
+        <div class="web-container-fluid">
+            <section class="section-bg-black section-padtop-30 section-padbottom-30 web-border-radius-5">
+                <div class="web-container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="text-center">
-                                <h4 class="web-h4 text-white mb-3">{{$requests[0]->title}}</h4>
-                                <a href="javascript:void(0)" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Get in touch</a>
+                            <div class="center-content text-center">
+                                <h4 class="web-h4 text-white">{{$requests->title}}</h4>
+                                <a href="#" class="btn web-btn web-btn-blue mt-3" data-toggle="modal" data-target="#creativeModal">{{$requests->btn_label}}</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-</div>
+        </div>
+    @elseif($requests->style == 'style3')
+
+        <section class="section-bg-dark-grey section-padtop-50 section-padbottom-50 discuss-block">
+            <div class="web-container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h4 class="web-h4 text-white mb-3">{{$requests->title}}</h4>
+                            <a href="javascript:void(0)" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">{{$requests->btn_label}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    @endif
+
 
     @elseif( $row_pages->section== '10' )
     @php
@@ -506,28 +537,61 @@
         $para_style_5 = DB::table('para_style_5')->where('name', '=', $row_pages->section_type)->get();
     @endphp
 
-    <section class="agency-brands section-bg-dark-grey section-padtop-70 section-padbottom-70">
-        <div class="web-container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="web-h2 mb-4 text-white text-center">
-                        
-                        {{$para_style_5[0]->heading}}
-                    </h2>
+    @if($para_style_5[0]->style == 'style1')
+
+        <section class="agency-brands section-bg-dark-grey section-padtop-70 section-padbottom-70">
+            <div class="web-container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="web-h2 mb-4 text-white text-center">
+                            
+                            {{$para_style_5[0]->heading}}
+                        </h2>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-6 align-self-center">
+                        <h3 class="web-h3 mb-0 text-white">
+                            {{$para_style_5[0]->text_left}}</h3>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <p class="web-light-grey web-h6 mb-0">{{$para_style_5[0]->text_right}}
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-md-6 align-self-center">
-                    <h3 class="web-h3 mb-0 text-white">
-                        {{$para_style_5[0]->text_left}}</h3>
+        </section>
+
+        @elseif($para_style_5[0]->style == 'style2')
+
+        <section class="agency-brands section-bg-white section-padtop-70 section-padbottom-70">
+            <div class="web-container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="web-h2 mb-4 text-black text-center">
+                            
+                            {{$para_style_5[0]->heading}}
+                        </h2>
+                    </div>
                 </div>
-                <div class="col-md-6 align-self-center">
-                    <p class="web-light-grey web-h6 mb-0">{{$para_style_5[0]->text_right}}
-                    </p>
+                <div class="row mt-5">
+                    <div class="col-md-6 align-self-center">
+                        <h3 class="web-h3 mb-0 text-black">
+                            {{$para_style_5[0]->text_left}}</h3>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <p class="web-grey web-h6 mb-0">{{$para_style_5[0]->text_right}}
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+
+    @endif
+
+
+    
 
 
 
@@ -537,28 +601,99 @@
         $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_type)->get();
     @endphp
 
-@foreach($section_15 as $row_section_15)
+    @if($section_15[0]->style == 'style1')
 
-<section class="section-bg-white section-padtop-50 brand-tile book-design">
-	<div class="web-container">
-		<div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
-			<div class="col-sm-6 col-md-6 align-self-center">
-				<div class="brand-tile-img">
-					<img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-6 align-self-center">
-				<div class="brand-tile-content">
-					<h3 class="web-h3">{{$row_section_15->heading1}}</h3>
-					<a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+        @foreach($section_15 as $row_section_15)
+            <section class="section-bg-white section-padtop-50 brand-tile book-design">
+                <div class="web-container">
+                    <div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
+                        <div class="col-sm-6 col-md-6 align-self-center">
+                            <div class="brand-tile-img">
+                                <img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 align-self-center">
+                            <div class="brand-tile-content">
+                                <h3 class="web-h3">{{$row_section_15->heading1}}</h3>
+                                <a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endforeach
+
+    @elseif($section_15[0]->style == 'style2')
+
+        @foreach($section_15 as $row_section_15)
+            <section class="section-bg-white section-padtop-50 brand-tile book-design">
+                <div class="web-container">
+                    <div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
+                        <div class="col-sm-6 col-md-6 align-self-center">
+                            <div class="brand-tile-img">
+                                <img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 align-self-center">
+                            <div class="brand-tile-content">
+                                <h3 class="web-h3">{{$row_section_15->heading1}}</h3>
+                                <a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endforeach
+
+    @elseif($section_15[0]->style == 'style3')
+
+            @foreach($section_15 as $row_section_15)
+                <section class="section-bg-white section-padtop-50 brand-tile book-design">
+                    <div class="web-container">
+                        <div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
+                            <div class="col-sm-6 col-md-6 align-self-center">
+                                <div class="brand-tile-img">
+                                    <img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 align-self-center">
+                                <div class="brand-tile-content">
+                                    <h3 class="web-h3">{{$row_section_15->heading1}}</h3>
+                                    <a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
 
-@endforeach
+                <section class="section-bg-white section-padbottom-50 brand-tile">
+                    <div class="web-container">
+                        <div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
+                            <div class="col-sm-6 col-md-6 align-self-center">
+                                <div class="uniform-tile-img">
+                                    <div class="img-block web-border-radius-5">
+                                        <img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 align-self-center">
+                                <div class="brand-tile-content uniform-content">
+                                    <h3 class="web-h3">{{$row_section_15->heading1}}</h3>
+                                    <a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            @endforeach
+
+    @endif
+
+
+
+      
 
 
 
@@ -819,8 +954,11 @@
 
 				<div class="design-banner-content text-center w-100">
 					<h1 class="web-h1 mb-0">{{$section_22[0]->heading_1}}</h1>
-					<h4 class="web-h4 mt-4 mb-4">{{$section_22[0]->heading_2}}</h4>
+                    @if(!empty($section_22[0]->heading_2))
+                    <h4 class="web-h4 mt-4 mb-4">{{$section_22[0]->heading_2}}</h4>
 					<a href="javascript:void(0)" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
+                    @endif
+					
 				</div>
 
                 @endif

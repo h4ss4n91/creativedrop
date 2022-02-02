@@ -398,7 +398,7 @@
 
 	<div class="overlay"></div>
 
-	<div class="main-wrap">
+	
 	    
                     
                         @yield('content')
@@ -485,7 +485,7 @@
 						</section>
                     
                     </footer>
-                    </div>
+  
                     <!-- main-wrap -->
 
 
@@ -625,6 +625,10 @@
 <script>
 //-----------------
 $(document).ready(function(){
+
+ 
+
+
     
     $('#right_content_two').hide();
     $('#loader').hide();

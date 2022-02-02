@@ -99,6 +99,76 @@
             @endforeach
             @endif
 
+            @if( $row_pages->section_no == '10' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '11' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '12' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '13' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '14' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '15' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '16' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
         
 
     @endforeach
@@ -111,24 +181,6 @@
 <!--@if($pages->isEmpty())-->
 
 
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="col-md-12">-->
-<!--            <div class="error-template">-->
-<!--                <h1>-->
-<!--                    Oops!</h1>-->
-<!--                <h2>-->
-<!--                    404 Not Found</h2>-->
-<!--                <div style="font-size:21px;" class="error-details">-->
-<!--                    Sorry, an error has occured, Requested page not found!-->
-<!--                </div>-->
-<!--                <div class="error-actions">-->
-                    
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 
 
 

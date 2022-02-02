@@ -368,7 +368,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Slider Image : {{$row_sliders->image}}</label>
-                                                                                                <input type="file" name="slider_image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="slider_image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -1038,7 +1038,7 @@
                                                                     <div class="form-group">
                                                                         <div class="controls">
                                                                             <label for="account-username">Case Study Image</label>
-                                                                            <input type="file" name="case_study_image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                            <input type="file" name="case_study_image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1321,7 +1321,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Case Study Image</label>
-                                                                                                <input type="file" name="case_study_image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="case_study_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
 
@@ -1557,7 +1557,7 @@
                                                                                             <div class="form-group">
                                                                                                 <div class="controls">
                                                                                                     <label for="account-username">Team Member Image</label>
-                                                                                                    <input type="file" name="team_member_image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                    <input type="file" name="team_member_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -1780,7 +1780,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Client and Partner Image</label>
-                                                                                                <input type="file" name="clientAndParter_image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="clientAndParter_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
 
@@ -2061,7 +2061,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Industry Image</label>
-                                                                                                <input type="file" name="industry_image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="industry_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
 
@@ -2157,7 +2157,7 @@
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-username">News Image</label>
-                                                                        <input type="file" name="news_image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                        <input type="file" name="news_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2248,7 +2248,7 @@
                                                                                             <div class="form-group">
                                                                                                 <div class="controls">
                                                                                                     <label for="account-username">News and Opinions Image</label>
-                                                                                                    <input type="file" name="news_image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                    <input type="file" name="news_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -2349,19 +2349,48 @@
                                                                 </div>
                                                             </div>
 
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Select Style </label>
+                                                                        <select id="request_style" name="style" class="form-control">
+                                                                            <option value=""> --- Select Style --- </option>
+                                                                            <option value="style1"> Style 1</option>
+                                                                            <option value="style2"> Style 2</option>
+                                                                            <option value="style3"> Style 3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+
+
 
                                                             <div class="col-12">
                                                                 <script>
                                                                     $(document).ready(function() {
+                                                                        $('#request_style').change(function() {
+                                                                                    var value = $(this).val();
+                                                                                    if(value == 'style1'){
+                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style1.png')}}" />'); //this is not working
+                                                                                    }else if(value == 'style2'){
+                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style2.png')}}" />'); //this is not working
+                                                                                    }else if(value == 'style3'){
+                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style3.png')}}" />'); //this is not working
+                                                                                    }
+                                                                                    
+                                                                                });
+
                                                                         // Denotes total number of rows
                                                                         var requestrowIdx = 0;
                                                                         // jQuery button click event to add a row
                                                                         $('#requestaddBtn').on('click', function() {
                                                                             // Adding a row inside the tbody.
                                                                             $('#requesttbody').append(`<tr id="R${++requestrowIdx}">
-                                                      <td class="row-index text-center"><input type="text" name="request_title[]" class="form-control"/></td>
-                                                      <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                      </tr>`);
+                                                                                <td class="row-index text-center"><input type="text" name="request_title[]" class="form-control"/></td>
+                                                                                <td class="row-index text-center"><input type="text" name="button_label[]" class="form-control"/></td>
+                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
+                                                                                </tr>`);
                                                                         });
                                                                         // jQuery button click event to remove a row.
                                                                         $('#requesttbody').on('click', '.remove', function() {
@@ -2397,6 +2426,7 @@
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th class="text-center">Title</th>
+                                                                                    <th class="text-center">Button Label</th>
                                                                                     <th class="text-center">Remove Row</th>
                                                                                 </tr>
                                                                             </thead>
@@ -2419,7 +2449,15 @@
                                                 </div>
 
                                                 <div class="col-6">
-                                                    <img style="width:100%" src="{{asset('public/page_sections/request.png')}}" />
+
+                                                    <div class="col-6">
+                                                        <div id="request_style_content">
+                                                            
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    
                                                 </div>
 
                                             </div>
@@ -2430,6 +2468,7 @@
                                                     <tr>
                                                         <th>Section Name</th>
                                                         <th>Request A Meeting Title</th>
+                                                        <th>Button Label</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -2438,10 +2477,13 @@
                                                     <tr>
 
                                                         <td>
-                                                            {{$row_request->name}}
+                                                            {{$row_request->name}} - {{$row_request->style}}
                                                         </td>
                                                         <td>
                                                             {{$row_request->title}}
+                                                        </td>
+                                                        <td>
+                                                            {{$row_request->btn_label}}
                                                         </td>
                                                         <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_request/'.$row_request->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#requestModalCenter{{$row_request->id}}"> Edit</a>
                                                             <div class="modal fade" id="requestModalCenter{{$row_request->id}}" tabindex="-1" role="dialog" aria-labelledby="requestModalCenter{{$row_request->id}}" aria-hidden="true">
@@ -2473,6 +2515,29 @@
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
                                                                                                 <input type="text" name="name" value="{{$row_request->name}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Select Style </label>
+                                                                                                <select name="style" class="form-control">
+                                                                                                    <option value="{{$row_request->style}}"> {{$row_request->style}}</option>
+                                                                                                    <option value="style1"> Style 1</option>
+                                                                                                    <option value="style2"> Style 2</option>
+                                                                                                    <option value="style3"> Style 3</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Button Label</label>
+                                                                                                <input type="text" name="button_label" value="{{$row_request->btn_label}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -2512,6 +2577,7 @@
 
                                                         <th>Section Name</th>
                                                         <th>Request A Meeting Title</th>
+                                                        <th>Button Label</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </tfoot>
@@ -2548,6 +2614,19 @@
                                                                     <div class="controls">
                                                                         <label for="account-username">Section Name</label>
                                                                         <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Select Style </label>
+                                                                        <select name="style" class="form-control">
+                                                                            <option value="style1"> Style 1</option>
+                                                                            <option value="style2"> Style 2</option>
+                                                                            
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2717,7 +2796,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">image</label>
-                                                                                                <input type="file" name="image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -2990,7 +3069,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">image</label>
-                                                                                                <input type="file" name="image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3252,7 +3331,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">image</label>
-                                                                                                <input type="file" name="image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3564,10 +3643,34 @@
                                                                 </div>
                                                             </div>
 
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Select Style </label>
+                                                                        <select id="para_style_5_style" name="style" class="form-control">
+                                                                            <option value=""> --- Select Style --- </option>
+                                                                            <option value="style1"> Style 1</option>
+                                                                            <option value="style2"> Style 2</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
 
                                                             <div class="col-12">
                                                                 <script>
                                                                     $(document).ready(function() {
+
+                                                                        $('#para_style_5_style').change(function() {
+                                                                                    var value = $(this).val();
+                                                                                    if(value == 'style1'){
+                                                                                        $( "#para_style_5_style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/paragraph_with_main_heading_left_right_text_column.png')}}" />'); //this is not working
+                                                                                    }else if(value == 'style2'){
+                                                                                        $( "#para_style_5_style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_22_style2.png')}}" />'); //this is not working
+                                                                                    }
+                                                                                    
+                                                                                });
+
                                                                         // Denotes total number of rows
                                                                         var paraStyleFiverowIdx = 0;
                                                                         // jQuery button click event to add a row
@@ -3641,7 +3744,9 @@
                                                 </div>
 
                                                 <div class="col-6">
-                                                    <img style="width:100%" src="{{asset('public/page_sections/paragraph_with_main_heading_left_right_text_column.png')}}" />
+                                                    <div id="para_style_5_style_content"> </div>
+
+                                                    
                                                 </div>
 
                                             </div>
@@ -3669,7 +3774,7 @@
                                                     <tr>
 
 
-                                                        <td>{{$row_para_style_5->name}}</td>
+                                                        <td>{{$row_para_style_5->name}} ({{$row_para_style_5->style}})</td>
                                                         <td>
                                                             {{$row_para_style_5->heading}}
                                                         </td>
@@ -3717,8 +3822,21 @@
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
+                                                                                                <label for="account-username">Select Style </label>
+                                                                                                <select id="para_style_5_style" name="style" class="form-control">
+                                                                                                    <option value="{{$row_para_style_5->style}}"> {{$row_para_style_5->style}} </option>
+                                                                                                    <option value="style1"> Style 1</option>
+                                                                                                    <option value="style2"> Style 2</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
                                                                                                 <label for="account-username">Heading</label>
-                                                                                                <input type="text" name="heading" value="{{$row_para_style_5->heading}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="heading" value="{{$row_para_style_5->heading}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3726,7 +3844,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Paragraph Right</label>
-                                                                                                <input type="text" name="text_right" value="{{$row_para_style_5->text_right}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="text_right" value="{{$row_para_style_5->text_right}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3735,7 +3853,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Paragraph Left</label>
-                                                                                                <input type="text" name="text_left" value="{{$row_para_style_5->text_left}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="text_left" value="{{$row_para_style_5->text_left}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3780,7 +3898,10 @@
 
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <img style="width:100%" src="{{asset('public/page_sections/section_15.png')}}" />
+                                                    <div id="style_content">
+                                                        
+                                                    </div>
+                                                    
                                                 </div>
 
                                                 <div class="col-6">
@@ -3807,10 +3928,37 @@
                                                                 </div>
                                                             </div>
 
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Select Style </label>
+                                                                        <select id="style" name="style" class="form-control">
+                                                                            <option value=""> -- Select Style -- </option>
+                                                                            <option value="style1"> Style 1</option>
+                                                                            <option value="style2"> Style 2</option>
+                                                                            <option value="style3"> Style 3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
 
                                                             <div class="col-12">
                                                                 <script>
                                                                     $(document).ready(function() {
+
+                                                                        $('#style').change(function() {
+                                                                                    var value = $(this).val();
+                                                                                    if(value == 'style1'){
+                                                                                        $( "#style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_15.png')}}" />'); //this is not working
+                                                                                    }else if(value == 'style2'){
+                                                                                        $( "#style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_15_style2.png')}}" />'); //this is not working
+                                                                                    }else if(value == 'style3'){
+                                                                                        $( "#style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_15_style3.png')}}" />'); //this is not working
+                                                                                    }
+                                                                                    
+                                                                                });
+
                                                                         // Denotes total number of rows
                                                                         var section15_rowIdx = 0;
                                                                         // jQuery button click event to add a row
@@ -3898,6 +4046,7 @@
                                                     <tr>
 
                                                         <th>Section Name</th>
+                                                        <th>Style</th>
                                                         <th>Image</th>
                                                         <th>Heading </th>
                                                         <th>Change Position </th>
@@ -3909,6 +4058,8 @@
                                                     @foreach($section_15 as $row_section_15)
                                                     <tr>
                                                         <td>{{$row_section_15->name}}</td>
+                                                        <td>{{$row_section_15->style}}</td>
+                                                        
                                                         <td>
                                                             <img style="width:100px" src="{{asset('public/section_15/'.$row_section_15->image)}}" />
                                                         </td>
@@ -3952,6 +4103,19 @@
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
                                                                                                 <input type="text" name="name" value="{{$row_section_15->name}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Select Style </label>
+                                                                                                <select id="style" name="style" class="form-control">
+                                                                                                    <option value="{{$row_section_15->style}}"> {{$row_section_15->style}} </option>
+                                                                                                    <option value="style1"> Style 1</option>
+                                                                                                    <option value="style2"> Style 2</option>
+                                                                                                    <option value="style3"> Style 3</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -4697,7 +4861,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Image</label>
-                                                                                                <input type="file" name="image" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -5369,7 +5533,7 @@
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-username">First Heading  </label>
-                                                                        <input type="text" name="heading_1" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                        <input type="text" name="heading_1" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -5378,7 +5542,7 @@
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-username">Second Heading  </label>
-                                                                        <input type="text" name="heading_2" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                        <input type="text" name="heading_2" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                     </div>
                                                                 </div>
                                                             </div>

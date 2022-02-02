@@ -295,15 +295,29 @@ class BackendController extends Controller {
 
     public function edit_slider(Request $request) {
         $file = $request->file('slider_image'); // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
-        $file->move(public_path('slider'), $file_name); // move files to destination folder
-        $affected = DB::table('sliders')
-                ->where('id', $request->id)
-                ->update(
-                ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
-        );
+        if($file == NULL){
+            
+            $affected = DB::table('sliders')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
+            );
+    
+            return redirect()->back();
+        }else{
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('slider'), $file_name); // move files to destination folder
+            $affected = DB::table('sliders')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
+            );
+    
+            return redirect()->back();
 
-        return redirect()->back();
+        }
+
+        
     }
 
     public function delete_slider($id) {
@@ -376,14 +390,27 @@ class BackendController extends Controller {
 
     public function edit_case_study(Request $request) {
         $file = $request->file('case_study_image'); // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
-        $file->move(public_path('case_study'), $file_name); // move files to destination folder
-        $affected = DB::table('case_study')
-                ->where('id', $request->id)
-                ->update(
-                ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
-        );
-        return redirect()->back();
+        if($file == NULL){
+            
+            $affected = DB::table('case_study')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['page_id' => $request->page_id, 'name' => $request->name, 'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
+            );
+            return redirect()->back();
+
+        }else{
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('case_study'), $file_name); // move files to destination folder
+            $affected = DB::table('case_study')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
+            );
+            return redirect()->back();     
+        }
+
+       
     }
 
     public function delete_case_study($id) {
@@ -414,14 +441,26 @@ class BackendController extends Controller {
 
     public function edit_client_and_partner(Request $request) {
         $file = $request->file('clientAndParter_image'); // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
-        $file->move(public_path('client_and_partner'), $file_name); // move files to destination folder
-        $affected = DB::table('clientandparterimage')
-                ->where('id', $request->id)
-                ->update(
-                ['image' => $file_name, 'page_id' => $request->page_id]
-        );
-        return redirect()->back();
+        if($file == NULL){
+            $affected = DB::table('clientandparterimage')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['page_id' => $request->page_id]
+            );
+            return redirect()->back();
+        }else{
+            $file = $request->file('clientAndParter_image'); // will get all files
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('client_and_partner'), $file_name); // move files to destination folder
+            $affected = DB::table('clientandparterimage')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['image' => $file_name, 'page_id' => $request->page_id]
+            );
+            return redirect()->back();    
+        }
+
+        
     }
 
     public function delete_client_and_partner($id) {
@@ -453,14 +492,26 @@ class BackendController extends Controller {
 
     public function edit_industry(Request $request) {
         $file = $request->file('industry_image'); // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
-        $file->move(public_path('industries'), $file_name); // move files to destination folder
-        $affected = DB::table('industries')
-                ->where('id', $request->id)
-                ->update(
-                ['image' => $file_name, 'name' => $request->name, 'page_id' => $request->page_id]
-        );
-        return redirect()->back();
+        if($file == NULL){
+            $affected = DB::table('industries')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['name' => $request->name, 'page_id' => $request->page_id]
+            );
+            return redirect()->back();
+        }else{
+        
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('industries'), $file_name); // move files to destination folder
+            $affected = DB::table('industries')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['image' => $file_name, 'name' => $request->name, 'page_id' => $request->page_id]
+            );
+            return redirect()->back();    
+        }
+
+        
     }
 
     public function delete_industry($id) {
@@ -488,14 +539,26 @@ class BackendController extends Controller {
 
     public function edit_team(Request $request) {
         $file = $request->file('team_member_image'); // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
-        $file->move(public_path('team'), $file_name); // move files to destination folder
-        $affected = DB::table('teams')
-                ->where('id', $request->id)
-                ->update(
-                ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
-        );
-        return redirect()->back();
+        if($file == NULL){
+
+            $affected = DB::table('teams')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['page_id' => $request->page_id, 'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
+            );
+            return redirect()->back();
+        }else{
+
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('team'), $file_name); // move files to destination folder
+            $affected = DB::table('teams')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
+            );
+            return redirect()->back();            
+        }
+
     }
 
     public function delete_team($id) {
@@ -520,18 +583,34 @@ class BackendController extends Controller {
 
     public function edit_news(Request $request) {
         $file = $request->file('news_image'); // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
-        $file->move(public_path('news_and_opinions'), $file_name); // move files to destination folder
-        $affected = DB::table('news_and_opinions')
-                ->where('id', $request->id)
-                ->update([
-            'image' => $file_name,
-            'page_id' => $request->page_id,
-            'title' => $request->news_title,
-            'description' => $request->news_short_description,
-            'link' => $request->link]
-        );
-        return redirect()->back();
+        if($file == NULL){
+
+            $affected = DB::table('news_and_opinions')
+                    ->where('id', $request->id)
+                    ->update([
+                'page_id' => $request->page_id,
+                'title' => $request->news_title,
+                'description' => $request->news_short_description,
+                'link' => $request->link]
+            );
+            return redirect()->back();
+
+        }else{
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('news_and_opinions'), $file_name); // move files to destination folder
+            $affected = DB::table('news_and_opinions')
+                    ->where('id', $request->id)
+                    ->update([
+                'image' => $file_name,
+                'page_id' => $request->page_id,
+                'title' => $request->news_title,
+                'description' => $request->news_short_description,
+                'link' => $request->link]
+            );
+            return redirect()->back();
+                     
+        }
+       
     }
 
     public function delete_news($id) {
@@ -548,7 +627,8 @@ class BackendController extends Controller {
             DB::table('requests')->insert(
                     [
                         // 'image' => $file_name,
-
+                        'style' => $data['style'],
+                        'btn_label' => $data['button_label'],
                         'name' => $data['name'],
                         'title' => $data['request_title'][$i]
                     ]
@@ -565,7 +645,9 @@ class BackendController extends Controller {
                 ->where('id', $request->id)
                 ->update([
             'page_id' => $request->page_id,
+            'btn_label' => $request->button_label,
             'title' => $request->title,
+            'style' => $request->style,
             'name' => $request->name]
         );
         return redirect()->back();
@@ -604,7 +686,20 @@ class BackendController extends Controller {
 
     public function edit_para_style_1(Request $request) {
         $file = $request->file('image'); // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
+        if($file == NULL){
+
+            $affected = DB::table('news_and_opinions')
+                    ->where('id', $request->id)
+                    ->update([
+                'page_id' => $request->page_id,
+                'title' => $request->news_title,
+                'description' => $request->news_short_description,
+                'link' => $request->link]
+            );
+            return redirect()->back();
+
+        }else{
+            $file_name = $file->getClientOriginalName(); //Get file original name
         $file->move(public_path('para_style_1'), $file_name); // move files to destination folder
         DB::table('para_style_1')->insert([
             'image' => $file_name,
@@ -614,6 +709,9 @@ class BackendController extends Controller {
             'link' => $request->link]
         );
         return redirect()->back();
+                     
+        }
+        
     }
 
     public function delete_para_style_1($id) {
@@ -648,7 +746,23 @@ class BackendController extends Controller {
     }
 
     public function edit_para_style_2(Request $request) {
+
         $file = $request->file('image'); // will get all files
+
+        if($file == NULL){
+
+        $affected = DB::table('para_style_2')
+                ->where('id', $request->id)
+                ->update([
+            'page_id' => $request->page_id,
+            'title' => $request->title,
+            'paragraph' => $request->paragraph,
+            'link' => $request->link]
+        );
+        return redirect()->back();
+
+        }else{
+           
         $file_name = $file->getClientOriginalName(); //Get file original name
         $file->move(public_path('para_style_2'), $file_name); // move files to destination folder
         $affected = DB::table('para_style_2')
@@ -661,6 +775,9 @@ class BackendController extends Controller {
             'link' => $request->link]
         );
         return redirect()->back();
+                     
+        }
+        
     }
 
     public function delete_para_style_2($id) {
@@ -695,6 +812,23 @@ class BackendController extends Controller {
     public function edit_para_style_3(Request $request) {
 
         $file = $request->file('image'); // will get all files
+
+        if($file == NULL){
+
+        $affected = DB::table('para_style_3')
+                ->where('id', $request->id)
+                ->update([
+            
+            'page_id' => $request->page_id,
+            'title' => $request->title,
+            'paragraph' => $request->paragraph,
+            'link' => $request->link]
+        );
+        return redirect()->back();
+    
+            }else{
+               
+           
         $file_name = $file->getClientOriginalName(); //Get file original name
         $file->move(public_path('para_style_3'), $file_name); // move files to destination folder
         $affected = DB::table('para_style_3')
@@ -707,6 +841,10 @@ class BackendController extends Controller {
             'link' => $request->link]
         );
         return redirect()->back();
+                         
+            }
+
+            
     }
 
     public function delete_para_style_3($id) {
@@ -756,6 +894,7 @@ class BackendController extends Controller {
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'style' => $request->style,
                         'heading' => $data['heading'][$i],
                         'text_left' => $data['text_left'][$i],
                         'text_right' => $data['text_right'][$i]
@@ -771,11 +910,13 @@ class BackendController extends Controller {
         $affected = DB::table('para_style_5')
                 ->where('id', $request->id)
                 ->update([
-            'page_id' => $request->page_id,
-            'title' => $request->title,
-            'paragraph' => $request->paragraph,
-            'para_left' => $request->paragraph_left,
-            'link' => $request->link]
+                    'page_id' => $request->page_id,
+                    'name' => $request->name,
+                    'style' => $request->style,
+                    'heading' => $request->heading,
+                    'text_left' => $request->text_left,
+                    'text_right' => $request->text_right,
+                    ]
         );
         return redirect()->back();
     }
@@ -805,7 +946,7 @@ class BackendController extends Controller {
         } else if ($id == 8) {
             return $this->getObjectValues("news_and_opinions", "name");
         } else if ($id == 9) {
-            return $this->getObjectValues("requests", "name");
+            return $this->getObjectValues("requests", "name", "style");
         } else if ($id == 10) {
             return $this->getObjectValues("para_style_1", "name");
         } else if ($id == 11) {
@@ -815,9 +956,9 @@ class BackendController extends Controller {
         } else if ($id == 13) {
             return $this->getObjectValues("para_style_4", "name");
         } else if ($id == 14) {
-            return $this->getObjectValues("para_style_5", "name");
+            return $this->getObjectValues("para_style_5", "name", "style");
         } else if ($id == 15) {
-            return $this->getObjectValues("section_15", "name");
+            return $this->getObjectValues("section_15", "name", "style");
         } else if ($id == 16) {
             return $this->getObjectValues("section_16", "name");
         } else if ($id == 17) {
@@ -831,11 +972,11 @@ class BackendController extends Controller {
         } else if ($id == 21) {
             return $this->getObjectValues("section_21", "name");
         } else if ($id == 22) {
-            return $this->getObjectValues("section_22", "name");
+            return $this->getObjectValues("section_22", "name", "style");
         }
     }
 
-    private function getObjectValues($table = '', $attribute = '') {
+    private function getObjectValues($table = '', $attribute = '', $style = '') {
         if (empty($table)) {
             return;
         }
@@ -848,8 +989,12 @@ class BackendController extends Controller {
 
         $Array = [];
         foreach ($rows->unique($attribute) as $row) {
-
-            $Array[] = '<option value="' . $row->{$attribute} . '">' . $row->{$attribute} . '</option>';
+                if(isset($row->{$style})){
+                    $Array[] = '<option value="' . $row->{$attribute} . '">' . $row->{$attribute} . ' ('.$row->{$style}.') </option>';
+                }else{
+                    $Array[] = '<option value="' . $row->{$attribute} . '">' . $row->{$attribute} . ' </option>';
+                }
+            
         }
         $final_Result = $Array;
         return $final_Result;
@@ -869,6 +1014,7 @@ class BackendController extends Controller {
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'style' => $request->style,
                         'image' => $file_name,
                         'heading1' => $data['heading'][$i],
                         'flex_row_reverse' => $data['flex_row_reverse'][$i]
@@ -882,18 +1028,35 @@ class BackendController extends Controller {
 
     public function edit_section_15(Request $request) {
         $file = $request->file('image'); // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
-        $file->move(public_path('section_15'), $file_name); // move files to destination folder
-        $affected = DB::table('section_15')
-                ->where('id', $request->id)
-                ->update([
-            'image' => $file_name,
-            'page_id' => $request->page_id,
-            'name' => $request->name,
-            'heading1' => $request->heading,
-            'flex_row_reverse' => $request->flex_row_reverse]
-        );
-        return redirect()->back();
+        if($file == NULL){
+            $affected = DB::table('section_15')
+                    ->where('id', $request->id)
+                    ->update([
+                
+                'page_id' => $request->page_id,
+                'style' => $request->style,
+                'name' => $request->name,
+                'heading1' => $request->heading,
+                'flex_row_reverse' => $request->flex_row_reverse]
+            );
+            return redirect()->back();
+        }else{
+            $file = $request->file('image'); // will get all files
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('section_15'), $file_name); // move files to destination folder
+            $affected = DB::table('section_15')
+                    ->where('id', $request->id)
+                    ->update([
+                'image' => $file_name,
+                'page_id' => $request->page_id,
+                'style' => $request->style,
+                'name' => $request->name,
+                'heading1' => $request->heading,
+                'flex_row_reverse' => $request->flex_row_reverse]
+            );
+            return redirect()->back();
+        }
+        
     }
 
     public function delete_section_15($id) {
@@ -1007,6 +1170,25 @@ class BackendController extends Controller {
 
     public function edit_section_18(Request $request) {
         $file = $request->file('image'); // will get all files
+
+        if($file == NULL){
+
+            
+        
+        $affected = DB::table('section_18')
+                ->where('id', $request->id)
+                ->update([
+            'page_id' => $request->page_id,
+            'name' => $request->name,
+            'headingone' => $request->headingone,
+            'headingtwo' => $request->headingtwo
+                ]
+        );
+        return redirect()->back();
+    
+            }else{
+               
+            
         $file_name = $file->getClientOriginalName(); //Get file original name
         $file->move(public_path('section_18'), $file_name); // move files to destination folder
         $affected = DB::table('section_18')
@@ -1020,6 +1202,10 @@ class BackendController extends Controller {
                 ]
         );
         return redirect()->back();
+                         
+            }
+
+            
     }
 
     public function delete_section_18($id) {
@@ -1307,27 +1493,47 @@ class BackendController extends Controller {
     }
 
     public function edit_section_22(Request $request) {
+        $file = $request->file('image'); // will get all files
 
-        if (!empty($request->file('image'))) {
-            $file = $request->file('image'); // will get all files
+        if($file == NULL){
+
+            $affected = DB::table('section_22')
+            ->where('id', $request->id)
+            ->update([
+                'name' => $request->name,
+                'heading_1' => $request->heading_1,
+                'heading_2' => $request->heading_2,
+                
+                
+                'video' => $request->video,
+                'text' => $request->text
+                    ]
+                );
+            return redirect()->back();
+            
+
+        }else{
+
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('section_22'), $file_name); // move files to destination folder
-        } else {
-            $file_name = "";
+            $affected = DB::table('section_22')
+            ->where('id', $request->id)
+            ->update([
+                'name' => $request->name,
+                'heading_1' => $request->heading_1,
+                'heading_2' => $request->heading_2,
+                'image' => $file_name,
+                'video' => $request->video,
+                'text' => $request->text
+                    ]
+                );
+            return redirect()->back();
+            
         }
 
-        $affected = DB::table('section_22')
-                ->where('id', $request->id)
-                ->update([
-            'name' => $request->name,
-            'heading_1' => $request->heading_1,
-            'heading_2' => $request->heading_2,
-            'image' => $file_name,
-            'video' => $request->video,
-            'text' => $request->text
-                ]
-        );
-        return redirect()->back();
+
+
+       
     }
 
     public function delete_section_22($id) {
