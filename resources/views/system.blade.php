@@ -685,35 +685,49 @@
                                 </div>
                             </div>
                             <hr>
-                          
-                            <hr/>
-                            <table class="table table-striped table-bordered dom-jQuery-events">
-                              <thead>
-                                  <tr>
-                                      <th>Video Name</th>
-                                      <th>Video Title</th>
-                                      <th>Video Link</th>
-                                      <th>Button Label</th>
-                                      <th>Button Link</th>
-                                      <th>Action</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                               
-                                  
-                              </tbody>
-                              <tfoot>
-                                  <tr>
-                                      
-                                      <th>Page Name</th>
-                                      <th>Page Description</th>
-                                      <th>Page Slug</th>
-                                      <th>Status</th>
-                                      <th>Action</th>
-                                  </tr>
-                              </tfoot>
-                          </table>
-                                    <!-- END: Content-->
+                                <h1>Address</h1>
+                            <form action="{{url('admin/store_footer_bottom')}}" method="POST">
+                                @php
+                                    $footer_bottom = DB::table('footer_bottoms')->first();
+                                @endphp
+                              @csrf
+                              <div class="col-12">
+                                <div class="form-group">
+                                    <div class="controls">
+                                        <label for="account-username">City </label>
+                                        <input type="text" name="city" class="form-control" id="city" value="{{$footer_bottom->city}}">
+                                    </div>
+                                </div>
+                              </div>  
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="controls">
+                                        <label for="account-username">Address </label>
+                                        <textarea name="address" class="form-control">{!!$footer_bottom->address!!}</textarea>
+                                    </div>
+                                </div>
+                              </div>  
+                              
+                              <div class="col-12">
+                                <div class="form-group">
+                                    <div class="controls">
+                                        <label for="account-username">Copright </label>
+                                        <textarea name="copyright" class="form-control">{!!$footer_bottom->copyright!!}</textarea>
+                                    </div>
+                                </div>
+                              </div>  
+
+                            
+
+                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                              <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Add Footer Bottom</button>
+                              <button type="reset" class="btn btn-light">Cancel</button>
+                          </div>
+                          </form>
+                                    
+                                    
+                                    
   
                           </div>
 

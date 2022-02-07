@@ -64,6 +64,11 @@
           <div class="card">
               <div class="card-content">
                   <div class="card-body">
+                      @if(session()->has('message'))
+                                        <div class="alert alert-danger">
+                                            {{ session()->get('message') }}
+                                        </div>
+                                    @endif
                       <div class="tab-content">
                           <div role="tabpanel" class="tab-pane active" id="account-vertical-general"
                               aria-labelledby="account-pill-general" aria-expanded="true">
@@ -264,7 +269,7 @@
                                     <div class="col-1">
                                         <div class="form-group">
                                             <label style="font-weight:bold;"for="account-username">DeleteRow </label>
-                                            <a class="btn btn-danger" href="{{url('delete')}}">x</a>
+                                            <a class="btn btn-danger" href="{{url('admin/delete_page_content', $row_pages->id)}}">x</a>
                                         </div>
 
                                     </div>

@@ -194,7 +194,7 @@
         
     @endphp
     
-            <section id="section-2" class="section-bg-grey-grad section-padtop-70 section-padbottom-70 service-block">
+            <section id="section-2" class="{{$services[0]->bootstra_class_name}} section-padtop-70 section-padbottom-70 service-block">
                 <div class="web-container">
                     <div class="row">
                         <div class="col-md-12">
@@ -411,6 +411,22 @@
                 </div>
             </div>
         </section>
+    @elseif($requests->style == 'style4')
+
+        <section class="section-bg-white section-padtop-50 section-padbottom-100 center-detail-block">
+        	<div class="web-container">
+        		<div class="row justify-content-center">
+        			<div class="col-md-8">
+        				<div class="text-center">
+        					<h3 class="web-h3 mb-4">{{$requests->title}}</h3>
+        					<a href="javascript:void(0)" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">{{$requests->btn_label}}</a>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+
+       
         
     @endif
 
@@ -545,17 +561,17 @@
                     <div class="col-md-12">
                         <h2 class="web-h2 mb-4 text-white text-center">
                             
-                            {{$para_style_5[0]->heading}}
+                            {!!$para_style_5[0]->heading!!}
                         </h2>
                     </div>
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-6 align-self-center">
                         <h3 class="web-h3 mb-0 text-white">
-                            {{$para_style_5[0]->text_left}}</h3>
+                            {!!$para_style_5[0]->text_left!!}</h3>
                     </div>
                     <div class="col-md-6 align-self-center">
-                        <p class="web-light-grey web-h6 mb-0">{{$para_style_5[0]->text_right}}
+                        <p class="web-light-grey web-h6 mb-0">{!!$para_style_5[0]->text_right!!}
                         </p>
                     </div>
                 </div>
@@ -566,21 +582,24 @@
 
         <section class="agency-brands section-bg-white section-padtop-70 section-padbottom-70">
             <div class="web-container">
+                @if($para_style_5[0]->heading != NULL)
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="web-h2 mb-4 text-black text-center">
                             
-                            {{$para_style_5[0]->heading}}
+                            {!!$para_style_5[0]->heading!!}
                         </h2>
                     </div>
                 </div>
+                @endif
+                
                 <div class="row mt-5">
                     <div class="col-md-6 align-self-center">
-                        <h3 class="web-h3 mb-0 text-black">
-                            {{$para_style_5[0]->text_left}}</h3>
+                        <{{$para_style_5[0]->heading_size}} class="web-{{$para_style_5[0]->heading_size}} mb-0 text-black">
+                            {!!$para_style_5[0]->text_left!!}</{{$para_style_5[0]->heading_size}}>
                     </div>
                     <div class="col-md-6 align-self-center">
-                        <p class="web-grey web-h6 mb-0">{{$para_style_5[0]->text_right}}
+                        <p class="web-grey web-h6 mb-0">{!!$para_style_5[0]->text_right!!}
                         </p>
                     </div>
                 </div>
@@ -626,23 +645,29 @@
     @elseif($section_15[0]->style == 'style2')
 
         @foreach($section_15 as $row_section_15)
-            <section class="section-bg-white section-padtop-50 brand-tile book-design">
-                <div class="web-container">
-                    <div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
-                        <div class="col-sm-6 col-md-6 align-self-center">
-                            <div class="brand-tile-img">
-                                <img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 align-self-center">
-                            <div class="brand-tile-content">
-                                <h3 class="web-h3">{{$row_section_15->heading1}}</h3>
-                                <a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        
+        <section class="section-bg-white section-padbottom-50 brand-tile">
+        	<div class="web-container">
+        		<div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
+        			<div class="col-sm-6 col-md-6 align-self-center">
+        				<div class="vehicle-tile-img">
+        					<div class="img-block web-border-radius-5">
+        						<img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col-sm-6 col-md-6 align-self-center">
+        				<div class="brand-tile-content vehicle-content">
+        					<h3 class="web-h3">{{$row_section_15->heading1}}</h3>
+        					<a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+
+
+            
         @endforeach
 
     @elseif($section_15[0]->style == 'style3')
@@ -948,19 +973,14 @@
 	<div class="web-container">
 		<div class="row no-gutters">
 			<div class="col-md-12">
-                
-				
 				 @if(!empty($section_22[0]->heading_1))
-
-				<div class="design-banner-content text-center w-100">
-					<h1 class="web-h1 mb-0">{{$section_22[0]->heading_1}}</h1>
-                    @if(!empty($section_22[0]->heading_2))
-                    <h4 class="web-h4 mt-4 mb-4">{{$section_22[0]->heading_2}}</h4>
-					<a href="javascript:void(0)" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
-                    @endif
-					
-				</div>
-
+    				<div class="design-banner-content text-center w-100">
+    					<h1 class="web-h1 mb-0">{{$section_22[0]->heading_1}}</h1>
+                        @if(!empty($section_22[0]->heading_2))
+                        <h4 class="web-h4 mt-4 mb-4">{{$section_22[0]->heading_2}}</h4>
+    					<a href="javascript:void(0)" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
+                        @endif
+    				</div>
                 @endif
 				
 				

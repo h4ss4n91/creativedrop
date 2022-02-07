@@ -33,13 +33,17 @@ Route::get('/admin/home', 'HomeController@index');
 
 Route::get('/admin/system', 'BackendController@system');
 
+Route::get('/c/contact', 'WelcomeController@contact');
+
 
 Route::get('/admin/page_section_id/{id}', 'BackendController@page_section_id')->name('admin.page_section_id');
 Route::get('/services_by_id/{id}', 'WelcomeController@services_by_id')->name('services_by_id');
 Route::get('/admin/services_by_id/{id}', 'WelcomeController@services_by_id')->name('services_by_id');
 Route::get('/admin/child_services_by_id/{id}', 'WelcomeController@child_services_by_id')->name('child_services_by_id');
 
+// page_content
 
+Route::get('/admin/delete_page_content/{id}', 'BackendController@delete_page_content')->name('delete_page_content');
 
 
 // Pages
@@ -215,5 +219,8 @@ Route::post('/ajax_post', 'WelcomeController@ajax_post')->name('ajax_post');
 Route::post('/admin/store_service', 'BackendController@store_service')->name('store_service');
 Route::post('/admin/edit_service', 'BackendController@edit_service')->name('edit_service');
 Route::get('/admin/delete_service/{id}', 'BackendController@delete_service')->name('delete_service');
+
+
+Route::post('/admin/store_footer_bottom', 'BackendController@store_footer_bottom')->name('store_footer_bottom');
 
 

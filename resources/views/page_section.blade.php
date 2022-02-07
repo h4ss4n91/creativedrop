@@ -2358,6 +2358,7 @@
                                                                             <option value="style1"> Style 1</option>
                                                                             <option value="style2"> Style 2</option>
                                                                             <option value="style3"> Style 3</option>
+                                                                            <option value="style4"> Style 4</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -2377,6 +2378,8 @@
                                                                                         $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style2.png')}}" />'); //this is not working
                                                                                     }else if(value == 'style3'){
                                                                                         $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style3.png')}}" />'); //this is not working
+                                                                                    }else if(value == 'style4'){
+                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style4.png')}}" />'); //this is not working
                                                                                     }
                                                                                     
                                                                                 });
@@ -2528,6 +2531,7 @@
                                                                                                     <option value="style1"> Style 1</option>
                                                                                                     <option value="style2"> Style 2</option>
                                                                                                     <option value="style3"> Style 3</option>
+                                                                                                    <option value="style4"> Style 4</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </div>
@@ -3620,7 +3624,7 @@
                                             <hr/>
 
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
 
                                                     <form method="POST" action="{{url('admin/store_para_style_5')}}" enctype="multipart/form-data">
                                                         @csrf
@@ -3633,7 +3637,7 @@
                                                                 </div>
                                                             </div>
 
-
+                                                        <div class="col-6">
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
@@ -3642,6 +3646,8 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            
+                                                            
 
                                                             <div class="col-12">
                                                                 <div class="form-group">
@@ -3655,6 +3661,12 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                            
+                                                            <div class="col-6">
+                                                                <div id="para_style_5_style_content"> </div>
+                                                            </div>
+                                                            
 
 
                                                             <div class="col-12">
@@ -3677,11 +3689,12 @@
                                                                         $('#paraStyleFiveaddBtn').on('click', function() {
                                                                             // Adding a row inside the tbody.
                                                                             $('#paraStyleFivetbody').append(`<tr id="R${++paraStyleFiverowIdx}">
-                                        <td class="row-index text-center"><input type="text" name="heading[]" class="form-control"/></td>
-                                      <td class="row-index text-center"><input type="text" name="text_left[]" class="form-control"/></td>
-                                      <td class="row-index text-center"><input type="text" name="text_right[]" class="form-control"/></td>
-                                      <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                      </tr>`);
+                                                                            <td class="row-index text-center"><select class="form-control" name="heading_size[]"> <option value="h1"> h1 </option> <option value="h2"> h2 </option><option value="h3"> h3 </option><option value="h4"> h4 </option></select></td>
+                                                                                <td class="row-index text-center"><input type="text" name="heading[]" class="form-control"/></td>
+                                                                              <td class="row-index text-center"><input type="text" name="text_left[]" class="form-control"/></td>
+                                                                              <td class="row-index text-center"><input type="text" name="text_right[]" class="form-control"/></td>
+                                                                              <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
+                                                                             </tr>`);
                                                                         });
                                                                         // jQuery button click event to remove a row.
                                                                         $('#paraStyleFivetbody').on('click', '.remove', function() {
@@ -3716,6 +3729,7 @@
                                                                         <table class="table table-bordered">
                                                                             <thead>
                                                                                 <tr>
+                                                                                    <th class="text-center">Heading Size</th>
                                                                                     <th class="text-center">Heading</th>
                                                                                     <th class="text-center">Text Left</th>
                                                                                     <th class="text-center">Text Right</th>
@@ -3734,8 +3748,7 @@
 
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                Paragraph style 5 </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Paragraph style 5 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -3743,11 +3756,7 @@
 
                                                 </div>
 
-                                                <div class="col-6">
-                                                    <div id="para_style_5_style_content"> </div>
-
-                                                    
-                                                </div>
+                                                
 
                                             </div>
 
@@ -3763,6 +3772,7 @@
                                                     <tr>
 
                                                         <th>Section Name</th>
+                                                        <th>Heading Size</th>
                                                         <th>Heading</th>
                                                         <th>Text Left</th>
                                                         <th>Text Right</th>
@@ -3775,6 +3785,9 @@
 
 
                                                         <td>{{$row_para_style_5->name}} ({{$row_para_style_5->style}})</td>
+                                                        <td>
+                                                            {{$row_para_style_5->heading_size}}
+                                                        </td>
                                                         <td>
                                                             {{$row_para_style_5->heading}}
                                                         </td>
@@ -3835,11 +3848,29 @@
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
+                                                                                                <label for="account-username">Heading Size</label>
+                                                                                                <select class="form-control" name="heading_size"> 
+                                                                                <option value="h1"> h1 </option> 
+                                                                                <option value="h2"> h2 </option>
+                                                                                <option value="h3"> h3 </option>
+                                                                                <option value="h4"> h4 </option>
+                                                                            </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    
+                                                                                    
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
                                                                                                 <label for="account-username">Heading</label>
                                                                                                 <input type="text" name="heading" value="{{$row_para_style_5->heading}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
+                                                                                    
+                                                                                    
+                                                                            
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
@@ -4132,7 +4163,17 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">change Position</label>
-                                                                                                <input type="text" name="heading2" value="{{$row_section_15->flex_row_reverse}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                
+                                                                                                <select class="form-control" name="flex_row_reverse">
+                                                                                                    @if($row_section_15->flex_row_reverse == NULL)
+                                                                                                        <option value="{{$row_section_15->flex_row_reverse}}"> NO </option>
+                                                                                                    @else
+                                                                                                        <option value="{{$row_section_15->flex_row_reverse}}"> YES </option>
+                                                                                                    @endif
+                                                                                                    
+                                                                                                    <option value=""> NO </option>
+                                                                                                    <option value="flex_row_reverse"> Yes </option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

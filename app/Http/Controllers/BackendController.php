@@ -24,6 +24,15 @@ class BackendController extends Controller {
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+     
+      public function delete_page_content($id) {
+        
+        $deleted = DB::table('page_detail')->where('id', '=', $id)->delete();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('message', $message);
+    }
+    
+    
     public function index() {
         $main_menu = $main_menu_two = $main_menu_four = DB::table('menus')->get();
         $child_menu_four = DB::table('child_menus')->get();
@@ -628,7 +637,7 @@ class BackendController extends Controller {
                     [
                         // 'image' => $file_name,
                         'style' => $data['style'],
-                        'btn_label' => $data['button_label'],
+                        'btn_label' => $data['button_label'][$i],
                         'name' => $data['name'],
                         'title' => $data['request_title'][$i]
                     ]
@@ -895,6 +904,7 @@ class BackendController extends Controller {
                         'page_id' => $request->page_id,
                         'name' => $request->name,
                         'style' => $request->style,
+                        'heading_size' => $data['heading_size'][$i],
                         'heading' => $data['heading'][$i],
                         'text_left' => $data['text_left'][$i],
                         'text_right' => $data['text_right'][$i]
@@ -913,6 +923,7 @@ class BackendController extends Controller {
                     'page_id' => $request->page_id,
                     'name' => $request->name,
                     'style' => $request->style,
+                    'heading_size' => $request->heading_size,
                     'heading' => $request->heading,
                     'text_left' => $request->text_left,
                     'text_right' => $request->text_right,
@@ -1027,6 +1038,7 @@ class BackendController extends Controller {
     }
 
     public function edit_section_15(Request $request) {
+        
         $file = $request->file('image'); // will get all files
         if($file == NULL){
             $affected = DB::table('section_15')
@@ -1549,7 +1561,7 @@ class BackendController extends Controller {
                     [
                         'name' => $data['name'],
                         'main_service' => $data['main_service'],
-                        'bootstrap_class_name' => $data['class_name'],
+                        'bootstra_class_name' => $data['class_name'],
                         'sub_service' => $data['sub_service'][$i],
                         'sub_service_link' => $data['sub_service_link'][$i]
                     ]
@@ -1565,7 +1577,7 @@ class BackendController extends Controller {
         $affected = DB::table('services')
                 ->where('id', $request->id)
                 ->update(
-                ['name' => $request->name, 'main_service' => $request->main_service, 'bootstrap_class_name' => $request->class_name, 'sub_service' => $request->sub_service, 'sub_service_link' => $request->sub_service_link]
+                ['name' => $request->name, 'main_service' => $request->main_service, 'bootstra_class_name' => $request->class_name, 'sub_service' => $request->sub_service, 'sub_service_link' => $request->sub_service_link]
         );
 
         return redirect()->back();
@@ -1573,6 +1585,13 @@ class BackendController extends Controller {
 
     public function delete_service($id) {
         DB::table('services')->where('id', '=', $id)->delete();
+        return redirect()->back();
+    }
+    
+    public function store_footer_bottom(Request $request) {
+        DB::table('footer_bottoms')->insert(
+                ['city' => $request->city, 'address' => $request->address, 'copyright' => $request->copyright]
+        );
         return redirect()->back();
     }
 

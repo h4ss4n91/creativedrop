@@ -202,7 +202,7 @@
 						
 
 						<!--====-->
-						<li class="nav-item"><a class="nav-link" href="{{url('contact')}}">Contact us</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{url('/c/contact')}}">Contact us</a></li>
 						<form class="form-inline my-2 my-lg-0 ml-auto">
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item">
@@ -373,7 +373,7 @@
 				</li>
 
 				<li>
-					<a href="{{url('contact')}}">Contact us</a>
+					<a href="{{url('c/contact')}}">Contact us</a>
 				</li>
 
 				<li>
@@ -437,6 +437,8 @@
                                         <div class="foot">
 											@php
 												$footer_section_3 = DB::table('footer_sections')->where('section_id','=','3')->get();
+												$footer_bottom = DB::table('footer_bottoms')->first();
+												$social_media = DB::table('social_media')->get();
 											@endphp
                                             <h5 class="web-h5 web-border-bottom pb-3 mb-0">{{$footer_section_3[0]->name}}</h5>
                                             <ul class="mt-2">
@@ -450,12 +452,15 @@
                                         <div class="foot">
                                             <h5 class="web-h5 web-border-bottom pb-3 mb-0">We are social</h5>
                                             <ul class="list-inline mt-2">
-                                                <li class="list-inline-item"><a href="#" class="web-black"><i class="fab fa-instagram fa-lg"></i></a></li>
-                                                <li class="list-inline-item"><a href="#" class="web-black"><i class="fab fa-facebook-f fa-lg"></i></a></li>
-                                                <li class="list-inline-item"><a href="#" class="web-black"><i class="fab fa-linkedin-in fa-lg"></i></a></li>
+                                                @foreach($social_media as $row_social_media)
+                                                
+                                                    <li class="list-inline-item"><a target="_blank" href="{{$row_social_media->link}}" class="web-black"><i class="fab fa-{{$row_social_media->name}} fa-lg"></i></a></li>
+                                                @endforeach
+                                                
+                                                
                                             </ul>
-                                            <p class="p-14 web-grey web-bold mt-4">Dubai</p>
-                                            <p class="p-14 web-grey">Fortune Tower, Cluster C, Jumeirah Lake Towers,<br>Dubai - United Arab Emirates</p>
+                                            <p class="p-14 web-grey web-bold mt-4">{{$footer_bottom->city}}</p>
+                                            <p class="p-14 web-grey">{!!$footer_bottom->address!!}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -471,7 +476,7 @@
 										</div>
 									</div>
 									<div class="col-12 col-md-8 col-lg-5">
-										<p class="p-14 web-grey mb-0">Creative Drop is a leading Creative Agency based in Dubai & New York. Copyright 2020 Creative Drop DMCC. All rights reserved.</p>
+										<p class="p-14 web-grey mb-0">{!!$footer_bottom->copyright!!}</p>
 									</div>
 									<div class="col-12 col-md-12 col-lg-5">
 										<ul>

@@ -180,4 +180,7 @@ class WelcomeController extends Controller
         return Response()->json($arr);
         
      }
+     public function contact(){
+         return view('contact');
+     }
 }
