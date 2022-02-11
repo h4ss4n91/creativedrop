@@ -22,10 +22,7 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="{{ asset('public/front_theme/css/theme.css?v=2.9')}}">
-	<link href="https://aiqom.ai/css/bootstrap-tour-standalone.min.css" rel="stylesheet">
-	<script src="https://aiqom.ai/js/jquery-3.3.1.min.js"></script>
-    <script src="https://aiqom.ai/js/bootstrap-tour-standalone.min.js"></script>
-    
+	   
     <style>
       .contact-form-left {
         background-image: url("{{asset('public/front_theme/images/contact-form.jpeg') }}");
@@ -202,12 +199,11 @@
 						
 
 						<!--====-->
+            <li class="nav-item"><a class="nav-link" href="{{url('agency')}}">Agency</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{url('/c/contact')}}">Contact us</a></li>
 						<form class="form-inline my-2 my-lg-0 ml-auto">
-							<ul class="navbar-nav mr-auto">
-								<li class="nav-item">
-									<a class="nav-link" href="{{url('agency')}}">Agency</a>
-								</li>
+							{{-- <ul class="navbar-nav mr-auto">
+								
 								<li class="nav-item"><a class="nav-link" href="{{url('insight/topic-title')}}">Insight</a></li>
 
 								<li class="nav-item dropdown">
@@ -219,7 +215,7 @@
 										<a class="dropdown-item p-14" href="#">French</a>
 									</div>
 								</li>
-							</ul>
+							</ul> --}}
 							<a href="mailto:info@creativedrop.com" class="btn web-btn web-btn-white">Email</a>
 							<a href="tel:+971503119300" class="btn web-btn web-btn-blue">Call Now</a>
 							<a href="https://api.whatsapp.com/send?phone=+971503119300" class="text-white whatsapp-link" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
@@ -246,7 +242,7 @@
                                         <div class="swiper-wrapper">
                                             @foreach($child_menu as $row_child_menu)
                                             
-                                                <div class="swiper-slide"><a href="" class="p-14">{{$row_child_menu->item_name}}</a></div>
+                                                <div class="swiper-slide"><a href="{{$row_child_menu->item_link}}" class="p-14">{{$row_child_menu->item_name}}</a></div>
                                                 
                                             @endforeach
                                         </div>

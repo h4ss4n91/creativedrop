@@ -169,6 +169,46 @@
             @endforeach
             @endif
 
+            @if( $row_pages->section_no == '17' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '18' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '19' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '20' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
         
 
     @endforeach

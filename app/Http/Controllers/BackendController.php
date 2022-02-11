@@ -163,6 +163,7 @@ class BackendController extends Controller {
     }
 
     public function page_sections() {
+        $section_23 = DB::table('section_23')->get();
         $section_22 = DB::table('section_22')->get();
         $section_21 = DB::table('section_21')->get();
         $section_20 = DB::table('section_20')->get();
@@ -189,7 +190,7 @@ class BackendController extends Controller {
         $videos = DB::table('videos')->get();
         $pages = $slider_pages = $caseStudy_pages = $clientAndParter_pages = $industries_pages = $client_and_partners = $pages_video = DB::table('page')->get();
 
-        return view('page_section', Compact('case_study', 'services', 'section_22', 'section_17', 'section_20', 'section_21', 'section_18', 'section_19', 'section_16', 'team', 'section_15', 'sub_category', 'service', 'para_style_1', 'para_style_2', 'para_style_3', 'para_style_4', 'para_style_5', 'request', 'industries_pages', 'news', 'industries', 'clientandpartnerimage', 'clientAndParter_pages', 'pages', 'sliders', 'videos', 'slider_pages', 'pages_video', 'caseStudy_pages', 'client_and_partners', 'industries'));
+        return view('page_section', Compact('case_study', 'services', 'section_22', 'section_17', 'section_20', 'section_21', 'section_18', 'section_19', 'section_16', 'team', 'section_15', 'sub_category', 'service', 'para_style_1', 'para_style_2', 'para_style_3', 'para_style_4', 'para_style_5', 'request', 'industries_pages', 'news', 'industries', 'clientandpartnerimage', 'clientAndParter_pages', 'pages', 'sliders', 'videos', 'slider_pages', 'pages_video', 'caseStudy_pages', 'client_and_partners', 'industries', 'section_23'));
     }
 
     // main menu
@@ -376,22 +377,62 @@ class BackendController extends Controller {
 
         $data = $request->all();
 
-        for ($i = 0; $i < count($request->case_study_title); $i++) {
+        
 
-            $file = $data['case_study_image'][$i]; // will get all files
-            $file_name = $file->getClientOriginalName(); //Get file original name
-            $file->move(public_path('case_study'), $file_name); // move files to destination folder
-            DB::table('case_study')->insert(
-                    [
-                        'image' => $file_name,
-                        'name' => $data['name'],
-                        'title' => $data['case_study_title'][$i],
-                        'short_description' => $data['short_description'][$i],
-                        'service' => $data['service'][$i],
-                        'sub_category' => $data['sub_category'][$i],
-                        'industry' => $data['industry'][$i]]
-            );
-        }
+        $file = $data['case_study_image']; // will get all files
+        $file_name = $file->getClientOriginalName(); //Get file original name
+        $file->move(public_path('case_study'), $file_name); // move files to destination folder
+
+        
+
+
+        $id = DB::table('case_study')->insertGetId(
+                [
+                    'name' => $request->name,
+                    'image' => $file_name,
+                    'title' => $request->case_study_name,
+                    'short_description' => $request->short_description]
+        );
+    
+
+    for ($i = 0; $i < count($request->type); $i++) {
+
+        $file_content = $data['case_study_image_content'][$i]; // will get all files
+        $file_content_name = $file_content->getClientOriginalName(); //Get file original name
+        $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
+
+
+        DB::table('case_study_content')->insert(
+            [
+                'case_study_id' => $id,
+                'image' => $file_content,
+                'type' => $data['type'][$i],
+                'video_link' => $data['video'][$i]]
+        );
+    }
+
+    for ($i = 0; $i < count($request->service); $i++) {
+
+        DB::table('case_study_services')->insert(
+            [
+                'case_study_id' => $id,
+                'service_id' => $data['service'][$i],
+                'sub_service_id' => $data['sub_category'][$i]]
+        );
+    }
+
+    for ($i = 0; $i < count($request->industry); $i++) {
+
+        DB::table('case_study_industries')->insert(
+            [
+                'case_study_id' => $id,
+                'industry_id' => $data['industry'][$i]]
+        );
+    }
+
+
+
+
 
         $message = 'Case Study Added successfully';
         return redirect('admin/page_sections')->with('message', $message);
@@ -984,7 +1025,10 @@ class BackendController extends Controller {
             return $this->getObjectValues("section_21", "name");
         } else if ($id == 22) {
             return $this->getObjectValues("section_22", "name", "style");
+        } else if ($id == 23) {
+            return $this->getObjectValues("section_23", "name");
         }
+        
     }
 
     private function getObjectValues($table = '', $attribute = '', $style = '') {
@@ -1594,5 +1638,50 @@ class BackendController extends Controller {
         );
         return redirect()->back();
     }
+
+
+
+    // 23  Section
+    public function store_section_23(Request $request) {
+        $data = $request->all();
+
+        DB::table('section_23')->insert(
+                [
+                    'name' => $request->name,
+                    'heading' => $request->heading,
+                    'title' => $request->title
+                    
+                ]
+        );
+
+        $message = 'Section 23 Added successfully';
+        return redirect('admin/page_sections')->with('message', $message);
+    }
+
+    public function edit_section_23(Request $request) {
+        
+            $affected = DB::table('section_23')
+            ->where('id', $request->id)
+            ->update([
+                'name' => $request->name,
+                'heading' => $request->heading,
+                'title' => $request->title
+                    ]
+                );
+            return redirect()->back();
+            
+
+        
+
+
+
+       
+    }
+
+    public function delete_section_23($id) {
+        DB::table('section_23')->where('id', '=', $id)->delete();
+        return redirect()->back();
+    }
+
 
 }

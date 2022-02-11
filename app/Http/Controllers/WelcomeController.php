@@ -46,7 +46,7 @@ class WelcomeController extends Controller
     public function case_study($id)
     {
         $pages = DB::table('page')->where('title', '=', $id)->get();
-
+        $case_study = DB::table('case_study')->where('id', '=', $id)->get();
         $main_menu = DB::table('menus')->where('menu_link','!=','#')->get();
         $main_menus = "";
         $para_style_1 = "";
@@ -58,13 +58,13 @@ class WelcomeController extends Controller
         $industries = "";
         $news = "";
         $client_and_partner = "";
-        $case_study = "";
+        
         $sliders = "";
         $services = "";
         $team_section = "";
         $videos = "";
         
-        return view('case-study', Compact('id','para_style_1', 'services', 'main_menus', 'para_style_2', 'main_menu', 'para_style_3', 'para_style_4', 'para_style_5', 'pages','client_and_partner','request','industries','news','case_study','team_section','sliders','videos'));
+        return view('case-study', Compact('id','para_style_1', 'case_study', 'services', 'main_menus', 'para_style_2', 'main_menu', 'para_style_3', 'para_style_4', 'para_style_5', 'pages','client_and_partner','request','industries','news','case_study','team_section','sliders','videos'));
     }
 
 
@@ -73,6 +73,7 @@ class WelcomeController extends Controller
         $pages = DB::table('page')
             ->join('page_detail', 'page.id', '=', 'page_detail.page_id')
             ->where('page.title', '=', $id)
+            ->orderBy('page_detail.section_no')
             ->get();
 
             
@@ -114,7 +115,29 @@ class WelcomeController extends Controller
             
     }
 
-    public function child_services_by_id($id){
+    public function services_by_id_with_services ($id){
+        
+        $sub_category = DB::table('sub_child_menus')->where('child_menu_id', '=', $id)->get();
+        $industries = DB::table('industries')->where('service_id', '=', $id)->get();
+            $Array = [];
+            foreach($sub_category as $row){
+                $Array[] = '<option value="'.$row->id.'">'.$row->item_name.'</option>';
+            }
+            $final_Result = $Array;
+
+            $industry_Array = [];
+            foreach($industries->unique('title') as $row_industries){
+                $industry_Array[] = '<li class="list-inline-item">'.$row_industries->title.' <span><i class="fas fa-times"></i><span></span></span></li>';
+            }
+            $industries_array = $industry_Array;
+
+
+            return response()->json(["options" => $final_Result, "industries"=>$industries_array]);
+            // return $final_Result;
+    }
+
+    
+    public function sub_services_by_id_with_services ($id){
         
         $sub_category = DB::table('sub_child_menus')->where('child_menu_id', '=', $id)->get();
             $Array = [];
@@ -122,9 +145,11 @@ class WelcomeController extends Controller
                 $Array[] = '<option value="'.$row->id.'">'.$row->item_name.'</option>';
             }
             $final_Result = $Array;
-            // return response()->json(["sliders" => $final_Result]);
-            return $final_Result;
+            return response()->json(["options" => $final_Result]);
+            // return $final_Result;
     }
+
+    
     
      public function ajax_post(Request $request)
      {

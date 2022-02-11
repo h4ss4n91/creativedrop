@@ -38,6 +38,8 @@ Route::get('/c/contact', 'WelcomeController@contact');
 
 Route::get('/admin/page_section_id/{id}', 'BackendController@page_section_id')->name('admin.page_section_id');
 Route::get('/services_by_id/{id}', 'WelcomeController@services_by_id')->name('services_by_id');
+Route::get('/services_by_id_with_services/{id}', 'WelcomeController@services_by_id_with_services')->name('services_by_id_with_services');
+
 Route::get('/admin/services_by_id/{id}', 'WelcomeController@services_by_id')->name('services_by_id');
 Route::get('/admin/child_services_by_id/{id}', 'WelcomeController@child_services_by_id')->name('child_services_by_id');
 
@@ -184,6 +186,10 @@ Route::post('/admin/store_section_22', 'BackendController@store_section_22')->na
 Route::post('/admin/edit_section_22', 'BackendController@edit_section_22')->name('edit_section_22');
 Route::get('/admin/delete_section_22/{id}', 'BackendController@delete_section_22')->name('delete_section_22');
 
+// Section 23
+Route::post('/admin/store_section_23', 'BackendController@store_section_23')->name('store_section_23');
+Route::post('/admin/edit_section_23', 'BackendController@edit_section_23')->name('edit_section_23');
+Route::get('/admin/delete_section_23/{id}', 'BackendController@delete_section_23')->name('delete_section_23');
 
 
 // Social Media

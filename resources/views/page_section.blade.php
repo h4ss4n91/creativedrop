@@ -51,6 +51,11 @@
                     <div class="col-md-2 mb-2 mb-md-0">
                         <ul class="nav nav-pills flex-column mt-md-0 mt-1">
                             <li class="nav-item">
+                                <a class="nav-link d-flex" id="account-pill-section-23" data-toggle="pill" href="#account-vertical-section_23" aria-expanded="false">
+                                    <i class="feather icon-type"></i> Heading
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link d-flex active" id="account-pill-general" data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
                                     <i class="feather icon-list"></i> Slider
                                 </a>
@@ -176,6 +181,8 @@
                                 </a>
                             </li>
 
+                             
+
 
 
 
@@ -196,36 +203,42 @@
                                             </div>
                                             <hr>
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
-                                                </div>
-                                                <div class="col-md-6">
+                                                
+                                                <div class="col-md-12">
                                                     <form method="POST" action="{{url('admin/store_slider')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
 
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Page Name</label>
-                                                                        <select class="form-control" name="page_id">
-                                                                       @foreach($pages as $row_page)
-                                                                            <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                       @endforeach
-                                                                </select>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="col-6">
+                                                                    <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
                                                             </div>
-
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Slider Name</label>
-                                                                        <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                <div class="col-6">
+                                                                    <div class="col-6">
+                                                                        <div class="form-group">
+                                                                            <div class="controls">
+                                                                                <label for="account-username">Page Name</label>
+                                                                                <select class="form-control" name="page_id">
+                                                                            @foreach($pages as $row_page)
+                                                                                    <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
 
+                                                                    <div class="col-6">
+                                                                        <div class="form-group">
+                                                                            <div class="controls">
+                                                                                <label for="account-username">Slider Name</label>
+                                                                                <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    @include('padding_top_and_bottom');
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
                                                             <div class="col-12">
                                                                 <script>
                                                                     $(document).ready(function() {
@@ -239,8 +252,8 @@
                                                               <td class="row-index text-center"><input type="text" name="text_1[]" class="form-control"/></td>
                                                               <td class="row-index text-center"><input type="text" name="text_2[]" class="form-control"/></td>
                                                               <td class="row-index text-center"><input type="text" name="link[]" class="form-control"/></td>
+                                                              <td class="row-index text-center">@include('button_style')</td>
                                                               <td class="row-index text-center"><select name="status[]" class="form-control"><option value=""> None </option><option value="active"> Active </option></select></td>
-                                                              
                                                               <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
                                                               </tr>`);
                                                                         });
@@ -281,6 +294,7 @@
                                                                                     <th class="text-center">Heading 1</th>
                                                                                     <th class="text-center">Heading 2</th>
                                                                                     <th class="text-center">Button Link</th>
+                                                                                    <th class="text-center">Button Style</th>
                                                                                     <th class="text-center">Status</th>
                                                                                     <th class="text-center">Remove Row</th>
                                                                                 </tr>
@@ -1070,12 +1084,11 @@
                                                                         $('#caseStudyaddBtn').on('click', function() {
                                                                             // Adding a row inside the tbody.
                                                                             $('#caseStudytbody').append(`<tr id="R${++caseStudyrowIdx}">
-                                                              <td class="row-index text-center"><select class="form-control" name="option"><option value="image">Image</option><option value="video">Video</option></select></td>
-                                                              <td class="row-index text-center"><input type="file" name="case_study_image[]" class="form-control"/></td>
-                                                              <td class="row-index text-center"><input type="text" name="video[]" class="form-control"/></td>
-                                                              <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
-                                                              </tr>`);
-
+                                                                                <td class="row-index text-center"><select class="form-control" name="type[]"><option value="image">Image</option><option value="video">Video</option></select></td>
+                                                                                <td class="row-index text-center"><input type="file" name="case_study_image_content[]" class="form-control"/></td>
+                                                                                <td class="row-index text-center"><input type="text" name="video[]" class="form-control"/></td>
+                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                                </tr>`);
                                                                         });
                                                                         // jQuery button click event to remove a row.
                                                                         $('#caseStudytbody').on('click', '.remove', function() {
@@ -5354,7 +5367,7 @@
                                                     <img style="width:100%" src="{{asset('public/page_sections/slider_with_video.png')}}" />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <form method="POST" action="{{url('admin/store_section_22')}}" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{url('admin/store_section_21')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
 
@@ -5771,6 +5784,188 @@
                                                         <th>Image</th>
                                                         <th>Video</th>
                                                         <th>Text</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+
+
+                                        </div>
+
+
+                                        <div class="tab-pane fade" id="account-vertical-section_23" role="tabpanel" aria-labelledby="account-pill-section_23" aria-expanded="false">
+                                            <div class="media">
+                                                <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
+                                                    Heading
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img style="width:100%" src="{{asset('public/page_sections/heading.png')}}" />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <form method="POST" action="{{url('admin/store_section_23')}}" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="row">
+
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-4">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Section Name</label>
+                                                                        <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-4">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Heading  </label>
+                                                                        <select name="heading" class="form-control">
+                                                                            <option value="h1"> H1 </option>
+                                                                            <option value="h2"> H2 </option>
+                                                                            <option value="h3"> H3 </option>
+                                                                            <option value="h4"> H4 </option>
+                                                                            <option value="h5"> H5 </option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-4">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Title  </label>
+                                                                        <input type="text" name="title" name="title" class="form-control" id="account-username" data-validation-required-message="This username field is required">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            @include('padding_top_and_bottom');
+
+
+                                                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create  Heading</button>
+                                                                <button type="reset" class="btn btn-light">Cancel</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                            <hr/>
+                                            <table class="table table-striped table-bordered dom-jQuery-events">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Section Name</th>
+                                                        <th>Heading</th>
+                                                        <th>Title</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($section_23 as $row_section_23)
+                                                    <tr>
+                                                        <td>{{$row_section_23->name}}</td>
+
+                                                        <td>{{$row_section_23->heading}}</td>
+                                                        <td>{{$row_section_23->title}}</td>
+                                                        
+                                                        <td>
+
+                                                            <a data-toggle="modal" data-target="#section_23_ModalCenter{{$row_section_23->id}}"> Edit</a> |
+                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_23/'.$row_section_23->id)}}"> Delete </a>
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="section_23_ModalCenter{{$row_section_23->id}}" tabindex="-1" role="dialog" aria-labelledby="section_23_ModalCenter{{$row_section_23->id}}" aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="section_22_ModalLongTitle">{{$row_section_23->title}}</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form method="POST" action="{{url('admin/edit_section_23')}}" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                <input type="hidden" value="{{$row_section_23->id}}" name="id">
+
+                                                                                <div class="row">
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Section Name</label>
+                                                                                                <input type="text" name="name" class="form-control" value="{{$row_section_23->name}}" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                        
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username"> Heading  </label>
+                                                                                                <select name="heading" class="form-control">
+                                                                                                    <option value="{{$row_section_23->heading}}">{{$row_section_23->heading}}</option>
+                                                                                                    <option value="h1"> H1 </option>
+                                                                                                    <option value="h2"> H2 </option>
+                                                                                                    <option value="h3"> H3 </option>
+                                                                                                    <option value="h4"> H4 </option>
+                                                                                                    <option value="h5"> H5 </option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                        
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Title  </label>
+                                                                                                <input type="text" name="title" class="form-control" id="account-username" value="{{$row_section_23->title}}"  data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+                                                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Heading</button>
+                                                                                        <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </td>
+                                                    </tr>
+
+                                                    @endforeach
+
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Section Name</th>
+                                                        <th>Heading</th>
+                                                        <th>Title</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </tfoot>
