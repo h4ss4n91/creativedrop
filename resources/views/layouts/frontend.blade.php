@@ -193,11 +193,6 @@
 						
 						@endforeach
 
-					
-
-					
-						
-
 						<!--====-->
             <li class="nav-item"><a class="nav-link" href="{{url('agency')}}">Agency</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{url('/c/contact')}}">Contact us</a></li>
@@ -256,15 +251,6 @@
             
 		      @endif
                 
-    		
-        
-        
-        
-		
-
-		
-		
-		
 
 	</header>
 
@@ -284,101 +270,34 @@
 			</div>
 
 			<ul class="list-unstyled components">
-				<li>
-					<a href="#">العربية</a>
+        <li>
+					  <a href="{{url('/')}}">Home</a>
 				</li>
-				<li>
-					<a href="{{url('/')}}">Home</a>
-				</li>
-				<li>
-					<a href="{{url('work')}}">Work</a>
-				</li>
-				<li>
-					<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Design</a>
-					<ul class="collapse list-unstyled" id="homeSubmenu">
-						<li>
-							<a href="#homeSubmenuMulti1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Branding Services</a>
-							<ul class="collapse list-unstyled" id="homeSubmenuMulti1">
-								<li>
-									<a href="{{url('logo_design')}}">Logo Design</a>
-									<a href="corporate-identity.php">Corporate Branding</a>
-									<a href="brand-guildeline-book.php">Brand Guideline Book</a>
-									<a href="packaging-design.php">Brand Packaging Design</a>
-									<a href="uniform-branding.php">Uniform Branding</a>
-									<a href="vehicle-branding.php">Vehicle Branding</a>
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<a href="#homeSubmenuMulti2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Graphic Design</a>
-							<ul class="collapse list-unstyled" id="homeSubmenuMulti2">
-								<li>
-									<a href="#">Creative Ads Design</a>
-									<a href="#">Magazine Ads</a>
-									<a href="#">Banner Design</a>
-									<a href="#">Animated Banner</a>
-									<a href="#">Billboard Design</a>
-									<a href="#">Signage Design</a>
-									<a href="#">Menu Design</a>
-									<a href="#">Infographics Design</a>
-									<a href="#">Stand Design</a>
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<a href="#homeSubmenuMulti3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Brochures</a>
-							<ul class="collapse list-unstyled" id="homeSubmenuMulti3">
-								<li>
-									<a href="#">Company Profile Design</a>
-									<a href="#">Brochure Design</a>
-									<a href="#">Catague Design</a>
-									<a href="#">Menu Booklet</a>
-									<a href="#">Pre-Qualification Design</a>
-									<a href="#">Folden Design</a>
-									<a href="#">Flyer Design</a>
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<a href="#homeSubmenuMulti4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Presentations</a>
-							<ul class="collapse list-unstyled" id="homeSubmenuMulti4">
-								<li>
-									<a href="#">Business Presentation</a>
-									<a href="#">Sales Presentation</a>
-									<a href="#">Conference Presentation</a>
-									<a href="#">Investment Presentation</a>
-									<a href="#">Seminar Presentation</a>
-									<a href="#">Creative Presentation</a>
-									<a href="#">Product Presentation</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="#">Web & App</a>
-				</li>
-				<li>
-					<a href="#">Videos</a>
-				</li>
-				<li>
-					<a href="#">Marketing</a>
-				</li>
-
-				<li>
-					<a href="{{url('c/contact')}}">Contact us</a>
-				</li>
-
-				<li>
-					<a href="{{url('agency')}}">Agency</a>
-				</li>
-
-				<li>
-					<a href="insight.php">Insight</a>
-				</li>
+        
+        @foreach($main_menu as $row_main_menu)
+        @php
+        $link = $row_main_menu->menu_link;
+        @endphp
+          <li> <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{$row_main_menu->menu_name}}</a> </li>
+          @php $sub_menu = DB::table('child_menus')->where('menu_id','=',$row_main_menu->id)->get(); @endphp
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+              @foreach($sub_menu as $row_sub_menu)
+                  <li> <a href="#homeSubmenuMulti{{$row_sub_menu->id}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{$row_sub_menu->item_name}}</a> </li>
+                    <ul class="collapse list-unstyled" id="homeSubmenuMulti{{$row_sub_menu->id}}">
+                        @php 
+                          $child_sub_menu = DB::table('sub_child_menus')->where('child_menu_id','=',$row_sub_menu->id)->get(); @endphp
+                        <li>
+                            @foreach($child_sub_menu as $row_child_sub_menu)
+                            @php
+                              $sub_child_menu_link = $row_child_sub_menu->item_link;
+                            @endphp
+                              <a href="{{ URL::to($sub_child_menu_link) }}">{{$row_child_sub_menu->item_name}}</a>
+                            @endforeach
+                        </li>
+                    </ul>
+              @endforeach
+          </ul>
+        @endforeach
 
 			</ul>
 

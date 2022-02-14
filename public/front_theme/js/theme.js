@@ -235,21 +235,21 @@ $(document).ready(function() {
 //filter section
 
 
-$("#service").select2({
+$(".service").select2({
     placeholder: "Filter by Service",
     allowClear: false
 });
-$("#subcategory").select2({
+$(".subcategory").select2({
     placeholder: "Filter by Subcategory",
     allowClear: false
 });
-$("#industry").select2({
+$(".industries").select2({
     placeholder: "Filter by Industry",
     allowClear: false
 });
 
 
-$('#industries').hide();
+
 $('#page_sections').change(function() {
     if ($(this).val() != '') {
         var select = $(this).attr("id");
@@ -264,20 +264,49 @@ $('#page_sections').change(function() {
                 console.log(result);
                 $('#dependent_page_sections').html(result['options']);
                 $('#industries').show();
-                $('#industries').html(result['industries']);
+                $('#industries').html(result['subServices']);
             }
 
         })
     }
 });
 
+$('#dependent_page_sections').change(function() {
+    if ($(this).val() != '') {
+        var select = $(this).attr("id");
+        var value = $(this).val();
 
+        var dependent = $(this).data('dependent');
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+            url: "sub_services_by_id/" + value,
+            method: "GET",
+            success: function(result) {
+                console.log(result);
+                $('#industries').show();
+                $('#industries').html(result['subServices']);
+            }
 
-$('#page_sections').change(function() {
-    $('#dependent_page_sections').val('');
-    $('#child_dependent_page_sections').val('');
+        })
+    }
 });
 
-$('#state').change(function() {
-    $('#city').val('');
+$('#case_study_industries').unbind().change(function() {
+    if ($(this).val() != '') {
+        var select = $(this).attr("id");
+        var value = $(this).val();
+
+        var dependent = $(this).data('dependent');
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+            url: "industry_by_id/" + value,
+            method: "GET",
+            success: function(result) {
+                console.log(result);
+                $('#industries').show();
+                $('#industries').append(result['subServices']);
+            }
+
+        })
+    }
 });

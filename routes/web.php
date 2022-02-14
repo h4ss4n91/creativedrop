@@ -38,6 +38,8 @@ Route::get('/c/contact', 'WelcomeController@contact');
 
 Route::get('/admin/page_section_id/{id}', 'BackendController@page_section_id')->name('admin.page_section_id');
 Route::get('/services_by_id/{id}', 'WelcomeController@services_by_id')->name('services_by_id');
+Route::get('/sub_services_by_id/{id}', 'WelcomeController@sub_services_by_id')->name('sub_services_by_id');
+Route::get('/industry_by_id/{id}', 'WelcomeController@industry_by_id')->name('industry_by_id');
 Route::get('/services_by_id_with_services/{id}', 'WelcomeController@services_by_id_with_services')->name('services_by_id_with_services');
 
 Route::get('/admin/services_by_id/{id}', 'WelcomeController@services_by_id')->name('services_by_id');

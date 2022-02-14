@@ -15,11 +15,11 @@
                                 
                                 <div id="carouselExampleIndicators" class="position-relative scrollto-section carousel slide" data-ride="carousel">
                                     <a href="#section-2" id="sectionTwo" class="mouse" aria-hidden="true">
-                                    <span class="mouse__wheel"></span>
-                                    <span class="mouse__text">SCROLL TO EXPLORE</span>
+                                        <span class="mouse__wheel"></span>
+                                        <span class="mouse__text">SCROLL TO EXPLORE</span>
                                     </a>
                                     <ol class="carousel-indicators">
-                                        @php $num = 0; @endphp
+                                            @php $num = 0; @endphp
                                             @foreach($sliders as $row_slider)
                                                 <li data-target="#carouselExampleIndicators" data-slide-to="{{$num++}}" class="{{$row_slider->status}}"></li>
                                             @endforeach
@@ -136,7 +136,7 @@
                                     <div class="portfolio-filters">
                                         <ul class="list-inline my-4 p-0">
                                             <li class="list-inline-item">
-                                                <select id="page_sections" class="js-states form-control" name="section1">
+                                                <select id="page_sections" class="service js-states form-control" name="section1">
                                                     <option value="#">  --- Select Section --- </option>
                                                     @foreach($main_menu as $row_main_menu)
                                                         <option value="{{$row_main_menu->id}}"> {{$row_main_menu->menu_name}} </option>
@@ -144,8 +144,22 @@
                                                 </select>
                                             </li>
                                             <li class="list-inline-item">
-                                                <select id="dependent_page_sections" class="js-states form-control" name="section1">
+                                                <select id="dependent_page_sections" class="subcategory js-states form-control" name="section1">
                                                     <option></option>
+                                                </select>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <select id="case_study_industries" class="industries js-states form-control" name="section1">
+                                                    @php
+                                                        $industries = DB::table('industries')->get();
+                                                    @endphp
+                                                    @foreach($industries as $row_industries)
+                                                    
+                                                    <option value="{{$row_industries->title}}">{{$row_industries->title}}</option>
+                                                    @endforeach
+
+                                                    
+                                                    
                                                 </select>
                                             </li>
                                         </ul>
@@ -632,7 +646,7 @@
         @elseif( $row_pages->section== '15' )
         
         @php
-            $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_type)->get();
+            $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_type)->orderBy('id','ASC')->get();
         @endphp
     
         @if($section_15[0]->style == 'style1')
@@ -707,36 +721,11 @@
                     </section>
     
     
-                    <section class="section-bg-white section-padbottom-30 brand-tile">
-                        <div class="web-container">
-                            <div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
-                                <div class="col-sm-6 col-md-6 align-self-center">
-                                    <div class="uniform-tile-img">
-                                        <div class="img-block web-border-radius-5">
-                                            <img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6 align-self-center">
-                                    <div class="brand-tile-content uniform-content">
-                                        <h3 class="web-h3">{{$row_section_15->heading1}}</h3>
-                                        <a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+
     
                 @endforeach
     
         @endif
-    
-    
-    
-          
-    
-    
-    
     
     
         @elseif( $row_pages->section== '16' )

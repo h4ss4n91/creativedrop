@@ -47,6 +47,7 @@ class WelcomeController extends Controller
     {
         $pages = DB::table('page')->where('title', '=', $id)->get();
         $case_study = DB::table('case_study')->where('id', '=', $id)->get();
+        $case_study_content = DB::table('case_study_content')->where('case_study_id', '=', $id)->get();
         $main_menu = DB::table('menus')->where('menu_link','!=','#')->get();
         $main_menus = "";
         $para_style_1 = "";
@@ -64,7 +65,7 @@ class WelcomeController extends Controller
         $team_section = "";
         $videos = "";
         
-        return view('case-study', Compact('id','para_style_1', 'case_study', 'services', 'main_menus', 'para_style_2', 'main_menu', 'para_style_3', 'para_style_4', 'para_style_5', 'pages','client_and_partner','request','industries','news','case_study','team_section','sliders','videos'));
+        return view('case-study', Compact('id','para_style_1', 'case_study', 'case_study_content', 'services', 'main_menus', 'para_style_2', 'main_menu', 'para_style_3', 'para_style_4', 'para_style_5', 'pages','client_and_partner','request','industries','news','case_study','team_section','sliders','videos'));
     }
 
 
@@ -117,23 +118,45 @@ class WelcomeController extends Controller
 
     public function services_by_id_with_services ($id){
         
-        $sub_category = DB::table('sub_child_menus')->where('child_menu_id', '=', $id)->get();
-        $industries = DB::table('industries')->where('service_id', '=', $id)->get();
-            $Array = [];
-            foreach($sub_category as $row){
-                $Array[] = '<option value="'.$row->id.'">'.$row->item_name.'</option>';
-            }
-            $final_Result = $Array;
+        $sub_category = DB::table('child_menus')->where('menu_id', '=', $id)->get();
 
-            $industry_Array = [];
-            foreach($industries->unique('title') as $row_industries){
-                $industry_Array[] = '<li class="list-inline-item">'.$row_industries->title.' <span><i class="fas fa-times"></i><span></span></span></li>';
-            }
-            $industries_array = $industry_Array;
+        $main_category = DB::table('menus')->where('id', '=', $id)->get();
 
+        $industries = DB::table('industry_services')->where('service_id', '=', $id)->get();
 
-            return response()->json(["options" => $final_Result, "industries"=>$industries_array]);
-            // return $final_Result;
+        $Array = [];
+
+        foreach($sub_category as $row){
+
+            $Array[] = '<option value="'.$row->id.'">'.$row->item_name.'</option>';
+
+        }
+
+        $final_Result = $Array;
+
+        $mainCategory = '<li class="list-inline-item">'.$main_category[0]->menu_name.'<span><i class="fas fa-times"></i><span></span></span></li>';
+
+        return response()->json(["options" => $final_Result, "subServices"=>$mainCategory]);
+    }
+
+    public function sub_services_by_id ($id){
+        
+        $sub_category = DB::table('child_menus')->where('id', '=', $id)->get();
+
+        $main_category = DB::table('menus')->where('id', '=', $sub_category[0]->menu_id)->first();
+
+        $industries = DB::table('industry_services')->get();
+
+        $sub_category = '<li class="list-inline-item">'.$main_category->menu_name.'<span><i class="fas fa-times"></i><span></span></span></li><li class="list-inline-item">'.$sub_category[0]->item_name.'<span><i class="fas fa-times"></i><span></span></span></li>';
+
+        return response()->json(["subServices"=>$sub_category]);
+    }
+
+    public function industry_by_id ($id){
+        
+        $industries_name = '<li class="list-inline-item">'.$id.'<span><i class="fas fa-times"></i><span></span></span></li>';
+
+        return response()->json(["subServices"=>$industries_name]);
     }
 
     

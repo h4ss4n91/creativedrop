@@ -515,18 +515,14 @@ class BackendController extends Controller {
         $file_name = $file->getClientOriginalName(); //Get file original name
         $file->move(public_path('industries'), $file_name); // move files to destination folder
 
-        for ($i = 0; $i < count($request->service); $i++) {
-            DB::table('industries')->insert(
+            $id = DB::table('industries')->insertGetId(
                     [
                         'image' => $file_name,
                         'page_id' => $request->page_id,
                         'name' => $request->name,
-                        'service_id' => $data['service'][$i],
-                        'sub_category_id' => $data['sub_menu_id'][$i],
                         'title' => $data['title']
                     ]
             );
-        }
         return redirect()->back();
     }
 
@@ -1199,8 +1195,6 @@ class BackendController extends Controller {
         $file = $request->file('image'); // will get all files
 
         if ($file == NULL) {
-
-
 
             $affected = DB::table('section_18')
                     ->where('id', $request->id)
