@@ -237,7 +237,8 @@ $(document).ready(function() {
 
 $(".service").select2({
     placeholder: "Filter by Service",
-    allowClear: false
+    allowClear: false,
+
 });
 $(".subcategory").select2({
     placeholder: "Filter by Subcategory",
@@ -248,7 +249,7 @@ $(".industries").select2({
     allowClear: false
 });
 
-
+$('#industry_section').hide();
 
 $('#page_sections').change(function() {
     if ($(this).val() != '') {
@@ -261,10 +262,12 @@ $('#page_sections').change(function() {
             url: "services_by_id_with_services/" + value,
             method: "GET",
             success: function(result) {
-                console.log(result);
+                
+                $(`.${result['class_name']}`).show().siblings().not(`.${result['class_name']}`).not(".col-md-12").hide("slow", arguments.callee);
+                $('#industry_section').hide();
                 $('#dependent_page_sections').html(result['options']);
-                $('#industries').show();
                 $('#industries').html(result['subServices']);
+
             }
 
         })
@@ -282,8 +285,9 @@ $('#dependent_page_sections').change(function() {
             url: "sub_services_by_id/" + value,
             method: "GET",
             success: function(result) {
-                console.log(result);
-                $('#industries').show();
+
+
+                $('#industry_section').show();
                 $('#industries').html(result['subServices']);
             }
 
@@ -291,7 +295,7 @@ $('#dependent_page_sections').change(function() {
     }
 });
 
-$('#case_study_industries').unbind().change(function() {
+$('#case_study_industries').change(function() {
     if ($(this).val() != '') {
         var select = $(this).attr("id");
         var value = $(this).val();
@@ -302,11 +306,17 @@ $('#case_study_industries').unbind().change(function() {
             url: "industry_by_id/" + value,
             method: "GET",
             success: function(result) {
-                console.log(result);
-                $('#industries').show();
+
+                $("#industry").remove();
+                $('#case_study_industries').show();
                 $('#industries').append(result['subServices']);
+
             }
 
         })
     }
+});
+
+$('#page_sections').change(function() {
+    $('#case_study_industries').hide();
 });

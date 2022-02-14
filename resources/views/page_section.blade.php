@@ -106,25 +106,25 @@
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_1" data-toggle="pill" href="#account-vertical-style_1" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Paragraph Style 1
+                                    <i class="feather icon-type"></i> Paragraph
                                 </a>
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_2" data-toggle="pill" href="#account-vertical-style_2" aria-expanded="false">
                                     <i class="feather icon-type"></i> Paragraph Style 2
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_3" data-toggle="pill" href="#account-vertical-style_3" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Paragraph Style 3
+                                    <i class="feather icon-type"></i> Two Columns Paragraph 
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_4" data-toggle="pill" href="#account-vertical-style_4" aria-expanded="false">
                                     <i class="feather icon-type"></i> Paragraph Style 4
                                 </a>
-                            </li>
+                            </li> --}}
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_5" data-toggle="pill" href="#account-vertical-style_5" aria-expanded="false">
@@ -213,18 +213,19 @@
                                                                     <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
                                                             </div>
                                                                 <div class="col-6">
-                                                                    <div class="col-6">
-                                                                        <div class="form-group">
-                                                                            <div class="controls">
-                                                                                <label for="account-username">Page Name</label>
-                                                                                <select class="form-control" name="page_id">
-                                                                            @foreach($pages as $row_page)
-                                                                                    <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                            @endforeach
-                                                                        </select>
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <div class="form-group">
+                                                                                <div class="controls">
+                                                                                    <label for="account-username">Page Name</label>
+                                                                                    <select class="form-control" name="page_id">
+                                                                                @foreach($pages as $row_page)
+                                                                                        <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
 
                                                                     <div class="col-6">
                                                                         <div class="form-group">
@@ -234,8 +235,10 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
+                                                                </div>
+                                                                <div class="row">
                                                                     @include('padding_top_and_bottom');
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -352,9 +355,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_sliders->text1}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_slider')}}" enctype="multipart/form-data">
@@ -595,11 +596,13 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                                
+                                                            @include('padding_top_and_bottom');
+                                            
 
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                            Video</button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Video</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>

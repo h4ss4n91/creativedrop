@@ -134,9 +134,12 @@ class WelcomeController extends Controller
 
         $final_Result = $Array;
 
-        $mainCategory = '<li class="list-inline-item">'.$main_category[0]->menu_name.'<span><i class="fas fa-times"></i><span></span></span></li>';
+        $mainCategory = '<script>$("#remove_main_service").change(function() {
+            alert("hide");
+        });</script><li class="list-inline-item">'.$main_category[0]->menu_name.'<span><i id="remove_main_service" class="fas fa-times"></i></span></li>';
+        $class_name = $main_category[0]->menu_link;
 
-        return response()->json(["options" => $final_Result, "subServices"=>$mainCategory]);
+        return response()->json(["options" => $final_Result, "subServices"=>$mainCategory, "class_name"=>$class_name]);
     }
 
     public function sub_services_by_id ($id){
@@ -147,14 +150,14 @@ class WelcomeController extends Controller
 
         $industries = DB::table('industry_services')->get();
 
-        $sub_category = '<li class="list-inline-item">'.$main_category->menu_name.'<span><i class="fas fa-times"></i><span></span></span></li><li class="list-inline-item">'.$sub_category[0]->item_name.'<span><i class="fas fa-times"></i><span></span></span></li>';
+        $sub_category = '<li class="list-inline-item">'.$main_category->menu_name.'<span id="remove_sub_services"><i class="fas fa-times"></i></span></li><li class="list-inline-item">'.$sub_category[0]->item_name.'<span><i class="fas fa-times"></i><span></span></span></li>';
 
         return response()->json(["subServices"=>$sub_category]);
     }
 
     public function industry_by_id ($id){
         
-        $industries_name = '<li class="list-inline-item">'.$id.'<span><i class="fas fa-times"></i><span></span></span></li>';
+        $industries_name = '<li id="industry" class="list-inline-item">'.$id.'<span id="remove_industry"><i class="fas fa-times"></i></span></li>';
 
         return response()->json(["subServices"=>$industries_name]);
     }

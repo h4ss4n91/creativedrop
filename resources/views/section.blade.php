@@ -137,7 +137,7 @@
                                         <ul class="list-inline my-4 p-0">
                                             <li class="list-inline-item">
                                                 <select id="page_sections" class="service js-states form-control" name="section1">
-                                                    <option value="#">  --- Select Section --- </option>
+                                                    <option value="#">  --- Select Service --- </option>
                                                     @foreach($main_menu as $row_main_menu)
                                                         <option value="{{$row_main_menu->id}}"> {{$row_main_menu->menu_name}} </option>
                                                     @endforeach
@@ -148,8 +148,9 @@
                                                     <option></option>
                                                 </select>
                                             </li>
-                                            <li class="list-inline-item">
+                                            <li id="industry_section" class="list-inline-item">
                                                 <select id="case_study_industries" class="industries js-states form-control" name="section1">
+                                                    <option value="#">  --- Select Industries --- </option>
                                                     @php
                                                         $industries = DB::table('industries')->get();
                                                     @endphp
@@ -165,7 +166,8 @@
                                         </ul>
                                     </div>
                                     
-                                    <div  class="portfolio-filters-tags">
+                                    <div class="portfolio-filters-tags">
+                                        
                                         <ul id="industries" class="list-inline mt-4 mb-3 p-0">
                                             
                                         </ul>
@@ -173,9 +175,21 @@
                                 </div>
                             </div>
                             
+                            
+
+
+                            
                                 @foreach($case_study as $row_case_study)
+
+                                @php
+                                    $services = DB::table('case_study_services')->where('case_study_id', '=', $row_case_study->id)->get();
+                                    
+                                @endphp
     
-                                    <div class="col-6 col-md-4 col-lg-3 mt-5">
+        
+    
+                                    <div class="@foreach($services->unique('service_id') as $row_services) @php $services_name = DB::table('menus')->where('id', '=', $row_services->service_id)->get(); @endphp {{$services_name[0]->menu_link}} @endforeach col-6 col-md-4 col-lg-3 mt-5">
+
                                         <div class="single-portfolio">
                                             <a href="{{url('case_study',$row_case_study->id)}}">
                                             <div class="portfolio-img">

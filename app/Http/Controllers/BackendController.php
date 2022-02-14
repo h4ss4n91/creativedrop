@@ -390,21 +390,21 @@ class BackendController extends Controller {
         );
     
 
-    for ($i = 0; $i < count($request->type); $i++) {
+    // for ($i = 0; $i < count($request->type); $i++) {
 
-        $file_content = $data['case_study_image_content'][$i]; // will get all files
-        $file_content_name = $file_content->getClientOriginalName(); //Get file original name
-        $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
+    //     $file_content = $data['case_study_image_content'][$i]; // will get all files
+    //     $file_content_name = $file_content->getClientOriginalName(); //Get file original name
+    //     $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
 
 
-        DB::table('case_study_content')->insert(
-            [
-                'case_study_id' => $id,
-                'image' => $file_content,
-                'type' => $data['type'][$i],
-                'video_link' => $data['video'][$i]]
-        );
-    }
+    //     DB::table('case_study_content')->insert(
+    //         [
+    //             'case_study_id' => $id,
+    //             'image' => $file_content,
+    //             'type' => $data['type'][$i],
+    //             'video_link' => $data['video'][$i]]
+    //     );
+    // }
 
     for ($i = 0; $i < count($request->service); $i++) {
 
