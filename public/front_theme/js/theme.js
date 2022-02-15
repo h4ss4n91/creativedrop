@@ -249,7 +249,7 @@ $(".industries").select2({
     allowClear: false
 });
 
-$('#industry_section').hide();
+
 
 $('#page_sections').change(function() {
     if ($(this).val() != '') {
@@ -285,8 +285,6 @@ $('#dependent_page_sections').change(function() {
             url: "sub_services_by_id/" + value,
             method: "GET",
             success: function(result) {
-
-
                 $('#industry_section').show();
                 $('#industries').html(result['subServices']);
             }

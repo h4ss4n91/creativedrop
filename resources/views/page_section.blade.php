@@ -798,15 +798,6 @@
 
 
                                                             <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Service Name</label>
-                                                                        <input type="text" name="main_service" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12">
                                                                 <script>
                                                                     $(document).ready(function() {
                                                                         // Denotes total number of rows
@@ -815,10 +806,55 @@
                                                                         $('#ServiceaddBtn').on('click', function() {
                                                                             // Adding a row inside the tbody.
                                                                             $('#Servicetbody').append(`<tr id="R${++ServicerowIdx}">
-                                                              <td class="row-index text-center"><input type="text" name="sub_service[]" class="form-control"/></td>
-                                                              <td class="row-index text-center"><input type="text" name="sub_service_link[]" class="form-control"/></td>
-                                                              <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                              </tr>`);
+                                                                            <td class="row-index text-center"><select id="service" name="service[]" class="form-control service${ServicerowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
+                                                                            <td class="row-index text-center"><select  id="dependent_page_sections${ServicerowIdx}" name="sub_category[]" class="sub_service${ServicerowIdx} form-control"><option>--Select Sub Category--</option></select></td>
+                                                                            <td class="row-index text-center"><input name="sub_service_link[]" class="form-control sub_service_link${ServicerowIdx}" type="text"/></td>
+                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                            </tr>`);
+
+                                                                            $('#Servicetbody').on('change', `.service${ServicerowIdx}`, function() {
+                                                                            if ($(this).val() != '') {
+                                                                                var select = $(this).attr("id");
+                                                                                var value = $(this).val();
+                                                                                    
+                                                                                var dependent = $(this).data('dependent');
+                                                                                var _token = $('input[name="_token"]').val();
+                                                                                $.ajax({
+                                                                                    url: "services_by_id/" + value,
+                                                                                    method: "GET",
+                                                                                    success: function(result) {
+                                                                                        
+                                                                                        $(`#dependent_page_sections${ServicerowIdx}`).html(result);
+                                                                                    }
+
+                                                                                    })
+                                                                                }
+                                                                            });
+
+                                                                            $('#Servicetbody').on('change', `.sub_service${ServicerowIdx}`, function() {
+                                                                            if ($(this).val() != '') {
+                                                                                var select = $(this).attr("id");
+                                                                                var value = $(this).val();
+                                                                                    
+                                                                                var dependent = $(this).data('dependent');
+                                                                                var _token = $('input[name="_token"]').val();
+                                                                                $.ajax({
+                                                                                    url: "../sub_services_by_id/" + value,
+                                                                                    method: "GET",
+                                                                                    success: function(result) {
+                                                                                        console.log(result['sub_category_link']);
+                                                                                        $(`.sub_service_link${ServicerowIdx}`).val(result['sub_category_link']);
+                                                                                        
+                                                                                        
+                                                                                    }
+
+                                                                                    })
+                                                                                }
+                                                                            });
+
+                                                                        
+
+
                                                                         });
                                                                         // jQuery button click event to remove a row.
                                                                         $('#Servicetbody').on('click', '.remove', function() {
@@ -842,21 +878,21 @@
                                                                             // Removing the current row.
                                                                             $(this).closest('tr').remove();
                                                                             // Decreasing total number of rows by 1.
-                                                                            ServicerowIdx--;
+                                                                            caseStudyServicesrowIdx--;
                                                                         });
                                                                     });
                                                                 </script>
 
                                                                 <div class="container pt-4">
-                                                                    <button class="btn btn-md btn-primary" id="ServiceaddBtn" type="button"> Add Sub Service </button>
+                                                                    <button class="btn btn-md btn-warning" id="ServiceaddBtn" type="button"> Add Services and Sub Services </button>
                                                                     <div class="table-responsive">
                                                                         <table class="table table-bordered">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th class="text-center">Sub Services</th>
+                                                                                    <th class="text-center">Service Name</th>
+                                                                                    <th class="text-center">Sub Service</th>
                                                                                     <th class="text-center">Link</th>
-
-                                                                                    <th class="text-center">Remove Row</th>
+                                                                                    <th class="text-center"></th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody id="Servicetbody">
@@ -864,10 +900,10 @@
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
 
+                                                            
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
@@ -1086,30 +1122,65 @@
                                                                         var caseStudyrowIdx = 0;
                                                                         // jQuery button click event to add a row
                                                                         $('#caseStudyaddBtn').on('click', function() {
-                                                                            $('.video').hide();
-                                                                                $('.image').hide();
+                                                                            
                                                                             // Adding a row inside the tbody.
                                                                             $('#caseStudytbody').append(`<tr id="R${++caseStudyrowIdx}">
                                                                                 <td class="row-index text-center">
-                                                                                    <input type="file" name="case_study_image_content[]" class="image form-control"/>
+                                                                                    <select name="type[]" class="type${caseStudyrowIdx} form-control">
+                                                                                        <option value="">--- Select Type ---</option>
+                                                                                        <option value="image${caseStudyrowIdx}">Image</option>
+                                                                                        <option value="video${caseStudyrowIdx}">Video</option>
+                                                                                        </select>
                                                                                 </td>
                                                                                 <td class="row-index text-center">
-                                                                                    <select class="form-control" name="select_style">
-                                                                                        <option>---Select Style---</option>
-                                                                                        <option>section-bg-white</option>
+                                                                                    <input id="image${caseStudyrowIdx}" type="file" name="case_study_image_content[]" class="image form-control"/>
+                                                                                    <input id="video${caseStudyrowIdx}" type="text" name="video[]" placeholder="Video Link" class="video form-control"/>
+                                                                                </td>
+                                                                                <td class="row-index text-center">
+                                                                                    <select style="display:none;" id="image_bg${caseStudyrowIdx}" class="form-control" name="select_style_for_image[]">
+                                                                                        <option value="">---Select bg Style---</option>
+                                                                                        <option value=""> No </option>
+                                                                                        <option value="section-bg-white">section-bg-white</option>
+                                                                                    </select>
+                                                                                    <select style="display:none" id="video_bg${caseStudyrowIdx}" class="video_bg${caseStudyrowIdx} form-control" name="select_style_for_video[]">
+                                                                                        <option value="">---Select Background for Video---</option>
+                                                                                        <option value="cs-yt-video${caseStudyrowIdx}"> Video with Background </option>
+                                                                                        <option value="bg-white section-bg-white mt-0 pt-0">Video Full Width</option>
                                                                                     </select>
                                                                                 </td>
+                                                                                
                                                                                 <td class="row-index text-center">
-                                                                                    <input type="text" name="video[]" class="video form-control"/>
-                                                                                </td>
-                                                                                <td class="row-index text-center">
-                                                                                    <input type="file" name="case_study_image_content[]" class="image form-control"/>
+                                                                                    <input type="file" style="display:none;" name="case_study_video_background[]" class="image_video_bg${caseStudyrowIdx} form-control"/>
                                                                                 </td>
                                                                                 
                                                                                 <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
                                                                                 </tr>`);
-                                                                                // $('#caseStudytbody').on('change', `.type${caseStudyrowIdx}`, function() {
-                                                                                // });
+                                                                                $('#caseStudytbody').on('change', `.type${caseStudyrowIdx}`, function() {
+                                                                                    var value = $(this).val();
+                                                                                    console.log($(this).attr('class'));
+                                                                                    console.log(`#video${caseStudyrowIdx}`);
+                                                                                    console.log(`#image${caseStudyrowIdx}`);
+                                                                                    if(value == `image${caseStudyrowIdx}`){
+                                                                                        $(`#video${caseStudyrowIdx}`).hide();
+                                                                                        $(`#video_bg${caseStudyrowIdx}`).hide();
+                                                                                        $(`#image${caseStudyrowIdx}`).show();
+                                                                                        $(`#image_bg${caseStudyrowIdx}`).show();
+                                                                                    }else if(value == `video${caseStudyrowIdx}`){
+                                                                                        $(`#image${caseStudyrowIdx}`).hide();
+                                                                                        $(`#image_bg${caseStudyrowIdx}`).hide();
+                                                                                        $(`#video${caseStudyrowIdx}`).show();
+                                                                                        $(`#video_bg${caseStudyrowIdx}`).show();
+                                                                                    }
+                                                                                });
+                                                                                $('#caseStudytbody').on('change', `.video_bg${caseStudyrowIdx}`, function() {
+                                                                                    var value = $(this).val();
+                                                                                    
+                                                                                    if(value == `cs-yt-video${caseStudyrowIdx}`){
+                                                                                        $(`.image_video_bg${caseStudyrowIdx}`).show();
+                                                                                    }else{
+                                                                                        $(`.image_video_bg${caseStudyrowIdx}`).hide();
+                                                                                    }
+                                                                                });
                                                                         });
                                                                         
                                                                         // jQuery button click event to remove a row.
@@ -1147,11 +1218,9 @@
                                                                         <table class="table table-bordered">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th class="text-center">Image</th>
-                                                                                    <th class="text-center">Image Style</th>
-                                                                                    <th class="text-center">Video</th>
-                                                                                    <th class="text-center">Video Background Image</th>
-                                                                                    <th class="text-center">Video Style</th>
+                                                                                    <th class="text-center">Type</th>
+                                                                                    <th class="text-center">Content</th>
+                                                                                    <th class="text-center">Style</th>
                                                                                     <th class="text-center"></th>
                                                                                 </tr>
                                                                             </thead>
@@ -1244,7 +1313,6 @@
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
 

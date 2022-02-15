@@ -144,15 +144,16 @@ class WelcomeController extends Controller
 
     public function sub_services_by_id ($id){
         
-        $sub_category = DB::table('child_menus')->where('id', '=', $id)->get();
+        $sub_category_id = DB::table('child_menus')->where('id', '=', $id)->get();
 
-        $main_category = DB::table('menus')->where('id', '=', $sub_category[0]->menu_id)->first();
+        $main_category = DB::table('menus')->where('id', '=', $sub_category_id[0]->menu_id)->first();
 
         $industries = DB::table('industry_services')->get();
 
-        $sub_category = '<li class="list-inline-item">'.$main_category->menu_name.'<span id="remove_sub_services"><i class="fas fa-times"></i></span></li><li class="list-inline-item">'.$sub_category[0]->item_name.'<span><i class="fas fa-times"></i><span></span></span></li>';
+        $sub_category = '<li class="list-inline-item">'.$main_category->menu_name.'<span id="remove_sub_services"><i class="fas fa-times"></i></span></li><li class="list-inline-item">'.$sub_category_id[0]->item_name.'<span><i class="fas fa-times"></i><span></span></span></li>';
+        $sub_category_link = $sub_category_id[0]->item_link;
 
-        return response()->json(["subServices"=>$sub_category]);
+        return response()->json(["subServices"=>$sub_category, "sub_category_link"=>$sub_category_link]);
     }
 
     public function industry_by_id ($id){

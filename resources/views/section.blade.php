@@ -148,7 +148,7 @@
                                                     <option></option>
                                                 </select>
                                             </li>
-                                            <li id="industry_section" class="list-inline-item">
+                                            <li id="industry_section" style="display:none;" class="list-inline-item">
                                                 <select id="case_study_industries" class="industries js-states form-control" name="section1">
                                                     <option value="#">  --- Select Industries --- </option>
                                                     @php
@@ -689,18 +689,16 @@
     
             @foreach($section_15 as $row_section_15)
             
-            <section class="section-bg-white section-padbottom-30 brand-tile">
+            <section class="section-bg-white section-padtop-30 brand-tile book-design">
                 <div class="web-container">
                     <div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
                         <div class="col-sm-6 col-md-6 align-self-center">
-                            <div class="vehicle-tile-img">
-                                <div class="img-block web-border-radius-5">
-                                    <img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
-                                </div>
+                            <div class="brand-tile-img">
+                                <img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6 align-self-center">
-                            <div class="brand-tile-content vehicle-content">
+                            <div class="brand-tile-content">
                                 <h3 class="web-h3">{{$row_section_15->heading1}}</h3>
                                 <a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
                             </div>
@@ -716,16 +714,20 @@
         @elseif($section_15[0]->style == 'style3')
     
                 @foreach($section_15 as $row_section_15)
-                    <section class="section-bg-white section-padtop-30 brand-tile book-design">
+                    
+
+                    <section class="section-bg-white section-padbottom-30 brand-tile">
                         <div class="web-container">
                             <div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
                                 <div class="col-sm-6 col-md-6 align-self-center">
-                                    <div class="brand-tile-img">
-                                        <img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
+                                    <div class="uniform-tile-img">
+                                        <div class="img-block web-border-radius-5">
+                                            <img src="{{asset('public/section_15/'.$row_section_15->image)}}" alt="" class="obj-cover">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6 align-self-center">
-                                    <div class="brand-tile-content">
+                                    <div class="brand-tile-content vehicle-content">
                                         <h3 class="web-h3">{{$row_section_15->heading1}}</h3>
                                         <a href="javascript:void(0)" class="btn web-btn web-btn-trans mt-4" data-toggle="modal" data-target="#creativeModal">Contact Now</a>
                                     </div>

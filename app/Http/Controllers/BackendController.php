@@ -371,40 +371,73 @@ class BackendController extends Controller {
     public function store_case_study(Request $request) {
 
         $data = $request->all();
-
         
 
-        $file = $data['case_study_image']; // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
-        $file->move(public_path('case_study'), $file_name); // move files to destination folder
+            $file = $data['case_study_image']; // will get all files
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('case_study'), $file_name); // move files to destination folder
+        
+            $id = DB::table('case_study')->insertGetId([
+                        'name' => $request->name,
+                        'image' => $file_name,
+                        'title' => $request->case_study_name,
+                        'short_description' => $request->short_description]
+            );
+
+
+        for ($i = 0; $i < count($request->type); $i++) {
+
+            if($data['type'][$i] == "image"){
+
+                $file_content = $data['case_study_image_content'][$i]; // will get all files
+                $file_content_name = $file_content->getClientOriginalName(); //Get file original name
+                $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
+
+
+                DB::table('case_study_content')->insert(
+                    [
+                        'case_study_id' => $id,
+                        'image' => $file_content,
+                        'type' => $data['type'][$i],
+                        'image_style' => $data['select_style_for_image'][$i],
+                        'video_link' => $data['video'][$i]]
+                );
+
+            }else{
+
+                if ($data['select_style_for_video'][$i] != NULL) {
+
+                    $file_video_bg_content = $data['case_study_video_background'][$i]; // will get all files
+                    $file_video_bg_content_name = $file_video_bg_content->getClientOriginalName(); //Get file original name
+                    $file_video_bg_content->move(public_path('case_study_video_background'), $file_video_bg_content_name); // move files to destination folder
+
+                    DB::table('case_study_content')->insert(
+                        [
+                            'case_study_id' => $id,
+                            'type' => $data['type'][$i],
+                            'video_background' => $file_video_bg_content,
+                            'video_style' => $data['select_style_for_video'][$i],
+                            'video_link' => $data['video'][$i]]
+                    );
+                }else{
+
+                    DB::table('case_study_content')->insert(
+                        [
+                            'case_study_id' => $id,
+                            'type' => $data['type'][$i],
+                            'video_style' => $data['select_style_for_video'][$i],
+                            'video_link' => $data['video'][$i]]
+                    );
+                }
+            }
 
         
+    }
 
 
-        $id = DB::table('case_study')->insertGetId(
-                [
-                    'name' => $request->name,
-                    'image' => $file_name,
-                    'title' => $request->case_study_name,
-                    'short_description' => $request->short_description]
-        );
     
 
-    // for ($i = 0; $i < count($request->type); $i++) {
-
-    //     $file_content = $data['case_study_image_content'][$i]; // will get all files
-    //     $file_content_name = $file_content->getClientOriginalName(); //Get file original name
-    //     $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
-
-
-    //     DB::table('case_study_content')->insert(
-    //         [
-    //             'case_study_id' => $id,
-    //             'image' => $file_content,
-    //             'type' => $data['type'][$i],
-    //             'video_link' => $data['video'][$i]]
-    //     );
-    // }
+    
 
     for ($i = 0; $i < count($request->service); $i++) {
 
@@ -1552,13 +1585,13 @@ class BackendController extends Controller {
     public function store_service(Request $request) {
         $data = $request->all();
 
-        for ($i = 0; $i < count($request->sub_service); $i++) {
+        for ($i = 0; $i < count($request->service); $i++) {
             DB::table('services')->insert(
                     [
                         'name' => $data['name'],
-                        'main_service' => $data['main_service'],
+                        'main_service' => $data['service'][$i],
                         'bootstra_class_name' => $data['class_name'],
-                        'sub_service' => $data['sub_service'][$i],
+                        'sub_service' => $data['sub_category'][$i],
                         'sub_service_link' => $data['sub_service_link'][$i]
                     ]
             );
