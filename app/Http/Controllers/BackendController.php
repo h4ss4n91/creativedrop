@@ -48,9 +48,7 @@ class BackendController extends Controller {
     }
 
     public function delete_page($id) {
-
         DB::table('page')->where('id', '=', $id)->delete();
-
         return redirect()->back();
     }
 
@@ -370,9 +368,7 @@ class BackendController extends Controller {
     // Case Study Section
     public function store_case_study(Request $request) {
 
-        $data = $request->all();
-        
-
+            $data = $request->all();
             $file = $data['case_study_image']; // will get all files
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('case_study'), $file_name); // move files to destination folder
@@ -384,83 +380,71 @@ class BackendController extends Controller {
                         'short_description' => $request->short_description]
             );
 
+            for ($i = 0; $i < count($request->type); $i++) {
 
-        for ($i = 0; $i < count($request->type); $i++) {
+                if($data['type'][$i] == "image"){
 
-            if($data['type'][$i] == "image"){
+                    $file_content = $data['case_study_image_content'][$i]; // will get all files
+                    $file_content_name = $file_content->getClientOriginalName(); //Get file original name
+                    $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
 
-                $file_content = $data['case_study_image_content'][$i]; // will get all files
-                $file_content_name = $file_content->getClientOriginalName(); //Get file original name
-                $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
-
-
-                DB::table('case_study_content')->insert(
-                    [
-                        'case_study_id' => $id,
-                        'image' => $file_content,
-                        'type' => $data['type'][$i],
-                        'image_style' => $data['select_style_for_image'][$i],
-                        'video_link' => $data['video'][$i]]
-                );
-
-            }else{
-
-                if ($data['select_style_for_video'][$i] != NULL) {
-
-                    $file_video_bg_content = $data['case_study_video_background'][$i]; // will get all files
-                    $file_video_bg_content_name = $file_video_bg_content->getClientOriginalName(); //Get file original name
-                    $file_video_bg_content->move(public_path('case_study_video_background'), $file_video_bg_content_name); // move files to destination folder
-
-                    DB::table('case_study_content')->insert(
-                        [
+                    DB::table('case_study_content')->insert([
                             'case_study_id' => $id,
+                            'image' => $file_content,
                             'type' => $data['type'][$i],
-                            'video_background' => $file_video_bg_content,
-                            'video_style' => $data['select_style_for_video'][$i],
+                            'image_style' => $data['select_style_for_image'][$i],
                             'video_link' => $data['video'][$i]]
                     );
+
                 }else{
 
-                    DB::table('case_study_content')->insert(
-                        [
-                            'case_study_id' => $id,
-                            'type' => $data['type'][$i],
-                            'video_style' => $data['select_style_for_video'][$i],
-                            'video_link' => $data['video'][$i]]
-                    );
+                    if ($data['select_style_for_video'][$i] != NULL) {
+
+                        $file_video_bg_content = $data['case_study_video_background'][$i]; // will get all files
+                        $file_video_bg_content_name = $file_video_bg_content->getClientOriginalName(); //Get file original name
+                        $file_video_bg_content->move(public_path('case_study_video_background'), $file_video_bg_content_name); // move files to destination folder
+
+                        DB::table('case_study_content')->insert(
+                            [
+                                'case_study_id' => $id,
+                                'type' => $data['type'][$i],
+                                'video_background' => $file_video_bg_content,
+                                'video_style' => $data['select_style_for_video'][$i],
+                                'video_link' => $data['video'][$i]]
+                        );
+                    }else{
+
+                        DB::table('case_study_content')->insert(
+                            [
+                                'case_study_id' => $id,
+                                'type' => $data['type'][$i],
+                                'video_style' => $data['select_style_for_video'][$i],
+                                'video_link' => $data['video'][$i]]
+                        );
+                    }
                 }
             }
 
+        if($request->service != NULL){
+            for ($i = 0; $i < count($request->service); $i++) {
+
+                DB::table('case_study_services')->insert(
+                    [
+                        'case_study_id' => $id,
+                        'service_id' => $data['service'][$i],
+                        'sub_service_id' => $data['sub_category'][$i]]
+                );
+            }
+        }
         
-    }
-
-
-    
-
-    
-
-    for ($i = 0; $i < count($request->service); $i++) {
-
-        DB::table('case_study_services')->insert(
-            [
-                'case_study_id' => $id,
-                'service_id' => $data['service'][$i],
-                'sub_service_id' => $data['sub_category'][$i]]
-        );
-    }
-
-    for ($i = 0; $i < count($request->industry); $i++) {
-
-        DB::table('case_study_industries')->insert(
-            [
-                'case_study_id' => $id,
-                'industry_id' => $data['industry'][$i]]
-        );
-    }
-
-
-
-
+        if($request->industry != NULL){
+            for ($i = 0; $i < count($request->industry); $i++) {
+                DB::table('case_study_industries')->insert([
+                        'case_study_id' => $id,
+                        'industry_id' => $data['industry'][$i]]
+                );
+            }
+        }
 
         $message = 'Case Study Added successfully';
         return redirect('admin/page_sections')->with('message', $message);
@@ -1670,3 +1654,4 @@ class BackendController extends Controller {
 
 
 }
+

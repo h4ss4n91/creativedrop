@@ -1,13 +1,9 @@
-
-
     @if( $row_pages->section== '1' )
     <section class="banner-with-video">
         @php
             $sliders = DB::table('sliders')->where('name', '=', $row_pages->section_type)->get();
         @endphp
-        
                 <section class="home-slider section-bg-black creative-banner">
-                   
                     <!-- Images slider - Start -->
                     <div class="web-container">
                         <div class="row">
@@ -110,21 +106,13 @@
                     </div>
     
                     @endforeach
-    
-                   
-    
-                    
-                    
                 </div>
             </div>
         </section>
         @elseif( $row_pages->section== '4' )
-            
-    
         @php
             $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_type)->get();
         @endphp
-    
                 <section class="section-bg-grey section-padtop-30 section-padbottom-30 portfolio">
                     <div class="web-container-fluid">
                         <div class="row justify-content-center">
@@ -159,8 +147,6 @@
                                                     <option value="{{$row_industries->title}}">{{$row_industries->title}}</option>
                                                     @endforeach
 
-                                                    
-                                                    
                                                 </select>
                                             </li>
                                         </ul>
@@ -174,20 +160,10 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            
-
-
-                            
                                 @foreach($case_study as $row_case_study)
-
                                 @php
                                     $services = DB::table('case_study_services')->where('case_study_id', '=', $row_case_study->id)->get();
-                                    
                                 @endphp
-    
-        
-    
                                     <div class="@foreach($services->unique('service_id') as $row_services) @php $services_name = DB::table('menus')->where('id', '=', $row_services->service_id)->get(); @endphp {{$services_name[0]->menu_link}} @endforeach col-6 col-md-4 col-lg-3 mt-5">
 
                                         <div class="single-portfolio">
@@ -211,14 +187,9 @@
                                             @endphp
                                             <a target="_blank" href="#" class="blue-link web-h6">@if(!$industry_name->isEmpty()) {{$industry_name[0]->title}} @endif</a>
                                             @endforeach
-    
-                                            
                                         </div>
                                     </div>
-    
                                 @endforeach
-                            
-                            
     
                             <div class="col-md-12">
                                 <ul class="list-inline mt-5 text-center">
@@ -231,12 +202,9 @@
                 </section>
     
         @elseif( $row_pages->section== '5' )
-        
         @php
             $services = DB::table('services')->where('name', '=', $row_pages->section_type)->get();
-            
         @endphp
-        
                 <section id="section-2" class="{{$services[0]->bootstra_class_name}} section-padtop-70 section-padbottom-70 service-block">
                     <div class="web-container">
                         <div class="row">
@@ -284,24 +252,18 @@
                 </div>
         
                 <div class="row justify-content-center mt-5 no-gutters">
-                    
-                    
                         @foreach($client_and_partner as $row_client_and_partner)
-    
                             <div class="col-4 col-md-2">
                                 <div class="client-box">
                                     <img src="{{asset('public/client_and_partner/'.$row_client_and_partner->image)}}" alt="" class="w-75">
                                 </div>
                             </div>
                         @endforeach
-                    
-    
                 </div>
             </div>
         </section>
         
         @elseif( $row_pages->section== '7' )
-           
         @php
             $industries = DB::table('industries')->where('name', '=', $row_pages->section_type)->get();
         @endphp
@@ -330,20 +292,9 @@
                                 </div>
     
                                 @endforeach
-                            
-                            
-                            <!-- <div class="swiper-slide">Slide 2</div>
-                            <div class="swiper-slide">Slide 3</div>
-                            <div class="swiper-slide">Slide 4</div> -->
-                            </div>
-                            <!-- Add Pagination -->
-                            <!-- <div class="swiper-pagination"></div> -->
-                            <!-- Add Arrows -->
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
                         </div>
-                
-                
                         <div class="row">
                             <div class="col-md-12">
                                 <ul class="list-inline">
@@ -354,17 +305,11 @@
                         </div>
                     </div>
                 </section>
-    
-    
-    
-    
+
         @elseif( $row_pages->section== '8' )
-            
-    
         @php
             $news = DB::table('news_and_opinions')->where('name', '=', $row_pages->section_type)->get();
         @endphp
-    
         <section class="section-bg-white section-padtop-30 section-padbottom-30 insight">
             <div class="web-container-fluid">
                 <div class="row justify-content-center">
@@ -372,10 +317,7 @@
                         <p class="web-h5 mb-0">Insight</p>
                         <h2 class="web-h2 mb-0">News & Opinions</h2>
                     </div>
-    
-    
                     @foreach($news as $row_news)
-    
                         <div class="col-6 col-md-4 mt-5">
                             <div class="news-box">
                                 <div class="news-content">
@@ -392,17 +334,13 @@
                                 </div>
                             </div>
                         </div>
-                        
                     @endforeach
-        
                     <div class="col-md-12">
                         <ul class="list-inline mt-5 text-center">
                             <li class="list-inline-item"><a href="#" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
                             <li class="list-inline-item"><a href="#" class="blue-link">Learn more <i class="fas fa-chevron-right pl-1"></i></a></li>
                         </ul>
                     </div>
-        
-                
                 </div>
             </div>
         </section>
@@ -468,19 +406,13 @@
                     </div>
                 </div>
             </section>
-    
-           
-            
         @endif
-    
-    
         @elseif( $row_pages->section== '10' )
         @php
             $para_style_1 = DB::table('para_style_1')->where('name', '=', $row_pages->section_type)->get();
         @endphp
     
         @foreach($para_style_1 as $row_para_style_1)
-    
             <section class="creative-art section-bg-white section-padtop-70 section-padbottom-70">
                 <div class="web-container">
                     <div class="row">
@@ -495,17 +427,14 @@
                     </div>
                 </div>
             </section>
-    
         @endforeach
         
         
     
         @elseif( $row_pages->section== '11' )
-                
         @php
             $para_style_2 = DB::table('para_style_2')->where('name', '=', $row_pages->section_type)->get();
         @endphp
-    
         <section class="section-bg-white section-padtop-30 section-padbottom-30 brand-tile corporate-identity-tiles">
             <div class="web-container">
         
@@ -525,25 +454,16 @@
                         </div>
                     </div>
                 @endforeach
-        
-        
             </div>
         </section>
-    
-    
-    
         @elseif( $row_pages->section== '12' )
-    
         @php
             $para_style_3 = DB::table('para_style_3')->where('name', '=', $row_pages->section_type)->get();
         @endphp
-    
     <section class="section-bg-white section-padtop-30 section-padbottom-30 design-detail">
         <div class="web-container">
             <div class="row">
                 @foreach($para_style_3 as $row_para_style_3)
-    
-                
                 <div class="col-sm-6 col-md-6 mt-5">
                     <div class="design-img">
                         <div class="img-block web-border-radius-5">
@@ -555,22 +475,15 @@
                         <p class="p-14 m-0 web-grey">{{$row_para_style_3->paragraph}}</p>
                     </div>
                 </div>
-                
                 @endforeach
-                
             </div>
         </div>
     </section>
     
-    
-    
         @elseif( $row_pages->section== '13' )
-    
         @php
             $para_style_4 = DB::table('para_style_4')->where('name', '=', $row_pages->section_type)->get();
         @endphp
-    
-    
         <section class="section-bg-white section-padtop-100 center-detail-block">
             <div class="web-container">
                 <div class="row">
@@ -582,13 +495,10 @@
                             <a href="javascript:void(0)" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Meet Us</a>
                         </div>
                     </div>
-    
                     @endforeach
-                    
                 </div>
             </div>
         </section>
-    
     
         @elseif( $row_pages->section== '14' )
         
@@ -648,14 +558,7 @@
                     </div>
                 </div>
             </section>
-    
-    
         @endif
-    
-    
-        
-    
-    
     
         @elseif( $row_pages->section== '15' )
         
@@ -706,16 +609,12 @@
                     </div>
                 </div>
             </section>
-    
-    
                 
             @endforeach
     
         @elseif($section_15[0]->style == 'style3')
     
                 @foreach($section_15 as $row_section_15)
-                    
-
                     <section class="section-bg-white section-padbottom-30 brand-tile">
                         <div class="web-container">
                             <div class="row @if($row_section_15->flex_row_reverse != NULL)flex-row-reverse @endif">
@@ -735,46 +634,36 @@
                             </div>
                         </div>
                     </section>
-    
-    
-
-    
                 @endforeach
-    
         @endif
-    
     
         @elseif( $row_pages->section== '16' )
         
         @php
             $section_16 = DB::table('section_16')->where('name', '=', $row_pages->section_type)->get();
         @endphp
-    
-    
-    <section class="section-bg-white section-padtop-15 section-padbottom-30 logo-design-boxes">
-        <div class="web-container">
-            <div class="row">
-                @php $num = 1; @endphp
-                @foreach($section_16 as $row_section_16)
-    
-                <div class="col-sm-6 col-md-6">
-                    <div class="logo-design-box mt-5">
-                        <div class="box-img">
-                            <img class="img-fluid" src="{{asset('public/section_16/'.$row_section_16->image)}}" alt="">
+        <section class="section-bg-white section-padtop-15 section-padbottom-30 logo-design-boxes">
+            <div class="web-container">
+                <div class="row">
+                    @php $num = 1; @endphp
+                    @foreach($section_16 as $row_section_16)
+        
+                    <div class="col-sm-6 col-md-6">
+                        <div class="logo-design-box mt-5">
+                            <div class="box-img">
+                                <img class="img-fluid" src="{{asset('public/section_16/'.$row_section_16->image)}}" alt="">
+                            </div>
+                            <h4 class="web-h4 mt-3 mb-4">{{$num}}.  {{$row_section_16->heading}}</h4>
+                            <p class="p-14 web-grey mb-0">{{$row_section_16->text}}</p>
                         </div>
-                        <h4 class="web-h4 mt-3 mb-4">{{$num}}.  {{$row_section_16->heading}}</h4>
-                        <p class="p-14 web-grey mb-0">{{$row_section_16->text}}</p>
                     </div>
+                    @php $num++; @endphp
+                    @endforeach
+                    
+                    
                 </div>
-                @php $num++; @endphp
-                @endforeach
-                
-                
             </div>
-        </div>
-    </section>
-    
-    
+        </section>
     
         @elseif( $row_pages->section== '17' )
         
@@ -796,83 +685,66 @@
                     </div>
                 </div>
             </section>
-    
-    
-        
-    
-    
             @elseif( $row_pages->section== '18' )
-        
             @php
                 $section_18 = DB::table('section_18')->where('name', '=', $row_pages->section_type)->get();
             @endphp
         
-        <section class="section-bg-grey creative-samples">
-            <div class="slide-container">
-                <section class="sample-one section-padtop-70 section-padbottom-70">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="sample-content mb-3">
-                                <h5 class="web-h5 mb-0">{{$section_18[0]->headingone}}</h5>
-                                <h3 class="web-h3 mb-0">{{$section_18[0]->headingtwo}}</h3>
-                            </div>
-                        </div>
-                        <!-- Swiper -->
-                        <div class="col-md-12">
-                            <div class="swiper-container logo-slider-block">
-                                <div class="swiper-wrapper">
-                                    
-                                    @foreach($section_18 as $row_section_18)
-    
-                                    <div class="swiper-slide">
-                                        <div class="logo-box">
-                                            <img src="{{asset('public/section_18/'.$row_section_18->image)}}" alt="" class="obj-cover">
-                                        </div>
-                                    </div>
-    
-                                    @endforeach
-                                    
-                                    
+            <section class="section-bg-grey creative-samples">
+                <div class="slide-container">
+                    <section class="sample-one section-padtop-70 section-padbottom-70">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sample-content mb-3">
+                                    <h5 class="web-h5 mb-0">{{$section_18[0]->headingone}}</h5>
+                                    <h3 class="web-h3 mb-0">{{$section_18[0]->headingtwo}}</h3>
                                 </div>
-                                <!-- Add Pagination -->
-                                <!-- <div class="swiper-pagination"></div> -->
+                            </div>
+                            <!-- Swiper -->
+                            <div class="col-md-12">
+                                <div class="swiper-container logo-slider-block">
+                                    <div class="swiper-wrapper">
+                                        
+                                        @foreach($section_18 as $row_section_18)
+        
+                                        <div class="swiper-slide">
+                                            <div class="logo-box">
+                                                <img src="{{asset('public/section_18/'.$row_section_18->image)}}" alt="" class="obj-cover">
+                                            </div>
+                                        </div>
+        
+                                        @endforeach
+                                        
+                                        
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <!-- <div class="swiper-pagination"></div> -->
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-        
-            </div>
-        </section>
-    
-    
+                    </section>
+            
+                </div>
+            </section>
         @elseif( $row_pages->section== '19' )
         
         @php
-        
             $section_19 = DB::table('section_19')->where('name', '=', $row_pages->section_type)->get();
-            
         @endphp
     
         <section class="section-bg-white section-padtop-@if(!$section_19->isEmpty()){{$section_19[0]->padding_top}}@endif section-padbottom-@if(!$section_19->isEmpty()){{$section_19[0]->padding_bottom}}@endif design-detail">
             <div class="web-container">
                 <div class="row">
-                    
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
                 </div>
             </div>
         </section>
         
-        
-        
-    
         @elseif( $row_pages->section== '20' )
         
         @php
             $section_20 = DB::table('section_20')->where('name', '=', $row_pages->section_type)->get();
-            
         @endphp
-    
-        
         <section class="section-bg-black agency-banner">
             <div class="web-container">
                 <div class="row">
@@ -887,25 +759,19 @@
             </div>
         </section>
         
-        
-        
         @elseif( $row_pages->section== '21' )
         
         @php
             $section_21 = DB::table('section_21')->where('name', '=', $row_pages->section_type)->get();
-            
             $sliders = DB::table('sliders')->where('name', '=', $section_21[0]->slider_name)->get();
             $videos = DB::table('videos')->where('name', '=', $section_21[0]->video_name)->get();
         @endphp
         
-        
         <section class="banner-with-video">
         <section class="home-slider section-bg-black creative-banner">
             <!-- Images slider - Start -->
-    
             <div class="web-container">
                 <div class="row">
-                    
                     <div class="col-12">
                         <div style="float:right !important;" >
                             <a style="color:#fff !important;"> <i class="fas fa-edit"></i></a> &nbsp;<a style="color:#fff !important;"><i class="fas fa-trash"></i></a>
@@ -948,13 +814,7 @@
                 </div>
             </div>
             <!-- Images slider - End -->
-    
-    
-        
-            
         </section>
-        
-        
         @foreach($videos as $row_video)
         
                 <section class="section-bg-white section-padbottom-30 home-video-with-banner">
@@ -970,24 +830,15 @@
                     </div>
                 </div>
             </section>
-            
-        
             @endforeach
         
-        
-        
     </section>
-        
-    
     
         @elseif( $row_pages->section== '22' )
-        
         @php
             $section_22 = DB::table('section_22')->where('name', '=', $row_pages->section_type)->get();
-            
         @endphp
     
-        
         <section class="section-bg-white section-padtop-30 section-padbottom-30 design-banner">
     
             <div class="web-container">
@@ -1002,8 +853,6 @@
                                 @endif
                             </div>
                         @endif
-                        
-                        
                         @if(!empty($section_22[0]->image))
                         
                         <div class="banner-image text-center mt-5 mb-3">
@@ -1015,16 +864,12 @@
                         
                         @endif
                         
-                        
-                        
                         @if(!empty($section_22[0]->video))
                         
                             <div class="banner-video text-center mt-5 mb-3">
                                 <iframe class="w-100 web-border-radius-5" width="560" height="315" src="{{$section_22[0]->video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                             </div>
                         @endif
-    
-    
                     </div>
     
                     @if(!empty($section_22[0]->text))
@@ -1036,10 +881,6 @@
                         <a href="javascript:void(0)" class="btn web-btn web-btn-blue float-right" data-toggle="modal" data-target="#creativeModal">Request for a meeting</a>
                     </div>
                     @endif
-                        
-    
-                    
-                    
                 </div>
             </div>
         </section>
@@ -1049,20 +890,14 @@
         
         @php
             $section_23 = DB::table('section_23')->where('name', '=', $row_pages->section_type)->get();
-            
         @endphp
-    
-        
-    <section class="section-bg-white section-padtop-70 section-padbottom-30 samples-heading">
-        <div class="web-container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <{{$section_23[0]->heading}} class="web-{{$section_23[0]->heading}} mb-0">{{$section_23[0]->title}}</{{$section_23[0]->heading}}>
+        <section class="section-bg-white section-padtop-70 section-padbottom-30 samples-heading">
+            <div class="web-container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <{{$section_23[0]->heading}} class="web-{{$section_23[0]->heading}} mb-0">{{$section_23[0]->title}}</{{$section_23[0]->heading}}>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-        
-        
-        
-        @endif
+        </section>
+    @endif

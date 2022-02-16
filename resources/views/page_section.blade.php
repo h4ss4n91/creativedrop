@@ -110,21 +110,12 @@
                                 </a>
                             </li>
 
-                            {{-- <li class="nav-item">
-                                <a class="nav-link d-flex" id="account-pill-style_2" data-toggle="pill" href="#account-vertical-style_2" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Paragraph Style 2
-                                </a>
-                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_3" data-toggle="pill" href="#account-vertical-style_3" aria-expanded="false">
                                     <i class="feather icon-type"></i> Two Columns Paragraph 
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a class="nav-link d-flex" id="account-pill-style_4" data-toggle="pill" href="#account-vertical-style_4" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Paragraph Style 4
-                                </a>
-                            </li> --}}
+                            
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_5" data-toggle="pill" href="#account-vertical-style_5" aria-expanded="false">
@@ -180,12 +171,6 @@
                                     <i class="feather icon-type"></i> Two Headings with Video or Image and Title
                                 </a>
                             </li>
-
-                             
-
-
-
-
 
                         </ul>
                     </div>
@@ -251,14 +236,14 @@
                                                                         $('#slideraddBtn').on('click', function() {
                                                                             // Adding a row inside the tbody.
                                                                             $('#slidertbody').append(`<tr id="R${++SliderrowIdx}">
-                                                              <td class="row-index text-center"><input type="file" name="slider_image[]" class="form-control"/></td>
-                                                              <td class="row-index text-center"><input type="text" name="text_1[]" class="form-control"/></td>
-                                                              <td class="row-index text-center"><input type="text" name="text_2[]" class="form-control"/></td>
-                                                              <td class="row-index text-center"><input type="text" name="link[]" class="form-control"/></td>
-                                                              <td class="row-index text-center">@include('button_style')</td>
-                                                              <td class="row-index text-center"><select name="status[]" class="form-control"><option value=""> None </option><option value="active"> Active </option></select></td>
-                                                              <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                              </tr>`);
+                                                                                <td class="row-index text-center"><input type="file" name="slider_image[]" class="form-control"/></td>
+                                                                                <td class="row-index text-center"><input type="text" name="text_1[]" class="form-control"/></td>
+                                                                                <td class="row-index text-center"><input type="text" name="text_2[]" class="form-control"/></td>
+                                                                                <td class="row-index text-center"><input type="text" name="link[]" class="form-control"/></td>
+                                                                                <td class="row-index text-center">@include('button_style')</td>
+                                                                                <td class="row-index text-center"><select name="status[]" class="form-control"><option value=""> None </option><option value="active"> Active </option></select></td>
+                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
+                                                                                </tr>`);
                                                                         });
                                                                         // jQuery button click event to remove a row.
                                                                         $('#slidertbody').on('click', '.remove', function() {
@@ -313,8 +298,7 @@
 
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                                        Slider</button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Slider</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -449,7 +433,6 @@
 
                                                         <th>Slider Name</th>
                                                         <th>Slider Image</th>
-
                                                         <th>Slider Heading 1</th>
                                                         <th>Slider Heading 2</th>
                                                         <th>Status</th>
@@ -495,72 +478,6 @@
                                                                 </div>
                                                             </div>
 
-                                                            {{--
-                                                            <div class="col-12"> --}} {{--
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var videorowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#videoaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#videotbody').append(`<tr id="R${++videorowIdx}">
-                                                  <td class="row-index text-center"><input type="text" name="slider_image[]" class="form-control"/></td>
-                                                  <td class="row-index text-center"><input type="text" name="text_1[]" class="form-control"/></td>
-                                                  <td class="row-index text-center"><input type="text" name="text_2[]" class="form-control"/></td>
-                                                  <td class="row-index text-center"><input type="text" name="link[]" class="form-control"/></td>
-                                                  <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                  </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#videotbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            videorowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script> --}} {{--
-                                                                <div class="container pt-4">
-                                                                    <button class="btn btn-md btn-primary" id="videoaddBtn" type="button"> Add Video </button>
-                                                                    <div class="table-responsive">
-                                                                        <table class="table table-bordered">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th class="text-center">Video Title</th>
-                                                                                    <th class="text-center">Video Link</th>
-                                                                                    <th class="text-center">Button Label</th>
-                                                                                    <th class="text-center">Button Link</th>
-                                                                                    <th class="text-center">Remove Row</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody id="videotbody">
-
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-
-                                                                </div> --}} {{-- </div> --}}
-
-
-
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
@@ -599,8 +516,6 @@
                                                                 
                                                             @include('padding_top_and_bottom');
                                             
-
-
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Video</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
@@ -645,9 +560,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_videos->video_title}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_video')}}" enctype="multipart/form-data">
@@ -680,8 +593,6 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-
-
 
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
@@ -719,8 +630,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-
                                                         </td>
                                                     </tr>
 
@@ -729,7 +638,6 @@
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-
                                                         <th>Page Name</th>
                                                         <th>Page Description</th>
                                                         <th>Page Slug</th>
@@ -795,8 +703,6 @@
                                                                 </div>
                                                             </div>
 
-
-
                                                             <div class="col-12">
                                                                 <script>
                                                                     $(document).ready(function() {
@@ -823,7 +729,6 @@
                                                                                     url: "services_by_id/" + value,
                                                                                     method: "GET",
                                                                                     success: function(result) {
-                                                                                        
                                                                                         $(`#dependent_page_sections${ServicerowIdx}`).html(result);
                                                                                     }
 
@@ -835,26 +740,17 @@
                                                                             if ($(this).val() != '') {
                                                                                 var select = $(this).attr("id");
                                                                                 var value = $(this).val();
-                                                                                    
                                                                                 var dependent = $(this).data('dependent');
                                                                                 var _token = $('input[name="_token"]').val();
                                                                                 $.ajax({
                                                                                     url: "../sub_services_by_id/" + value,
                                                                                     method: "GET",
                                                                                     success: function(result) {
-                                                                                        console.log(result['sub_category_link']);
                                                                                         $(`.sub_service_link${ServicerowIdx}`).val(result['sub_category_link']);
-                                                                                        
-                                                                                        
                                                                                     }
-
                                                                                     })
                                                                                 }
                                                                             });
-
-                                                                        
-
-
                                                                         });
                                                                         // jQuery button click event to remove a row.
                                                                         $('#Servicetbody').on('click', '.remove', function() {
@@ -896,18 +792,14 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody id="Servicetbody">
-
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
 
-                                                            
-
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                                        Services</button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Services</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -943,9 +835,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <h5 class="modal-title" id="exampleModalLongTitle">Testing</h5>
-                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <form method="POST" action="{{url('admin/edit_service')}}" enctype="multipart/form-data">
@@ -958,10 +848,10 @@
                                                                                                 <div class="controls">
                                                                                                     <label for="account-username">Page Name</label>
                                                                                                     <select class="form-control" name="page_id">
-                                                                                   @foreach($pages as $row_page)
-                                                                                        <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                                   @endforeach
-                                                                            </select>
+                                                                                                        @foreach($pages as $row_page)
+                                                                                                                <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
+                                                                                                        @endforeach
+                                                                                                    </select>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -979,14 +869,13 @@
                                                                                                 <div class="controls">
                                                                                                     <label for="account-username">CLASS NAME</label>
                                                                                                     <select class="form-control" name="class_name">
-                                                                            <option name="section-bg-white">section-bg-white</option>
-                                                                            <option name="section-bg-white">section-bg-white</option>
-                                                                            <option name="section-bg-grey-grad">section-bg-grey-grad</option>
-                                                                        </select>
+                                                                                                        <option name="section-bg-white">section-bg-white</option>
+                                                                                                        <option name="section-bg-white">section-bg-white</option>
+                                                                                                        <option name="section-bg-grey-grad">section-bg-grey-grad</option>
+                                                                                                    </select>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
-
 
                                                                                         <div class="col-12">
                                                                                             <div class="form-group">
@@ -1005,7 +894,6 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
-
 
                                                                                         <div class="col-12">
                                                                                             <div class="form-group">
@@ -1100,9 +988,6 @@
                                                                 <img style="width:100%" src="{{asset('public/page_sections/case_study.png')}}" />
                                                             </div>
 
-                                                           
-                                                            
-
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
@@ -1111,8 +996,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-
 
                                                             <div class="col-12">
                                                                 <script>
@@ -1188,7 +1071,6 @@
                                                                             // Getting all the rows next to the row
                                                                             // containing the clicked button
                                                                             
-
                                                                             var child = $(this).closest('tr').nextAll();
                                                                             // Iterating across all the rows 
                                                                             // obtained to change the index
@@ -1239,36 +1121,31 @@
                                                                         // Denotes total number of rows
                                                                         var caseStudyServicesrowIdx = 0;
                                                                         // jQuery button click event to add a row
-                                                                        $('#caseStudyServicesaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#caseStudyServicestbody').append(`<tr id="R${++caseStudyServicesrowIdx}">
-                                                                            <td class="row-index text-center"><select id="service" name="service[]" class="form-control service${caseStudyServicesrowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
-                                                                            <td class="row-index text-center"><select  id="dependent_page_sections${caseStudyServicesrowIdx}" name="sub_category[]" class="form-control"><option>--Select Sub Category--</option></select></td>
-                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
-                                                                            </tr>`);
+                                                                            $('#caseStudyServicesaddBtn').on('click', function() {
+                                                                                // Adding a row inside the tbody.
+                                                                                $('#caseStudyServicestbody').append(`<tr id="R${++caseStudyServicesrowIdx}">
+                                                                                <td class="row-index text-center"><select id="service" name="service[]" class="form-control service${caseStudyServicesrowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
+                                                                                <td class="row-index text-center"><select  id="dependent_page_sections${caseStudyServicesrowIdx}" name="sub_category[]" class="form-control"><option>--Select Sub Category--</option></select></td>
+                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                                </tr>`);
 
-                                                                            $('#caseStudyServicestbody').on('change', `.service${caseStudyServicesrowIdx}`, function() {
-                                                                            if ($(this).val() != '') {
-                                                                                var select = $(this).attr("id");
-                                                                                var value = $(this).val();
-                                                                                    
-                                                                                var dependent = $(this).data('dependent');
-                                                                                var _token = $('input[name="_token"]').val();
-                                                                                $.ajax({
-                                                                                    url: "services_by_id/" + value,
-                                                                                    method: "GET",
-                                                                                    success: function(result) {
+                                                                                $('#caseStudyServicestbody').on('change', `.service${caseStudyServicesrowIdx}`, function() {
+                                                                                if ($(this).val() != '') {
+                                                                                    var select = $(this).attr("id");
+                                                                                    var value = $(this).val();
                                                                                         
-                                                                                        $(`#dependent_page_sections${caseStudyServicesrowIdx}`).html(result);
-                                                                                    }
-
-                                                                                })
-                                                                            }
-                                                                        });
-
-                                                                        
-
-
+                                                                                    var dependent = $(this).data('dependent');
+                                                                                    var _token = $('input[name="_token"]').val();
+                                                                                    $.ajax({
+                                                                                        url: "services_by_id/" + value,
+                                                                                        method: "GET",
+                                                                                        success: function(result) {
+                                                                                            
+                                                                                            $(`#dependent_page_sections${caseStudyServicesrowIdx}`).html(result);
+                                                                                        }
+                                                                                    })
+                                                                                }
+                                                                            });
                                                                         });
                                                                         // jQuery button click event to remove a row.
                                                                         $('#caseStudyServicestbody').on('click', '.remove', function() {
@@ -1411,10 +1288,8 @@
                                                 <tbody>
                                                     @foreach($case_study as $case_study_row)
                                                     <tr>
-
                                                         <td>
                                                             <img style="width:100px;" src="{{asset('public/case_study/'.$case_study_row->image)}}" />
-
                                                         </td>
                                                         <td>{{$case_study_row->name}}</td>
                                                         <td>{{$case_study_row->title}}</td>
@@ -1425,9 +1300,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">Testing</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_case_study')}}" enctype="multipart/form-data">
@@ -1438,7 +1311,6 @@
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-
 
                                                                                             </div>
                                                                                         </div>
@@ -1566,11 +1438,11 @@
                                                                         $('#teamaddBtn').on('click', function() {
                                                                             // Adding a row inside the tbody.
                                                                             $('#teamtbody').append(`<tr id="R${++teamrowIdx}">
-                                                  <td class="row-index text-center"><input type="file" name="team_member_image[]" class="form-control"/></td>
-                                                  <td class="row-index text-center"><input type="text" name="team_member_title[]" class="form-control"/></td>
-                                                  <td class="row-index text-center"><input type="text" name="team_member_designation[]" class="form-control"/></td>
-                                                  <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                  </tr>`);
+                                                                                <td class="row-index text-center"><input type="file" name="team_member_image[]" class="form-control"/></td>
+                                                                                <td class="row-index text-center"><input type="text" name="team_member_title[]" class="form-control"/></td>
+                                                                                <td class="row-index text-center"><input type="text" name="team_member_designation[]" class="form-control"/></td>
+                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
+                                                                                </tr>`);
                                                                         });
                                                                         // jQuery button click event to remove a row.
                                                                         $('#teamtbody').on('click', '.remove', function() {
@@ -1620,12 +1492,8 @@
                                                                 </div>
                                                             </div>
 
-
-
-
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Add
-                                            Team Member Info</button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Add Team Member Info</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -1637,10 +1505,6 @@
                                                 </div>
 
                                             </div>
-
-
-
-
 
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
@@ -1659,7 +1523,6 @@
                                                         <td>{{$case_study_row->section_name}}</td>
                                                         <td>
                                                             <img style="width:100px;" src="{{asset('public/team/'.$case_study_row->image)}}" />
-
                                                         </td>
                                                         <td>{{$case_study_row->name}}</td>
                                                         <td>{{$case_study_row->designation}}</td>
@@ -1669,9 +1532,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$case_study_row->name}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_team')}}" enctype="multipart/form-data">
@@ -1699,13 +1560,10 @@
                                                                                             </div>
                                                                                         </div>
 
-
                                                                                     </div>
                                                                                     <div class="col-4">
                                                                                         <img style="width:100px" src="{{asset('public/team/'.$case_study_row->image)}}" />
                                                                                     </div>
-
-
 
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
@@ -1767,8 +1625,6 @@
 
                                             <div class="row">
                                                 <div class="col-6">
-
-
                                                     <form method="POST" action="{{url('admin/store_client_and_partner')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
@@ -1780,7 +1636,6 @@
                                                                 </div>
                                                             </div>
 
-
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
@@ -1789,8 +1644,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-
 
                                                             <div class="col-12">
                                                                 <script>
@@ -1801,9 +1654,9 @@
                                                                         $('#clientaddBtn').on('click', function() {
                                                                             // Adding a row inside the tbody.
                                                                             $('#clienttbody').append(`<tr id="R${++clientrowIdx}">
-                                              <td class="row-index text-center"><input type="file" name="clientAndParter_image[]" class="form-control"/></td>
-                                              <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                              </tr>`);
+                                                                                <td class="row-index text-center"><input type="file" name="clientAndParter_image[]" class="form-control"/></td>
+                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
+                                                                                </tr>`);
                                                                         });
                                                                         // jQuery button click event to remove a row.
                                                                         $('#clienttbody').on('click', '.remove', function() {
@@ -1851,10 +1704,8 @@
                                                                 </div>
                                                             </div>
 
-
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                            Client and Partner Image </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Client and Partner Image </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -1880,7 +1731,6 @@
                                                 <tbody>
                                                     @foreach($clientandpartnerimage as $row_clientandpartnerimage)
                                                     <tr>
-
                                                         <td>
                                                             {{$row_clientandpartnerimage->name}}
                                                         </td>
@@ -1894,9 +1744,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">Client and Partner</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_client_and_partner')}}" enctype="multipart/form-data">
@@ -1925,8 +1773,6 @@
                                                                                     <div class="col-4">
                                                                                         <img style="width:100px" src="{{asset('public/client_and_partner/'.$row_clientandpartnerimage->image)}}" />
                                                                                     </div>
-
-
 
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
@@ -2014,16 +1860,8 @@
                                                             </div>
                                                         </div>
                                                     </form>
-
                                                 </div>
-
-                                                
-
                                             </div>
-
-
-
-
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
@@ -2139,9 +1977,7 @@
                                                                                         @include('button_style')
                                                                                     </div>
 
-
                                                                                     <div class="col-12">
-                                                                                        
                         
                                                                                         <div class="container pt-4">
                                                                                             <button class="btn btn-md btn-primary" id="edit_industryaddBtn" type="button"> Edit Services for Industry </button>
@@ -2163,8 +1999,6 @@
                                                                                         </div>
                                                                                     </div>
 
-
-                                                                                    
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Industry</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
@@ -2194,8 +2028,6 @@
                                                     </tr>
                                                 </tfoot>
                                             </table>
-
-
                                         </div>
 
                                         <div class="tab-pane fade" id="account-vertical-news" role="tabpanel" aria-labelledby="account-pill-news" aria-expanded="false">
@@ -2205,7 +2037,6 @@
                                                 </div>
                                             </div>
                                             <hr/>
-
                                             <div class="row">
                                                 <div class="col-6">
 
@@ -2257,8 +2088,7 @@
                                                             </div>
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                              News and Opinions </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create News and Opinions </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -2272,14 +2102,10 @@
 
                                             </div>
 
-
-
-
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
-
                                                         <th>News Title</th>
                                                         <th>News Image</th>
                                                         <th>Short Description</th>
@@ -2290,7 +2116,6 @@
                                                 <tbody>
                                                     @foreach($news as $row_news)
                                                     <tr>
-
                                                         <td>
                                                             {{$row_news->title}}
                                                         </td>
@@ -2309,9 +2134,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">Testing</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_news')}}" enctype="multipart/form-data">
@@ -2391,7 +2214,6 @@
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-
                                                         <th>News Title</th>
                                                         <th>News Image</th>
                                                         <th>Short Description</th>
@@ -2424,7 +2246,6 @@
                                                                 </div>
                                                             </div>
 
-
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
@@ -2449,9 +2270,6 @@
                                                                 </div>
                                                             </div>
                                                             
-
-
-
                                                             <div class="col-12">
                                                                 <script>
                                                                     $(document).ready(function() {
@@ -2466,7 +2284,6 @@
                                                                                     }else if(value == 'style4'){
                                                                                         $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style4.png')}}" />'); //this is not working
                                                                                     }
-                                                                                    
                                                                                 });
 
                                                                         // Denotes total number of rows
@@ -2519,7 +2336,6 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody id="requesttbody">
-
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -2528,8 +2344,7 @@
                                                             </div>
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                                Request a Meeting </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Request a Meeting </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -2537,17 +2352,11 @@
                                                 </div>
 
                                                 <div class="col-6">
-
                                                     <div class="col-6">
                                                         <div id="request_style_content">
-                                                            
                                                         </div>
-                                                        
                                                     </div>
-
-                                                    
                                                 </div>
-
                                             </div>
 
                                             <hr/>
@@ -3579,8 +3388,7 @@
 
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                    Paragraph style 4 </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Paragraph style 4 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -6062,8 +5870,5 @@
 </div>
 </div>
 <!-- END: Content-->
-
-
-
 
 @endsection
