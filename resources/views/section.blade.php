@@ -205,14 +205,13 @@
         @php
             $services = DB::table('services')->where('name', '=', $row_pages->section_type)->get();
         @endphp
-                <section id="section-2" class="{{$services[0]->bootstra_class_name}} section-padtop-70 section-padbottom-70 service-block">
+                <section id="section-2" class="@if(!$services->isEmpty()) {{$services[0]->bootstra_class_name}} @endif section-padtop-70 section-padbottom-70 service-block">
                     <div class="web-container">
                         <div class="row">
                             <div class="col-md-12">
                                 <h4 class="web-h4">Services</h4>
                                 <h2 class="web-h2 mb-0">What We Do</h2>
                             </div>
-                            
                             @foreach($services->unique('main_service')  as $row)
                             
                             <div class="col-6 col-md-6 col-lg-4">

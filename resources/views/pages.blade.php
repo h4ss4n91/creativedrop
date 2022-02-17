@@ -174,9 +174,9 @@
                                             // Denotes total number of rows
                                             var caseStudyrowIdx = 0;
                                             // jQuery button click event to add a row
-                                            $('#caseStudyaddBtn').on('click', function () {
+                                            $('#caseStudyaddBtn_for_page').on('click', function () {
                                               // Adding a row inside the tbody.
-                                              $('#caseStudytbody').append(`<tr id="R${++caseStudyrowIdx}">
+                                              $('#caseStudytbody_for_page').append(`<tr id="R${++caseStudyrowIdx}">
                                                   <td class="row-index text-center">
                                                     <select id="page_sections_${caseStudyrowIdx}" class="form-control" name="section[]">
                                                     <option value="">  --- Select Section --- </option>
@@ -206,7 +206,7 @@
                                                     });
                                             });
                                             // jQuery button click event to remove a row.
-                                            $('#caseStudytbody').on('click', '.remove', function () {
+                                            $('#caseStudytbody_for_page').on('click', '.remove', function () {
                                               // Getting all the rows next to the row
                                               // containing the clicked button
                                               var child = $(this).closest('tr').nextAll();
@@ -233,7 +233,7 @@
                                         </script>
                                       
                                         <div class="container pt-4">
-                                          <button class="btn btn-md btn-primary" id="caseStudyaddBtn" type="button"> Add Sections </button>
+                                          <button class="btn btn-md btn-primary" id="caseStudyaddBtn_for_page" type="button"> Add Sections </button>
                                           <div class="table-responsive">
                                             <table class="table table-bordered">
                                               <thead>
@@ -243,7 +243,7 @@
                                                   <th style="width:100px;" class="text-center">Remove Row</th>
                                                 </tr>
                                               </thead>
-                                              <tbody id="caseStudytbody">
+                                              <tbody id="caseStudytbody_for_page">
                                         
                                               </tbody>
                                             </table>

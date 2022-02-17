@@ -221,9 +221,6 @@
                                                         @endforeach
                                                         </span>
                                                     </label>
-                                                {{-- <input type="text" value="{{$page[0]->title}}" name="title" class="form-control" id="account-username" required
-                                                    data-validation-required-message="This username field is required"> --}}
-                                                    
                                                     <select id="page_sections_{{$row_pages->section_no}}" class="form-control" name="section[]">
                                                         @foreach($page_section as $row_page_section)
                                                             @if($row_page_section->id == $row_pages->section)
@@ -245,9 +242,6 @@
                                                 <label style="font-weight:bold;"for="account-username">Type Section {{$row_pages->section_no}} ::: <span class="badge badge-pill badge-info" style="font-weight:bold; font-size:21px;">
                                                     {{$row_pages->section_type}}
                                                 </label>
-                                                {{-- <input type="text" value="{{$page[0]->title}}" name="title" class="form-control" id="account-username" required
-                                                    data-validation-required-message="This username field is required"> --}}
-                                                    
                                                     <select id="dependent_page_sections_{{$row_pages->section_no}}" class="form-control" name="section_type[]">
                                                         <option value="{{$row_pages->section_type}}"> {{$row_pages->section_type}} </option>
                                                     </select>
@@ -305,9 +299,9 @@
                                             // Denotes total number of rows
                                             var caseStudyrowIdx = {{$count}}
                                             // jQuery button click event to add a row
-                                            $('#caseStudyaddBtn').on('click', function () {
+                                            $('#caseStudyaddBtn_for_editpage').on('click', function () {
                                               // Adding a row inside the tbody.
-                                              $('#caseStudytbody').append(`<tr id="R${++caseStudyrowIdx}">
+                                              $('#caseStudytbody_for_editpage').append(`<tr id="R${++caseStudyrowIdx}">
                                                   <td class="row-index text-center">
                                                     <select id="page_sections_${caseStudyrowIdx}" class="form-control" name="section[]">
                                                     <option value="">  --- Select Section --- </option>
@@ -342,7 +336,7 @@
                                                   
                                             });
                                             // jQuery button click event to remove a row.
-                                            $('#caseStudytbody').on('click', '.remove', function () {
+                                            $('#caseStudytbody_for_editpage').on('click', '.remove', function () {
                                               // Getting all the rows next to the row
                                               // containing the clicked button
                                               var child = $(this).closest('tr').nextAll();
@@ -369,7 +363,7 @@
                                         </script>
                                       
                                         <div class="container pt-4">
-                                          <button class="btn btn-md btn-primary" id="caseStudyaddBtn" type="button"> Add Page Sections </button>
+                                          <button class="btn btn-md btn-primary" id="caseStudyaddBtn_for_editpage" type="button"> Add Page Sections </button>
                                           <div class="table-responsive">
                                             <table class="table table-bordered">
                                               <thead>
@@ -380,7 +374,7 @@
                                                   <th style="width:100px;" class="text-center">Remove Row</th>
                                                 </tr>
                                               </thead>
-                                              <tbody id="caseStudytbody">
+                                              <tbody id="caseStudytbody_for_editpage">
                                         
                                               </tbody>
                                             </table>

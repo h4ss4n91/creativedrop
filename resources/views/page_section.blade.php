@@ -57,7 +57,8 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex active" id="account-pill-general" data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
-                                    <i class="feather icon-list"></i> Slider
+                                    <i class="fad fa-business-time"></i>
+                                    Slider
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -193,9 +194,8 @@
                                                     <form method="POST" action="{{url('admin/store_slider')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
-
                                                             <div class="col-6">
-                                                                    <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
+                                                                <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
                                                             </div>
                                                                 <div class="col-6">
                                                                     <div class="row">
@@ -228,50 +228,7 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var SliderrowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#slideraddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#slidertbody').append(`<tr id="R${++SliderrowIdx}">
-                                                                                <td class="row-index text-center"><input type="file" name="slider_image[]" class="form-control"/></td>
-                                                                                <td class="row-index text-center"><input type="text" name="text_1[]" class="form-control"/></td>
-                                                                                <td class="row-index text-center"><input type="text" name="text_2[]" class="form-control"/></td>
-                                                                                <td class="row-index text-center"><input type="text" name="link[]" class="form-control"/></td>
-                                                                                <td class="row-index text-center">@include('button_style')</td>
-                                                                                <td class="row-index text-center"><select name="status[]" class="form-control"><option value=""> None </option><option value="active"> Active </option></select></td>
-                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                                                </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#slidertbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            SliderrowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
-
+                                                                
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="slideraddBtn" type="button"> Add new Slider Row </button>
                                                                     <div class="table-responsive">
@@ -704,82 +661,8 @@
                                                             </div>
 
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var ServicerowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#ServiceaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#Servicetbody').append(`<tr id="R${++ServicerowIdx}">
-                                                                            <td class="row-index text-center"><select id="service" name="service[]" class="form-control service${ServicerowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
-                                                                            <td class="row-index text-center"><select  id="dependent_page_sections${ServicerowIdx}" name="sub_category[]" class="sub_service${ServicerowIdx} form-control"><option>--Select Sub Category--</option></select></td>
-                                                                            <td class="row-index text-center"><input name="sub_service_link[]" class="form-control sub_service_link${ServicerowIdx}" type="text"/></td>
-                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
-                                                                            </tr>`);
-
-                                                                            $('#Servicetbody').on('change', `.service${ServicerowIdx}`, function() {
-                                                                            if ($(this).val() != '') {
-                                                                                var select = $(this).attr("id");
-                                                                                var value = $(this).val();
-                                                                                    
-                                                                                var dependent = $(this).data('dependent');
-                                                                                var _token = $('input[name="_token"]').val();
-                                                                                $.ajax({
-                                                                                    url: "services_by_id/" + value,
-                                                                                    method: "GET",
-                                                                                    success: function(result) {
-                                                                                        $(`#dependent_page_sections${ServicerowIdx}`).html(result);
-                                                                                    }
-
-                                                                                    })
-                                                                                }
-                                                                            });
-
-                                                                            $('#Servicetbody').on('change', `.sub_service${ServicerowIdx}`, function() {
-                                                                            if ($(this).val() != '') {
-                                                                                var select = $(this).attr("id");
-                                                                                var value = $(this).val();
-                                                                                var dependent = $(this).data('dependent');
-                                                                                var _token = $('input[name="_token"]').val();
-                                                                                $.ajax({
-                                                                                    url: "../sub_services_by_id/" + value,
-                                                                                    method: "GET",
-                                                                                    success: function(result) {
-                                                                                        $(`.sub_service_link${ServicerowIdx}`).val(result['sub_category_link']);
-                                                                                    }
-                                                                                    })
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#Servicetbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            caseStudyServicesrowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
-
-                                                                <div class="container pt-4">
+                                                                
+                                                            <div class="container pt-4">
                                                                     <button class="btn btn-md btn-warning" id="ServiceaddBtn" type="button"> Add Services and Sub Services </button>
                                                                     <div class="table-responsive">
                                                                         <table class="table table-bordered">
@@ -998,101 +881,6 @@
                                                             </div>
 
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                                
-                                                                        var caseStudyrowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#caseStudyaddBtn').on('click', function() {
-                                                                            
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#caseStudytbody').append(`<tr id="R${++caseStudyrowIdx}">
-                                                                                <td class="row-index text-center">
-                                                                                    <select name="type[]" class="type${caseStudyrowIdx} form-control">
-                                                                                        <option value="">--- Select Type ---</option>
-                                                                                        <option value="image${caseStudyrowIdx}">Image</option>
-                                                                                        <option value="video${caseStudyrowIdx}">Video</option>
-                                                                                        </select>
-                                                                                </td>
-                                                                                <td class="row-index text-center">
-                                                                                    <input id="image${caseStudyrowIdx}" type="file" name="case_study_image_content[]" class="image form-control"/>
-                                                                                    <input id="video${caseStudyrowIdx}" type="text" name="video[]" placeholder="Video Link" class="video form-control"/>
-                                                                                </td>
-                                                                                <td class="row-index text-center">
-                                                                                    <select style="display:none;" id="image_bg${caseStudyrowIdx}" class="form-control" name="select_style_for_image[]">
-                                                                                        <option value="">---Select bg Style---</option>
-                                                                                        <option value=""> No </option>
-                                                                                        <option value="section-bg-white">section-bg-white</option>
-                                                                                    </select>
-                                                                                    <select style="display:none" id="video_bg${caseStudyrowIdx}" class="video_bg${caseStudyrowIdx} form-control" name="select_style_for_video[]">
-                                                                                        <option value="">---Select Background for Video---</option>
-                                                                                        <option value="cs-yt-video${caseStudyrowIdx}"> Video with Background </option>
-                                                                                        <option value="bg-white section-bg-white mt-0 pt-0">Video Full Width</option>
-                                                                                    </select>
-                                                                                </td>
-                                                                                
-                                                                                <td class="row-index text-center">
-                                                                                    <input type="file" style="display:none;" name="case_study_video_background[]" class="image_video_bg${caseStudyrowIdx} form-control"/>
-                                                                                </td>
-                                                                                
-                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
-                                                                                </tr>`);
-                                                                                $('#caseStudytbody').on('change', `.type${caseStudyrowIdx}`, function() {
-                                                                                    var value = $(this).val();
-                                                                                    console.log($(this).attr('class'));
-                                                                                    console.log(`#video${caseStudyrowIdx}`);
-                                                                                    console.log(`#image${caseStudyrowIdx}`);
-                                                                                    if(value == `image${caseStudyrowIdx}`){
-                                                                                        $(`#video${caseStudyrowIdx}`).hide();
-                                                                                        $(`#video_bg${caseStudyrowIdx}`).hide();
-                                                                                        $(`#image${caseStudyrowIdx}`).show();
-                                                                                        $(`#image_bg${caseStudyrowIdx}`).show();
-                                                                                    }else if(value == `video${caseStudyrowIdx}`){
-                                                                                        $(`#image${caseStudyrowIdx}`).hide();
-                                                                                        $(`#image_bg${caseStudyrowIdx}`).hide();
-                                                                                        $(`#video${caseStudyrowIdx}`).show();
-                                                                                        $(`#video_bg${caseStudyrowIdx}`).show();
-                                                                                    }
-                                                                                });
-                                                                                $('#caseStudytbody').on('change', `.video_bg${caseStudyrowIdx}`, function() {
-                                                                                    var value = $(this).val();
-                                                                                    
-                                                                                    if(value == `cs-yt-video${caseStudyrowIdx}`){
-                                                                                        $(`.image_video_bg${caseStudyrowIdx}`).show();
-                                                                                    }else{
-                                                                                        $(`.image_video_bg${caseStudyrowIdx}`).hide();
-                                                                                    }
-                                                                                });
-                                                                        });
-                                                                        
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#caseStudytbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            caseStudyrowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="caseStudyaddBtn" type="button"> Add Case Study Content </button>
@@ -1100,10 +888,11 @@
                                                                         <table class="table table-bordered">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th class="text-center">Type</th>
-                                                                                    <th class="text-center">Content</th>
-                                                                                    <th class="text-center">Style</th>
-                                                                                    <th class="text-center"></th>
+                                                                                    <th class="text-center">Image</th>
+                                                                                    <th class="text-center">Image Style</th>
+                                                                                    <th class="text-center">Video</th>
+                                                                                    <th class="text-center">Video Style</th>
+                                                                                    <th class="text-center">Video Background</th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody id="caseStudytbody">
@@ -1116,64 +905,7 @@
                                                             </div>
 
                                                             <div class="col-6">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var caseStudyServicesrowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                            $('#caseStudyServicesaddBtn').on('click', function() {
-                                                                                // Adding a row inside the tbody.
-                                                                                $('#caseStudyServicestbody').append(`<tr id="R${++caseStudyServicesrowIdx}">
-                                                                                <td class="row-index text-center"><select id="service" name="service[]" class="form-control service${caseStudyServicesrowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
-                                                                                <td class="row-index text-center"><select  id="dependent_page_sections${caseStudyServicesrowIdx}" name="sub_category[]" class="form-control"><option>--Select Sub Category--</option></select></td>
-                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
-                                                                                </tr>`);
-
-                                                                                $('#caseStudyServicestbody').on('change', `.service${caseStudyServicesrowIdx}`, function() {
-                                                                                if ($(this).val() != '') {
-                                                                                    var select = $(this).attr("id");
-                                                                                    var value = $(this).val();
-                                                                                        
-                                                                                    var dependent = $(this).data('dependent');
-                                                                                    var _token = $('input[name="_token"]').val();
-                                                                                    $.ajax({
-                                                                                        url: "services_by_id/" + value,
-                                                                                        method: "GET",
-                                                                                        success: function(result) {
-                                                                                            
-                                                                                            $(`#dependent_page_sections${caseStudyServicesrowIdx}`).html(result);
-                                                                                        }
-                                                                                    })
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#caseStudyServicestbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            caseStudyServicesrowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
-
+                                                                
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-warning" id="caseStudyServicesaddBtn" type="button"> Add Case Study Services </button>
                                                                     <div class="table-responsive">
@@ -1194,53 +926,6 @@
                                                             </div>
 
                                                             <div class="col-6">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var caseStudyIndustryrowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#caseStudyIndustryaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#caseStudyIndustrytbody').append(`<tr id="R${++caseStudyIndustryrowIdx}">
-                                                                            <td class="row-index text-center"><select  name="industry[]" class="form-control">
-                                                                                <option>--Select Industry--</option>
-                                                                                @php
-                                                                                    $ind = DB::table('industries')->get();
-                                                                                @endphp
-                                                                                @foreach($ind as $row_ind)
-                                                                                    <option value="{{$row_ind->id}}">{{$row_ind->title}}</option>
-                                                                                @endforeach
-                                                                                </select></td>
-                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
-                                                                            </tr>`);
-
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#caseStudyIndustrytbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            caseStudyIndustryrowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-success" id="caseStudyIndustryaddBtn" type="button"> Add Case Study Industries </button>
@@ -1266,13 +951,9 @@
                                                             </div>
                                                         </div>
                                                     </form>
-
                                                 </div>
 
-                                                
-
                                             </div>
-
 
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
@@ -1294,90 +975,7 @@
                                                         <td>{{$case_study_row->name}}</td>
                                                         <td>{{$case_study_row->title}}</td>
                                                         <td>{{$case_study_row->short_description}}</td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_case_study/'.$case_study_row->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#caseStudyModalCenter{{$case_study_row->id}}"> Edit</a>
-                                                            <div class="modal fade" id="caseStudyModalCenter{{$case_study_row->id}}" tabindex="-1" role="dialog" aria-labelledby="caseStudyModalCenter{{$case_study_row->id}}" aria-hidden="true">
-                                                                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalLongTitle">Testing</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <form method="POST" action="{{url('admin/edit_case_study')}}" enctype="multipart/form-data">
-                                                                                @csrf
-                                                                                <input type="hidden" value="{{$case_study_row->id}}" name="id">
-
-                                                                                <div class="row">
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Case Study Name</label>
-                                                                                                <input type="text" name="name" class="form-control" value={{$case_study_row->name}} id="account-username" required data-validation-required-message="This username
-                                                                                                field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div class="col-8">
-
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Case Study Image</label>
-                                                                                                <input type="file" name="case_study_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                    </div>
-                                                                                    <div class="col-4">
-                                                                                        <img style="width:100px" src="{{asset('public/case_study/'.$case_study_row->image)}}" />
-                                                                                    </div>
-
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Title</label>
-                                                                                                <input type="text" name="title" value="{{$case_study_row->title}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Short Description</label>
-                                                                                                <input type="text" name="short_description" value="{{$case_study_row->short_description}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username"> Button Link</label>
-                                                                                                <input type="text" name="link" value="{{$case_study_row->link}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Slider</button>
-                                                                                        <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_case_study/'.$case_study_row->id)}}"> Delete </a> | <a href="{{url('admin/detail_case_study/'.$case_study_row->id)}}"> View </a></td>
                                                     </tr>
 
                                                     @endforeach
@@ -1406,7 +1004,6 @@
                                             <div class="row">
                                                 <div class="col-6">
 
-
                                                     <form method="POST" action="{{url('admin/store_team')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
@@ -1427,49 +1024,7 @@
                                                                 </div>
                                                             </div>
 
-
-
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var teamrowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#teamaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#teamtbody').append(`<tr id="R${++teamrowIdx}">
-                                                                                <td class="row-index text-center"><input type="file" name="team_member_image[]" class="form-control"/></td>
-                                                                                <td class="row-index text-center"><input type="text" name="team_member_title[]" class="form-control"/></td>
-                                                                                <td class="row-index text-center"><input type="text" name="team_member_designation[]" class="form-control"/></td>
-                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                                                </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#teamtbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            teamrowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="teamaddBtn" type="button"> Add Team Member </button>
@@ -1646,44 +1201,6 @@
                                                             </div>
 
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var clientrowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#clientaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#clienttbody').append(`<tr id="R${++clientrowIdx}">
-                                                                                <td class="row-index text-center"><input type="file" name="clientAndParter_image[]" class="form-control"/></td>
-                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                                                </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#clienttbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            clientrowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="clientaddBtn" type="button"> Add Client and Partner </button>
@@ -1866,7 +1383,6 @@
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
-
                                                         <th>Section Name</th>
                                                         <th>Industry Name</th>
                                                         <th>Industry Image</th>
@@ -1877,7 +1393,6 @@
                                                 <tbody>
                                                     @foreach($industries->unique('title') as $row_industries)
                                                     <tr>
-
                                                         <td>
                                                             {{$row_industries->name}}
                                                         </td>
@@ -2271,58 +1786,7 @@
                                                             </div>
                                                             
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        $('#request_style').change(function() {
-                                                                                    var value = $(this).val();
-                                                                                    if(value == 'style1'){
-                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style1.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style2'){
-                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style2.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style3'){
-                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style3.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style4'){
-                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style4.png')}}" />'); //this is not working
-                                                                                    }
-                                                                                });
-
-                                                                        // Denotes total number of rows
-                                                                        var requestrowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#requestaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#requesttbody').append(`<tr id="R${++requestrowIdx}">
-                                                                                <td class="row-index text-center"><input type="text" name="request_title[]" class="form-control"/></td>
-                                                                                <td class="row-index text-center"><input type="text" name="button_label[]" class="form-control"/></td>
-                                                                                <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                                                </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#requesttbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            requestrowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
+                                                                
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="requestaddBtn" type="button"> Add Request Meeting </button>
@@ -2372,7 +1836,6 @@
                                                 <tbody>
                                                     @foreach($request as $row_request)
                                                     <tr>
-
                                                         <td>
                                                             {{$row_request->name}} - {{$row_request->style}}
                                                         </td>
@@ -2388,9 +1851,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_request->title}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                          <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_request')}}" enctype="multipart/form-data">
@@ -2450,8 +1911,6 @@
                                                                                         </div>
                                                                                     </div>
 
-
-
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Request a Meeting</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
@@ -2472,7 +1931,6 @@
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-
                                                         <th>Section Name</th>
                                                         <th>Request A Meeting Title</th>
                                                         <th>Button Label</th>
@@ -2493,7 +1951,6 @@
 
                                             <div class="row">
                                                 <div class="col-6">
-
 
                                                     <form method="POST" action="{{url('admin/store_para_style_1')}}" enctype="multipart/form-data">
                                                         @csrf
@@ -2531,46 +1988,6 @@
 
 
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var paraStyleOnerowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#paraStyleOneaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#paraStyleOnetbody').append(`<tr id="R${++paraStyleOnerowIdx}">
-                                                    <td class="row-index text-center"><input type="file" name="image[]" class="form-control"/></td>
-                                                  <td class="row-index text-center"><input type="text" name="title[]" class="form-control"/></td>
-                                                  <td class="row-index text-center"><input type="text" name="paragraph[]" class="form-control"/></td>
-                                                  <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                  </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#paraStyleOnetbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            paraStyleOnerowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="paraStyleOneaddBtn" type="button"> Add Para Style One </button>
@@ -2596,8 +2013,7 @@
 
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                            Paragraph style 1 </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Paragraph style 1 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -2653,9 +2069,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_para_style_1->title}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_para_style_1')}}" enctype="multipart/form-data">
@@ -2679,8 +2093,6 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-
-
 
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
@@ -2778,8 +2190,6 @@
                                                                 </div>
                                                             </div>
 
-
-
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
@@ -2789,55 +2199,7 @@
                                                                 </div>
                                                             </div>
 
-
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var paraStyleTworowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#paraStyleTwoaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#paraStyleTwotbody').append(`<tr id="R${++paraStyleTworowIdx}">
-                                                <td class="row-index text-center"><input type="file" name="image[]" class="form-control"/></td>
-
-                                              <td class="row-index text-center"><input type="text" name="title[]" class="form-control"/></td>
-                                              <td class="row-index text-center"><input type="text" name="paragraph[]" class="form-control"/></td>
-                                              <td class="row-index text-center"><select class="form-control" name="flex_row_reverse[]">
-                                                <option value=""> NO </option>
-                                                <option value="flex_row_reverse"> Yes </option>
-                                            </select></td>
-
-
-                                              <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                              </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#paraStyleTwotbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            paraStyleTworowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="paraStyleTwoaddBtn" type="button"> Add Para Style Two </button>
@@ -2861,12 +2223,8 @@
                                                                 </div>
                                                             </div>
 
-
-
-
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                        Paragraph style 2 </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Paragraph style 2 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -2877,20 +2235,12 @@
                                                 <div class="col-6">
                                                     <img style="width:100%" src="{{asset('public/page_sections/paragraph_right_image_left_text.png')}}" />
                                                 </div>
-
                                             </div>
-
-
-
-
-
-
 
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
-
                                                         <th>Section Name</th>
                                                         <th>Image</th>
                                                         <th>Title</th>
@@ -2927,9 +2277,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_para_style_2->title}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_para_style_2')}}" enctype="multipart/form-data">
@@ -3051,8 +2399,6 @@
                                                                 </div>
                                                             </div>
 
-
-
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
@@ -3062,49 +2408,7 @@
                                                                 </div>
                                                             </div>
 
-
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var paraStyleThreerowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#paraStyleThreeaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#paraStyleThreetbody').append(`<tr id="R${++paraStyleThreerowIdx}">
-                                            <td class="row-index text-center"><input type="file" name="image[]" class="form-control"/></td>
-                                          <td class="row-index text-center"><input type="text" name="title[]" class="form-control"/></td>
-                                          <td class="row-index text-center"><input type="text" name="paragraph[]" class="form-control"/></td>
-                                          <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                          </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#paraStyleThreetbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            paraStyleThreerowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
-
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="paraStyleThreeaddBtn" type="button"> Add Para Style Three </button>
                                                                     <div class="table-responsive">
@@ -3128,8 +2432,7 @@
 
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                    Paragraph style 3 </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Paragraph style 3 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -3143,17 +2446,10 @@
 
                                             </div>
 
-
-
-
-
-
-
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
-
                                                         <th>Section Name</th>
                                                         <th>Image</th>
                                                         <th>Title</th>
@@ -3165,7 +2461,6 @@
                                                 <tbody>
                                                     @foreach($para_style_3 as $row_para_style_3)
                                                     <tr>
-
                                                         <td>
                                                             {{$row_para_style_3->name}}
                                                         </td>
@@ -3189,9 +2484,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_para_style_3->title}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_para_style_3')}}" enctype="multipart/form-data">
@@ -3327,45 +2620,7 @@
 
 
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var paraStyleFourrowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#paraStyleFouraddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#paraStyleFourtbody').append(`<tr id="R${++paraStyleFourrowIdx}">
-                                          <td class="row-index text-center"><input type="text" name="paragraph[]" class="form-control"/></td>
-                                          <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                          </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#paraStyleFourtbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            paraStyleFourrowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
-
+                                                                
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="paraStyleFouraddBtn" type="button"> Add Para Style Four </button>
                                                                     <div class="table-responsive">
