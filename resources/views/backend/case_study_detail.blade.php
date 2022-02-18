@@ -140,6 +140,112 @@
                                                                                     <div class="col-6">
                                                                                         <div class="row">
                                                                                             <div class="col-12">
+                                                                                                @php
+                                                                                                    $service = DB::table('menus')->get();
+                                                                                                    $service_count = DB::table('menus')->get();
+                                                                                                @endphp
+                                                                                            <script>
+                                                                                                $(document).ready(function() {
+                                                                                                    // Denotes total number of rows
+                                                                                                    var caseStudyServicesrowIdx = 0;
+                                                                                                    // jQuery button click event to add a row
+                                                                                                        $('#edit_caseStudyServicesaddBtn').on('click', function() {
+                                                                                                            // Adding a row inside the tbody.
+                                                                                                            $('#edit_caseStudyServicestbody').append(`<tr id="R${++caseStudyServicesrowIdx}">
+                                                                                                            <td class="row-index text-center"><select id="service" name="service[]" class="form-control service${caseStudyServicesrowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
+                                                                                                            <td class="row-index text-center"><select  id="dependent_page_sections${caseStudyServicesrowIdx}" name="sub_category[]" class="form-control"><option>--Select Sub Category--</option></select></td>
+                                                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                                                            </tr>`);
+                                                                                            
+                                                                                                            $('#edit_caseStudyServicestbody').on('change', `.service${caseStudyServicesrowIdx}`, function() {
+                                                                                                            if ($(this).val() != '') {
+                                                                                                                var select = $(this).attr("id");
+                                                                                                                var value = $(this).val();
+                                                                                                                    
+                                                                                                                var dependent = $(this).data('dependent');
+                                                                                                                var _token = $('input[name="_token"]').val();
+                                                                                                                $.ajax({
+                                                                                                                    url: "../services_by_id/" + value,
+                                                                                                                    method: "GET",
+                                                                                                                    success: function(result) {
+                                                                                                                        $(`#dependent_page_sections${caseStudyServicesrowIdx}`).html(result);
+                                                                                                                    }
+                                                                                                                })
+                                                                                                            }
+                                                                                                        });
+                                                                                                    });
+                                                                                                    // jQuery button click event to remove a row.
+                                                                                                    $('#edit_caseStudyServicestbody').on('click', '.remove', function() {
+                                                                                                        // Getting all the rows next to the row
+                                                                                                        // containing the clicked button
+                                                                                                        var child = $(this).closest('tr').nextAll();
+                                                                                                        // Iterating across all the rows 
+                                                                                                        // obtained to change the index
+                                                                                                        child.each(function() {
+                                                                                                            // Getting <tr> id.
+                                                                                                            var id = $(this).attr('id');
+                                                                                                            // Getting the <p> inside the .row-index class.
+                                                                                                            var idx = $(this).children('.row-index').children('p');
+                                                                                                            // Gets the row number from <tr> id.
+                                                                                                            var dig = parseInt(id.substring(1));
+                                                                                                            // Modifying row index.
+                                                                                                            idx.html(`Row ${dig - 1}`);
+                                                                                                            // Modifying row id.
+                                                                                                            $(this).attr('id', `R${dig - 1}`);
+                                                                                                        });
+                                                                                                        // Removing the current row.
+                                                                                                        $(this).closest('tr').remove();
+                                                                                                        // Decreasing total number of rows by 1.
+                                                                                                        caseStudyServicesrowIdx--;
+                                                                                                    });
+                                                                                                });
+                                                                                                                                                            
+                                                                                                $(document).ready(function() {
+                                                                                                    // Denotes total number of rows
+                                                                                                    var caseStudyIndustryrowIdx = 0;
+                                                                                                    // jQuery button click event to add a row
+                                                                                                    $('#edit_caseStudyIndustryaddBtn').on('click', function() {
+                                                                                                        // Adding a row inside the tbody.
+                                                                                                        $('#edit_caseStudyIndustrytbody').append(`<tr id="R${++caseStudyIndustryrowIdx}">
+                                                                                                        <td class="row-index text-center"><select  name="industry[]" class="form-control">
+                                                                                                            <option>--Select Industry--</option>
+                                                                                                            @php
+                                                                                                                $ind = DB::table('industries')->get();
+                                                                                                            @endphp
+                                                                                                            @foreach($ind as $row_ind)
+                                                                                                                <option value="{{$row_ind->id}}">{{$row_ind->title}}</option>
+                                                                                                            @endforeach
+                                                                                                            </select></td>
+                                                                                                        <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                                                        </tr>`);
+                                                                                                    });
+                                                                                            
+                                                                                                    // jQuery button click event to remove a row.
+                                                                                                    $('#edit_caseStudyIndustrytbody').on('click', '.remove', function() {
+                                                                                                        // Getting all the rows next to the row
+                                                                                                        // containing the clicked button
+                                                                                                        var child = $(this).closest('tr').nextAll();
+                                                                                                        // Iterating across all the rows 
+                                                                                                        // obtained to change the index
+                                                                                                        child.each(function() {
+                                                                                                            // Getting <tr> id.
+                                                                                                            var id = $(this).attr('id');
+                                                                                                            // Getting the <p> inside the .row-index class.
+                                                                                                            var idx = $(this).children('.row-index').children('p');
+                                                                                                            // Gets the row number from <tr> id.
+                                                                                                            var dig = parseInt(id.substring(1));
+                                                                                                            // Modifying row index.
+                                                                                                            idx.html(`Row ${dig - 1}`);
+                                                                                                            // Modifying row id.
+                                                                                                            $(this).attr('id', `R${dig - 1}`);
+                                                                                                        });
+                                                                                                        // Removing the current row.
+                                                                                                        $(this).closest('tr').remove();
+                                                                                                        // Decreasing total number of rows by 1.
+                                                                                                        caseStudyIndustryrowIdx--;
+                                                                                                    });
+                                                                                                });
+                                                                                            </script>
                                                                 
                                                                                                 <div class="container pt-4">
                                                                                                     <button class="btn btn-md btn-warning" id="edit_caseStudyServicesaddBtn" type="button"> Edit Case Study Services </button>

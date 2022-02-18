@@ -318,7 +318,7 @@
             @include('js/para_style2_js')
             @include('js/para_style3_js')
             @include('js/para_style4_js')
-            @include('js/para_style5_js')
+            @include('js/para_style_5_js')
             @include('js/section_15_js')
             @include('js/edit_case_study_js')
             @include('js/section_16_js')

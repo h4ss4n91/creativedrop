@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2022 at 10:01 PM
+-- Generation Time: Feb 18, 2022 at 06:55 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -47,41 +47,11 @@ CREATE TABLE `case_study` (
 --
 
 INSERT INTO `case_study` (`id`, `name`, `page_id`, `image`, `title`, `short_description`, `link`, `service`, `sub_category`, `industry`, `created_at`, `updated_at`) VALUES
-(9, 'slider1234', NULL, 'No-image-png-1.png', 'asdfasd12344321', 'fasdfasdf122343321', 'button link', '1', '3', '2', '2021-12-27 04:48:15', '2021-12-27 04:48:15'),
-(10, 'slider 1', 18, 'image3.jpg', 'sdfaf', 'asdfads', NULL, '1', '1', '3', '2021-12-27 04:48:15', '2021-12-27 04:48:15'),
-(15, 'First', NULL, 'portfolio-1.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '1', '2022-01-07 11:37:29', '2022-01-07 11:37:29'),
-(16, 'case-study', NULL, 'portfolio-1.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '2', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(17, 'case-study', NULL, 'portfolio-2.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '1', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(18, 'case-study', NULL, 'portfolio-3.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '3', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(19, 'case-study', NULL, 'portfolio-4.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '2', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(20, 'case-study', NULL, 'portfolio-1.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '2', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(21, 'case-study', NULL, 'portfolio-2.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '3', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(22, 'case-study', NULL, 'portfolio-3.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '1', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(23, 'case-study', NULL, 'portfolio-4.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '2', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(24, 'new', NULL, 'image.jpg', 'new', 'testing case study', NULL, NULL, NULL, NULL, '2022-02-11 05:22:31', '2022-02-11 05:22:31'),
-(25, 'new', NULL, 'image.jpg', 'new', 'testing case study', NULL, NULL, NULL, NULL, '2022-02-11 05:25:30', '2022-02-11 05:25:30'),
-(26, 'new', NULL, 'image.jpg', 'new', 'testing case study', NULL, NULL, NULL, NULL, '2022-02-11 05:26:49', '2022-02-11 05:26:49'),
-(27, 'new', NULL, 'image.jpg', 'new', 'testing case study', NULL, NULL, NULL, NULL, '2022-02-11 05:27:47', '2022-02-11 05:27:47'),
-(28, 'new', NULL, 'image.jpg', 'new', 'testing case study', NULL, NULL, NULL, NULL, '2022-02-11 05:30:14', '2022-02-11 05:30:14'),
-(29, 'new', NULL, 'image.jpg', 'new', 'testing case study', NULL, NULL, NULL, NULL, '2022-02-11 05:31:34', '2022-02-11 05:31:34'),
-(30, 'new', NULL, 'image.jpg', 'new', 'testing case study', NULL, NULL, NULL, NULL, '2022-02-11 05:32:04', '2022-02-11 05:32:04'),
-(31, 'new', NULL, 'image.jpg', 'new', 'testing case study', NULL, NULL, NULL, NULL, '2022-02-11 05:32:38', '2022-02-11 05:32:38'),
-(32, 'newone', NULL, 'cs-00.jpg', 'Case Study Title', 'testing description, testing description, testing description, testing description, testing description, testing description, testing description, testing description,', NULL, NULL, NULL, NULL, '2022-02-11 05:35:52', '2022-02-11 05:35:52'),
-(33, 'newone', NULL, 'cs-00.jpg', 'Case Study Title', 'testing description, testing description, testing description, testing description, testing description, testing description, testing description, testing description,', NULL, NULL, NULL, NULL, '2022-02-11 05:36:41', '2022-02-11 05:36:41'),
-(34, 'newone', NULL, 'cs-00.jpg', 'Case Study Title', 'testing description, testing description, testing description, testing description, testing description, testing description, testing description, testing description,', NULL, NULL, NULL, NULL, '2022-02-11 05:37:34', '2022-02-11 05:37:34'),
-(35, 'testing', NULL, 'cs-00.jpg', 'testing', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(36, 'case study 1', NULL, 'cs-00.jpg', 'case study 1', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-14 09:45:09', '2022-02-14 09:45:09'),
-(38, 'case study 1', NULL, 'cs-01.jpg', 'title 2', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-14 10:09:34', '2022-02-14 10:09:34'),
-(40, 'case study 1', NULL, 'cs-02.jpg', 'Title 3', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-14 10:24:54', '2022-02-14 10:24:54'),
-(41, 'case study 1', NULL, 'image.jpg', 'title 4', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-14 10:26:13', '2022-02-14 10:26:13'),
-(42, 'Testing Section Name', NULL, 'cs-00.jpg', 'testing Case Study title', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-15 16:08:05', '2022-02-15 16:08:05'),
-(43, 'Testing Section Name', NULL, 'cs-00.jpg', 'testing Case Study title', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-15 16:09:15', '2022-02-15 16:09:15'),
-(44, 'Section Name 3', NULL, 'cs-00.jpg', 'Title', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(45, 'asdfas', NULL, 'cs-04.jpg', 'asdfasdf', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-15 19:04:20', '2022-02-15 19:04:20'),
-(46, 'asdfas', NULL, 'cs-04.jpg', 'asdfasdf', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-15 19:11:32', '2022-02-15 19:11:32'),
-(47, 'asdfasdfasd', NULL, 'cs-00.jpg', 'asdfasdfs', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-15 20:55:30', '2022-02-15 20:55:30'),
-(48, 'asdfasdfasd', NULL, 'cs-00.jpg', 'asdfasdfs', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-15 20:56:23', '2022-02-15 20:56:23'),
-(49, 'asdfasdfasd', NULL, 'cs-00.jpg', 'asdfasdfs', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-15 20:57:11', '2022-02-15 20:57:11');
+(4, 'asdfasdf1234', NULL, 'image.jpg', 'asdfasdf1234', 'Infographics, Company Profile & Video1234', 'asdfasd', NULL, NULL, NULL, '2022-02-16 21:11:47', '2022-02-16 21:11:47'),
+(5, 'case study 1', NULL, 'portfolio-1.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(6, 'case study 1', NULL, 'image.jpg', 'Shapoorji Pollonji 2123', 'Infographics, Company Profile & Video123', NULL, NULL, NULL, NULL, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(7, 'Case study 1', NULL, 'portfolio-3.jpg', 'Title 3', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-17 09:23:20', '2022-02-17 09:23:20'),
+(8, 'Case study 1', NULL, 'portfolio-4.jpg', 'Title 4', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14');
 
 -- --------------------------------------------------------
 
@@ -93,8 +63,10 @@ CREATE TABLE `case_study_content` (
   `id` int(11) NOT NULL,
   `case_study_id` int(11) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
+  `image_name` varchar(150) DEFAULT NULL,
   `type` varchar(150) DEFAULT NULL,
-  `video_link` varchar(150) DEFAULT NULL,
+  `video_link` varchar(550) DEFAULT NULL,
+  `video_name` varchar(150) DEFAULT NULL,
   `image_style` varchar(150) DEFAULT NULL,
   `video_style` varchar(150) DEFAULT NULL,
   `video_background` varchar(150) DEFAULT NULL,
@@ -106,24 +78,31 @@ CREATE TABLE `case_study_content` (
 -- Dumping data for table `case_study_content`
 --
 
-INSERT INTO `case_study_content` (`id`, `case_study_id`, `image`, `type`, `video_link`, `image_style`, `video_style`, `video_background`, `created_at`, `updated_at`) VALUES
-(29, 35, 'cs-00.jpg', 'image', NULL, NULL, NULL, NULL, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(30, 35, 'cs-01.jpg', 'image', NULL, NULL, NULL, NULL, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(31, 35, 'cs-02.jpg', 'image', NULL, NULL, NULL, NULL, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(32, 35, 'cs-03.jpg', 'image', NULL, NULL, NULL, NULL, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(33, 35, 'cs-04.jpg', 'image', NULL, NULL, NULL, NULL, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(34, 35, 'cs-05.jpg', 'image', NULL, NULL, NULL, NULL, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(35, 44, NULL, 'image1', NULL, NULL, NULL, NULL, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(36, 44, NULL, 'video2', 'https://youtu.be/xLhNP0qp38Q', NULL, NULL, NULL, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(37, 44, NULL, 'image3', NULL, NULL, NULL, NULL, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(38, 44, NULL, 'video4', 'https://youtu.be/xLhNP0qp38Q', NULL, NULL, NULL, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(39, 46, NULL, 'image1', NULL, NULL, NULL, NULL, '2022-02-15 19:11:32', '2022-02-15 19:11:32'),
-(40, 46, NULL, 'video2', 'https://youtu.be/xLhNP0qp38Q', NULL, NULL, NULL, '2022-02-15 19:11:32', '2022-02-15 19:11:32'),
-(41, 46, NULL, 'video3', 'https://youtu.be/xLhNP0qp38Q', NULL, NULL, NULL, '2022-02-15 19:11:32', '2022-02-15 19:11:32'),
-(42, 49, NULL, 'image1', NULL, NULL, NULL, NULL, '2022-02-15 20:57:11', '2022-02-15 20:57:11'),
-(43, 49, NULL, 'video2', 'https://youtu.be/xLhNP0qp38Q', NULL, 'cs-yt-video2', 'C:\\xamppNew\\tmp\\php7A02.tmp', '2022-02-15 20:57:11', '2022-02-15 20:57:11'),
-(44, 49, NULL, 'image3', NULL, NULL, NULL, NULL, '2022-02-15 20:57:11', '2022-02-15 20:57:11'),
-(45, 49, NULL, 'video4', 'https://youtu.be/xLhNP0qp38Q', NULL, 'cs-yt-video4', 'C:\\xamppNew\\tmp\\php7A61.tmp', '2022-02-15 20:57:11', '2022-02-15 20:57:11');
+INSERT INTO `case_study_content` (`id`, `case_study_id`, `image`, `image_name`, `type`, `video_link`, `video_name`, `image_style`, `video_style`, `video_background`, `created_at`, `updated_at`) VALUES
+(12, 4, 'cs-00.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-16 21:11:47', '2022-02-16 21:11:47'),
+(13, 4, NULL, NULL, NULL, 'https://youtu.be/xLhNP0qp38Q', NULL, NULL, 'section-padtop-100 section-padbottom-100', 'smart-pos-software-logo.png', '2022-02-16 21:11:47', '2022-02-16 21:11:47'),
+(14, 4, NULL, NULL, NULL, 'https://youtu.be/xLhNP0qp38Q', NULL, NULL, 'bg-white section-bg-white mt-0 pt-0', NULL, '2022-02-16 21:11:47', '2022-02-16 21:11:47'),
+(15, 4, 'cs-04.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-16 21:11:47', '2022-02-16 21:11:47'),
+(16, 5, 'cs-00.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(17, 5, 'cs-01.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(18, 5, 'cs-02.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(19, 5, 'cs-03.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(20, 5, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', NULL, NULL, 'bg-white section-bg-white mt-0 pt-0', NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(21, 5, 'cs-04.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(22, 5, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', NULL, NULL, 'section-padtop-100 section-padbottom-100', 'cs-03.jpg', '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(23, 5, 'cs-05.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(24, 6, 'cs-00.jpg', 'image 1', NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(25, 6, 'cs-01.jpg', 'image 2', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(26, 6, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video 1', NULL, 'bg-white section-bg-white mt-0 pt-0', 'cs-04.jpg', '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(27, 6, 'cs-04.jpg', 'image 4', NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(28, 7, 'cs-00.jpg', 'Image name 2', NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-17 09:23:20', '2022-02-17 09:23:20'),
+(29, 7, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video 1', NULL, 'bg-white section-bg-white mt-0 pt-0', NULL, '2022-02-17 09:23:20', '2022-02-17 09:23:20'),
+(32, 6, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video 1', NULL, NULL, NULL, '2022-02-17 10:22:34', '2022-02-17 10:22:34'),
+(36, 8, 'cs-00.jpg', 'image title 1', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(37, 8, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video name', NULL, 'bg-white section-bg-white mt-0 pt-0', NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(38, 8, 'cs-01.jpg', 'image name 2', NULL, NULL, NULL, 'section-bg-white', NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(39, 8, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video 2', NULL, NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(40, 8, 'cs-02.jpg', 'image 3', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14');
 
 -- --------------------------------------------------------
 
@@ -144,25 +123,14 @@ CREATE TABLE `case_study_industries` (
 --
 
 INSERT INTO `case_study_industries` (`id`, `case_study_id`, `industry_id`, `created_at`, `updated_at`) VALUES
-(8, 35, 6, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(9, 35, 7, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(10, 35, 8, '2022-02-11 06:19:44', '2022-02-11 06:19:44'),
-(11, 35, 9, '2022-02-11 06:19:44', '2022-02-11 06:19:44'),
-(12, 37, 6, '2022-02-14 09:45:45', '2022-02-14 09:45:45'),
-(13, 39, 6, '2022-02-14 10:10:24', '2022-02-14 10:10:24'),
-(14, 39, 8, '2022-02-14 10:10:24', '2022-02-14 10:10:24'),
-(15, 39, 11, '2022-02-14 10:10:24', '2022-02-14 10:10:24'),
-(16, 40, 7, '2022-02-14 10:24:54', '2022-02-14 10:24:54'),
-(17, 40, 6, '2022-02-14 10:24:54', '2022-02-14 10:24:54'),
-(18, 40, 11, '2022-02-14 10:24:54', '2022-02-14 10:24:54'),
-(19, 41, 37, '2022-02-14 10:26:13', '2022-02-14 10:26:13'),
-(20, 41, 12, '2022-02-14 10:26:13', '2022-02-14 10:26:13'),
-(21, 41, 11, '2022-02-14 10:26:13', '2022-02-14 10:26:13'),
-(22, 44, 6, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(23, 44, 7, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(24, 44, 8, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(25, 46, 6, '2022-02-15 19:11:32', '2022-02-15 19:11:32'),
-(26, 46, 7, '2022-02-15 19:11:32', '2022-02-15 19:11:32');
+(1, 5, 6, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(2, 5, 8, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(3, 5, 9, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(4, 6, 6, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(5, 6, 11, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(6, 8, 6, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(7, 8, 8, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(8, 8, 11, '2022-02-17 14:41:14', '2022-02-17 14:41:14');
 
 -- --------------------------------------------------------
 
@@ -184,31 +152,20 @@ CREATE TABLE `case_study_services` (
 --
 
 INSERT INTO `case_study_services` (`id`, `case_study_id`, `service_id`, `sub_service_id`, `created_at`, `updated_at`) VALUES
-(16, 35, 1, 1, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(17, 35, 2, 2, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(18, 35, 3, 17, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(19, 35, 4, 15, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(20, 35, 5, 14, '2022-02-11 06:19:43', '2022-02-11 06:19:43'),
-(21, 37, 1, 1, '2022-02-14 09:45:45', '2022-02-14 09:45:45'),
-(22, 37, 1, 3, '2022-02-14 09:45:45', '2022-02-14 09:45:45'),
-(23, 37, 2, 6, '2022-02-14 09:45:45', '2022-02-14 09:45:45'),
-(24, 37, 2, 7, '2022-02-14 09:45:45', '2022-02-14 09:45:45'),
-(25, 39, 3, 10, '2022-02-14 10:10:24', '2022-02-14 10:10:24'),
-(26, 39, 3, 11, '2022-02-14 10:10:24', '2022-02-14 10:10:24'),
-(27, 39, 4, 14, '2022-02-14 10:10:24', '2022-02-14 10:10:24'),
-(28, 40, 1, 3, '2022-02-14 10:24:54', '2022-02-14 10:24:54'),
-(29, 40, 5, 18, '2022-02-14 10:24:54', '2022-02-14 10:24:54'),
-(30, 40, 3, 11, '2022-02-14 10:24:54', '2022-02-14 10:24:54'),
-(31, 41, 3, 9, '2022-02-14 10:26:13', '2022-02-14 10:26:13'),
-(32, 41, 4, 1, '2022-02-14 10:26:13', '2022-02-14 10:26:13'),
-(33, 41, 2, 6, '2022-02-14 10:26:13', '2022-02-14 10:26:13'),
-(34, 41, 4, 14, '2022-02-14 10:26:13', '2022-02-14 10:26:13'),
-(35, 44, 1, 1, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(36, 44, 1, 2, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(37, 44, 1, 3, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(38, 44, 1, 4, '2022-02-15 16:14:45', '2022-02-15 16:14:45'),
-(39, 46, 1, 2, '2022-02-15 19:11:32', '2022-02-15 19:11:32'),
-(40, 46, 1, 2, '2022-02-15 19:11:32', '2022-02-15 19:11:32');
+(1, 5, 1, 1, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(2, 5, 1, 2, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(3, 5, 2, 6, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(4, 5, 2, 5, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(5, 5, 1, 4, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(6, 5, 2, 8, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(7, 5, 3, 11, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(8, 6, 1, 2, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(9, 6, 2, 7, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(10, 8, 1, 2, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(11, 8, 1, 1, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(12, 8, 2, 7, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(13, 8, 2, 7, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(14, 8, 4, 14, '2022-02-17 14:41:14', '2022-02-17 14:41:14');
 
 -- --------------------------------------------------------
 
@@ -879,15 +836,15 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 (1615, 49, 6, 9, 'project-disc', '2022-02-05 12:20:22', '2022-02-05 12:20:22'),
 (1616, 49, 7, 5, 'Section 1', '2022-02-05 12:20:22', '2022-02-05 12:20:22'),
 (1617, 49, 8, 9, 'meeting', '2022-02-05 12:20:22', '2022-02-05 12:20:22'),
-(1636, 38, 1, 21, 'for home page', '2022-02-14 11:22:37', '2022-02-14 11:22:37'),
-(1637, 38, 2, 5, 'Section 1', '2022-02-14 11:22:37', '2022-02-14 11:22:37'),
-(1638, 38, 3, 9, 'custom-proposal', '2022-02-14 11:22:37', '2022-02-14 11:22:37'),
-(1639, 38, 4, 4, 'case study 1', '2022-02-14 11:22:37', '2022-02-14 11:22:37'),
-(1640, 38, 5, 6, 'clients and partners', '2022-02-14 11:22:37', '2022-02-14 11:22:37'),
-(1641, 38, 6, 7, 'one', '2022-02-14 11:22:37', '2022-02-14 11:22:37'),
-(1642, 38, 7, 9, 'project-disc', '2022-02-14 11:22:37', '2022-02-14 11:22:37'),
-(1643, 38, 8, 8, 'section 1', '2022-02-14 11:22:37', '2022-02-14 11:22:37'),
-(1644, 38, 9, 9, 'meeting', '2022-02-14 11:22:37', '2022-02-14 11:22:37');
+(1645, 38, 1, 21, 'for home page', '2022-02-17 08:14:41', '2022-02-17 08:14:41'),
+(1646, 38, 2, 5, 'Section 1', '2022-02-17 08:14:41', '2022-02-17 08:14:41'),
+(1647, 38, 3, 9, 'custom-proposal', '2022-02-17 08:14:41', '2022-02-17 08:14:41'),
+(1648, 38, 4, 4, 'case study 1', '2022-02-17 08:14:41', '2022-02-17 08:14:41'),
+(1649, 38, 5, 6, 'clients and partners', '2022-02-17 08:14:41', '2022-02-17 08:14:41'),
+(1650, 38, 6, 7, 'one', '2022-02-17 08:14:41', '2022-02-17 08:14:41'),
+(1651, 38, 7, 9, 'project-disc', '2022-02-17 08:14:41', '2022-02-17 08:14:41'),
+(1652, 38, 8, 8, 'section 1', '2022-02-17 08:14:41', '2022-02-17 08:14:41'),
+(1653, 38, 9, 9, 'meeting', '2022-02-17 08:14:41', '2022-02-17 08:14:41');
 
 -- --------------------------------------------------------
 
@@ -2265,25 +2222,25 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `case_study`
 --
 ALTER TABLE `case_study`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `case_study_content`
 --
 ALTER TABLE `case_study_content`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `case_study_industries`
 --
 ALTER TABLE `case_study_industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `case_study_services`
 --
 ALTER TABLE `case_study_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `child_menus`
@@ -2397,7 +2354,7 @@ ALTER TABLE `page`
 -- AUTO_INCREMENT for table `page_detail`
 --
 ALTER TABLE `page_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1645;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1654;
 
 --
 -- AUTO_INCREMENT for table `page_section`

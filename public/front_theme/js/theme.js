@@ -262,7 +262,7 @@ $('#page_sections').change(function() {
             url: "services_by_id_with_services/" + value,
             method: "GET",
             success: function(result) {
-                
+                console.log(result);
                 $(`.${result['class_name']}`).show().siblings().not(`.${result['class_name']}`).not(".col-md-12").hide("slow", arguments.callee);
                 $('#industry_section').hide();
                 $('#dependent_page_sections').html(result['options']);
