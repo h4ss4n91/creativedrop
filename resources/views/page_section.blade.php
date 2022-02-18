@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -11,6 +11,7 @@
     .form-control {
         padding: 7px !important;
     }
+
     .table td,
     .table th {
         padding: 7px !important;
@@ -52,83 +53,111 @@
                         <ul class="nav nav-pills flex-column mt-md-0 mt-1">
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-section-23" data-toggle="pill" href="#account-vertical-section_23" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Heading
+                                    <!-- <i class="feather icon-type"></i> -->
+                                    <i class="fa fa-text-height"></i>
+
+                                    Heading
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex active" id="account-pill-general" data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
-                                    <i class="feather icon-list"></i> Slider
+                                    <!-- <i class="feather icon-list"></i>  -->
+                                    <!-- <i class="fa fa-rectangle-vertical-history"></i> -->
+                                    <i class="fa fa-file-image-o"></i>
+                                    Slider
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-password" data-toggle="pill" href="#account-vertical-password" aria-expanded="false">
-                                    <i class="feather icon-list"></i> Video
+                                    <!-- <i class="feather icon-list"></i>  -->
+                                    <i class="fa fa-play-circle"></i>
+
+                                    Video
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-info-services" data-toggle="pill" href="#account-vertical-info-services" aria-expanded="false">
-                                    <i class="feather icon-info"></i> Services
+                                    <!-- <i class="feather icon-info"></i>  -->
+                                    <i class="fa fa-cogs"></i>
+                                    Services
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-connections" data-toggle="pill" href="#account-vertical-connections" aria-expanded="false">
-                                    <i class="feather icon-feather"></i> Industries
+                                    <!-- <i class="feather icon-feather"></i>  -->
+                                    <i class="fa fa-industry"></i>
+                                    Industries
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-info" data-toggle="pill" href="#account-vertical-info" aria-expanded="false">
-                                    <i class="feather icon-info"></i> Case Study
+                                    <!-- <i class="feather icon-info"></i>  -->
+                                    <i class="fa fa-info-circle"></i>
+                                    Case Study
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-info-team" data-toggle="pill" href="#account-vertical-info-team" aria-expanded="false">
-                                    <i class="feather icon-users"></i> Team
+                                    <i class="fa fa-users"></i> Team
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-social" data-toggle="pill" href="#account-vertical-social" aria-expanded="false">
-                                    <i class="feather icon-camera"></i> Clients & Partners
+                                    <!-- <i class="feather icon-camera"></i>  -->
+                                    <i class="fa fa-handshake-o"></i>
+                                    Clients & Partners
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-news" data-toggle="pill" href="#account-vertical-news" aria-expanded="false">
-                                    <i class="feather icon-globe"></i> News & Opinions
+                                    <!-- <i class="feather icon-globe"></i>  -->
+                                    <i class="fa fa-newspaper-o"></i>
+                                    <!-- <i class="fa fa-globe"></i> -->
+                                    News & Opinions
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-request" data-toggle="pill" href="#account-vertical-request" aria-expanded="false">
-                                    <i class="feather icon-users"></i> Request for Meeting
+                                    <!-- <i class="feather icon-users"></i>  -->
+                                    <i class="fa fa-headphones"></i>
+                                    Request for Meeting
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_1" data-toggle="pill" href="#account-vertical-style_1" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Paragraph Style 1
+                                    <!-- <i class="feather icon-type"></i>  -->
+                                    <i class="fa fa-paragraph"></i>
+                                    Paragraph Style 1
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_2" data-toggle="pill" href="#account-vertical-style_2" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Paragraph Style 2
+                                    <!-- <i class="feather icon-type"></i>  -->
+                                    <i class="fa fa-paragraph"></i> Paragraph Style 2
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_3" data-toggle="pill" href="#account-vertical-style_3" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Paragraph Style 3
+                                    <!-- <i class="feather icon-type"></i>  -->
+                                    <i class="fa fa-paragraph"></i> Paragraph Style 3
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_4" data-toggle="pill" href="#account-vertical-style_4" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Paragraph Style 4
+                                    <!-- <i class="feather icon-type"></i>  -->
+                                    <i class="fa fa-paragraph"></i> Paragraph Style 4
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-style_5" data-toggle="pill" href="#account-vertical-style_5" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Paragraph Style 5
+                                    <!-- <i class="feather icon-type"></i>  -->
+                                    <i class="fa fa-paragraph"></i> Paragraph Style 5
                                 </a>
                             </li>
 
@@ -141,7 +170,9 @@
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-paragraph-with-icon" data-toggle="pill" href="#account-vertical-paragraph-with-icon" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Section 16  (Paragraph with icon)
+                                    <!-- <i class="feather icon-type"></i>  -->
+                                    <i class="fa fa-pencil"></i>
+                                    Section 16 (Paragraph with icon)
                                 </a>
                             </li>
 
@@ -159,7 +190,9 @@
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-section-19" data-toggle="pill" href="#account-vertical-section_19" aria-expanded="false">
-                                    <i class="feather icon-type"></i> Padding Bottom and Padding TOP
+                                    <!-- <i class="feather icon-type"></i>  -->
+                                    <i class="fa fa-arrows-v"></i>
+                                    Padding Bottom and Padding TOP
                                 </a>
                             </li>
 
@@ -181,7 +214,7 @@
                                 </a>
                             </li>
 
-                             
+
 
 
 
@@ -203,39 +236,39 @@
                                             </div>
                                             <hr>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-12">
                                                     <form method="POST" action="{{url('admin/store_slider')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
 
                                                             <div class="col-6">
-                                                                    <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
+                                                                <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
                                                             </div>
+                                                            <div class="col-6">
                                                                 <div class="col-6">
-                                                                    <div class="col-6">
-                                                                        <div class="form-group">
-                                                                            <div class="controls">
-                                                                                <label for="account-username">Page Name</label>
-                                                                                <select class="form-control" name="page_id">
-                                                                            @foreach($pages as $row_page)
-                                                                                    <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                            </div>
+                                                                    <div class="form-group">
+                                                                        <div class="controls">
+                                                                            <label for="account-username">Page Name</label>
+                                                                            <select class="form-control" name="page_id">
+                                                                                @foreach($pages as $row_page)
+                                                                                <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
+                                                                                @endforeach
+                                                                            </select>
                                                                         </div>
                                                                     </div>
+                                                                </div>
 
-                                                                    <div class="col-6">
-                                                                        <div class="form-group">
-                                                                            <div class="controls">
-                                                                                <label for="account-username">Slider Name</label>
-                                                                                <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                            </div>
+                                                                <div class="col-6">
+                                                                    <div class="form-group">
+                                                                        <div class="controls">
+                                                                            <label for="account-username">Slider Name</label>
+                                                                            <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                         </div>
                                                                     </div>
+                                                                </div>
 
-                                                                    @include('padding_top_and_bottom');
+                                                                @include('padding_top_and_bottom');
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -311,7 +344,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                                        Slider</button>
+                                                                    Slider</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -319,7 +352,7 @@
                                                 </div>
 
                                             </div>
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -343,8 +376,8 @@
                                                         <td>{{$row_sliders->text2}}</td>
                                                         <td>{{$row_sliders->status}}</td>
                                                         <td>
-                                                            <a data-toggle="modal" data-target="#sliderModalCenter{{$row_sliders->id}}"> Edit</a> |
-                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->id)}}"> Delete </a>
+                                                            <a data-toggle="modal" data-target="#sliderModalCenter{{$row_sliders->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
+                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
 
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="sliderModalCenter{{$row_sliders->id}}" tabindex="-1" role="dialog" aria-labelledby="sliderModalCenter{{$row_sliders->id}}" aria-hidden="true">
@@ -353,8 +386,8 @@
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_sliders->text1}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_slider')}}" enctype="multipart/form-data">
@@ -477,10 +510,10 @@
                                                                     <div class="controls">
                                                                         <label for="account-username">Page Name</label>
                                                                         <select class="form-control" name="page_id">
-                                                                       @foreach($pages as $row_page)
+                                                                            @foreach($pages as $row_page)
                                                                             <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                       @endforeach
-                                                                </select>
+                                                                            @endforeach
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -599,12 +632,12 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                            Video</button>
+                                                                    Video</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
                                                     </form>
-                                                    <hr/>
+                                                    <hr />
                                                 </div>
 
                                                 <div class="col-6">
@@ -634,8 +667,8 @@
                                                         <td>{{$row_videos->button_label}}</td>
                                                         <td>{{$row_videos->contact_button_link}}</td>
                                                         <td>
-                                                            <a data-toggle="modal" data-target="#videoModalCenter{{$row_videos->id}}"> Edit</a> |
-                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_video/'.$row_videos->id)}} "> Delete </a>
+                                                            <a data-toggle="modal" data-target="#videoModalCenter{{$row_videos->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
+                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_video/'.$row_videos->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="videoModalCenter{{$row_videos->id}}" tabindex="-1" role="dialog" aria-labelledby="videoModalCenter{{$row_videos->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -643,8 +676,8 @@
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_videos->video_title}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_video')}}" enctype="multipart/form-data">
@@ -762,10 +795,10 @@
                                                                     <div class="controls">
                                                                         <label for="account-username">Page Name</label>
                                                                         <select class="form-control" name="page_id">
-                                                                       @foreach($pages as $row_page)
+                                                                            @foreach($pages as $row_page)
                                                                             <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                       @endforeach
-                                                                </select>
+                                                                            @endforeach
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -784,10 +817,10 @@
                                                                     <div class="controls">
                                                                         <label for="account-username">CLASS NAME</label>
                                                                         <select class="form-control" name="class_name">
-                                                                <option name="section-bg-white">section-bg-white</option>
-                                                                <option name="section-bg-white">section-bg-white</option>
-                                                                <option name="section-bg-grey-grad">section-bg-grey-grad</option>
-                                                            </select>
+                                                                            <option name="section-bg-white">section-bg-white</option>
+                                                                            <option name="section-bg-white">section-bg-white</option>
+                                                                            <option name="section-bg-grey-grad">section-bg-grey-grad</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -868,7 +901,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                                        Services</button>
+                                                                    Services</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -898,15 +931,15 @@
                                                             <td>{{$row_services->main_service}}</td>
                                                             <td>{{$row_services->sub_service}}</td>
                                                             <td>{{$row_services->sub_service_link}}</td>
-                                                            <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_service/'.$row_services->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#serviceModalCenter{{$row_services->id}}"> Edit</a>
+                                                            <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_service/'.$row_services->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#serviceModalCenter{{$row_services->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                                 <div class="modal fade" id="serviceModalCenter{{$row_services->id}}" tabindex="-1" role="dialog" aria-labelledby="serviceModalCenter{{$row_services->id}}" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <h5 class="modal-title" id="exampleModalLongTitle">Testing</h5>
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <form method="POST" action="{{url('admin/edit_service')}}" enctype="multipart/form-data">
@@ -919,10 +952,10 @@
                                                                                                 <div class="controls">
                                                                                                     <label for="account-username">Page Name</label>
                                                                                                     <select class="form-control" name="page_id">
-                                                                                   @foreach($pages as $row_page)
-                                                                                        <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                                   @endforeach
-                                                                            </select>
+                                                                                                        @foreach($pages as $row_page)
+                                                                                                        <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
+                                                                                                        @endforeach
+                                                                                                    </select>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -940,10 +973,10 @@
                                                                                                 <div class="controls">
                                                                                                     <label for="account-username">CLASS NAME</label>
                                                                                                     <select class="form-control" name="class_name">
-                                                                            <option name="section-bg-white">section-bg-white</option>
-                                                                            <option name="section-bg-white">section-bg-white</option>
-                                                                            <option name="section-bg-grey-grad">section-bg-grey-grad</option>
-                                                                        </select>
+                                                                                                        <option name="section-bg-white">section-bg-white</option>
+                                                                                                        <option name="section-bg-white">section-bg-white</option>
+                                                                                                        <option name="section-bg-grey-grad">section-bg-grey-grad</option>
+                                                                                                    </select>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -1006,7 +1039,7 @@
 
                                             </div>
 
-                                            <hr/>
+                                            <hr />
 
                                         </div>
 
@@ -1061,8 +1094,8 @@
                                                                 <img style="width:100%" src="{{asset('public/page_sections/case_study.png')}}" />
                                                             </div>
 
-                                                           
-                                                            
+
+
 
                                                             <div class="col-12">
                                                                 <div class="form-group">
@@ -1079,12 +1112,12 @@
                                                                 <script>
                                                                     $(document).ready(function() {
                                                                         // Denotes total number of rows
-                                                                                
+
                                                                         var caseStudyrowIdx = 0;
                                                                         // jQuery button click event to add a row
                                                                         $('#caseStudyaddBtn').on('click', function() {
                                                                             $('.video').hide();
-                                                                                $('.image').hide();
+                                                                            $('.image').hide();
                                                                             // Adding a row inside the tbody.
                                                                             $('#caseStudytbody').append(`<tr id="R${++caseStudyrowIdx}">
                                                                                 <td class="row-index text-center">
@@ -1105,15 +1138,15 @@
                                                                                 
                                                                                 <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
                                                                                 </tr>`);
-                                                                                // $('#caseStudytbody').on('change', `.type${caseStudyrowIdx}`, function() {
-                                                                                // });
+                                                                            // $('#caseStudytbody').on('change', `.type${caseStudyrowIdx}`, function() {
+                                                                            // });
                                                                         });
-                                                                        
+
                                                                         // jQuery button click event to remove a row.
                                                                         $('#caseStudytbody').on('click', '.remove', function() {
                                                                             // Getting all the rows next to the row
                                                                             // containing the clicked button
-                                                                            
+
 
                                                                             var child = $(this).closest('tr').nextAll();
                                                                             // Iterating across all the rows 
@@ -1176,25 +1209,25 @@
                                                                             </tr>`);
 
                                                                             $('#caseStudyServicestbody').on('change', `.service${caseStudyServicesrowIdx}`, function() {
-                                                                            if ($(this).val() != '') {
-                                                                                var select = $(this).attr("id");
-                                                                                var value = $(this).val();
-                                                                                    
-                                                                                var dependent = $(this).data('dependent');
-                                                                                var _token = $('input[name="_token"]').val();
-                                                                                $.ajax({
-                                                                                    url: "services_by_id/" + value,
-                                                                                    method: "GET",
-                                                                                    success: function(result) {
-                                                                                        
-                                                                                        $(`#dependent_page_sections${caseStudyServicesrowIdx}`).html(result);
-                                                                                    }
+                                                                                if ($(this).val() != '') {
+                                                                                    var select = $(this).attr("id");
+                                                                                    var value = $(this).val();
 
-                                                                                })
-                                                                            }
-                                                                        });
+                                                                                    var dependent = $(this).data('dependent');
+                                                                                    var _token = $('input[name="_token"]').val();
+                                                                                    $.ajax({
+                                                                                        url: "services_by_id/" + value,
+                                                                                        method: "GET",
+                                                                                        success: function(result) {
 
-                                                                        
+                                                                                            $(`#dependent_page_sections${caseStudyServicesrowIdx}`).html(result);
+                                                                                        }
+
+                                                                                    })
+                                                                                }
+                                                                            });
+
+
 
 
                                                                         });
@@ -1321,12 +1354,12 @@
 
                                                 </div>
 
-                                                
+
 
                                             </div>
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -1348,15 +1381,15 @@
                                                         <td>{{$case_study_row->name}}</td>
                                                         <td>{{$case_study_row->title}}</td>
                                                         <td>{{$case_study_row->short_description}}</td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_case_study/'.$case_study_row->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#caseStudyModalCenter{{$case_study_row->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_case_study/'.$case_study_row->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#caseStudyModalCenter{{$case_study_row->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="caseStudyModalCenter{{$case_study_row->id}}" tabindex="-1" role="dialog" aria-labelledby="caseStudyModalCenter{{$case_study_row->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">Testing</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_case_study')}}" enctype="multipart/form-data">
@@ -1387,7 +1420,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Case Study Image</label>
-                                                                                                <input type="file" name="case_study_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="case_study_image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
 
@@ -1554,7 +1587,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Add
-                                            Team Member Info</button>
+                                                                    Team Member Info</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -1571,7 +1604,7 @@
 
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -1592,15 +1625,15 @@
                                                         </td>
                                                         <td>{{$case_study_row->name}}</td>
                                                         <td>{{$case_study_row->designation}}</td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_team/'.$case_study_row->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#teamStudyModalCenter{{$case_study_row->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_team/'.$case_study_row->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#teamStudyModalCenter{{$case_study_row->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="teamStudyModalCenter{{$case_study_row->id}}" tabindex="-1" role="dialog" aria-labelledby="teamStudyModalCenter{{$case_study_row->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$case_study_row->name}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_team')}}" enctype="multipart/form-data">
@@ -1623,7 +1656,7 @@
                                                                                             <div class="form-group">
                                                                                                 <div class="controls">
                                                                                                     <label for="account-username">Team Member Image</label>
-                                                                                                    <input type="file" name="team_member_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                    <input type="file" name="team_member_image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -1783,7 +1816,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                            Client and Partner Image </button>
+                                                                    Client and Partner Image </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -1797,7 +1830,7 @@
 
                                             </div>
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -1816,16 +1849,15 @@
                                                         <td>
                                                             <img style="width:100px;" src="{{asset('public/client_and_partner/'.$row_clientandpartnerimage->image)}}" />
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_client_and_partner/'.$row_clientandpartnerimage->id)}}"> Delete </a> | <a data-toggle="modal"
-                                                                data-target="#clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_client_and_partner/'.$row_clientandpartnerimage->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}" tabindex="-1" role="dialog" aria-labelledby="clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">Client and Partner</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_client_and_partner')}}" enctype="multipart/form-data">
@@ -1846,7 +1878,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Client and Partner Image</label>
-                                                                                                <input type="file" name="clientAndParter_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="clientAndParter_image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
 
@@ -1897,7 +1929,7 @@
                                                     Create Industries Section
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-12">
@@ -1908,7 +1940,7 @@
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
-                                                                        
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1923,13 +1955,13 @@
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-username">Industry Name</label>
-                                                                        <input type="text" name="title" class="form-control"/>
+                                                                        <input type="text" name="title" class="form-control" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-username">Industry Image</label>
-                                                                        <input type="file" name="industry_image" class="form-control"/>
+                                                                        <input type="file" name="industry_image" class="form-control" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1946,14 +1978,14 @@
 
                                                 </div>
 
-                                                
+
 
                                             </div>
 
 
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -1981,28 +2013,28 @@
                                                         </td>
                                                         <td>
                                                             @php
-                                                                $industries_services = DB::table('industries')
-                                                                ->join('menus', 'menus.id', '=', 'industries.service_id')
-                                                                ->join('child_menus', 'child_menus.id', '=', 'industries.sub_category_id')
-                                                                ->where('industries.name', '=', $row_industries->name)->get();
+                                                            $industries_services = DB::table('industries')
+                                                            ->join('menus', 'menus.id', '=', 'industries.service_id')
+                                                            ->join('child_menus', 'child_menus.id', '=', 'industries.sub_category_id')
+                                                            ->where('industries.name', '=', $row_industries->name)->get();
                                                             @endphp
                                                             <table>
                                                                 <tr>
                                                                     <th>Services</th>
                                                                     <th>Sub Services</th>
                                                                 </tr>
-                                                            
-                                                            @foreach($industries_services as $row_industries_services)
-                                                            <tr>
-                                                                <td>{{$row_industries_services->menu_name}}</td>
-                                                                <td>{{$row_industries_services->item_name}}</td>
-                                                            </tr>
-                                                                 
-                                                            @endforeach
-                                                        </table>
+
+                                                                @foreach($industries_services as $row_industries_services)
+                                                                <tr>
+                                                                    <td>{{$row_industries_services->menu_name}}</td>
+                                                                    <td>{{$row_industries_services->item_name}}</td>
+                                                                </tr>
+
+                                                                @endforeach
+                                                            </table>
 
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_industry/'.$row_industries->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#industryModalCenter{{$row_industries->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_industry/'.$row_industries->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#industryModalCenter{{$row_industries->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="industryModalCenter{{$row_industries->id}}" tabindex="-1" role="dialog" aria-labelledby="industryModalCenter{{$row_industries->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
@@ -2047,7 +2079,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Industry Image</label>
-                                                                                                <input type="file" name="industry_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="industry_image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
 
@@ -2070,8 +2102,8 @@
 
 
                                                                                     <div class="col-12">
-                                                                                        
-                        
+
+
                                                                                         <div class="container pt-4">
                                                                                             <button class="btn btn-md btn-primary" id="edit_industryaddBtn" type="button"> Edit Services for Industry </button>
                                                                                             <div class="table-responsive">
@@ -2084,16 +2116,16 @@
                                                                                                         </tr>
                                                                                                     </thead>
                                                                                                     <tbody id="edit_industrytbody">
-                        
+
                                                                                                     </tbody>
                                                                                                 </table>
                                                                                             </div>
-                        
+
                                                                                         </div>
                                                                                     </div>
 
 
-                                                                                    
+
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Industry</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
@@ -2133,7 +2165,7 @@
                                                     News & Opinions
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-6">
@@ -2171,7 +2203,7 @@
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-username">News Image</label>
-                                                                        <input type="file" name="news_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                        <input type="file" name="news_image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2187,7 +2219,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                              News and Opinions </button>
+                                                                    News and Opinions </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -2204,7 +2236,7 @@
 
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -2232,15 +2264,15 @@
                                                         <td>
                                                             {{$row_news->link}}
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_news/'.$row_news->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#newsModalCenter{{$row_news->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_news/'.$row_news->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#newsModalCenter{{$row_news->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="newsModalCenter{{$row_news->id}}" tabindex="-1" role="dialog" aria-labelledby="newsModalCenter{{$row_news->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">Testing</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_news')}}" enctype="multipart/form-data">
@@ -2262,7 +2294,7 @@
                                                                                             <div class="form-group">
                                                                                                 <div class="controls">
                                                                                                     <label for="account-username">News and Opinions Image</label>
-                                                                                                    <input type="file" name="news_image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                    <input type="file" name="news_image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -2338,7 +2370,7 @@
                                                     Request a Meeting
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-6">
@@ -2377,7 +2409,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            
+
 
 
 
@@ -2385,18 +2417,22 @@
                                                                 <script>
                                                                     $(document).ready(function() {
                                                                         $('#request_style').change(function() {
-                                                                                    var value = $(this).val();
-                                                                                    if(value == 'style1'){
-                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style1.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style2'){
-                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style2.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style3'){
-                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style3.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style4'){
-                                                                                        $( "#request_style_content" ).html( '<img style="width:200%" src="{{asset('public/page_sections/request_style4.png')}}" />'); //this is not working
-                                                                                    }
-                                                                                    
-                                                                                });
+                                                                            var value = $(this).val();
+                                                                            if (value == 'style1') {
+                                                                                $("#request_style_content").html('<img style="width:200%" src="{{asset('
+                                                                                    public / page_sections / request_style1.png ')}}" />'); //this is not working
+                                                                            } else if (value == 'style2') {
+                                                                                $("#request_style_content").html('<img style="width:200%" src="{{asset('
+                                                                                    public / page_sections / request_style2.png ')}}" />'); //this is not working
+                                                                            } else if (value == 'style3') {
+                                                                                $("#request_style_content").html('<img style="width:200%" src="{{asset('
+                                                                                    public / page_sections / request_style3.png ')}}" />'); //this is not working
+                                                                            } else if (value == 'style4') {
+                                                                                $("#request_style_content").html('<img style="width:200%" src="{{asset('
+                                                                                    public / page_sections / request_style4.png ')}}" />'); //this is not working
+                                                                            }
+
+                                                                        });
 
                                                                         // Denotes total number of rows
                                                                         var requestrowIdx = 0;
@@ -2458,7 +2494,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                                Request a Meeting </button>
+                                                                    Request a Meeting </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -2469,17 +2505,17 @@
 
                                                     <div class="col-6">
                                                         <div id="request_style_content">
-                                                            
+
                                                         </div>
-                                                        
+
                                                     </div>
 
-                                                    
+
                                                 </div>
 
                                             </div>
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -2502,15 +2538,15 @@
                                                         <td>
                                                             {{$row_request->btn_label}}
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_request/'.$row_request->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#requestModalCenter{{$row_request->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_request/'.$row_request->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#requestModalCenter{{$row_request->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="requestModalCenter{{$row_request->id}}" tabindex="-1" role="dialog" aria-labelledby="requestModalCenter{{$row_request->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_request->title}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                          <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_request')}}" enctype="multipart/form-data">
@@ -2609,7 +2645,7 @@
                                                     Paragraph Left Image Right Text
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-6">
@@ -2643,7 +2679,7 @@
                                                                         <select name="style" class="form-control">
                                                                             <option value="style1"> Style 1</option>
                                                                             <option value="style2"> Style 2</option>
-                                                                            
+
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -2717,7 +2753,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                            Paragraph style 1 </button>
+                                                                    Paragraph style 1 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -2731,7 +2767,7 @@
 
                                             </div>
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -2764,18 +2800,18 @@
                                                         <td>
                                                             {{$row_para_style_1->paragraph}}
                                                         </td>
-                                                        <td>
-                                                            {{$row_para_style_1->link}}
-                                                        </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_1/'.$row_para_style_1->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#para_style_1_ModalCenter{{$row_para_style_1->id}}"> Edit</a>
+                                                        <!-- <td> -->
+                                                        {{--$row_para_style_1->link--}}
+                                                        <!-- </td> -->
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_1/'.$row_para_style_1->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#para_style_1_ModalCenter{{$row_para_style_1->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="para_style_1_ModalCenter{{$row_para_style_1->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_1_ModalCenter{{$row_para_style_1->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_para_style_1->title}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_para_style_1')}}" enctype="multipart/form-data">
@@ -2814,7 +2850,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">image</label>
-                                                                                                <input type="file" name="image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -2882,7 +2918,7 @@
                                                     Paragraph Right Image Left Text
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-6">
@@ -2986,7 +3022,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                        Paragraph style 2 </button>
+                                                                    Paragraph style 2 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -3006,7 +3042,7 @@
 
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -3041,15 +3077,15 @@
                                                             @if($row_para_style_2->flex_row_reverse == NULL) NO @else() YES @endif
                                                         </td>
 
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_2/'.$row_para_style_2->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#para_style_2_ModalCenter{{$row_para_style_2->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_2/'.$row_para_style_2->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#para_style_2_ModalCenter{{$row_para_style_2->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="para_style_2_ModalCenter{{$row_para_style_2->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_2_ModalCenter{{$row_para_style_2->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_para_style_2->title}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_para_style_2')}}" enctype="multipart/form-data">
@@ -3087,7 +3123,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">image</label>
-                                                                                                <input type="file" name="image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3154,7 +3190,7 @@
                                                     Paragraph Two Column Image Top
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-6">
@@ -3249,7 +3285,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                    Paragraph style 3 </button>
+                                                                    Paragraph style 3 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -3269,7 +3305,7 @@
 
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -3303,15 +3339,15 @@
                                                             {{$row_para_style_3->paragraph}}
                                                         </td>
 
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_3/'.$row_para_style_3->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#para_style_3_ModalCenter{{$row_para_style_3->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_3/'.$row_para_style_3->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#para_style_3_ModalCenter{{$row_para_style_3->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="para_style_3_ModalCenter{{$row_para_style_3->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_3_ModalCenter{{$row_para_style_3->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_para_style_3->title}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_para_style_3')}}" enctype="multipart/form-data">
@@ -3349,7 +3385,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">image</label>
-                                                                                                <input type="file" name="image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3419,7 +3455,7 @@
                                                     Paragraph with Button
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-6">
@@ -3509,7 +3545,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                    Paragraph style 4 </button>
+                                                                    Paragraph style 4 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -3523,7 +3559,7 @@
 
                                             </div>
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -3545,15 +3581,15 @@
                                                         </td>
 
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_4/'.$row_para_style_4->id)}}">Delete </a> | <a data-toggle="modal" data-target="#para_style_4_ModalCenter{{$row_para_style_4->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_4/'.$row_para_style_4->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#para_style_4_ModalCenter{{$row_para_style_4->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="para_style_4_ModalCenter{{$row_para_style_4->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_4_ModalCenter{{$row_para_style_4->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_para_style_4->title}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_para_style_4')}}" enctype="multipart/form-data">
@@ -3635,7 +3671,7 @@
                                                     Paragraph with main heading left right text
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-12">
@@ -3651,36 +3687,36 @@
                                                                 </div>
                                                             </div>
 
-                                                        <div class="col-6">
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Section Name</label>
-                                                                        <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                            <div class="col-6">
+                                                                <div class="col-12">
+                                                                    <div class="form-group">
+                                                                        <div class="controls">
+                                                                            <label for="account-username">Section Name</label>
+                                                                            <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            
-                                                            
 
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Select Style </label>
-                                                                        <select id="para_style_5_style" name="style" class="form-control">
-                                                                            <option value=""> --- Select Style --- </option>
-                                                                            <option value="style1"> Style 1</option>
-                                                                            <option value="style2"> Style 2</option>
-                                                                        </select>
+
+
+                                                                <div class="col-12">
+                                                                    <div class="form-group">
+                                                                        <div class="controls">
+                                                                            <label for="account-username">Select Style </label>
+                                                                            <select id="para_style_5_style" name="style" class="form-control">
+                                                                                <option value=""> --- Select Style --- </option>
+                                                                                <option value="style1"> Style 1</option>
+                                                                                <option value="style2"> Style 2</option>
+                                                                            </select>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                            
+
                                                             <div class="col-6">
                                                                 <div id="para_style_5_style_content"> </div>
                                                             </div>
-                                                            
+
 
 
                                                             <div class="col-12">
@@ -3688,14 +3724,16 @@
                                                                     $(document).ready(function() {
 
                                                                         $('#para_style_5_style').change(function() {
-                                                                                    var value = $(this).val();
-                                                                                    if(value == 'style1'){
-                                                                                        $( "#para_style_5_style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/paragraph_with_main_heading_left_right_text_column.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style2'){
-                                                                                        $( "#para_style_5_style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_22_style2.png')}}" />'); //this is not working
-                                                                                    }
-                                                                                    
-                                                                                });
+                                                                            var value = $(this).val();
+                                                                            if (value == 'style1') {
+                                                                                $("#para_style_5_style_content").html('<img style="width:100%" src="{{asset('
+                                                                                    public / page_sections / paragraph_with_main_heading_left_right_text_column.png ')}}" />'); //this is not working
+                                                                            } else if (value == 'style2') {
+                                                                                $("#para_style_5_style_content").html('<img style="width:100%" src="{{asset('
+                                                                                    public / page_sections / section_22_style2.png ')}}" />'); //this is not working
+                                                                            }
+
+                                                                        });
 
                                                                         // Denotes total number of rows
                                                                         var paraStyleFiverowIdx = 0;
@@ -3770,7 +3808,7 @@
 
                                                 </div>
 
-                                                
+
 
                                             </div>
 
@@ -3780,7 +3818,7 @@
 
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -3812,15 +3850,15 @@
                                                             {{$row_para_style_5->text_right}}
                                                         </td>
 
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_5/'.$row_para_style_5->id)}}">Delete </a> | <a data-toggle="modal" data-target="#para_style_5_ModalCenter{{$row_para_style_5->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_5/'.$row_para_style_5->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#para_style_5_ModalCenter{{$row_para_style_5->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="para_style_5_ModalCenter{{$row_para_style_5->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_5_ModalCenter{{$row_para_style_5->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_para_style_5->title}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_para_style_5')}}" enctype="multipart/form-data">
@@ -3863,33 +3901,33 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Heading Size</label>
-                                                                                                <select class="form-control" name="heading_size"> 
-                                                                                <option value="h1"> h1 </option> 
-                                                                                <option value="h2"> h2 </option>
-                                                                                <option value="h3"> h3 </option>
-                                                                                <option value="h4"> h4 </option>
-                                                                            </select>
+                                                                                                <select class="form-control" name="heading_size">
+                                                                                                    <option value="h1"> h1 </option>
+                                                                                                    <option value="h2"> h2 </option>
+                                                                                                    <option value="h3"> h3 </option>
+                                                                                                    <option value="h4"> h4 </option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                    
-                                                                                    
+
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Heading</label>
-                                                                                                <input type="text" name="heading" value="{{$row_para_style_5->heading}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="heading" value="{{$row_para_style_5->heading}}" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                    
-                                                                                    
-                                                                            
+
+
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Paragraph Right</label>
-                                                                                                <input type="text" name="text_right" value="{{$row_para_style_5->text_right}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="text_right" value="{{$row_para_style_5->text_right}}" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3898,7 +3936,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Paragraph Left</label>
-                                                                                                <input type="text" name="text_left" value="{{$row_para_style_5->text_left}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="text_left" value="{{$row_para_style_5->text_left}}" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3939,14 +3977,14 @@
                                                     Left Image Right Heading
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-6">
                                                     <div id="style_content">
-                                                        
+
                                                     </div>
-                                                    
+
                                                 </div>
 
                                                 <div class="col-6">
@@ -3993,16 +4031,19 @@
                                                                     $(document).ready(function() {
 
                                                                         $('#style').change(function() {
-                                                                                    var value = $(this).val();
-                                                                                    if(value == 'style1'){
-                                                                                        $( "#style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_15.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style2'){
-                                                                                        $( "#style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_15_style2.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style3'){
-                                                                                        $( "#style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_15_style3.png')}}" />'); //this is not working
-                                                                                    }
-                                                                                    
-                                                                                });
+                                                                            var value = $(this).val();
+                                                                            if (value == 'style1') {
+                                                                                $("#style_content").html('<img style="width:100%" src="{{asset('
+                                                                                    public / page_sections / section_15.png ')}}" />'); //this is not working
+                                                                            } else if (value == 'style2') {
+                                                                                $("#style_content").html('<img style="width:100%" src="{{asset('
+                                                                                    public / page_sections / section_15_style2.png ')}}" />'); //this is not working
+                                                                            } else if (value == 'style3') {
+                                                                                $("#style_content").html('<img style="width:100%" src="{{asset('
+                                                                                    public / page_sections / section_15_style3.png ')}}" />'); //this is not working
+                                                                            }
+
+                                                                        });
 
                                                                         // Denotes total number of rows
                                                                         var section15_rowIdx = 0;
@@ -4082,10 +4123,10 @@
 
                                                 </div>
 
-                                                
+
 
                                             </div>
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -4095,7 +4136,7 @@
                                                         <th>Image</th>
                                                         <th>Heading </th>
                                                         <th>Change Position </th>
-                                                        
+
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -4104,20 +4145,20 @@
                                                     <tr>
                                                         <td>{{$row_section_15->name}}</td>
                                                         <td>{{$row_section_15->style}}</td>
-                                                        
+
                                                         <td>
                                                             <img style="width:100px" src="{{asset('public/section_15/'.$row_section_15->image)}}" />
                                                         </td>
                                                         <td>{{$row_section_15->heading1}}</td>
                                                         <td>
                                                             @if($row_section_15->flex_row_reverse == NULL)
-                                                                NO
+                                                            NO
                                                             @else
-                                                                YES
+                                                            YES
                                                             @endif
                                                         </td>
-                                                        
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_15/'.$row_section_15->id)}}">Delete </a> | <a data-toggle="modal" data-target="#para_style_5_ModalCenter{{$row_section_15->id}}"> Edit</a>
+
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_15/'.$row_section_15->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#para_style_5_ModalCenter{{$row_section_15->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="para_style_5_ModalCenter{{$row_section_15->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_5_ModalCenter{{$row_section_15->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
@@ -4147,7 +4188,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
-                                                                                                <input type="text" name="name" value="{{$row_section_15->name}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="name" value="{{$row_section_15->name}}" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -4168,7 +4209,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Heading</label>
-                                                                                                <input type="text" name="heading" value="{{$row_section_15->heading1}}" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="heading" value="{{$row_section_15->heading1}}" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -4177,14 +4218,14 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">change Position</label>
-                                                                                                
+
                                                                                                 <select class="form-control" name="flex_row_reverse">
                                                                                                     @if($row_section_15->flex_row_reverse == NULL)
-                                                                                                        <option value="{{$row_section_15->flex_row_reverse}}"> NO </option>
+                                                                                                    <option value="{{$row_section_15->flex_row_reverse}}"> NO </option>
                                                                                                     @else
-                                                                                                        <option value="{{$row_section_15->flex_row_reverse}}"> YES </option>
+                                                                                                    <option value="{{$row_section_15->flex_row_reverse}}"> YES </option>
                                                                                                     @endif
-                                                                                                    
+
                                                                                                     <option value=""> NO </option>
                                                                                                     <option value="flex_row_reverse"> Yes </option>
                                                                                                 </select>
@@ -4203,8 +4244,8 @@
                                                                                     <div class="col-6">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <img style="width:90%" src="{{asset('public/section_15/'.$row_section_15->image)}}"/>
-                                                                                                
+                                                                                                <img style="width:90%" src="{{asset('public/section_15/'.$row_section_15->image)}}" />
+
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -4244,7 +4285,7 @@
                                                     Paragraph with icon
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-4">
@@ -4316,7 +4357,7 @@
                                                                 </script>
 
                                                                 <div class="container pt-4">
-                                                                    <button class="btn btn-md btn-primary" id="section16addBtn" type="button"> Add   </button>
+                                                                    <button class="btn btn-md btn-primary" id="section16addBtn" type="button"> Add </button>
                                                                     <div class="table-responsive">
                                                                         <table class="table table-bordered">
                                                                             <thead>
@@ -4324,7 +4365,7 @@
                                                                                     <th class="text-center">Icon</th>
                                                                                     <th class="text-center">Heading</th>
                                                                                     <th class="text-center">Text</th>
-                                                                                    
+
                                                                                     <th class="text-center">Remove Row</th>
                                                                                 </tr>
                                                                             </thead>
@@ -4346,7 +4387,7 @@
 
                                                 </div>
 
-                                                
+
 
                                             </div>
 
@@ -4356,7 +4397,7 @@
 
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -4365,7 +4406,7 @@
                                                         <th>Icon</th>
                                                         <th>Heading</th>
                                                         <th>Text</th>
-                                                        
+
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -4384,17 +4425,17 @@
                                                         <td>
                                                             {{$row_section_16->text}}
                                                         </td>
-                                                        
 
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_16/'.$row_section_16->id)}}">Delete </a> | <a data-toggle="modal" data-target="#section_15_ModalCenter{{$row_section_16->id}}"> Edit</a>
+
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_16/'.$row_section_16->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#section_15_ModalCenter{{$row_section_16->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="section_15_ModalCenter{{$row_section_16->id}}" tabindex="-1" role="dialog" aria-labelledby="section_15_ModalCenter{{$row_section_16->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_16->heading}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_16')}}" enctype="multipart/form-data">
@@ -4484,7 +4525,7 @@
                                                     Section 17
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-6">
@@ -4574,7 +4615,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                      Section 17 </button>
+                                                                    Section 17 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -4594,7 +4635,7 @@
 
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -4615,15 +4656,15 @@
                                                         </td>
 
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_17/'.$row_section_17->id)}}">Delete </a> | <a data-toggle="modal" data-target="#para_style_4_ModalCenter{{$row_section_17->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_17/'.$row_section_17->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#para_style_4_ModalCenter{{$row_section_17->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="para_style_4_ModalCenter{{$row_section_17->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_4_ModalCenter{{$row_section_17->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_17->title}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_17')}}" enctype="multipart/form-data">
@@ -4659,7 +4700,7 @@
                                                                                     </div>
 
 
-                                                                                   
+
 
 
 
@@ -4700,7 +4741,7 @@
                                                     Section 18
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-6">
@@ -4829,7 +4870,7 @@
 
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -4859,15 +4900,15 @@
                                                         </td>
 
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_18/'.$row_section_18->id)}}">Delete </a> | <a data-toggle="modal" data-target="#row_section_18_ModalCenter{{$row_section_18->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_18/'.$row_section_18->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#row_section_18_ModalCenter{{$row_section_18->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="row_section_18_ModalCenter{{$row_section_18->id}}" tabindex="-1" role="dialog" aria-labelledby="row_section_18_ModalCenter{{$row_section_18->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_18->title}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_18')}}" enctype="multipart/form-data">
@@ -4916,7 +4957,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Image</label>
-                                                                                                <input type="file" name="image" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="file" name="image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -4960,7 +5001,7 @@
                                                     Padding Bottom and Padding TOP
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
                                             <div class="row">
                                                 <div class="col-6">
 
@@ -5018,7 +5059,7 @@
                                                 </div>
 
                                             </div>
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -5042,15 +5083,15 @@
                                                             {{$row_section_19->padding_bottom}}
                                                         </td>
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_19/'.$row_section_19->id)}}">Delete </a> | <a data-toggle="modal" data-target="#row_section_19_ModalCenter{{$row_section_19->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_19/'.$row_section_19->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#row_section_19_ModalCenter{{$row_section_19->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="row_section_19_ModalCenter{{$row_section_19->id}}" tabindex="-1" role="dialog" aria-labelledby="row_section_18_ModalCenter{{$row_section_19->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_19->name}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_19')}}" enctype="multipart/form-data">
@@ -5134,7 +5175,7 @@
                                                     Background Image with Heading
                                                 </div>
                                             </div>
-                                            <hr/>
+                                            <hr />
 
                                             <div class="row">
                                                 <div class="col-6">
@@ -5182,9 +5223,9 @@
                                                                     <div class="controls">
                                                                         <label for="account-username">Button Class</label>
                                                                         <select class="form-control" name="btn_class">
-                            <option value="btn web-btn web-btn-blue mt-3">btn web-btn web-btn-blue mt-3</option>
-                            <option value="web-h5 text-white mb-0">web-h5 text-white mb-0</option>
-                        </select>
+                                                                            <option value="btn web-btn web-btn-blue mt-3">btn web-btn web-btn-blue mt-3</option>
+                                                                            <option value="web-h5 text-white mb-0">web-h5 text-white mb-0</option>
+                                                                        </select>
 
                                                                     </div>
                                                                 </div>
@@ -5221,7 +5262,7 @@
 
 
 
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -5252,15 +5293,15 @@
                                                             {{$row_section_20->btn_class}}
                                                         </td>
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_20/'.$row_section_20->id)}}">Delete </a> | <a data-toggle="modal" data-target="#row_section_20_ModalCenter{{$row_section_20->id}}"> Edit</a>
+                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_20/'.$row_section_20->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#row_section_20_ModalCenter{{$row_section_20->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="row_section_20_ModalCenter{{$row_section_20->id}}" tabindex="-1" role="dialog" aria-labelledby="row_section_20_ModalCenter{{$row_section_20->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_20->name}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_20')}}" enctype="multipart/form-data">
@@ -5394,11 +5435,11 @@
                                                                     <div class="controls">
                                                                         <label for="account-username">Slider Name</label> @php $slider_name = DB::table('sliders')->get(); @endphp
                                                                         <select class="form-control" name="slider_name">
-                                                                @foreach($slider_name->unique('name') as $row_slider_name)
-                                                                    <option value="{{$row_slider_name->name}}">{{$row_slider_name->name}}    </option>
-                                                                @endforeach
-                                                                
-                                                            </select>
+                                                                            @foreach($slider_name->unique('name') as $row_slider_name)
+                                                                            <option value="{{$row_slider_name->name}}">{{$row_slider_name->name}} </option>
+                                                                            @endforeach
+
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -5409,9 +5450,9 @@
                                                                         <label for="account-username">Video Name</label> @php $video_name = DB::table('videos')->get(); @endphp
                                                                         <select class="form-control" name="video_name">
                                                                             @foreach($video_name->unique('name') as $row_video_name)
-                                                                                <option value="{{$row_video_name->name}}">   {{$row_video_name->name}} </option>
+                                                                            <option value="{{$row_video_name->name}}"> {{$row_video_name->name}} </option>
                                                                             @endforeach
-                                                                            
+
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -5422,7 +5463,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                                        Slider with Video</button>
+                                                                    Slider with Video</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -5430,7 +5471,7 @@
                                                 </div>
 
                                             </div>
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -5447,8 +5488,8 @@
                                                         <td>{{$row_section_21->slider_name}}</td>
                                                         <td>{{$row_section_21->video_name}}</td>
                                                         <td>
-                                                            <a data-toggle="modal" data-target="#sliderWithVideoModalCenter{{$row_section_21->id}}"> Edit</a> |
-                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_section_21->id)}}"> Delete </a>
+                                                            <a data-toggle="modal" data-target="#sliderWithVideoModalCenter{{$row_section_21->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
+                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_section_21->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
 
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="sliderWithVideoModalCenter{{$row_section_21->id}}" tabindex="-1" role="dialog" aria-labelledby="sliderWithVideoModalCenter{{$row_sliders->id}}" aria-hidden="true">
@@ -5457,8 +5498,8 @@
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_21->name}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_21')}}" enctype="multipart/form-data">
@@ -5477,28 +5518,28 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
-                                                                                                <input type="text" name="name" class="form-control" id="account-username" value="{{$row_section_21->name}}" >
+                                                                                                <input type="text" name="name" class="form-control" id="account-username" value="{{$row_section_21->name}}">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                        
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Slider Name</label> @php $slider_name = DB::table('sliders')->get(); @endphp
                                                                                                 <select class="form-control" name="slider_name">
-                                                                                        @foreach($slider_name->unique('name') as $row_slider_name)
+                                                                                                    @foreach($slider_name->unique('name') as $row_slider_name)
                                                                                                     @if($row_section_21->slider_name == $row_slider_name->name)
-                                                                                                        <option selected value="{{$row_slider_name->name}}">{{$row_slider_name->name}}    </option>        
+                                                                                                    <option selected value="{{$row_slider_name->name}}">{{$row_slider_name->name}} </option>
                                                                                                     @endif
-                                                                                            <option value="{{$row_slider_name->name}}">{{$row_slider_name->name}}    </option>
-                                                                                        @endforeach
-                                                                                        
-                                                                                    </select>
+                                                                                                    <option value="{{$row_slider_name->name}}">{{$row_slider_name->name}} </option>
+                                                                                                    @endforeach
+
+                                                                                                </select>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                        
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
@@ -5506,11 +5547,11 @@
                                                                                                 <select class="form-control" name="video_name">
                                                                                                     @foreach($video_name->unique('name') as $row_video_name)
                                                                                                     @if($row_section_21->video_name == $row_video_name->name)
-                                                                                                        <option selected value="{{$row_video_name->name}}">{{$row_video_name->name}}    </option>        
+                                                                                                    <option selected value="{{$row_video_name->name}}">{{$row_video_name->name}} </option>
                                                                                                     @endif
-                                                                                                        <option value="{{$row_video_name->name}}">   {{$row_video_name->name}} </option>
+                                                                                                    <option value="{{$row_video_name->name}}"> {{$row_video_name->name}} </option>
                                                                                                     @endforeach
-                                                                                                    
+
                                                                                                 </select>
                                                                                             </div>
                                                                                         </div>
@@ -5538,7 +5579,7 @@
                                                     <tr>
 
                                                         <th>Section Name</th>
-                                                        <th>Slider  Name</th>
+                                                        <th>Slider Name</th>
                                                         <th>Video Name</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -5587,7 +5628,7 @@
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
-                                                                        <label for="account-username">First Heading  </label>
+                                                                        <label for="account-username">First Heading </label>
                                                                         <input type="text" name="heading_1" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                     </div>
                                                                 </div>
@@ -5596,7 +5637,7 @@
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
-                                                                        <label for="account-username">Second Heading  </label>
+                                                                        <label for="account-username">Second Heading </label>
                                                                         <input type="text" name="heading_2" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                     </div>
                                                                 </div>
@@ -5635,7 +5676,7 @@
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                                        Section 22</button>
+                                                                    Section 22</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -5643,7 +5684,7 @@
                                                 </div>
 
                                             </div>
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -5674,8 +5715,8 @@
                                                         <td>{{$row_section_22->text}}</td>
                                                         <td>
 
-                                                            <a data-toggle="modal" data-target="#section_22_ModalCenter{{$row_section_22->id}}"> Edit</a> |
-                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_22/'.$row_section_22->id)}}"> Delete </a>
+                                                            <a data-toggle="modal" data-target="#section_22_ModalCenter{{$row_section_22->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
+                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_22/'.$row_section_22->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
 
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="section_22_ModalCenter{{$row_section_22->id}}" tabindex="-1" role="dialog" aria-labelledby="section_22_ModalCenter{{$row_section_22->id}}" aria-hidden="true">
@@ -5684,8 +5725,8 @@
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="section_22_ModalLongTitle">{{$row_section_22->heading_1}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_22')}}" enctype="multipart/form-data">
@@ -5705,29 +5746,29 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
-                                                                                                <input type="text" name="name" class="form-control" value="{{$row_section_22->name}}" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="name" class="form-control" value="{{$row_section_22->name}}" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                        
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <label for="account-username">First Heading  </label>
+                                                                                                <label for="account-username">First Heading </label>
                                                                                                 <input type="text" name="heading_1" class="form-control" value="{{$row_section_22->heading_1}}" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                        
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <label for="account-username">Second Heading  </label>
-                                                                                                <input type="text" name="heading_2" class="form-control" id="account-username" value="{{$row_section_22->heading_2}}"  data-validation-required-message="This username field is required">
+                                                                                                <label for="account-username">Second Heading </label>
+                                                                                                <input type="text" name="heading_2" class="form-control" id="account-username" value="{{$row_section_22->heading_2}}" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                        
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
@@ -5736,7 +5777,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                        
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
@@ -5745,7 +5786,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                        
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
@@ -5754,7 +5795,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                        
+
 
 
 
@@ -5830,7 +5871,7 @@
                                                             <div class="col-4">
                                                                 <div class="form-group">
                                                                     <div class="controls">
-                                                                        <label for="account-username">Heading  </label>
+                                                                        <label for="account-username">Heading </label>
                                                                         <select name="heading" class="form-control">
                                                                             <option value="h1"> H1 </option>
                                                                             <option value="h2"> H2 </option>
@@ -5845,7 +5886,7 @@
                                                             <div class="col-4">
                                                                 <div class="form-group">
                                                                     <div class="controls">
-                                                                        <label for="account-username">Title  </label>
+                                                                        <label for="account-username">Title </label>
                                                                         <input type="text" name="title" name="title" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                     </div>
                                                                 </div>
@@ -5855,7 +5896,7 @@
 
 
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create  Heading</button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Heading</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -5863,7 +5904,7 @@
                                                 </div>
 
                                             </div>
-                                            <hr/>
+                                            <hr />
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
@@ -5880,11 +5921,11 @@
 
                                                         <td>{{$row_section_23->heading}}</td>
                                                         <td>{{$row_section_23->title}}</td>
-                                                        
+
                                                         <td>
 
-                                                            <a data-toggle="modal" data-target="#section_23_ModalCenter{{$row_section_23->id}}"> Edit</a> |
-                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_23/'.$row_section_23->id)}}"> Delete </a>
+                                                            <a data-toggle="modal" data-target="#section_23_ModalCenter{{$row_section_23->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
+                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_23/'.$row_section_23->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
 
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="section_23_ModalCenter{{$row_section_23->id}}" tabindex="-1" role="dialog" aria-labelledby="section_23_ModalCenter{{$row_section_23->id}}" aria-hidden="true">
@@ -5912,15 +5953,15 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
-                                                                                                <input type="text" name="name" class="form-control" value="{{$row_section_23->name}}" id="account-username"  data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="name" class="form-control" value="{{$row_section_23->name}}" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                        
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <label for="account-username"> Heading  </label>
+                                                                                                <label for="account-username"> Heading </label>
                                                                                                 <select name="heading" class="form-control">
                                                                                                     <option value="{{$row_section_23->heading}}">{{$row_section_23->heading}}</option>
                                                                                                     <option value="h1"> H1 </option>
@@ -5932,12 +5973,12 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                        
+
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                <label for="account-username">Title  </label>
-                                                                                                <input type="text" name="title" class="form-control" id="account-username" value="{{$row_section_23->title}}"  data-validation-required-message="This username field is required">
+                                                                                                <label for="account-username">Title </label>
+                                                                                                <input type="text" name="title" class="form-control" id="account-username" value="{{$row_section_23->title}}" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
