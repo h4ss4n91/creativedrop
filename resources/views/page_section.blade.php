@@ -2814,62 +2814,8 @@
                                                             <div class="col-6">
                                                                 <div id="para_style_5_style_content"> </div>
                                                             </div>
-                                                            
-
 
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-
-                                                                        $('#para_style_5_style').change(function() {
-                                                                                    var value = $(this).val();
-                                                                                    if(value == 'style1'){
-                                                                                        $( "#para_style_5_style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/paragraph_with_main_heading_left_right_text_column.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style2'){
-                                                                                        $( "#para_style_5_style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_22_style2.png')}}" />'); //this is not working
-                                                                                    }
-                                                                                    
-                                                                                });
-
-                                                                        // Denotes total number of rows
-                                                                        var paraStyleFiverowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#paraStyleFiveaddBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#paraStyleFivetbody').append(`<tr id="R${++paraStyleFiverowIdx}">
-                                                                            <td class="row-index text-center"><select class="form-control" name="heading_size[]"> <option value="h1"> h1 </option> <option value="h2"> h2 </option><option value="h3"> h3 </option><option value="h4"> h4 </option></select></td>
-                                                                                <td class="row-index text-center"><input type="text" name="heading[]" class="form-control"/></td>
-                                                                              <td class="row-index text-center"><input type="text" name="text_left[]" class="form-control"/></td>
-                                                                              <td class="row-index text-center"><input type="text" name="text_right[]" class="form-control"/></td>
-                                                                              <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                                             </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#paraStyleFivetbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            paraStyleFiverowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="paraStyleFiveaddBtn" type="button"> Add Para Style Five </button>
@@ -2893,26 +2839,14 @@
                                                                 </div>
                                                             </div>
 
-
-
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Paragraph style 5 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
                                                     </form>
-
                                                 </div>
-
-                                                
-
                                             </div>
-
-
-
-
-
-
 
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
@@ -2930,8 +2864,6 @@
                                                 <tbody>
                                                     @foreach($para_style_5 as $row_para_style_5)
                                                     <tr>
-
-
                                                         <td>{{$row_para_style_5->name}} ({{$row_para_style_5->style}})</td>
                                                         <td>
                                                             {{$row_para_style_5->heading_size}}
@@ -2998,11 +2930,11 @@
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Heading Size</label>
                                                                                                 <select class="form-control" name="heading_size"> 
-                                                                                <option value="h1"> h1 </option> 
-                                                                                <option value="h2"> h2 </option>
-                                                                                <option value="h3"> h3 </option>
-                                                                                <option value="h4"> h4 </option>
-                                                                            </select>
+                                                                                                    <option value="h1"> h1 </option> 
+                                                                                                    <option value="h2"> h2 </option>
+                                                                                                    <option value="h3"> h3 </option>
+                                                                                                    <option value="h4"> h4 </option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3123,65 +3055,6 @@
 
 
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-
-                                                                        $('#style').change(function() {
-                                                                                    var value = $(this).val();
-                                                                                    if(value == 'style1'){
-                                                                                        $( "#style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_15.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style2'){
-                                                                                        $( "#style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_15_style2.png')}}" />'); //this is not working
-                                                                                    }else if(value == 'style3'){
-                                                                                        $( "#style_content" ).html( '<img style="width:100%" src="{{asset('public/page_sections/section_15_style3.png')}}" />'); //this is not working
-                                                                                    }
-                                                                                    
-                                                                                });
-
-                                                                        // Denotes total number of rows
-                                                                        var section15_rowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#section15_addBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#section15_tbody').append(`<tr id="R${++section15_rowIdx}">
-                                                <td class="row-index text-center"><input type="file" name="image[]" class="form-control"/></td>
-
-                                              <td class="row-index text-center"><input type="text" name="heading[]" class="form-control"/></td>
-                                              <td class="row-index text-center"><select class="form-control" name="flex_row_reverse[]">
-                                                <option value=""> NO </option>
-                                                <option value="flex_row_reverse"> Yes </option>
-                                            </select></td>
-
-
-                                              <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                              </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#section15_tbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            section15_rowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="section15_addBtn" type="button"> Add Section 15 </button>
@@ -3204,19 +3077,13 @@
                                                                 </div>
                                                             </div>
 
-
-
-
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Section 15 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
                                                     </form>
-
                                                 </div>
-
-                                                
 
                                             </div>
                                             <hr/>
@@ -3238,7 +3105,6 @@
                                                     <tr>
                                                         <td>{{$row_section_15->name}}</td>
                                                         <td>{{$row_section_15->style}}</td>
-                                                        
                                                         <td>
                                                             <img style="width:100px" src="{{asset('public/section_15/'.$row_section_15->image)}}" />
                                                         </td>
@@ -3407,47 +3273,6 @@
                                                             </div>
 
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var section16rowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#section16addBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#section16tbody').append(`<tr id="R${++section16rowIdx}">
-                              <td class="row-index text-center"><input type="file" name="image[]" class="form-control"/></td>
-                              <td class="row-index text-center"><input type="text" name="heading[]" class="form-control"/></td>
-                              <td class="row-index text-center"><textarea name="text[]" class="form-control"></textarea></td>
-                              
-                              <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                              </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#section16tbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            section16rowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="section16addBtn" type="button"> Add   </button>
@@ -3477,24 +3302,13 @@
                                                             </div>
                                                         </div>
                                                     </form>
-
                                                 </div>
-
-                                                
-
                                             </div>
-
-
-
-
-
-
 
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
                                                     <tr>
-
                                                         <th>Section Name</th>
                                                         <th>Icon</th>
                                                         <th>Heading</th>
@@ -3506,8 +3320,6 @@
                                                 <tbody>
                                                     @foreach($section_16 as $row_section_16)
                                                     <tr>
-
-
                                                         <td>{{$row_section_16->name}}</td>
                                                         <td>
                                                             {{$row_section_16->image}}
@@ -3518,7 +3330,6 @@
                                                         <td>
                                                             {{$row_section_16->text}}
                                                         </td>
-                                                        
 
                                                         <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_16/'.$row_section_16->id)}}">Delete </a> | <a data-toggle="modal" data-target="#section_15_ModalCenter{{$row_section_16->id}}"> Edit</a>
                                                             <div class="modal fade" id="section_15_ModalCenter{{$row_section_16->id}}" tabindex="-1" role="dialog" aria-labelledby="section_15_ModalCenter{{$row_section_16->id}}" aria-hidden="true">
@@ -3543,8 +3354,6 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-
-
 
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
@@ -3644,47 +3453,8 @@
                                                                 </div>
                                                             </div>
 
-
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var section_17_rowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#section_17_addBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#section_17_tbody').append(`<tr id="R${++section_17_rowIdx}">
-                            <td class="row-index text-center"><input type="text" name="paragraph[]" class="form-control"/></td>
-                            <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                            </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#section_17_tbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            section_17_rowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
-
+                                                                
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="section_17_addBtn" type="button"> Add Section 17 </button>
                                                                     <div class="table-responsive">
@@ -3704,11 +3474,8 @@
                                                                 </div>
                                                             </div>
 
-
-
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                      Section 17 </button>
+                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Section 17 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -3719,14 +3486,7 @@
                                                 <div class="col-6">
                                                     <img style="width:100%" src="{{asset('public/page_sections/section_17.png')}}" />
                                                 </div>
-
                                             </div>
-
-
-
-
-
-
 
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
@@ -3755,9 +3515,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_17->title}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_17')}}" enctype="multipart/form-data">
@@ -3772,7 +3530,6 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-
 
                                                                                     <div class="col-12">
                                                                                         <div class="form-group">
@@ -3791,11 +3548,6 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-
-
-                                                                                   
-
-
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Section 17</button>
@@ -3881,45 +3633,6 @@
 
 
                                                             <div class="col-12">
-                                                                <script>
-                                                                    $(document).ready(function() {
-                                                                        // Denotes total number of rows
-                                                                        var section_18_rowIdx = 0;
-                                                                        // jQuery button click event to add a row
-                                                                        $('#section_18_addBtn').on('click', function() {
-                                                                            // Adding a row inside the tbody.
-                                                                            $('#section_18_tbody').append(`<tr id="R${++section_18_rowIdx}">
-                            
-                            <td class="row-index text-center"><input type="file" name="image[]" class="form-control"/></td>
-                            <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                            </tr>`);
-                                                                        });
-                                                                        // jQuery button click event to remove a row.
-                                                                        $('#section_18_tbody').on('click', '.remove', function() {
-                                                                            // Getting all the rows next to the row
-                                                                            // containing the clicked button
-                                                                            var child = $(this).closest('tr').nextAll();
-                                                                            // Iterating across all the rows 
-                                                                            // obtained to change the index
-                                                                            child.each(function() {
-                                                                                // Getting <tr> id.
-                                                                                var id = $(this).attr('id');
-                                                                                // Getting the <p> inside the .row-index class.
-                                                                                var idx = $(this).children('.row-index').children('p');
-                                                                                // Gets the row number from <tr> id.
-                                                                                var dig = parseInt(id.substring(1));
-                                                                                // Modifying row index.
-                                                                                idx.html(`Row ${dig - 1}`);
-                                                                                // Modifying row id.
-                                                                                $(this).attr('id', `R${dig - 1}`);
-                                                                            });
-                                                                            // Removing the current row.
-                                                                            $(this).closest('tr').remove();
-                                                                            // Decreasing total number of rows by 1.
-                                                                            section_17_rowIdx--;
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="section_18_addBtn" type="button"> Add Section 18 </button>
@@ -3940,8 +3653,6 @@
                                                                 </div>
                                                             </div>
 
-
-
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Section 18 </button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
@@ -3954,14 +3665,7 @@
                                                 <div class="col-6">
                                                     <img style="width:100%" src="{{asset('public/page_sections/section_18.png')}}" />
                                                 </div>
-
                                             </div>
-
-
-
-
-
-
 
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
@@ -3977,7 +3681,6 @@
                                                 <tbody>
                                                     @foreach($section_18 as $row_section_18)
                                                     <tr>
-
                                                         <td>
                                                             {{$row_section_18->name}}
                                                         </td>
@@ -3999,9 +3702,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_18->title}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_18')}}" enctype="multipart/form-data">
@@ -4182,9 +3883,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_19->name}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_19')}}" enctype="multipart/form-data">
@@ -4228,8 +3927,6 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-
-
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Section 19</button>
@@ -4316,9 +4013,9 @@
                                                                     <div class="controls">
                                                                         <label for="account-username">Button Class</label>
                                                                         <select class="form-control" name="btn_class">
-                            <option value="btn web-btn web-btn-blue mt-3">btn web-btn web-btn-blue mt-3</option>
-                            <option value="web-h5 text-white mb-0">web-h5 text-white mb-0</option>
-                        </select>
+                                                                                <option value="btn web-btn web-btn-blue mt-3">btn web-btn web-btn-blue mt-3</option>
+                                                                                <option value="web-h5 text-white mb-0">web-h5 text-white mb-0</option>
+                                                                            </select>
 
                                                                     </div>
                                                                 </div>
@@ -4348,12 +4045,6 @@
                                                 </div>
 
                                             </div>
-
-
-
-
-
-
 
                                             <hr/>
                                             <table class="table table-striped table-bordered dom-jQuery-events">
@@ -4392,9 +4083,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalLongTitle">{{$row_section_20->name}}</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form method="POST" action="{{url('admin/edit_section_20')}}" enctype="multipart/form-data">
@@ -5105,12 +4794,7 @@
                                                     </tr>
                                                 </tfoot>
                                             </table>
-
-
                                         </div>
-
-
-
 
                                     </div>
                                 </div>

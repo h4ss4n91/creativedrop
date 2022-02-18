@@ -169,7 +169,6 @@
                 </select></td>
             <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
             </tr>`);
-
         });
         // jQuery button click event to remove a row.
         $('#edit_caseStudyIndustrytbody').on('click', '.remove', function() {
