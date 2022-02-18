@@ -459,6 +459,7 @@ class BackendController extends Controller {
     }
 
     public function edit_case_study(Request $request) {
+        $data = $request->all();
         $file = $request->file('case_study_image'); // will get all files
         if ($file == NULL) {
 
@@ -467,7 +468,7 @@ class BackendController extends Controller {
                     ->update(
                     ['page_id' => $request->page_id, 'name' => $request->name, 'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
             );
-            return redirect()->back();
+            
         } else {
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('case_study'), $file_name); // move files to destination folder
@@ -476,8 +477,39 @@ class BackendController extends Controller {
                     ->update(
                     ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
             );
-            return redirect()->back();
+            
         }
+
+        if($request->service != NULL){
+            for ($i = 0; $i < count($request->service); $i++) {
+    
+                DB::table('case_study_services')->insert(
+                    [
+                        'case_study_id' => $request->id,
+                        'service_id' => $data['service'][$i],
+                        'sub_service_id' => $data['sub_category'][$i]]
+                );
+            }
+        }
+    
+        if($request->industry != NULL){
+    
+            for ($i = 0; $i < count($request->industry); $i++) {
+    
+                DB::table('case_study_industries')->insert(
+                    [
+                        'case_study_id' => $request->id,
+                        'industry_id' => $data['industry'][$i]]
+                );
+            }
+    
+        }
+
+        return redirect()->back();
+
+
+
+
     }
 
     public function delete_case_study($id) {

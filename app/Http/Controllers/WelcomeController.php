@@ -152,15 +152,18 @@ class WelcomeController extends Controller
 
         $sub_category = '<li class="list-inline-item">'.$main_category->menu_name.'<span id="remove_sub_services"><i class="fas fa-times"></i></span></li><li class="list-inline-item">'.$sub_category_id[0]->item_name.'<span><i class="fas fa-times"></i><span></span></span></li>';
         $sub_category_link = $sub_category_id[0]->item_link;
-
-        return response()->json(["subServices"=>$sub_category, "sub_category_link"=>$sub_category_link]);
+        $class_name = $sub_category_id[0]->item_link;
+        $sub_service_class_name = $sub_category_id[0]->item_link;
+        $main_service_class_name = $main_category->menu_link;
+        return response()->json(["subServices"=>$sub_category, "sub_category_link"=>$sub_category_link, "class_name"=>$class_name]);
     }
 
     public function industry_by_id ($id){
         
         $industries_name = '<li id="industry" class="list-inline-item">'.$id.'<span id="remove_industry"><i class="fas fa-times"></i></span></li>';
-
-        return response()->json(["subServices"=>$industries_name]);
+        $class_name = $id;
+        
+        return response()->json(["subServices"=>$industries_name, "class_name"=>$class_name]);
     }
 
     

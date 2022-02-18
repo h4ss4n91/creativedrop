@@ -142,12 +142,17 @@
                                                                                             <div class="col-12">
                                                                                                 @php
                                                                                                     $service = DB::table('menus')->get();
-                                                                                                    $service_count = DB::table('menus')->get();
+                                                                                                    $service_count = DB::table('case_study_services')->where('case_study_id','=',$case_study[0]->id)->get();
+                                                                                                    $industries_count = DB::table('case_study_industries')->where('case_study_id','=',$case_study[0]->id)->get();
+                                                                                                    $count_sr = count($service_count);
+                                                                                                    $count_ind = count($industries_count);
+                                                                                                    
+                                                                                                    
                                                                                                 @endphp
                                                                                             <script>
                                                                                                 $(document).ready(function() {
                                                                                                     // Denotes total number of rows
-                                                                                                    var caseStudyServicesrowIdx = 0;
+                                                                                                    var caseStudyServicesrowIdx = {{$count_sr}};
                                                                                                     // jQuery button click event to add a row
                                                                                                         $('#edit_caseStudyServicesaddBtn').on('click', function() {
                                                                                                             // Adding a row inside the tbody.
@@ -202,7 +207,7 @@
                                                                                                                                                             
                                                                                                 $(document).ready(function() {
                                                                                                     // Denotes total number of rows
-                                                                                                    var caseStudyIndustryrowIdx = 0;
+                                                                                                    var caseStudyIndustryrowIdx = {{$count_ind}};
                                                                                                     // jQuery button click event to add a row
                                                                                                     $('#edit_caseStudyIndustryaddBtn').on('click', function() {
                                                                                                         // Adding a row inside the tbody.
@@ -259,9 +264,10 @@
                                                                                                                 </tr>
                                                                                                             </thead>
                                                                                                             <tbody id="edit_caseStudyServicestbody">
+                                                                                                                
                                                                                                                 @foreach($cs_services as $row_case_study_services) 
                                                                                                                 
-                                                                                                                <tr>
+                                                                                                                <tr id="R{{$loop->iteration}}">
                                                                                                                     <td class="row-index text-center">
                                                                                                                             {{$row_case_study_services->menu_name}}
                                                                                                                     </td>
@@ -272,11 +278,8 @@
 
                                                                                                                     <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
                                                                                                                 </tr>
-
-                                                                                                                
                                                                                                                 
                                                                                                                 @endforeach
-                                                                                                                
                                 
                                                                                                             </tbody>
                                                                                                         </table>
@@ -297,10 +300,11 @@
                                                                                                                 </tr>
                                                                                                             </thead>
                                                                                                             <tbody id="edit_caseStudyIndustrytbody">
+                                                                                                                
                                                                                                                 @foreach($case_study_industries as $row_case_study_services) 
                                                                                                                 
                                                                                                                 <tr>
-                                                                                                                    <td class="row-index text-center">
+                                                                                                                    <td id="R{{$loop->iteration}}" class="row-index text-center">
                                                                                                                             {{$row_case_study_services->title}}
                                                                                                                     </td>
                                                                                                                     

@@ -263,7 +263,8 @@ $('#page_sections').change(function() {
             method: "GET",
             success: function(result) {
                 console.log(result);
-                $(`.${result['class_name']}`).show().siblings().not(`.${result['class_name']}`).not(".col-md-12").hide("slow", arguments.callee);
+                //$(`.${result['class_name']}`).show().siblings().not(`.${result['class_name']}`).not(".col-md-12").hide("slow", arguments.callee);
+                
                 $('#industry_section').hide();
                 $('#dependent_page_sections').html(result['options']);
                 $('#industries').html(result['subServices']);
@@ -273,6 +274,9 @@ $('#page_sections').change(function() {
         })
     }
 });
+
+
+
 
 $('#dependent_page_sections').change(function() {
     if ($(this).val() != '') {
@@ -285,6 +289,70 @@ $('#dependent_page_sections').change(function() {
             url: "sub_services_by_id/" + value,
             method: "GET",
             success: function(result) {
+                console.log('Testing');
+                $('#industry_section').show();
+                $('#industries').html(result['subServices']);
+            }
+
+        })
+    }
+});
+
+
+
+$('#case_study_page_sections').change(function() {
+    if ($(this).val() != '') {
+        var select = $(this).attr("id");
+        var value = $(this).val();
+
+        var dependent = $(this).data('dependent');
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+            url: "services_by_id_with_services/" + value,
+            method: "GET",
+            success: function(result) {
+                
+                $('.case_study_container').children().each(function(){
+                    //console.log(this);
+                    if($(this).hasClass(result.class_name)){
+                        $(this).show();
+                    }else{
+                        $(this).hide();
+                    }
+                });
+                
+                $('#industry_section').hide();
+                $('#case_study_dependent_page_sections').html(result['options']);
+                $('#industries').html(result['subServices']);
+
+            }
+
+        })
+    }
+});
+
+
+
+$('#case_study_dependent_page_sections').change(function() {
+    if ($(this).val() != '') {
+        var select = $(this).attr("id");
+        var value = $(this).val();
+
+        var dependent = $(this).data('dependent');
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+            url: "sub_services_by_id/" + value,
+            method: "GET",
+            success: function(result) {
+
+                $('.case_study_container').children().each(function(){
+                    //console.log(this);
+                    if($(this).hasClass(result.class_name)){
+                        $(this).show();
+                    }else{
+                        $(this).hide();
+                    }
+                });
                 $('#industry_section').show();
                 $('#industries').html(result['subServices']);
             }
@@ -305,6 +373,15 @@ $('#case_study_industries').change(function() {
             method: "GET",
             success: function(result) {
 
+                $('.case_study_container').children().each(function(){
+                    //console.log(this);
+                    if($(this).hasClass(result.class_name)){
+                        $(this).show();
+                    }else{
+                        $(this).hide();
+                    }
+                });
+
                 $("#industry").remove();
                 $('#case_study_industries').show();
                 $('#industries').append(result['subServices']);
@@ -314,6 +391,9 @@ $('#case_study_industries').change(function() {
         })
     }
 });
+
+
+
 
 $('#page_sections').change(function() {
     $('#case_study_industries').hide();

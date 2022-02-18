@@ -2060,9 +2060,10 @@
                                                         <td>
                                                             {{$row_para_style_1->paragraph}}
                                                         </td>
-                                                        <td>
+                                                        {{-- <td>
                                                             {{$row_para_style_1->link}}
-                                                        </td>
+                                                            Testing
+                                                        </td> --}}
                                                         <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_1/'.$row_para_style_1->id)}}"> Delete </a> | <a data-toggle="modal" data-target="#para_style_1_ModalCenter{{$row_para_style_1->id}}"> Edit</a>
                                                             <div class="modal fade" id="para_style_1_ModalCenter{{$row_para_style_1->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_1_ModalCenter{{$row_para_style_1->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

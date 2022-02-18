@@ -115,56 +115,58 @@
         @endphp
                 <section class="section-bg-grey section-padtop-30 section-padbottom-30 portfolio">
                     <div class="web-container-fluid">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12">
-                                <div class="text-center">
-                                    <h4 class="web-h4">Portfolio</h4>
-                                    <h2 class="web-h2 mb-0">Case Studies</h2>
-    
-                                    <div class="portfolio-filters">
-                                        <ul class="list-inline my-4 p-0">
-                                            <li class="list-inline-item">
-                                                <select id="page_sections" class="service js-states form-control" name="section1">
-                                                    <option value="#">  --- Select Service --- </option>
-                                                    @foreach($main_menu as $row_main_menu)
-                                                        <option value="{{$row_main_menu->id}}"> {{$row_main_menu->menu_name}} </option>
-                                                    @endforeach
-                                                </select>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <select id="dependent_page_sections" class="subcategory js-states form-control" name="section1">
-                                                    <option></option>
-                                                </select>
-                                            </li>
-                                            <li id="industry_section" style="display:none;" class="list-inline-item">
-                                                <select id="case_study_industries" class="industries js-states form-control" name="section1">
-                                                    <option value="#">  --- Select Industries --- </option>
-                                                    @php
-                                                        $industries = DB::table('industries')->get();
-                                                    @endphp
-                                                    @foreach($industries as $row_industries)
-                                                    
-                                                    <option value="{{$row_industries->title}}">{{$row_industries->title}}</option>
-                                                    @endforeach
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <h4 class="web-h4">Portfolio</h4>
+                                <h2 class="web-h2 mb-0">Case Studies</h2>
 
-                                                </select>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <div class="portfolio-filters">
+                                    <ul class="list-inline my-4 p-0">
+                                        <li class="list-inline-item">
+                                            <select id="case_study_page_sections" class="service js-states form-control" name="section1">
+                                                <option value="#">  --- Select Service --- </option>
+                                                @foreach($main_menu as $row_main_menu)
+                                                    <option value="{{$row_main_menu->id}}"> {{$row_main_menu->menu_name}} </option>
+                                                @endforeach
+                                            </select>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <select id="case_study_dependent_page_sections" class="subcategory js-states form-control" name="section1">
+                                                <option></option>
+                                            </select>
+                                        </li>
+                                        <li id="industry_section" style="display:none;" class="list-inline-item">
+                                            <select id="case_study_industries" class="industries js-states form-control" name="section1">
+                                                <option value="#">  --- Select Industries --- </option>
+                                                @php
+                                                    $industries = DB::table('industries')->get();
+                                                @endphp
+                                                @foreach($industries as $row_industries)
+                                                
+                                                <option value="{{$row_industries->title}}">{{$row_industries->title}}</option>
+                                                @endforeach
+
+                                            </select>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="portfolio-filters-tags">
                                     
-                                    <div class="portfolio-filters-tags">
+                                    <ul id="industries" class="list-inline mt-4 mb-3 p-0">
                                         
-                                        <ul id="industries" class="list-inline mt-4 mb-3 p-0">
-                                            
-                                        </ul>
-                                    </div>
+                                    </ul>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row justify-content-center case_study_container">
+                            
                                 @foreach($case_study as $row_case_study)
                                 @php
                                     $services = DB::table('case_study_services')->where('case_study_id', '=', $row_case_study->id)->get();
+                                    $industries = DB::table('case_study_industries')->where('case_study_id', '=', $row_case_study->id)->get();
                                 @endphp
-                                    <div class="@foreach($services->unique('service_id') as $row_services) @php $services_name = DB::table('menus')->where('id', '=', $row_services->service_id)->get(); @endphp {{$services_name[0]->menu_link}} @endforeach col-6 col-md-4 col-lg-3 mt-5">
+                                    <div class="@foreach($services->unique('service_id') as $row_services) @php $services_name = DB::table('menus')->where('id', '=', $row_services->service_id)->get(); @endphp {{$services_name[0]->menu_link}} @endforeach @foreach($services->unique('sub_service_id') as $row_services) @php $services_name = DB::table('child_menus')->where('id', '=', $row_services->sub_service_id)->get(); @endphp {{$services_name[0]->item_link}} @endforeach @foreach($industries->unique('industry_id') as $row_industries) @php $industry_name = DB::table('industries')->where('id', '=', $row_industries->industry_id)->get(); @endphp {{$industry_name[0]->title}} @endforeach col-6 col-md-4 col-lg-3 mt-5">
 
                                         <div class="single-portfolio">
                                             <a href="{{url('case_study',$row_case_study->id)}}">
