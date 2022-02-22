@@ -7,6 +7,7 @@ use DB;
 use Mail;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\WelcomeEmail;
+use Illuminate\Support\Str;
 
 class BackendController extends Controller {
 
@@ -569,6 +570,7 @@ class BackendController extends Controller {
     public function store_industries(Request $request) {
         $data = $request->all();
         $file = $data['industry_image']; // will get all files
+        
         $file_name = $file->getClientOriginalName(); //Get file original name
         $file->move(public_path('industries'), $file_name); // move files to destination folder
 
@@ -577,6 +579,7 @@ class BackendController extends Controller {
                         'image' => $file_name,
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'slug' => Str::slug($data['title'], '-'),
                         'title' => $data['title']
                     ]
             );
@@ -589,7 +592,7 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['name' => $request->name, 'page_id' => $request->page_id]
+                    ['title' => $request->name, 'page_id' => $request->page_id]
             );
             return redirect()->back();
         } else {

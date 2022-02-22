@@ -121,34 +121,34 @@
                                 <h2 class="web-h2 mb-0">Case Studies</h2>
 
                                 <div class="portfolio-filters">
-                                    <ul class="list-inline my-4 p-0">
-                                        <li class="list-inline-item">
-                                            <select id="case_study_page_sections" class="service js-states form-control" name="section1">
-                                                <option value="#">  --- Select Service --- </option>
+                                    <div class="row">
+                                        <div  class="col-md-4">
+                                            <select id="example-getting-started" class="case_study_page_sections" multiple="multiple">
                                                 @foreach($main_menu as $row_main_menu)
                                                     <option value="{{$row_main_menu->id}}"> {{$row_main_menu->menu_name}} </option>
                                                 @endforeach
                                             </select>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <select id="case_study_dependent_page_sections" class="subcategory js-states form-control" name="section1">
-                                                <option></option>
+                                        </div>
+                                        <div  class="col-md-4">
+                                            <select id="example-getting-started_two" class="case_study_dependent_page_sections" multiple="multiple">
+                                                
                                             </select>
-                                        </li>
-                                        <li id="industry_section" style="display:none;" class="list-inline-item">
-                                            <select id="case_study_industries" class="industries js-states form-control" name="section1">
-                                                <option value="#">  --- Select Industries --- </option>
+                                        </div>
+                                        <div  class="col-md-4">
+                                            <select multiple="multiple" id="example-getting-started_industries">
+                                                
                                                 @php
                                                     $industries = DB::table('industries')->get();
                                                 @endphp
                                                 @foreach($industries as $row_industries)
                                                 
-                                                <option value="{{$row_industries->title}}">{{$row_industries->title}}</option>
+                                                <option value="{{$row_industries->id}}">{{$row_industries->title}}</option>
                                                 @endforeach
 
                                             </select>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </div>
+                                   
                                 </div>
                                 
                                 <div class="portfolio-filters-tags">
@@ -774,9 +774,6 @@
             <div class="web-container">
                 <div class="row">
                     <div class="col-12">
-                        <div style="float:right !important;" >
-                            <a style="color:#fff !important;"> <i class="fas fa-edit"></i></a> &nbsp;<a style="color:#fff !important;"><i class="fas fa-trash"></i></a>
-                        </div>
                         <div id="carouselExampleIndicators" class="position-relative scrollto-section carousel slide" data-ride="carousel">
                             <a href="#section-2" id="sectionTwo" class="mouse" aria-hidden="true">
                             <span class="mouse__wheel"></span>

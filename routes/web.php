@@ -218,7 +218,7 @@ Route::get('/admin/delete_system_user/{id}', 'BackendController@delete_system_us
 
 
 Route::get('/{id}', 'WelcomeController@index')->name('pages');
-Route::get('/admin/page_sections', 'BackendController@page_sections')->name('page_sections');
+
 Route::get('/admin/detail_case_study/{id}', 'CasestudyController@detail_case_study')->name('detail_case_study');
 Route::post('/admin/add_case_study_content', 'CasestudyController@add_case_study_content')->name('add_case_study_content');
 Route::get('/admin/delete_case_study_content/{id}', 'CasestudyController@delete_case_study_content')->name('delete_case_study_content');
@@ -234,3 +234,13 @@ Route::get('/admin/delete_service/{id}', 'BackendController@delete_service')->na
 Route::post('/admin/store_footer_bottom', 'BackendController@store_footer_bottom')->name('store_footer_bottom');
 
 
+Route::get('/admin/page_sections', 'BackendController@page_sections')->name('page_sections');
+Route::get('/admin/page_sections/slider', 'BackendController@page_sections')->name('page_sections');
+Route::get('/admin/page_sections/heading', 'HeadingController@index')->name('heading');
+Route::get('/admin/page_sections/video', 'VideoController@index')->name('video');
+Route::get('/admin/page_sections/services', 'ServicesController@index')->name('services');
+Route::get('/admin/page_sections/industries', 'IndustriesController@index')->name('industries');
+Route::get('/admin/page_sections/team', 'TeamController@index')->name('team');
+Route::get('/admin/page_sections/request', 'RequestController@index')->name('request');
+Route::get('/admin/page_sections/client_and_partner', 'Client_and_partnerController@index')->name('client_and_partner');
+Route::get('/admin/page_sections/case_study', 'Case_StudyController@index')->name('case_study');

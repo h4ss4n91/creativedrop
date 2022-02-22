@@ -13,7 +13,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     
-	<link rel="shortcut icon" href="{{ asset('public/front_theme/images/favicon.png')}}" type="image/png">
+    
+    <link rel="shortcut icon" href="{{ asset('public/front_theme/images/favicon.png')}}" type="image/png">
 	<link rel="stylesheet" href="{{ asset('public/front_theme/css/all.min.css')}}">
 	<link rel="stylesheet" href="{{ asset('public/front_theme/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{ asset('public/front_theme/css/swiper-bundle.min.css')}}">
@@ -22,8 +23,22 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="{{ asset('public/front_theme/css/theme.css?v=2.9')}}">
+
+  <!-- Multiselect -->
+  
+  <!-- Multiselect -->
+  <!-- MULTISELECT Include the plugin's CSS and JS: -->
+  
+      <link rel="stylesheet" href="{{ asset('public/multiselect/dist/css/bootstrap-multiselect.css')}}" type="text/css">
+      
 	   
     <style>
+      .multiselect-native-select{
+        border:1px solid #000;
+        border-radius:50px;
+        background-color:#fff;
+        padding:5px;
+      }
       .contact-form-left {
         background-image: url("{{asset('public/front_theme/images/contact-form.jpeg') }}");
         background-repeat: no-repeat;
@@ -150,7 +165,8 @@
                                                             <p class="p-14">Do not hesitate to contact us for any questions or queries you might have.</p>
                                                             <p class="p-14">You can reach us through email, phone or on WhatsApp.</p>
                                                             <ul>
-                                                                <li class="mb-2"><a href="mailto:info@creativedrop.com" class="btn web-btn web-btn-white">Email</a></li>
+                                                             
+                                                              <li class="mb-2"><a href="mailto:info@creativedrop.com" class="btn web-btn web-btn-white">Email</a></li>
                                                                 <li class="mb-2"><a href="tel:+971503119300" class="btn web-btn web-btn-blue">Call Now</a></li>
                                                                 <li><a href="https://api.whatsapp.com/send?phone=+971503119300" class="btn web-btn" target="_blank"><i class="fab fa-whatsapp fa-lg pr-2"></i>Whatsapp</a></li>
                                                             </ul>
@@ -169,24 +185,41 @@
                 <li class="nav-item"><a class="nav-link" href="{{url('agency')}}">Agency</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{url('/c/contact')}}">Contact us</a></li>
                 <form class="form-inline my-2 my-lg-0 ml-auto">
-                  {{-- <ul class="navbar-nav mr-auto">
-                    
-                    <li class="nav-item"><a class="nav-link" href="{{url('insight/topic-title')}}">Insight</a></li>
-
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        العربية
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item p-14" href="#">English</a>
-                        <a class="dropdown-item p-14" href="#">French</a>
-                      </div>
-                    </li>
-                  </ul> --}}
+                 
                   <a href="mailto:info@creativedrop.com" class="btn web-btn web-btn-white">Email</a>
                   <a href="tel:+971503119300" class="btn web-btn web-btn-blue">Call Now</a>
                   <a href="https://api.whatsapp.com/send?phone=+971503119300" class="text-white whatsapp-link" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
                 </form>
+                @guest
+                <li class="nav-item">
+                    &nbsp; <a class="btn web-btn web-btn-white nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+                
+            @else
+                <li class="nav-item dropdown">
+                  &nbsp;  <a class="btn web-btn web-btn-white" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a style="padding:10px !important;"  href="{{ url('admin/home') }}"> Dashboard </a> <br/>
+                      <a style="padding:10px !important;"  href="{{ url('admin/system') }}"> System Setting </a><br/>
+                      <a style="padding:10px !important;"  href="{{ url('admin/user_profile',Auth::user()->id) }}"> Profile </a><br/>
+                      
+                        
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest  
 
               </ul>
             </div>
@@ -482,7 +515,11 @@
                   </div>
                 </div>
               </div>
+
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ asset('public/multiselect/dist/js/bootstrap-multiselect.js')}}"></script>
         <script src="{{ asset('public/front_theme/js/jquery.counterup.min.js')}}"></script>
         <script src="{{ asset('public/front_theme/js/jquery.waypoints.min.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
@@ -496,6 +533,10 @@
         <script>
           //-----------------
           $(document).ready(function(){
+              $('#example-getting-started').multiselect();
+              $('#example-getting-started_two').multiselect();
+              $('#example-getting-started_industries').multiselect();
+
               $('#right_content_two').hide();
               $('#loader').hide();
               
@@ -560,6 +601,9 @@
             });
           });
           //-----------------
+          
+
+
         </script>
     </body>
   </html>

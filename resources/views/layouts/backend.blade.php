@@ -55,7 +55,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('public/theme/app-assets/fonts/meteocons/style.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/theme/app-assets/css/pages/users.min.css') }}">
     <!-- END: Page CSS-->
-
+    
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
@@ -74,6 +74,7 @@
             color: #FF7588 !important;
         }
     </style>
+    
 </head>
 
 <body class="horizontal-layout horizontal-menu 2-columns  " data-open="hover" data-menu="horizontal-menu" data-col="2-columns">
@@ -385,8 +386,8 @@
     <script src="{{ asset('public/theme/app-assets/js/core/app-menu.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/core/app.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/scripts/customizer.min.js') }}"></script>
-    <script src="{{ asset('public/theme/app-assets/js/scripts/slider_section.js') }}"></script>
-    <script src="{{ asset('public/theme/app-assets/js/scripts/services_section.js') }}"></script>
+    
+    
 
     <!-- END: Theme JS-->
 
@@ -395,6 +396,10 @@
     <script src="{{ asset('public/theme/app-assets/js/scripts/ui/breadcrumbs-with-stats.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/scripts/pages/dashboard-fitness.min.js') }}"></script>
     <!-- END: Page JS-->
+
+
+    
+
 
 
 
