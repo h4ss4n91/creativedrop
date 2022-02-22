@@ -55,7 +55,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('public/theme/app-assets/fonts/meteocons/style.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/theme/app-assets/css/pages/users.min.css') }}">
     <!-- END: Page CSS-->
-    
+
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
@@ -74,7 +74,7 @@
             color: #FF7588 !important;
         }
     </style>
-    
+
 </head>
 
 <body class="horizontal-layout horizontal-menu 2-columns  " data-open="hover" data-menu="horizontal-menu" data-col="2-columns">
@@ -314,19 +314,28 @@
                     <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
                         <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/home')}}"><i class="feather icon-home"></i><span data-i18n="Dashboard">Dashboard</span></a>
                         </li>
-                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/menu')}}"><i class="feather icon-list"></i><span data-i18n="Dashboard">Menu Navigation</span></a>
+                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/menu')}}">
+                                <!-- <i class="feather icon-list"></i> -->
+                                <i class="fa fa-bars"></i>
+                                <span data-i18n="Dashboard">Menu Navigation</span>
+                            </a>
 
                         </li>
-                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/page_sections')}}"><i class="feather icon-list"></i><span data-i18n="Dashboard">Components</span></a></li>
-                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/pages')}}"><i class="feather icon-list"></i><span data-i18n="Dashboard">Pages</span></a></li>
-                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/system')}}"><i class="feather icon-list"></i><span data-i18n="Dashboard">System Configuration</span></a></li>
+                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/page_sections')}}">
+                                <!-- <i class="feather icon-list"></i> -->
+                                <i class="fa fa-cogs"></i>
+
+                                <span data-i18n="Dashboard">Components</span>
+                            </a></li>
+                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/pages')}}"><i class="fa fa-book"></i><span data-i18n="Dashboard">Pages</span></a></li>
+                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/system')}}"> <i class="fa fa-cog"></i><span data-i18n="Dashboard">System Configuration</span></a></li>
                     </ul>
                 </div>
                 <!-- /horizontal menu content-->
             </div>
-            
-        
-        <!-- END: Main Menu-->
+
+
+            <!-- END: Main Menu-->
             @yield('content')
             @include('js/service_js')
             @include('js/slider_js')
@@ -344,14 +353,14 @@
             @include('js/section_16_js')
             @include('js/section_17_js')
             @include('js/section_18_js')
-    </div>
+        </div>
 
 
-     <!-- BEGIN: Footer-->
-     <footer class="footer footer-static footer-light navbar-shadow">
-        <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright  &copy; 2020 <a class="text-bold-800 grey darken-2" href="https://creativedrop.com" target="_blank">CreateDrop </a></span><span class="float-md-right d-none d-lg-block">Hand-crafted & Made with <i class="feather icon-heart pink"></i></span></p>
-    </footer>
-    <!-- END: Footer-->
+        <!-- BEGIN: Footer-->
+        <footer class="footer footer-static footer-light navbar-shadow">
+            <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright &copy; 2020 <a class="text-bold-800 grey darken-2" href="https://creativedrop.com" target="_blank">CreateDrop </a></span><span class="float-md-right d-none d-lg-block">Hand-crafted & Made with <i class="feather icon-heart pink"></i></span></p>
+        </footer>
+        <!-- END: Footer-->
 
     </div>
 
@@ -386,8 +395,8 @@
     <script src="{{ asset('public/theme/app-assets/js/core/app-menu.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/core/app.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/scripts/customizer.min.js') }}"></script>
-    
-    
+
+
 
     <!-- END: Theme JS-->
 
@@ -398,7 +407,7 @@
     <!-- END: Page JS-->
 
 
-    
+
 
 
 

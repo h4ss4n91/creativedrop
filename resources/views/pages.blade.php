@@ -44,13 +44,15 @@
                         <ul class="nav nav-pills flex-column mt-md-0 mt-1">
                             <li class="nav-item">
                                 <a class="nav-link d-flex active" id="account-pill-general" data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
-                                    <i class="feather icon-list"></i>
+
+                                    <i class="fa fa-pencil"></i>
                                     Create Page
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-password" data-toggle="pill" href="#account-vertical-password" aria-expanded="false">
-                                    <i class="feather icon-list"></i>
+
+                                    <i class="fa fa-eye"></i>
                                     View Pages List
                                 </a>
                             </li>
@@ -147,15 +149,15 @@
                                                         </div>
                                                     </div>
 
-                                    <div class="col-12">
-                                        <script>
-                                          $(document).ready(function () {
-                                            // Denotes total number of rows
-                                            var caseStudyrowIdx = 0;
-                                            // jQuery button click event to add a row
-                                            $('#caseStudyaddBtn_for_page').on('click', function () {
-                                              // Adding a row inside the tbody.
-                                              $('#caseStudytbody_for_page').append(`<tr id="R${++caseStudyrowIdx}">
+                                                    <div class="col-12">
+                                                        <script>
+                                                            $(document).ready(function() {
+                                                                // Denotes total number of rows
+                                                                var caseStudyrowIdx = 0;
+                                                                // jQuery button click event to add a row
+                                                                $('#caseStudyaddBtn_for_page').on('click', function() {
+                                                                    // Adding a row inside the tbody.
+                                                                    $('#caseStudytbody_for_page').append(`<tr id="R${++caseStudyrowIdx}">
                                                   <td class="row-index text-center">
                                                     <select id="page_sections_${caseStudyrowIdx}" class="form-control" name="section[]">
                                                     <option value="">  --- Select Section --- </option>
@@ -172,120 +174,205 @@
                                                   <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
                                                   </tr>`);
 
-                                                  $(`#page_sections_${caseStudyrowIdx}`).change(function(){
-                                                        var page_section = $(this).children("option:selected").val();
-                                                            // alert(page_section);
-                                                        $.ajax({
-                                                            type:'GET',
-                                                            url:'page_section_id/'+page_section,
-                                                            success:function(data){
-                                                                console.log(data);
-                                                                $(`#dependent_page_sections_${caseStudyrowIdx}`).html(data);
-                                                            }});
-                                                    });
-                                            });
-                                            // jQuery button click event to remove a row.
-                                            $('#caseStudytbody_for_page').on('click', '.remove', function () {
-                                              // Getting all the rows next to the row
-                                              // containing the clicked button
-                                              var child = $(this).closest('tr').nextAll();
-                                              // Iterating across all the rows 
-                                              // obtained to change the index
-                                              child.each(function () {
-                                                // Getting <tr> id.
-                                                var id = $(this).attr('id');
-                                                // Getting the <p> inside the .row-index class.
-                                                var idx = $(this).children('.row-index').children('p');
-                                                // Gets the row number from <tr> id.
-                                                var dig = parseInt(id.substring(1));
-                                                // Modifying row index.
-                                                idx.html(`Row ${dig - 1}`);
-                                                // Modifying row id.
-                                                $(this).attr('id', `R${dig - 1}`);
-                                              });
-                                              // Removing the current row.
-                                              $(this).closest('tr').remove();
-                                              // Decreasing total number of rows by 1.
-                                              caseStudyrowIdx--;
-                                            });
-                                          });
-                                        </script>
-                                      
-                                        <div class="container pt-4">
-                                          <button class="btn btn-md btn-primary" id="caseStudyaddBtn_for_page" type="button"> Add Sections </button>
-                                          <div class="table-responsive">
-                                            <table class="table table-bordered">
-                                              <thead>
-                                                <tr>
-                                                  <th class="text-center">Section</th>
-                                                  <th class="text-center">Select Section</th>
-                                                  <th style="width:100px;" class="text-center">Remove Row</th>
-                                                </tr>
-                                              </thead>
-                                              <tbody id="caseStudytbody_for_page">
-                                        
-                                              </tbody>
-                                            </table>
-                                          </div>
-                                          
-                                        </div>
-                                        <div class="tab-pane fade " id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
-                                            <!-- BEGIN: Content-->
-                                            <div class="app-content content">
-                                                <div class="content-overlay"></div>
-                                                <div class="content-wrapper">
-                                                    <div class="content-header row">
-                                                        <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
-                                                            <div class="media width-250 float-right">
-                                                                <div class="media-left media-middle">
-                                                                    <div id="sp-bar-total-sales"></div>
-                                                                </div>
-                                                                <div class="media-body media-right text-right">
-                                                                    {{-- <h3 class="m-0">$5,668</h3><span class="text-muted">Sales</span> --}}
+                                                                    $(`#page_sections_${caseStudyrowIdx}`).change(function() {
+                                                                        var page_section = $(this).children("option:selected").val();
+                                                                        // alert(page_section);
+                                                                        $.ajax({
+                                                                            type: 'GET',
+                                                                            url: 'page_section_id/' + page_section,
+                                                                            success: function(data) {
+                                                                                console.log(data);
+                                                                                $(`#dependent_page_sections_${caseStudyrowIdx}`).html(data);
+                                                                            }
+                                                                        });
+                                                                    });
+                                                                });
+                                                                // jQuery button click event to remove a row.
+                                                                $('#caseStudytbody_for_page').on('click', '.remove', function() {
+                                                                    // Getting all the rows next to the row
+                                                                    // containing the clicked button
+                                                                    var child = $(this).closest('tr').nextAll();
+                                                                    // Iterating across all the rows 
+                                                                    // obtained to change the index
+                                                                    child.each(function() {
+                                                                        // Getting <tr> id.
+                                                                        var id = $(this).attr('id');
+                                                                        // Getting the <p> inside the .row-index class.
+                                                                        var idx = $(this).children('.row-index').children('p');
+                                                                        // Gets the row number from <tr> id.
+                                                                        var dig = parseInt(id.substring(1));
+                                                                        // Modifying row index.
+                                                                        idx.html(`Row ${dig - 1}`);
+                                                                        // Modifying row id.
+                                                                        $(this).attr('id', `R${dig - 1}`);
+                                                                    });
+                                                                    // Removing the current row.
+                                                                    $(this).closest('tr').remove();
+                                                                    // Decreasing total number of rows by 1.
+                                                                    caseStudyrowIdx--;
+                                                                });
+                                                            });
+                                                        </script>
+
+                                                        <div class="container pt-4">
+                                                            <button class="btn btn-md btn-primary" id="caseStudyaddBtn_for_page" type="button"> Add Sections </button>
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="text-center">Section</th>
+                                                                            <th class="text-center">Select Section</th>
+                                                                            <th style="width:100px;" class="text-center">Remove Row</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="caseStudytbody_for_page">
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="tab-pane fade " id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
+                                                            <!-- BEGIN: Content-->
+                                                            <div class="app-content content">
+                                                                <div class="content-overlay"></div>
+                                                                <div class="content-wrapper">
+                                                                    <div class="content-header row">
+                                                                        <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
+                                                                            <div class="media width-250 float-right">
+                                                                                <div class="media-left media-middle">
+                                                                                    <div id="sp-bar-total-sales"></div>
+                                                                                </div>
+                                                                                <div class="media-body media-right text-right">
+                                                                                    {{-- <h3 class="m-0">$5,668</h3><span class="text-muted">Sales</span> --}}
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="content-body">
+                                                                        <!-- DOM - jQuery events table -->
+                                                                        <section id="dom">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <div class="card">
+                                                                                        <div class="card-header">
+                                                                                            <h4 style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75" class="card-title">Pages List</h4>
+                                                                                        </div>
+                                                                                        <div class="card-content collapse show">
+                                                                                            <div class="card-body card-dashboard">
+                                                                                                <table class="table table-striped table-bordered dom-jQuery-events">
+                                                                                                    <thead>
+                                                                                                        <tr>
+                                                                                                            <th>Page Title</th>
+                                                                                                            <th>Page Slug</th>
+                                                                                                            <th>Status</th>
+                                                                                                            <th>Action</th>
+                                                                                                        </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody>
+                                                                                                        @foreach($pages as $row_pages)
+                                                                                                        <tr>
+                                                                                                            <td>{{$row_pages->title}}</td>
+                                                                                                            <td>{{$row_pages->slug}}</td>
+                                                                                                            <td>{{$row_pages->status}}</td>
+                                                                                                            <td>
+                                                                                                                <a href="{{url('admin/edit_page_content',$row_pages->id)}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_page',$row_pages->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>
+                                                                                                            </td>
+                                                                                                            <!-- Modal -->
+                                                                                                        </tr>
+
+                                                                                                        @endforeach
+
+                                                                                                    </tbody>
+                                                                                                    <tfoot>
+                                                                                                        <tr>
+                                                                                                            <th>Page Title</th>
+                                                                                                            <th>Page Slug</th>
+                                                                                                            <th>Status</th>
+                                                                                                            <th>Action</th>
+                                                                                                        </tr>
+                                                                                                    </tfoot>
+                                                                                                </table>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+
+
+                                                                    </div>
                                                                 </div>
                                                             </div>
+                                                            <!-- END: Content-->
+
                                                         </div>
-                                                    </div>
-                                                    <div class="content-body">
-                                                        <!-- DOM - jQuery events table -->
-                                                        <section id="dom">
+                                                        <div class="tab-pane fade" id="account-vertical-info" role="tabpanel" aria-labelledby="account-pill-info" aria-expanded="false">
+                                                            <form method="POST" action="{{url('admin/store_main_menu')}}">
+                                                                @csrf
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="form-group">
+                                                                            <div class="controls">
+                                                                                <label style="font-weight:bold" for="account-username">Name Main Menu</label>
+                                                                                <input type="text" name="main_menu" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-12">
+                                                                        <div class="form-group">
+                                                                            <div class="controls">
+                                                                                <label style="font-weight:bold" for="account-username">Menu Link</label>
+                                                                                <input type="text" name="menu_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
+                                                                            Menu</button>
+                                                                        <button type="reset" class="btn btn-light">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="tab-pane fade " id="account-vertical-social" role="tabpanel" aria-labelledby="account-pill-social" aria-expanded="false">
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                     <div class="card">
                                                                         <div class="card-header">
-                                                                            <h4 style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75" class="card-title">Pages List</h4>
+                                                                            <h4 class="card-title">Child Menu List</h4>
+                                                                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                                                                            <div class="heading-elements">
+                                                                                <ul class="list-inline mb-0">
+                                                                                    <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
+                                                                                    <li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
+                                                                                    <li><a data-action="expand"><i class="feather icon-maximize"></i></a></li>
+                                                                                    <li><a data-action="close"><i class="feather icon-x"></i></a></li>
+                                                                                </ul>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="card-content collapse show">
                                                                             <div class="card-body card-dashboard">
                                                                                 <table class="table table-striped table-bordered dom-jQuery-events">
                                                                                     <thead>
                                                                                         <tr>
-                                                                                            <th>Page Title</th>
-                                                                                            <th>Page Slug</th>
-                                                                                            <th>Status</th>
+                                                                                            <th>Main Menu ID</th>
+                                                                                            <th>Child Menu Name</th>
+                                                                                            <th>Child Menu Link</th>
                                                                                             <th>Action</th>
                                                                                         </tr>
                                                                                     </thead>
                                                                                     <tbody>
-                                                                                        @foreach($pages as $row_pages)
-                                                                                        <tr>
-                                                                                            <td>{{$row_pages->title}}</td>
-                                                                                            <td>{{$row_pages->slug}}</td>
-                                                                                            <td>{{$row_pages->status}}</td>
-                                                                                            <td>
-                                                                                                <a href="{{url('admin/edit_page_content',$row_pages->id)}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_page',$row_pages->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>
-                                                                                            </td>
-                                                                                            <!-- Modal -->
-                                                                                        </tr>
 
-                                                                                        @endforeach
 
                                                                                     </tbody>
                                                                                     <tfoot>
                                                                                         <tr>
-                                                                                            <th>Page Title</th>
-                                                                                            <th>Page Slug</th>
-                                                                                            <th>Status</th>
+                                                                                            <th>Main Menu ID</th>
+                                                                                            <th>Child Menu Name</th>
+                                                                                            <th>Child Menu Link</th>
                                                                                             <th>Action</th>
                                                                                         </tr>
                                                                                     </tfoot>
@@ -295,174 +382,90 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </section>
-
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END: Content-->
-
-                                        </div>
-                                        <div class="tab-pane fade" id="account-vertical-info" role="tabpanel" aria-labelledby="account-pill-info" aria-expanded="false">
-                                            <form method="POST" action="{{url('admin/store_main_menu')}}">
-                                                @csrf
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <div class="controls">
-                                                                <label style="font-weight:bold" for="account-username">Name Main Menu</label>
-                                                                <input type="text" name="main_menu" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                            </div>
                                                         </div>
-                                                    </div>
+                                                        <div class="tab-pane fade" id="account-vertical-connections" role="tabpanel" aria-labelledby="account-pill-connections" aria-expanded="false">
+                                                            <form method="POST" action="{{url('admin/store_main_menu')}}">
+                                                                @csrf
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="form-group">
+                                                                            <div class="controls">
+                                                                                <label style="font-weight:bold" for="account-username">Name Main Menu</label>
+                                                                                <input type="text" name="main_menu" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <div class="controls">
-                                                                <label style="font-weight:bold" for="account-username">Menu Link</label>
-                                                                <input type="text" name="menu_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                            </div>
+                                                                    <div class="col-12">
+                                                                        <div class="form-group">
+                                                                            <div class="controls">
+                                                                                <label style="font-weight:bold" for="account-username">Menu Link</label>
+                                                                                <input type="text" name="menu_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
+                                                                            Menu</button>
+                                                                        <button type="reset" class="btn btn-light">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
                                                         </div>
-                                                    </div>
+                                                        <div class="tab-pane fade" id="account-vertical-notifications" role="tabpanel" aria-labelledby="account-pill-notifications" aria-expanded="false">
 
-                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                                            Menu</button>
-                                                        <button type="reset" class="btn btn-light">Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="tab-pane fade " id="account-vertical-social" role="tabpanel" aria-labelledby="account-pill-social" aria-expanded="false">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h4 class="card-title">Child Menu List</h4>
-                                                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                                                            <div class="heading-elements">
-                                                                <ul class="list-inline mb-0">
-                                                                    <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
-                                                                    <li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
-                                                                    <li><a data-action="expand"><i class="feather icon-maximize"></i></a></li>
-                                                                    <li><a data-action="close"><i class="feather icon-x"></i></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-content collapse show">
-                                                            <div class="card-body card-dashboard">
-                                                                <table class="table table-striped table-bordered dom-jQuery-events">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>Main Menu ID</th>
-                                                                            <th>Child Menu Name</th>
-                                                                            <th>Child Menu Link</th>
-                                                                            <th>Action</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header">
+                                                                            <h4 class="card-title">Child Sub Menu List</h4>
+                                                                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                                                                            <div class="heading-elements">
+                                                                                <ul class="list-inline mb-0">
+                                                                                    <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
+                                                                                    <li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
+                                                                                    <li><a data-action="expand"><i class="feather icon-maximize"></i></a></li>
+                                                                                    <li><a data-action="close"><i class="feather icon-x"></i></a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="card-content collapse show">
+                                                                            <div class="card-body card-dashboard">
+                                                                                <table class="table table-striped table-bordered dom-jQuery-events">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Main Menu ID</th>
+                                                                                            <th>Child Menu Name</th>
+                                                                                            <th>Child Menu Link</th>
+                                                                                            <th>Action</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
 
 
-                                                                    </tbody>
-                                                                    <tfoot>
-                                                                        <tr>
-                                                                            <th>Main Menu ID</th>
-                                                                            <th>Child Menu Name</th>
-                                                                            <th>Child Menu Link</th>
-                                                                            <th>Action</th>
-                                                                        </tr>
-                                                                    </tfoot>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="account-vertical-connections" role="tabpanel" aria-labelledby="account-pill-connections" aria-expanded="false">
-                                            <form method="POST" action="{{url('admin/store_main_menu')}}">
-                                                @csrf
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <div class="controls">
-                                                                <label style="font-weight:bold" for="account-username">Name Main Menu</label>
-                                                                <input type="text" name="main_menu" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <div class="controls">
-                                                                <label style="font-weight:bold" for="account-username">Menu Link</label>
-                                                                <input type="text" name="menu_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create
-                                                            Menu</button>
-                                                        <button type="reset" class="btn btn-light">Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="tab-pane fade" id="account-vertical-notifications" role="tabpanel" aria-labelledby="account-pill-notifications" aria-expanded="false">
-
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h4 class="card-title">Child Sub Menu List</h4>
-                                                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                                                            <div class="heading-elements">
-                                                                <ul class="list-inline mb-0">
-                                                                    <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
-                                                                    <li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
-                                                                    <li><a data-action="expand"><i class="feather icon-maximize"></i></a></li>
-                                                                    <li><a data-action="close"><i class="feather icon-x"></i></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-content collapse show">
-                                                            <div class="card-body card-dashboard">
-                                                                <table class="table table-striped table-bordered dom-jQuery-events">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>Main Menu ID</th>
-                                                                            <th>Child Menu Name</th>
-                                                                            <th>Child Menu Link</th>
-                                                                            <th>Action</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-
-
-                                                                    </tbody>
-                                                                    <tfoot>
-                                                                        <tr>
-                                                                            <th>Main Menu ID</th>
-                                                                            <th>Child Menu Name</th>
-                                                                            <th>Child Menu Link</th>
-                                                                            <th>Action</th>
-                                                                        </tr>
-                                                                    </tfoot>
-                                                                </table>
+                                                                                    </tbody>
+                                                                                    <tfoot>
+                                                                                        <tr>
+                                                                                            <th>Main Menu ID</th>
+                                                                                            <th>Child Menu Name</th>
+                                                                                            <th>Child Menu Link</th>
+                                                                                            <th>Action</th>
+                                                                                        </tr>
+                                                                                    </tfoot>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
             </section>
             <!-- account setting page end -->
         </div>

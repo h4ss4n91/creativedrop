@@ -40,37 +40,37 @@
                         <ul class="nav nav-pills flex-column mt-md-0 mt-1">
                             <li class="nav-item">
                                 <a class="nav-link d-flex active" id="account-pill-general" data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
-                                    <i class="feather icon-list"></i>
+                                    <i class="fa fa-bars"></i>
                                     Create Main Navigation
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-password" data-toggle="pill" href="#account-vertical-password" aria-expanded="false">
-                                    <i class="feather icon-list"></i>
+                                    <i class="fa fa-eye"></i>
                                     View Main Navigation
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-info" data-toggle="pill" href="#account-vertical-info" aria-expanded="false">
-                                    <i class="feather icon-info"></i>
+                                    <i class="fa fa-bars"></i>
                                     Create Child Menu
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-social" data-toggle="pill" href="#account-vertical-social" aria-expanded="false">
-                                    <i class="feather icon-camera"></i>
+                                    <i class="fa fa-eye"></i>
                                     View Child Menu
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-connections" data-toggle="pill" href="#account-vertical-connections" aria-expanded="false">
-                                    <i class="feather icon-feather"></i>
+                                    <i class="fa fa-bars"></i>
                                     Create Sub Child Menu
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex" id="account-pill-notifications" data-toggle="pill" href="#account-vertical-notifications" aria-expanded="false">
-                                    <i class="feather icon-message-circle"></i>
+                                    <i class="fa fa-eye"></i>
                                     View Sub Child Menu
                                 </a>
                             </li>
