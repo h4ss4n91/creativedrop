@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use DB;
 class TeamController extends Controller
 {
     /**
@@ -15,6 +15,9 @@ class TeamController extends Controller
     public function index()
     {
         //
+        $team = DB::table('teams')->get();
+        $pages = DB::table('page')->get();
+        return view('backend.team',Compact('team'));
     }
 
     /**

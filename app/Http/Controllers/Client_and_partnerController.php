@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use DB;
 class Client_and_partnerController extends Controller
 {
     /**
@@ -15,6 +15,11 @@ class Client_and_partnerController extends Controller
     public function index()
     {
         //
+        $clientandpartnerimage = DB::table('clientandparterimage')->get();
+        $pages = DB::table('page')->get();
+        
+        
+        return view('backend.client_and_partner',Compact('clientandpartnerimage'));
     }
 
     /**

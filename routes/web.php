@@ -230,9 +230,7 @@ Route::post('/admin/store_service', 'BackendController@store_service')->name('st
 Route::post('/admin/edit_service', 'BackendController@edit_service')->name('edit_service');
 Route::get('/admin/delete_service/{id}', 'BackendController@delete_service')->name('delete_service');
 
-
 Route::post('/admin/store_footer_bottom', 'BackendController@store_footer_bottom')->name('store_footer_bottom');
-
 
 Route::get('/admin/page_sections', 'BackendController@page_sections')->name('page_sections');
 Route::get('/admin/page_sections/slider', 'BackendController@page_sections')->name('page_sections');
@@ -244,3 +242,19 @@ Route::get('/admin/page_sections/team', 'TeamController@index')->name('team');
 Route::get('/admin/page_sections/request', 'RequestController@index')->name('request');
 Route::get('/admin/page_sections/client_and_partner', 'Client_and_partnerController@index')->name('client_and_partner');
 Route::get('/admin/page_sections/case_study', 'Case_StudyController@index')->name('case_study');
+Route::get('/admin/page_sections/para_style_1', 'Para_style_1Controller@index')->name('para_style_1');
+Route::get('/admin/page_sections/para_style_2', 'Para_style_2Controller@index')->name('para_style_2');
+Route::get('/admin/page_sections/para_style_3', 'Para_style_3Controller@index')->name('para_style_3');
+Route::get('/admin/page_sections/para_style_4', 'Para_style_4Controller@index')->name('para_style_4');
+Route::get('/admin/page_sections/para_style_5', 'Para_style_5Controller@index')->name('para_style_5');
+Route::get('/admin/page_sections/section_15', 'Section_15Controller@index')->name('section_15');
+Route::get('/admin/page_sections/section_16', 'Section_16Controller@index')->name('section_16');
+Route::get('/admin/page_sections/section_17', 'Section_17Controller@index')->name('section_17');
+Route::get('/admin/page_sections/section_18', 'Section_18Controller@index')->name('section_18');
+Route::get('/admin/page_sections/section_19', 'Section_19Controller@index')->name('section_19');
+Route::get('/admin/page_sections/section_20', 'Section_20Controller@index')->name('section_20');
+Route::get('/admin/page_sections/section_21', 'Section_21Controller@index')->name('section_21');
+Route::get('/admin/page_sections/section_22', 'Section_22Controller@index')->name('section_22');
+Route::get('/admin/page_sections/section_23', 'Section_23Controller@index')->name('section_23');
+Route::get('/admin/page_sections/section_24', 'Section_24Controller@index')->name('section_24');
+Route::get('/admin/page_sections/section_25', 'Section_25Controller@index')->name('section_25');

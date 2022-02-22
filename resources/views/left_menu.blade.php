@@ -14,6 +14,7 @@
                 Slider
             </a>
         </li>
+
         <li class="nav-item">
             <a class="nav-link d-flex  @if(last(request()->segments()) == 'video') active @endif" href="{{url('admin/page_sections/video')}}">
                 
@@ -48,7 +49,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link d-flex @if(last(request()->segments()) == 'client_and_partner') active @endif" href="{{url('admin/page_sections/team')}}">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'client_and_partner') active @endif" href="{{url('admin/page_sections/client_and_partner')}}">
                 <!-- <i class="feather icon-camera"></i>  -->
                 <i class="fa fa-handshake-o"></i>
                 Clients & Partners
@@ -63,54 +64,50 @@
         </!-->
 
         <li class="nav-item">
-            <a class="nav-link d-flex @if(last(request()->segments()) == 'request') active @endif" href="{{url('admin/page_sections/team')}}">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'request') active @endif" href="{{url('admin/page_sections/request')}}">
                 <i class="fa fa-headphones"></i>
                 Request for Meeting
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link d-flex @if(last(request()->segments()) == 'para_style_1') active @endif" href="{{url('admin/page_sections/team')}}">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'para_style_1') active @endif" href="{{url('admin/page_sections/para_style_1')}}">
                 <i class="fa fa-paragraph"></i>
                 Paragraph Style 1
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-style_2" data-toggle="pill" href="#account-vertical-style_2" aria-expanded="false">
-                <!-- <i class="feather icon-type"></i>  -->
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'para_style_2') active @endif" href="{{url('admin/page_sections/para_style_2')}}">
                 <i class="fa fa-paragraph"></i> Paragraph Style 2
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-style_3" data-toggle="pill" href="#account-vertical-style_3" aria-expanded="false">
-                <!-- <i class="feather icon-type"></i>  -->
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'para_style_3') active @endif" href="{{url('admin/page_sections/para_style_3')}}">
                 <i class="fa fa-paragraph"></i> Paragraph Style 3
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-style_4" data-toggle="pill" href="#account-vertical-style_4" aria-expanded="false">
-                <!-- <i class="feather icon-type"></i>  -->
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'para_style_4') active @endif" href="{{url('admin/page_sections/para_style_4')}}">
                 <i class="fa fa-paragraph"></i> Paragraph Style 4
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-style_5" data-toggle="pill" href="#account-vertical-style_5" aria-expanded="false">
-                <!-- <i class="feather icon-type"></i>  -->
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'para_style_5') active @endif" href="{{url('admin/page_sections/para_style_5')}}">
                 <i class="fa fa-paragraph"></i> Paragraph Style 5
             </a>
         </li>
 
 
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-image-bellow-text-and-button" data-toggle="pill" href="#account-vertical-image-bellow-text-and-button" aria-expanded="false">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'section_15') active @endif" href="{{url('admin/page_sections/section_15')}}">
                 <i class="feather icon-type"></i> Section 15 (Left Image Right Heading)
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-paragraph-with-icon" data-toggle="pill" href="#account-vertical-paragraph-with-icon" aria-expanded="false">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'section_16') active @endif" href="{{url('admin/page_sections/section_16')}}">
                 <!-- <i class="feather icon-type"></i>  -->
                 <i class="fa fa-pencil"></i>
                 Section 16 (Paragraph with icon)
@@ -118,19 +115,19 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-section_17" data-toggle="pill" href="#account-vertical-section_17" aria-expanded="false">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'section_17') active @endif" href="{{url('admin/page_sections/section_17')}}">
                 <i class="feather icon-type"></i> Section 17
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-section-18" data-toggle="pill" href="#account-vertical-section_18" aria-expanded="false">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'section_18') active @endif" href="{{url('admin/page_sections/section_18')}}">
                 <i class="feather icon-type"></i> Section 18
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-section-19" data-toggle="pill" href="#account-vertical-section_19" aria-expanded="false">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'section_19') active @endif" href="{{url('admin/page_sections/section_19')}}">
                 <!-- <i class="feather icon-type"></i>  -->
                 <i class="fa fa-arrows-v"></i>
                 Padding Bottom and Padding TOP
@@ -138,19 +135,19 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-section-20" data-toggle="pill" href="#account-vertical-section_20" aria-expanded="false">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'section_20') active @endif" href="{{url('admin/page_sections/section_20')}}">
                 <i class="feather icon-type"></i> Background Image with Heading
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-section-21" data-toggle="pill" href="#account-vertical-section_21" aria-expanded="false">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'section_21') active @endif" href="{{url('admin/page_sections/section_21')}}">
                 <i class="feather icon-type"></i> Slider with Video
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link d-flex" id="account-pill-section-22" data-toggle="pill" href="#account-vertical-section_22" aria-expanded="false">
+            <a class="nav-link d-flex @if(last(request()->segments()) == 'section_22') active @endif" href="{{url('admin/page_sections/section_22')}}">
                 <i class="feather icon-type"></i> Two Headings with Video or Image and Title
             </a>
         </li>

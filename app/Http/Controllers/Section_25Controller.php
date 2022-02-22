@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-class Section3Controller extends Controller
+use DB;
+class Section_25Controller extends Controller
 {
     /**
      * Display a listing of the resource.

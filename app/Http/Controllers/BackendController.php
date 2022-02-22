@@ -29,7 +29,7 @@ class BackendController extends Controller {
 
         $deleted = DB::table('page_detail')->where('id', '=', $id)->delete();
         $message = 'Successfully Deleted';
-        return redirect()->back()->with('message', $message);
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function index() {
@@ -52,7 +52,8 @@ class BackendController extends Controller {
 
         DB::table('page')->where('id', '=', $id)->delete();
 
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function create_page(Request $request) {
@@ -217,7 +218,8 @@ class BackendController extends Controller {
 
         DB::table('menus')->where('id', '=', $id)->delete();
 
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_child_menu(Request $request) {
@@ -276,7 +278,8 @@ class BackendController extends Controller {
 
         DB::table('sub_child_menus')->where('id', '=', $id)->delete();
 
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_slider(Request $request) {
@@ -328,7 +331,8 @@ class BackendController extends Controller {
 
     public function delete_slider($id) {
         DB::table('sliders')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Video Section
@@ -365,7 +369,8 @@ class BackendController extends Controller {
 
         DB::table('videos')->where('id', '=', $id)->delete();
 
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Case Study Section
@@ -563,7 +568,8 @@ class BackendController extends Controller {
 
     public function delete_client_and_partner($id) {
         DB::table('clientandparterimage')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Industry Section
@@ -610,7 +616,8 @@ class BackendController extends Controller {
 
     public function delete_industry($id) {
         DB::table('industries')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Team Member Section
@@ -656,7 +663,8 @@ class BackendController extends Controller {
 
     public function delete_team($id) {
         DB::table('teams')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // News and Opinions Industry Section
@@ -705,7 +713,8 @@ class BackendController extends Controller {
 
     public function delete_news($id) {
         DB::table('news_and_opinions')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Request  Section
@@ -726,7 +735,7 @@ class BackendController extends Controller {
         }
 
         $message = 'Request for Meeting Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        return redirect()->with('message', $message);
     }
 
     public function edit_request(Request $request) {
@@ -745,7 +754,8 @@ class BackendController extends Controller {
 
     public function delete_request($id) {
         DB::table('requests')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 1  Section
@@ -803,7 +813,8 @@ class BackendController extends Controller {
 
     public function delete_para_style_1($id) {
         DB::table('para_style_1')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 2  Section
@@ -866,7 +877,8 @@ class BackendController extends Controller {
 
     public function delete_para_style_2($id) {
         DB::table('para_style_2')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 3  Section
@@ -928,7 +940,8 @@ class BackendController extends Controller {
 
     public function delete_para_style_3($id) {
         DB::table('para_style_3')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 4  Section
@@ -961,7 +974,8 @@ class BackendController extends Controller {
 
     public function delete_para_style_4($id) {
         DB::table('para_style_4')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 5  Section
@@ -1004,7 +1018,8 @@ class BackendController extends Controller {
 
     public function delete_para_style_5($id) {
         DB::table('para_style_5')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function page_section_id($id) {
@@ -1144,7 +1159,8 @@ class BackendController extends Controller {
 
     public function delete_section_15($id) {
         DB::table('section_15')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 16  Section
@@ -1187,7 +1203,8 @@ class BackendController extends Controller {
 
     public function delete_section_16($id) {
         DB::table('section_16')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 17  Section
@@ -1223,7 +1240,8 @@ class BackendController extends Controller {
 
     public function delete_section_17($id) {
         DB::table('section_17')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 18  Section
@@ -1287,7 +1305,8 @@ class BackendController extends Controller {
 
     public function delete_section_18($id) {
         DB::table('section_18')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
 // Store Social Media
@@ -1316,7 +1335,8 @@ class BackendController extends Controller {
     public function delete_social_media($id) {
 
         DB::table('social_media')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Store Social Media
@@ -1369,7 +1389,8 @@ class BackendController extends Controller {
     public function delete_footer_section($id) {
 
         DB::table('footer_sections')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_logo(Request $request) {
@@ -1389,7 +1410,8 @@ class BackendController extends Controller {
     public function delete_logo($id) {
 
         DB::table('logo')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_system_user(Request $request) {
@@ -1461,7 +1483,8 @@ class BackendController extends Controller {
 
     public function delete_section_19($id) {
         DB::table('section_19')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 20  Section
@@ -1505,7 +1528,8 @@ class BackendController extends Controller {
 
     public function delete_section_20($id) {
         DB::table('section_20')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 21  Section
@@ -1539,7 +1563,8 @@ class BackendController extends Controller {
 
     public function delete_section_21($id) {
         DB::table('section_21')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // 22  Section
@@ -1606,7 +1631,8 @@ class BackendController extends Controller {
 
     public function delete_section_22($id) {
         DB::table('section_22')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_service(Request $request) {
@@ -1641,7 +1667,8 @@ class BackendController extends Controller {
 
     public function delete_service($id) {
         DB::table('services')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_footer_bottom(Request $request) {
@@ -1681,18 +1708,12 @@ class BackendController extends Controller {
                     ]
                 );
             return redirect()->back();
-            
-
-        
-
-
-
-       
     }
 
     public function delete_section_23($id) {
         DB::table('section_23')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
 

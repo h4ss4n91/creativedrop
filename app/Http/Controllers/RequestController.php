@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use DB;
 class RequestController extends Controller
 {
     /**
@@ -15,6 +15,9 @@ class RequestController extends Controller
     public function index()
     {
         //
+        $request = DB::table('requests')->get();
+        $pages = DB::table('page')->get();
+        return view('backend.request',Compact('request'));
     }
 
     /**

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-class Section16Controller extends Controller
+use DB;
+class Para_style_5Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,9 @@ class Section16Controller extends Controller
     public function index()
     {
         //
+        $para_style_5 = DB::table('para_style_5')->get();
+        $pages = DB::table('page')->get();
+        return view('backend.para_style_5',Compact('para_style_5'));
     }
 
     /**

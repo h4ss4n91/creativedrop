@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-class Section6Controller extends Controller
+use DB;
+class Section_19Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,9 @@ class Section6Controller extends Controller
     public function index()
     {
         //
+        $section_19 = DB::table('section_19')->get();
+        $pages = DB::table('page')->get();
+        return view('backend.section_19',Compact('section_19'));
     }
 
     /**
