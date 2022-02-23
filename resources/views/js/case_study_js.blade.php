@@ -92,10 +92,8 @@
             // Decreasing total number of rows by 1.
             caseStudyrowIdx--;
         });
-    });
+    
 
-
-    $(document).ready(function() {
         // Denotes total number of rows
         var caseStudyServicesrowIdx = 0;
         // jQuery button click event to add a row
@@ -149,9 +147,9 @@
             // Decreasing total number of rows by 1.
             caseStudyServicesrowIdx--;
         });
-    });
+    
                                                                 
-    $(document).ready(function() {
+    
         // Denotes total number of rows
         var caseStudyIndustryrowIdx = 0;
         // jQuery button click event to add a row

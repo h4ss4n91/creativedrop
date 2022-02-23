@@ -15,6 +15,9 @@ class CreateCaseStudyServicesTable extends Migration
     {
         Schema::create('case_study_services', function (Blueprint $table) {
             $table->id();
+            $table->integer('case_study_id');
+            $table->integer('service_id');
+            $table->integer('sub_service_id');
             $table->timestamps();
         });
     }

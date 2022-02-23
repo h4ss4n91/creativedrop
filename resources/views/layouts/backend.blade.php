@@ -328,22 +328,23 @@
         
         <!-- END: Main Menu-->
             @yield('content')
+
+            @php
+                $service = DB::table('menus')->get();
+                $service_json = json_encode($service);
+            @endphp
+            
+            <script>
+                var services_js_var = '<?php echo $service_json; ?>';
+            </script>
+
+
             @include('js/service_js')
-            @include('js/slider_js')
             @include('js/case_study_js')
-            @include('js/team_member_js')
-            @include('js/client_and_partner_js')
-            @include('js/request_meeting_js')
-            @include('js/paragraph_style1_js')
-            @include('js/para_style2_js')
-            @include('js/para_style3_js')
-            @include('js/para_style4_js')
-            @include('js/para_style_5_js')
-            @include('js/section_15_js')
             @include('js/edit_case_study_js')
-            @include('js/section_16_js')
-            @include('js/section_17_js')
-            @include('js/section_18_js')
+            
+
+            
     </div>
 
 
@@ -387,14 +388,26 @@
     <script src="{{ asset('public/theme/app-assets/js/core/app.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/scripts/customizer.min.js') }}"></script>
     
-    
-
-    <!-- END: Theme JS-->
-
-
-    <!-- BEGIN: Page JS-->
+        <!-- BEGIN: Page JS-->
     <script src="{{ asset('public/theme/app-assets/js/scripts/ui/breadcrumbs-with-stats.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/scripts/pages/dashboard-fitness.min.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/scripts/script.js') }}"></script>
+    
+    <!-- page section -->
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/slider.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/team_member.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/client_and_partner.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/request_meeting.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style1.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style2.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style3.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style4.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style5.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/section_15.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/section_16.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/section_17.js') }}"></script>
+            <script src="{{ asset('public/theme/app-assets/js/page_sections/section_18.js') }}"></script>
+    <!-- page section -->
     <!-- END: Page JS-->
 
 

@@ -598,7 +598,7 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['title' => $request->name, 'page_id' => $request->page_id]
+                    ['title' => $request->name, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
             );
             return redirect()->back();
         } else {

@@ -258,3 +258,4 @@ Route::get('/admin/page_sections/section_22', 'Section_22Controller@index')->nam
 Route::get('/admin/page_sections/section_23', 'Section_23Controller@index')->name('section_23');
 Route::get('/admin/page_sections/section_24', 'Section_24Controller@index')->name('section_24');
 Route::get('/admin/page_sections/section_25', 'Section_25Controller@index')->name('section_25');
+Route::get('/admin/pages_list', 'PagesController@index')->name('pages_list');

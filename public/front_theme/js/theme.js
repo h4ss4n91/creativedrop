@@ -264,8 +264,7 @@ $('#page_sections').change(function() {
             method: "GET",
             success: function(result) {
                 console.log(result);
-                //$(`.${result['class_name']}`).show().siblings().not(`.${result['class_name']}`).not(".col-md-12").hide("slow", arguments.callee);
-                
+                localStorage.setItem('main_services', value);
                 $('#industry_section').hide();
                 $('#dependent_page_sections').append(result['options']);
                 $('#industries').append(result['subServices']);
@@ -304,7 +303,7 @@ $('#case_study_page_sections').change(function() {
     if ($(this).val() != '') {
         var select = $(this).attr("id");
         var value = $(this).val();
-
+        alert("line 306");
         var dependent = $(this).data('dependent');
         var _token = $('input[name="_token"]').val();
         $.ajax({
@@ -312,15 +311,15 @@ $('#case_study_page_sections').change(function() {
             method: "GET",
             success: function(result) {
                 console.log('315, ID');
-                $('.case_study_container').children().each(function(){
+                $('.case_study_container').children().each(function() {
                     //console.log(this);
-                    if($(this).hasClass(result.class_name)){
+                    if ($(this).hasClass(result.class_name)) {
                         $(this).show();
-                    }else{
+                    } else {
                         $(this).hide();
                     }
                 });
-                
+
                 $('#industry_section').hide();
                 $('#case_study_dependent_page_sections').append(result['options']);
                 $('#industries').append(result['subServices']);
@@ -336,35 +335,36 @@ $('#case_study_page_sections').change(function() {
 $('.case_study_page_sections').change(function() {
     if ($(this).val() != '') {
         var select = $(this).attr("id");
-        var value = $(this).val();
-
+        var main_service_value = $(this).val();
+        console.log(select);
         var dependent = $(this).data('dependent');
         var _token = $('input[name="_token"]').val();
         $.ajax({
-            url: "services_by_id_with_services/" + value,
+            url: "services_by_id_with_services/" + main_service_value,
             method: "GET",
             success: function(result) {
-            
-                $('.case_study_container').children().each(function(){
-                    
+
+                $('.case_study_container').children().each(function() {
+
                     var flag = true;
                     var self = this;
-                    $.each(result.class_name, function(key,value){
-                        if(!$(self).hasClass(value)){
+                    $.each(result.class_name, function(key, main_service_value) {
+                        if (!$(self).hasClass(main_service_value)) {
                             flag = false;
                         }
                     });
-                    
-                    if(flag == true){
+
+                    if (flag == true) {
                         $(this).show();
-                    }else{
+                    } else {
                         $(this).hide();
                     }
                 });
-                
+
                 $('#industry_section').hide();
                 $('#example-getting-started_two').html(result['options']);
                 $('#example-getting-started_two').multiselect('rebuild');
+                $(".multiselect-native-select > div").addClass("case_study_select_btn");
                 $('.main_service_tag').remove();
                 $('#industries').append(result['subServices']);
             }
@@ -385,27 +385,27 @@ $('.case_study_dependent_page_sections').change(function() {
             url: "sub_services_by_id/" + value,
             method: "GET",
             success: function(result) {
-            
-                $('.case_study_container').children().each(function(){
-                    
+
+                $('.case_study_container').children().each(function() {
+
                     var flag = true;
                     var self = this;
-                    $.each(result.class_name, function(key,value){
-                        if(!$(self).hasClass(value)){
+                    $.each(result.class_name, function(key, value) {
+                        if (!$(self).hasClass(value)) {
                             flag = false;
                         }
                     });
-                    
-                    if(flag == true){
+
+                    if (flag == true) {
                         $(this).show();
-                    }else{
+                    } else {
                         $(this).hide();
                     }
                 });
-                
+
                 $('#example-getting-started_two').html(result['options']);
                 $('#example-getting-started_two').multiselect('rebuild');
-                
+
                 $('.sub_service_tag').remove();
                 $('#industries').append(result['subServices']);
 
@@ -429,15 +429,15 @@ $('#case_study_dependent_page_sections').change(function() {
             method: "GET",
             success: function(result) {
 
-                $('.case_study_container').children().each(function(){
+                $('.case_study_container').children().each(function() {
                     //console.log(this);
-                    if($(this).hasClass(result.class_name)){
+                    if ($(this).hasClass(result.class_name)) {
                         $(this).show();
-                    }else{
+                    } else {
                         $(this).hide();
                     }
                 });
-                
+
                 $('.sub_service_tag').remove();
                 $('#industries').append(result['subServices']);
             }
@@ -457,55 +457,53 @@ $('#example-getting-started_industries').change(function() {
             url: "industry_by_id/" + value,
             method: "GET",
             success: function(result) {
-                $('.case_study_container').children().each(function(){
+                $('.case_study_container').children().each(function() {
                     //console.log(this);
-                    if($(this).hasClass(result.class_name)){
+                    if ($(this).hasClass(result.class_name)) {
                         $(this).show();
-                    }else{
+                    } else {
                         $(this).hide();
                     }
                 });
-                
-                
+
+
                 $('.industry_tag').remove();
                 $('#industries').append(result['industries_name']);
-                
+
             }
 
         })
     }
 });
 
-$('.list-inline-item').click(function(){
+$('.list-inline-item').click(function() {
     console.log(this);
 });
 
 
 
-function remove_this_tag(ele){
+function remove_this_tag(ele) {
     var option_id = $(ele).parent().attr('id');
     var class_industry = $(ele).parent().attr('class');
-    $('#example-getting-started_industries option[value="'+option_id+'"]').remove();
+    $('#example-getting-started_industries option[value="' + option_id + '"]').remove();
     $('#example-getting-started_industries').multiselect('rebuild');
     $(ele).parent().parent().remove();
 }
 
 
-function remove_main_service_tag(ele){
+function remove_main_service_tag(ele) {
     var option_id = $(ele).parent().attr('id');
     var class_industry = $(ele).parent().attr('class');
-    $('#example-getting-started option[value="'+option_id+'"]').remove();
+    $('#example-getting-started option[value="' + option_id + '"]').remove();
     $('#example-getting-started').multiselect('rebuild');
     $(ele).parent().parent().remove();
 }
 
 
-function remove_sub_service_tag(ele){
+function remove_sub_service_tag(ele) {
     var option_id = $(ele).parent().attr('id');
     var class_industry = $(ele).parent().attr('class');
-    $('#example-getting-started_two option[value="'+option_id+'"]').remove();
+    $('#example-getting-started_two option[value="' + option_id + '"]').remove();
     $('#example-getting-started_two').multiselect('rebuild');
     $(ele).parent().parent().remove();
 }
-
-

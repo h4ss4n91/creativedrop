@@ -34,10 +34,13 @@
 	   
     <style>
       .multiselect-native-select{
-        border:1px solid #000;
-        border-radius:50px;
-        background-color:#fff;
-        padding:5px;
+          border: 1px solid #000;
+          border-radius: 50px;
+          background-color: #fff;
+          display: block;
+          position: relative;
+          padding-left: 8px;
+          padding-right: 20px;
       }
       .contact-form-left {
         background-image: url("{{asset('public/front_theme/images/contact-form.jpeg') }}");
@@ -529,6 +532,8 @@
         <script src="{{ asset('public/front_theme/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script src="{{ asset('public/front_theme/js/theme.js?v=1.9')}}"></script>
+
+        
 
         <script>
           //-----------------

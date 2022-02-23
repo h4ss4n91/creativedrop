@@ -15,6 +15,8 @@ class CreateCaseStudyIndustriesTable extends Migration
     {
         Schema::create('case_study_industries', function (Blueprint $table) {
             $table->id();
+            $table->integer('case_study_id');
+            $table->integer('industry_id');
             $table->timestamps();
         });
     }

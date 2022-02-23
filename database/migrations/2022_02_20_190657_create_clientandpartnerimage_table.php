@@ -15,6 +15,9 @@ class CreateClientandpartnerimageTable extends Migration
     {
         Schema::create('clientandpartnerimage', function (Blueprint $table) {
             $table->id();
+            $table->integer('page_id');
+            $table->string('name',150);
+            $table->string('image',150);
             $table->timestamps();
         });
     }

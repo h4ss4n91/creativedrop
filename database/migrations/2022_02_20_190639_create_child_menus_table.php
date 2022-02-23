@@ -15,6 +15,11 @@ class CreateChildMenusTable extends Migration
     {
         Schema::create('child_menus', function (Blueprint $table) {
             $table->id();
+            $table->string('menu_id',255);
+            $table->string('item_name',255);
+            $table->string('item_link',255);
+            $table->integer('sorting');
+            $table->string('featured_service',100);
             $table->timestamps();
         });
     }

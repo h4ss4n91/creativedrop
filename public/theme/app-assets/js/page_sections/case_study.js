@@ -1,4 +1,3 @@
-<script>
     $(document).ready(function() {
         // Denotes total number of rows
                 
@@ -9,31 +8,29 @@
             // Adding a row inside the tbody.
             $('#caseStudytbody').append(`<tr id="R${++caseStudyrowIdx}">
                 <td class="row-index text-center">
-                    <select name="type[]" class="type${caseStudyrowIdx} form-control">
-                        <option value="">--- Select Type ---</option>
-                        <option value="image${caseStudyrowIdx}">Image</option>
-                        <option value="video${caseStudyrowIdx}">Video</option>
-                        </select>
-                </td>
-                <td class="row-index text-center">
                     <input id="image${caseStudyrowIdx}" type="file" name="image[]" placeholder="Image" class="video form-control"/>
-                    <input id="video${caseStudyrowIdx}" type="text" name="video[]" placeholder="Video Link" class="video form-control"/>
+                    <input id="image_name${caseStudyrowIdx}" type="text" name="image_name[]" placeholder="Image Name" class="video form-control"/>
                 </td>
-                <td class="row-index text-center">
-                    <select style="display:none;" id="image_bg${caseStudyrowIdx}" class="form-control" name="select_style_for_image[]">
+                <td>
+                    <select  id="image_bg${caseStudyrowIdx}" class="form-control" name="select_style_for_image[]">
                         <option value="">---Select bg Style---</option>
                         <option value=""> No </option>
                         <option value="section-bg-white">section-bg-white</option>
                     </select>
-                    <select style="display:none" id="video_bg${caseStudyrowIdx}" class="video_bg${caseStudyrowIdx} form-control" name="select_style_for_video[]">
-                        <option value="">---Select Background for Video---</option>
-                        <option value="cs-yt-video${caseStudyrowIdx}"> Video with Background </option>
-                        <option value="bg-white section-bg-white mt-0 pt-0">Video Full Width</option>
-                    </select>
                 </td>
-                
                 <td class="row-index text-center">
-                    <input type="file" style="display:none;" name="case_study_video_background[]" class="image_video_bg${caseStudyrowIdx} form-control"/>
+                    <input id="video${caseStudyrowIdx}" type="text" name="video[]" placeholder="Video Link" class="video form-control"/>
+                    <input id="video_name${caseStudyrowIdx}" type="text" name="video_name[]" placeholder="Video Name" class="video form-control"/>
+                </td>
+                <td>
+                    <select  id="image_bg${caseStudyrowIdx}" class="form-control" name="select_style_for_video[]">
+                        <option value="">---Select video Style---</option>
+                        <option value="section-padtop-100 section-padbottom-100"> Video With Background </option>
+                        <option value="bg-white section-bg-white mt-0 pt-0">Video Full Width</option>
+                    </select>    
+                </td>
+                <td class="row-index text-center">
+                    <input type="file" name="case_study_video_background[]" class="image_video_bg${caseStudyrowIdx} form-control"/>
                 </td>
                 
                 <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
@@ -91,10 +88,10 @@
             // Decreasing total number of rows by 1.
             caseStudyrowIdx--;
         });
-    });
+    
 
 
-    $(document).ready(function() {
+    
         // Denotes total number of rows
         var caseStudyServicesrowIdx = 0;
         // jQuery button click event to add a row
@@ -148,9 +145,9 @@
             // Decreasing total number of rows by 1.
             caseStudyServicesrowIdx--;
         });
-    });
+    
                                                                 
-    $(document).ready(function() {
+    
         // Denotes total number of rows
         var caseStudyIndustryrowIdx = 0;
         // jQuery button click event to add a row
@@ -195,5 +192,3 @@
             caseStudyIndustryrowIdx--;
         });
     });
-</script>
-

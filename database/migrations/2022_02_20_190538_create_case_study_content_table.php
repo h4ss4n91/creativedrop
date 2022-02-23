@@ -15,6 +15,16 @@ class CreateCaseStudyContentTable extends Migration
     {
         Schema::create('case_study_content', function (Blueprint $table) {
             $table->id();
+            $table->integer('case_study_id');
+            $table->string('image', 150);
+            $table->string('image_name', 150);
+            $table->string('type', 150);
+            $table->string('video_link', 550);
+            $table->string('video_name', 150);
+            $table->string('image_style', 150);
+            $table->string('video_style', 150);
+            $table->string('video_background', 150);
+
             $table->timestamps();
         });
     }

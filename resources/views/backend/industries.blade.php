@@ -218,7 +218,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username"> Button Link</label>
-                                                                                                <input type="text" name="contact_button_link" value="{{$row_industries->link}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="contact_button_link" value="{{$row_industries->link}}" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

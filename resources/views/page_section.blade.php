@@ -77,7 +77,7 @@
                                                             <div class="col-6">
                                                                 <div class="col-6">
                                                                     <div class="row">
-                                                                        <div class="col-6">
+                                                                        <div class="col-12">
                                                                             <div class="form-group">
                                                                                 <div class="controls">
                                                                                     <label for="account-username">Page Name</label>
@@ -91,7 +91,7 @@
                                                                         </div>
                                                                 </div>
 
-                                                                <div class="col-6">
+                                                                <div class="col-12">
                                                                     <div class="form-group">
                                                                         <div class="controls">
                                                                             <label for="account-username">Slider Name</label>
