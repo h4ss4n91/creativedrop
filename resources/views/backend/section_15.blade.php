@@ -67,12 +67,8 @@
                                         <hr />
                                     
                                         <div class="row">
-                                            <div class="col-6">
-                                                <div id="style_content">
-                                    
-                                                </div>
-                                    
-                                            </div>
+                                            @include('backend.flash_message')
+                                            
                                     
                                             <div class="col-6">
                                     

@@ -57,7 +57,7 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-
+                                    @include('backend.flash_message')
                                     <div class="tab-pane active" id="account-vertical-section_19" role="tabpanel" aria-labelledby="account-pill-section_19" aria-expanded="false">
                                         <div class="media">
                                             <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">

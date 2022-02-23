@@ -198,8 +198,8 @@ class WelcomeController extends Controller
 
         foreach($industries as $row_industries){
 
-            $industry_array[] = '<li value="'.$row_industries->title.'" id="industry" class="industry_tag list-inline-item">'.$row_industries->title.'<span class="'.$row_industries->title.'" id="'.$row_industries->id.'"><i onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
-            $industry_class_nameArray[] = $row_industries->title;
+            $industry_array[] = '<li value="'.$row_industries->slug.'" id="industry" class="industry_tag list-inline-item">'.$row_industries->title.'<span class="'.$row_industries->title.'" id="'.$row_industries->id.'"><i onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
+            $industry_class_nameArray[] = $row_industries->slug;
         }
         
         $industries_name = $industry_array;

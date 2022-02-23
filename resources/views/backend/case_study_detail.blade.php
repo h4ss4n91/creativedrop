@@ -46,20 +46,9 @@
         <div class="card-content">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-12">
-                            @if ($success_message = Session::get('success_message'))
-                                <div class="alert alert-success alert-block">
-                                    <button type="button" class="close" data-dismiss="alert">×</button>	
-                                    <strong>{{ $success_message }}</strong>
-                                </div>
-                            @endif
-                            @if ($delete_message = Session::get('delete_message'))
-                            <div class="alert alert-danger alert-block">
-                                <button type="button" class="close" data-dismiss="alert">×</button>	
-                                <strong>{{ $delete_message }}</strong>
-                            </div>
-                        @endif
-                    </div>
+
+                        @include('backend.flash_message')
+                        
                     <div class="col-md-6">
                         <div class="card-text">
                             <p><strong>Title:</strong> {{$case_study[0]->title}}</p>

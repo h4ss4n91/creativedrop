@@ -67,11 +67,12 @@
                                         <hr />
                                     
                                         <div class="row">
+                                            @include('backend.flash_message')
                                             <div class="col-4">
                                                 <img style="width:100%" src="{{asset('public/page_sections/paragraph_with_icon.png')}}" />
                                             </div>
                                             <div class="col-8">
-                                    
+                                                
                                                 <form method="POST" action="{{url('admin/store_section_16')}}" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="row">

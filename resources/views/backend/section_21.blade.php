@@ -66,6 +66,7 @@
                                         </div>
                                         <hr>
                                         <div class="row">
+                                            @include('backend.flash_message')
                                             <div class="col-md-6">
                                                 <img style="width:100%" src="{{asset('public/page_sections/slider_with_video.png')}}" />
                                             </div>

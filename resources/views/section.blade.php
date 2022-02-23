@@ -166,8 +166,7 @@
                 $services = DB::table('case_study_services')->where('case_study_id', '=', $row_case_study->id)->get();
                 $industries = DB::table('case_study_industries')->where('case_study_id', '=', $row_case_study->id)->get();
                 @endphp
-                <div class="@foreach($services->unique('service_id') as $row_services) @php $services_name = DB::table('menus')->where('id', '=', $row_services->service_id)->get(); @endphp {{$services_name[0]->menu_link}} @endforeach @foreach($services->unique('sub_service_id') as $row_services) @php $services_name = DB::table('child_menus')->where('id', '=', $row_services->sub_service_id)->get(); @endphp {{$services_name[0]->item_link}} @endforeach @foreach($industries->unique('industry_id') as $row_industries) @php $industry_name = DB::table('industries')->where('id', '=', $row_industries->industry_id)->get(); @endphp {{$industry_name[0]->title}} @endforeach col-6 col-md-4 col-lg-3 mt-5">
-
+                <div class="@foreach($services->unique('service_id') as $row_services) @php $services_name = DB::table('menus')->where('id', '=', $row_services->service_id)->get(); @endphp {{$services_name[0]->menu_link}} @endforeach @foreach($services->unique('sub_service_id') as $row_services) @php $services_name = DB::table('child_menus')->where('id', '=', $row_services->sub_service_id)->get(); @endphp {{$services_name[0]->item_link}} @endforeach @foreach($industries->unique('industry_id') as $row_industries) @php $industry_name = DB::table('industries')->where('id', '=', $row_industries->industry_id)->get(); @endphp {{$industry_name[0]->slug}} @endforeach col-6 col-md-4 col-lg-3 mt-5">
                     <div class="single-portfolio">
                         <a href="{{url('case_study',$row_case_study->id)}}">
                             <div class="portfolio-img">

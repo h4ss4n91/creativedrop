@@ -67,6 +67,7 @@
                                         <hr />
 
                                         <div class="row">
+                                            @include('backend.flash_message')
                                             <div class="col-6">
                                                 <form method="POST" action="{{url('admin/store_section_20')}}" enctype="multipart/form-data">
                                                     @csrf

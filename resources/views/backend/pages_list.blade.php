@@ -64,7 +64,7 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="tab-content">
-                                                    
+                                        @include('backend.flash_message')
                                                         <div class="tab-pane active" id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
                                                             <!-- BEGIN: Content-->
                                                             <div class="app-content content">
