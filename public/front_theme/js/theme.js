@@ -364,7 +364,7 @@ $('.case_study_page_sections').change(function() {
                 $('#industry_section').hide();
                 $('#example-getting-started_two').html(result['options']);
                 $('#example-getting-started_two').multiselect('rebuild');
-                $(".multiselect-native-select > div").addClass("case_study_select_btn");
+                $(".multiselect-native-select > div > .btn-group").addClass("case_study_select_btn");
                 $('.main_service_tag').remove();
                 $('#industries').append(result['subServices']);
             }
