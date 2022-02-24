@@ -79,7 +79,7 @@
     $team_section = DB::table('teams')->where('section_name', '=', $row_pages->section_type)->get();
     @endphp
 
-    <section class="our-team section-bg-white section-padtop-70 section-padbottom-70">
+    <section class="our-team section-bg-white section-padtop-30 section-padbottom-30">
         <div class="web-container">
             <div class="row">
                 <div class="col-md-12">
@@ -207,7 +207,7 @@
     @php
     $services = DB::table('services')->where('name', '=', $row_pages->section_type)->get();
     @endphp
-    <section id="section-2" class="@if(!$services->isEmpty()) {{$services[0]->bootstra_class_name}} @endif section-padtop-70 section-padbottom-70 service-block">
+    <section id="section-2" class="@if(!$services->isEmpty()) {{$services[0]->bootstra_class_name}} @endif section-padtop-30 section-padbottom-30 service-block">
         <div class="web-container">
             <div class="row">
                 <div class="col-md-12">
@@ -269,7 +269,7 @@
     $industries = DB::table('industries')->where('name', '=', $row_pages->section_type)->get();
     @endphp
 
-    <section class="section-bg-black section-padtop-70 section-padbottom-70 creative-slider">
+    <section class="section-bg-black section-padtop-30 section-padbottom-30 creative-slider">
         <div class="slide-container">
             <div class="row">
                 <div class="col-10 col-md-12">
@@ -414,7 +414,7 @@
     @endphp
 
     @foreach($para_style_1 as $row_para_style_1)
-    <section class="creative-art section-bg-white section-padtop-70 section-padbottom-70">
+    <section class="creative-art section-bg-white section-padtop-30 section-padbottom-30">
         <div class="web-container">
             <div class="row">
                 <div class="col-sm-6 col-md-6">
@@ -485,7 +485,7 @@
     @php
     $para_style_4 = DB::table('para_style_4')->where('name', '=', $row_pages->section_type)->get();
     @endphp
-    <section class="section-bg-white section-padtop-100 center-detail-block">
+    <section class="section-bg-white section-padtop-30 center-detail-block">
         <div class="web-container">
             <div class="row">
                 @foreach($para_style_4 as $row_para_style_4)
@@ -509,7 +509,7 @@
 
     @if($para_style_5[0]->style == 'style1')
 
-    <section class="agency-brands section-bg-dark-grey section-padtop-70 section-padbottom-70">
+    <section class="agency-brands section-bg-dark-grey section-padtop-30 section-padbottom-30">
         <div class="web-container">
             <div class="row">
                 <div class="col-md-12">
@@ -534,7 +534,7 @@
 
     @elseif($para_style_5[0]->style == 'style2')
 
-    <section class="agency-brands section-bg-white section-padtop-70 section-padbottom-70">
+    <section class="agency-brands section-bg-white section-padtop-30 section-padbottom-30">
         <div class="web-container">
             @if($para_style_5[0]->heading != NULL)
             <div class="row">
@@ -643,7 +643,7 @@
     @php
     $section_16 = DB::table('section_16')->where('name', '=', $row_pages->section_type)->get();
     @endphp
-    <section class="section-bg-white section-padtop-15 section-padbottom-30 logo-design-boxes">
+    <section class="section-bg-white section-padtop-30 section-padbottom-30 logo-design-boxes">
         <div class="web-container">
             <div class="row">
                 @php $num = 1; @endphp
@@ -693,7 +693,7 @@
 
     <section class="section-bg-grey creative-samples">
         <div class="slide-container">
-            <section class="sample-one section-padtop-70 section-padbottom-70">
+            <section class="sample-one section-padtop-30 section-padbottom-30">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="sample-content mb-3">
@@ -889,7 +889,7 @@
     @php
     $section_23 = DB::table('section_23')->where('name', '=', $row_pages->section_type)->get();
     @endphp
-    <section class="section-bg-white section-padtop-70 section-padbottom-30 samples-heading">
+    <section class="section-bg-white section-padtop-30 section-padbottom-30 samples-heading">
         <div class="web-container">
             <div class="row">
                 <div class="col-md-12 text-center">

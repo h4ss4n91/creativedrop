@@ -74,24 +74,6 @@
                                                 @csrf
 
                                                 <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <div class="controls">
-                                                                <label style="font-weight:bold" for="account-username">Page Title</label>
-                                                                <input type="text" name="page_title" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <div class="controls">
-                                                                <label style="font-weight:bold" for="account-username">Page Slug</label>
-                                                                <input type="text" name="page_slug" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                     <div class="col-4">
                                                         <div class="form-group">
                                                             <div class="controls">
@@ -124,6 +106,24 @@
                                                                 <select id="child_dependent_page_sections" class="form-control" name="child_menu_id">
                                                                     <option></option>
                                                                 </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label style="font-weight:bold" for="account-username">Page Title</label>
+                                                                <input type="text" id="page_title" name="page_title" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label style="font-weight:bold" for="account-username">Page Slug</label>
+                                                                <input type="text" id="page_slug" name="page_slug" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -230,6 +230,11 @@
                                                             </div>
 
                                                         </div>
+                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save Page</button>
+                                                                
+                                                        </div>
+                                                    </form>
                                                         <div class="tab-pane fade " id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
                                                             <!-- BEGIN: Content-->
                                                             <div class="app-content content">
@@ -806,17 +811,47 @@
             var dependent_page_sections = $(this).data('dependent');
             var _token = $('input[name="_token"]').val();
             $.ajax({
-                url: "child_services_by_id/" + value,
+                url: "./get_3rd_level_menu/" + value,
                 method: "GET",
                 success: function(result) {
                     console.log(result);
-                    $('#child_dependent_page_sections').html(result);
+                    $('#child_dependent_page_sections').html(result['options']);
                 }
 
             })
         }
-
     });
+
+    $('#child_dependent_page_sections').change(function() {
+        if ($(this).val() != '') {
+            var select = $(this).attr("id");
+            var value = $(this).val();
+
+            var dependent_page_sections = $(this).data('dependent');
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url: "./get_page_title_and_slug/" + value,
+                method: "GET",
+                success: function(result) {
+                    console.log(result);
+                    $('#page_title').val(result['page_title']);
+                    $('#page_slug').val(result['page_link']);
+                }
+
+            })
+        }
+    });
+
+
+    $("#page_title").click(function() {
+    var Text = $(this).val();
+    Text = Text.toLowerCase();
+    Text = Text.replace(/[^a-zA-Z0-9]+/g, '-');
+    $("#page_slug").val(Text);
+});
+
+    
+
 </script>
 
 @endsection

@@ -69,6 +69,12 @@ class BackendController extends Controller {
     public function create_page(Request $request) {
         $data = $request->all();
 
+        DB::table('sub_child_menus')
+        ->where('id', $request->child_menu_id)
+        ->update(['item_link' => $request->page_slug]);
+
+
+
         $id = DB::table('page')->insertGetId(array(
             'title' => $request->page_title,
             'slug' => $request->page_slug,

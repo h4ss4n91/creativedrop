@@ -73,7 +73,7 @@ class WelcomeController extends Controller
     {
         $pages = DB::table('page')
             ->join('page_detail', 'page.id', '=', 'page_detail.page_id')
-            ->where('page.title', '=', $id)
+            ->where('page.slug', '=', $id)
             ->orderBy('page_detail.section_no')
             ->get();
 
@@ -151,6 +151,9 @@ class WelcomeController extends Controller
         return response()->json(["options" => $final_Result, "subServices"=>$final_main_category_array, "class_name"=>$class_name_array]);
     }
 
+
+    
+
     public function sub_services_by_id ($id){
         
         $exp = explode(",",$id);
@@ -160,12 +163,14 @@ class WelcomeController extends Controller
         $sub_category_id_array = [];
         $sub_category_menu_id_array = [];
         $main_category_id_array = [];
+        $options = [];
 
         foreach($sub_category_id as $row_sub_category){
 
             $sub_category_id_array[] = '<li class="sub_service_tag list-inline-item">'.$row_sub_category->item_name.'<span><i onclick="remove_sub_service_tag(this);" id="'.$row_sub_category->id.'" class="fas fa-times"></i></span></li>';
             $class_nameArray[] = $row_sub_category->item_link;
             $sub_category_menu_id_array[] = $row_sub_category->menu_id;
+            
         }
 
         $main_category_id = DB::table('menus')->whereIn('id', $sub_category_menu_id_array)->get();
@@ -178,13 +183,14 @@ class WelcomeController extends Controller
         }
 
         $final_mainCat_class = $main_category_class_nameArray;
+        $final_options = $options;
         $final_mainCat = $main_category_id_array;
 
         $final_sub_category_id_array = $sub_category_id_array;
         $final_class_nameArray = $class_nameArray;
 
         
-        return response()->json(["mainServices"=>$final_mainCat,"main_service_class"=>$final_mainCat_class, "subServices"=>$final_sub_category_id_array, "sub_category_link"=>$final_sub_category_id_array, "class_name"=>$final_class_nameArray]);
+        return response()->json(["mainServices"=>$final_mainCat,"options"=>$final_options,"main_service_class"=>$final_mainCat_class, "subServices"=>$final_sub_category_id_array, "sub_category_link"=>$final_sub_category_id_array, "class_name"=>$final_class_nameArray]);
     }
 
     public function industry_by_id ($id){

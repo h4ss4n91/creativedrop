@@ -44,6 +44,8 @@ Route::get('/services_by_id_with_services/{id}', 'WelcomeController@services_by_
 
 Route::get('/admin/services_by_id/{id}', 'WelcomeController@services_by_id')->name('services_by_id');
 Route::get('/admin/child_services_by_id/{id}', 'WelcomeController@child_services_by_id')->name('child_services_by_id');
+Route::get('/admin/get_3rd_level_menu/{id}', 'PagesController@get_3rd_level_menu')->name('get_3rd_level_menu');
+Route::get('/admin/get_page_title_and_slug/{id}', 'PagesController@get_page_title_and_slug')->name('get_page_title_and_slug');
 
 // page_content
 

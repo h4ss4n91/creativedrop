@@ -4,3 +4,8 @@ $("#page_title").keyup(function() {
     Text = Text.replace(/[^a-zA-Z0-9]+/g, '-');
     $("#page_slug").val(Text);
 });
+
+
+function main_service(ele){
+    console.log(ele);
+}

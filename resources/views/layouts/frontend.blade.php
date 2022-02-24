@@ -114,9 +114,9 @@
     @php
     $page = DB::table('page')->where('title','=',Request::segment(1))->get();
     if(count($page)>0){
-    $child_menu = DB::table('child_menus')->where('menu_id','=',$page[0]->menu_id)->get();
+    $child_menu = DB::table('child_menus')->where('menu_id','=',$page[0]->menu_id)->orderBy('sorting','ASC')->get();
     }
-    $main_menu = DB::table('menus')->get();
+    $main_menu = DB::table('menus')->orderBy('sorting','ASC')->get();
     @endphp
 
     <nav class="navbar navbar-expand-xl navbar-light sticky-top desktop-navbar">
@@ -145,7 +145,7 @@
                     <div class="row">
 
                       @php
-                      $sub_menu = DB::table('child_menus')->where('menu_id','=',$row_main_menu->id)->get();
+                      $sub_menu = DB::table('child_menus')->where('menu_id','=',$row_main_menu->id)->orderBy('sorting','ASC')->get();
                       @endphp
 
                       @foreach($sub_menu as $row_sub_menu)
@@ -155,7 +155,7 @@
                           <h6 class="web-h6 web-border-bottom pb-4 mb-0"><a href="#" class="web-bold">{{$row_sub_menu->item_name}}</a></h6>
                           <ul class="mt-3">
                             @php
-                            $sub_child_menu = DB::table('sub_child_menus')->where('child_menu_id','=',$row_sub_menu->id)->get();
+                            $sub_child_menu = DB::table('sub_child_menus')->where('child_menu_id','=',$row_sub_menu->id)->orderBy('sorting','ASC')->get();
                             @endphp
                             @foreach($sub_child_menu as $row_sub_child_menu)
                             <li><a href="{{$row_sub_child_menu->item_link}}" class="p-14">{{$row_sub_child_menu->item_name}}</a></li>
@@ -238,7 +238,7 @@
 
     @if(count($page)>0)
     @php
-    $child_menu = DB::table('sub_child_menus')->where('child_menu_id','=',$page[0]->sub_menu_id)->get();
+    $child_menu = DB::table('sub_child_menus')->where('child_menu_id','=',$page[0]->sub_menu_id)->orderBy('sorting','ASC')->get();
     @endphp
 
     @if(!$child_menu->isEmpty())

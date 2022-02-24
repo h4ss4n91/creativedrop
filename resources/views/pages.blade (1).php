@@ -80,7 +80,7 @@
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label style="font-weight:bold" for="account-username">Page Title</label>
-                                                                <input type="text" name="page_title" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                <input type="text" id="page_title" name="page_title" class="form-control" required data-validation-required-message="This username field is required">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -89,7 +89,7 @@
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label style="font-weight:bold" for="account-username">Page Slug</label>
-                                                                <input type="text" name="page_slug" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                <input type="text" name="page_slug" class="form-control" id="page_slug" required data-validation-required-message="This username field is required">
                                                             </div>
                                                         </div>
                                                     </div>

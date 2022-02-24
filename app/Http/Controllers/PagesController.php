@@ -27,6 +27,30 @@ class PagesController extends Controller
         return view('backend.pages_list', Compact('pages', 'main_menu', 'page_section'));
     }
 
+    public function get_page_title_and_slug($id){
+
+        $get_page_title_and_slug = DB::table('sub_child_menus')->where('id', $id)->get();
+        return response()->json([
+            "page_title"=>$get_page_title_and_slug[0]->item_name,
+            "page_link"=>$get_page_title_and_slug[0]->item_link,
+        ]);
+    }
+
+    public function get_3rd_level_menu ($id){
+
+        $_3rd_level_menu = DB::table('sub_child_menus')->where('child_menu_id', $id)->get();
+        
+        $options = [];
+
+        foreach($_3rd_level_menu as $row){
+
+            $options[] = '<option value="'.$row->id.'">'.$row->item_name.'</option>';
+        }
+        $last_option = $options;
+
+        return response()->json(["options"=>$last_option]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

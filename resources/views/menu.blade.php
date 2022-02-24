@@ -1,5 +1,10 @@
 @extends('layouts.backend')
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 @section('content')
 <!-- BEGIN: Content-->
@@ -248,7 +253,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <div class="controls">
-                                                                <label for="account-username">Name Child Menu</label>
+                                                                <label for="account-username">Name 2nd Level Menu</label>
                                                                 <input type="text" name="child_menu" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                             </div>
                                                         </div>
@@ -257,7 +262,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <div class="controls">
-                                                                <label for="account-username">Child Menu Link</label>
+                                                                <label for="account-username">2nd Level Menu Link</label>
                                                                 <input type="text" name="child_menu_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                             </div>
                                                         </div>
@@ -424,7 +429,7 @@
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">Select Main Menu</label>
-                                                                <select name="main_menu_id" class="form-control">
+                                                                <select name="main_menu_id" id="main_menu" class="form-control">
                                                                     @foreach($main_menu_two as $main_menu_row)
                                                                     <option value="{{$main_menu_row->id}}"> {{$main_menu_row->menu_name}} </option>
                                                                     @endforeach
@@ -435,11 +440,9 @@
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <div class="controls">
-                                                                <label for="account-username">Select Child Menu</label>
-                                                                <select name="child_menu_id" class="form-control">
-                                                                    @foreach($child_menus as $main_menu_row)
-                                                                    <option value="{{$main_menu_row->id}}"> {{$main_menu_row->item_name}} </option>
-                                                                    @endforeach
+                                                                <label for="account-username">Select 2nd Level Menu</label>
+                                                                <select name="child_menu_id" id="sub_menu" class="form-control">
+                                                                    
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -447,8 +450,8 @@
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <div class="controls">
-                                                                <label for="account-username">Sub Child Menu Name</label>
-                                                                <input type="text" name="sub_child_item_name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                <label for="account-username">3rd Level Menu Name</label>
+                                                                <input type="text" name="sub_child_item_name" id="3rd_menu_navigation" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -456,8 +459,8 @@
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <div class="controls">
-                                                                <label for="account-username">Child Sub Child Menu Link</label>
-                                                                <input type="text" name="sub_child_item_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                <label for="account-username">3rd Level Menu Link</label>
+                                                                <input type="text" name="sub_child_item_link" id="3rd_menu_navigation_slug" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -492,8 +495,9 @@
                                                                     <thead>
                                                                         <tr>
                                                                             <th>Child Menu Name</th>
-                                                                            <th>Sub Child Menu Name</th>
-                                                                            <th>Sub Child Menu Link</th>
+                                                                            <th>2nd Level Menu Name</th>
+                                                                            <th>3rd Level Menu Link</th>
+                                                                            <th>Sorting</th>
                                                                             <th>Action</th>
                                                                         </tr>
                                                                     </thead>
@@ -506,6 +510,7 @@
                                                                             <td>{{$child_menu_three[0]->item_name}}</td>
                                                                             <td>{{$row_sub_child_menus->item_name}}</td>
                                                                             <td>{{$row_sub_child_menus->item_link}}</td>
+                                                                            <td>{{$row_sub_child_menus->sorting}}</td>
                                                                             <td>
 
                                                                                 <a href="javascript:void(0)" data-toggle="modal" data-target="#subChildMenuModal{{$row_sub_child_menus->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_sub_child_menu/'.$row_sub_child_menus->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
@@ -528,7 +533,7 @@
                                                                                                         <div class="col-12">
                                                                                                             <div class="form-group">
                                                                                                                 <div class="controls">
-                                                                                                                    <label for="account-username">Sub Menu Name</label>
+                                                                                                                    <label for="account-username">2nd Level Menu Name</label>
 
                                                                                                                     <select name="main_menu_id" class="form-control">
                                                                                                                         @foreach($child_menu_four as $main_menu_row)
@@ -545,7 +550,7 @@
                                                                                                         <div class="col-12">
                                                                                                             <div class="form-group">
                                                                                                                 <div class="controls">
-                                                                                                                    <label for="account-username">Sub Child Menu Name</label>
+                                                                                                                    <label for="account-username">3rd Level Menu Name</label>
                                                                                                                     <input type="text" value="{{$row_sub_child_menus->item_name}}" name="edit_sub_child_item_name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                                                 </div>
                                                                                                             </div>
@@ -554,8 +559,17 @@
                                                                                                         <div class="col-12">
                                                                                                             <div class="form-group">
                                                                                                                 <div class="controls">
-                                                                                                                    <label for="account-username">Sub Child Menu Link / Page Link</label>
+                                                                                                                    <label for="account-username">3rd Level Menu Link / Page Link</label>
                                                                                                                     <input type="text" value="{{$row_sub_child_menus->item_link}}" name="edit_sub_child_item_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+
+                                                                                                        <div class="col-12">
+                                                                                                            <div class="form-group">
+                                                                                                                <div class="controls">
+                                                                                                                    <label for="account-username">Sorting</label>
+                                                                                                                    <input type="text" value="{{$row_sub_child_menus->sorting}}" name="sorting" class="form-control" required data-validation-required-message="This username field is required">
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>
@@ -609,5 +623,31 @@
     </div>
 </div>
 <!-- END: Content-->
+<script>
+    $("#main_menu").change(function(){
+        var page_section = $(this).children("option:selected").val();
+          
+         $.ajax({
+                              type:'GET',
+                              url:'services_by_id/'+page_section,
+                              success:function(data){
+                                   console.log(data);
+                                 $('#sub_menu').html(data);
 
+                                 
+                              }
+                          });
+       
+    });
+
+    $("#3rd_menu_navigation").keyup(function() {
+    var Text = $(this).val();
+    Text = Text.toLowerCase();
+    Text = Text.replace(/[^a-zA-Z0-9]+/g, '-');
+    $("#3rd_menu_navigation_slug").val(Text);
+});
+
+
+
+</script>
 @endsection
