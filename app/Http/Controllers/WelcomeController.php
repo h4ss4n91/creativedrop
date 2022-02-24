@@ -163,7 +163,7 @@ class WelcomeController extends Controller
 
         foreach($sub_category_id as $row_sub_category){
 
-            $sub_category_id_array[] = '<li class="sub_service_tag list-inline-item">'.$row_sub_category->item_name.'<span><i onclick="remove_sub_service_tag(this);" id="remove_sub_service'.$row_sub_category->id.'" class="fas fa-times"></i></span></li>';
+            $sub_category_id_array[] = '<li class="sub_service_tag list-inline-item">'.$row_sub_category->item_name.'<span><i onclick="remove_sub_service_tag(this);" id="'.$row_sub_category->id.'" class="fas fa-times"></i></span></li>';
             $class_nameArray[] = $row_sub_category->item_link;
             $sub_category_menu_id_array[] = $row_sub_category->menu_id;
         }
@@ -172,7 +172,7 @@ class WelcomeController extends Controller
 
         foreach($main_category_id as $row_main_category_id){
 
-            $main_category_id_array[] = '<li class="main_service_tag list-inline-item">'.$row_main_category_id->menu_name.'<span><i id="remove_main_service'.$row_main_category_id->id.'" class="fas fa-times"></i></span></li>';
+            $main_category_id_array[] = '<li class="main_service_tag list-inline-item">'.$row_main_category_id->menu_name.'<span><i id="'.$row_main_category_id->id.'" class="fas fa-times"></i></span></li>';
             $main_category_class_nameArray[] = $row_main_category_id->menu_link;
             
         }

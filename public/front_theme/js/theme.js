@@ -477,7 +477,7 @@ $('#example-getting-started_industries').change(function() {
 });
 
 $('.list-inline-item').click(function() {
-    console.log(this);
+    //console.log(this);
 });
 
 
@@ -485,25 +485,30 @@ $('.list-inline-item').click(function() {
 function remove_this_tag(ele) {
     var option_id = $(ele).parent().attr('id');
     var class_industry = $(ele).parent().attr('class');
-    $('#example-getting-started_industries option[value="' + option_id + '"]').remove();
+    $('#example-getting-started_industries option[value="' + option_id + '"]').prop("selected", false);
     $('#example-getting-started_industries').multiselect('rebuild');
     $(ele).parent().parent().remove();
 }
 
+function main_service(ele) {
+    console.log(ele);
+
+}
 
 function remove_main_service_tag(ele) {
-    var option_id = $(ele).parent().attr('id');
+    var option_id = $(ele).attr('id');
     var class_industry = $(ele).parent().attr('class');
-    $('#example-getting-started option[value="' + option_id + '"]').remove();
+    $('#example-getting-started option[value="' + option_id + '"]').prop("selected", false);
     $('#example-getting-started').multiselect('rebuild');
     $(ele).parent().parent().remove();
 }
 
 
 function remove_sub_service_tag(ele) {
-    var option_id = $(ele).parent().attr('id');
+    var option_id = $(ele).attr('id');
+
     var class_industry = $(ele).parent().attr('class');
-    $('#example-getting-started_two option[value="' + option_id + '"]').remove();
+    $('#example-getting-started_two option[value="' + option_id + '"]').prop("selected", false);
     $('#example-getting-started_two').multiselect('rebuild');
     $(ele).parent().parent().remove();
 }
