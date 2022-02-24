@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class Section_20Controller extends Controller
 {
     /**
@@ -15,6 +17,10 @@ class Section_20Controller extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $section_20 = DB::table('section_20')->get();
         $pages = DB::table('page')->get();
         return view('backend.section_20',Compact('section_20'));

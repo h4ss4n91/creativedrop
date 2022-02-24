@@ -205,12 +205,13 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <a style="padding:10px !important;"  href="{{ url('admin/home') }}"> Dashboard </a> <br/>
-                      <a style="padding:10px !important;"  href="{{ url('admin/system') }}"> System Setting </a><br/>
-                      <a style="padding:10px !important;"  href="{{ url('admin/user_profile',Auth::user()->id) }}"> Profile </a><br/>
+                      <a style="padding:10px !important;"  href="{{ url('admin/home') }}"> <i class="fas fa-cog"></i> Dashboard </a> <br/>
+                      <a style="padding:10px !important;"  href="{{ url('admin/system') }}"> <i class="fas fa-cog"></i> System Setting </a><br/>
+                      <a style="padding:10px !important;"  href="{{ url('admin/user_profile',Auth::user()->id) }}"><i class="fas fa-user"></i> Profile </a><br/>
                       
                         
                         <div class="dropdown-divider"></div>
+                        
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">

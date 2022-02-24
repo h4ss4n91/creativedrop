@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class IndustriesController extends Controller
 {
     /**
@@ -15,6 +17,10 @@ class IndustriesController extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $industries = DB::table('industries')->get();
         $pages = DB::table('page')->get();
         return view('backend.industries',Compact('industries'));

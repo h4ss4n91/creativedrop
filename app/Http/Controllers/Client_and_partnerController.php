@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class Client_and_partnerController extends Controller
 {
     /**
@@ -15,6 +17,10 @@ class Client_and_partnerController extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $clientandpartnerimage = DB::table('clientandparterimage')->get();
         $pages = DB::table('page')->get();
         

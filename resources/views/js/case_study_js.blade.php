@@ -113,7 +113,7 @@
                     var dependent = $(this).data('dependent');
                     var _token = $('input[name="_token"]').val();
                     $.ajax({
-                        url: "services_by_id/" + value,
+                        url: "../services_by_id/" + value,
                         method: "GET",
                         success: function(result) {
                             

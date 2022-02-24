@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 use Mail;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\WelcomeEmail;
@@ -33,6 +35,10 @@ class BackendController extends Controller {
     }
 
     public function index() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $main_menu = $main_menu_two = $main_menu_four = DB::table('menus')->get();
         $child_menu_four = DB::table('child_menus')->get();
         $child_menus = DB::table('child_menus')->get();
@@ -41,6 +47,10 @@ class BackendController extends Controller {
     }
 
     public function system() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $social = DB::table('social_media')->get();
         $footer_section = DB::table('footer_sections')->get();
         $logo = DB::table('logo')->get();
@@ -131,6 +141,10 @@ class BackendController extends Controller {
     }
 
     public function pages() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $main_menu = DB::table('menus')->where('menu_link', '!=', '#')->orderBy('sorting', 'ASC')->get();
         $pages = DB::table('page')->get();
         $page_section = DB::table('page_section')->get();
@@ -138,6 +152,10 @@ class BackendController extends Controller {
     }
 
     public function sections_1() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $section_19 = DB::table('section_19')->get();
         $section_18 = DB::table('section_18')->get();
         $section_17 = DB::table('section_17')->get();
@@ -165,6 +183,10 @@ class BackendController extends Controller {
     }
 
     public function page_sections() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $section_23 = DB::table('section_23')->get();
         $section_22 = DB::table('section_22')->get();
         $section_21 = DB::table('section_21')->get();

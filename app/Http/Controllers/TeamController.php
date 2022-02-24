@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class TeamController extends Controller
 {
     /**
@@ -15,6 +17,10 @@ class TeamController extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $team = DB::table('teams')->get();
         $pages = DB::table('page')->get();
         return view('backend.team',Compact('team'));

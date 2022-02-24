@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class HeadingController extends Controller
 {
     /**
@@ -15,6 +17,10 @@ class HeadingController extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $section_23 = DB::table('section_23')->get();
         return view('backend.heading',compact('section_23'));
     }

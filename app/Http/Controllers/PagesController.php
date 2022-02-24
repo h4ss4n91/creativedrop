@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class PagesController extends Controller
 {
     /**
@@ -15,6 +17,10 @@ class PagesController extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $main_menu = DB::table('menus')->where('menu_link', '!=', '#')->orderBy('sorting', 'ASC')->get();
         $pages = DB::table('page')->get();
         $page_section = DB::table('page_section')->get();

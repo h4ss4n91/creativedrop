@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class Para_style_4Controller extends Controller
 {
     /**
@@ -15,6 +17,10 @@ class Para_style_4Controller extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $para_style_4 = DB::table('para_style_4')->get();
         $pages = DB::table('page')->get();
         return view('backend.para_style_4',Compact('para_style_4'));

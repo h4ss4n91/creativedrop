@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class Case_StudyController extends Controller
 {
     /**
@@ -15,6 +17,10 @@ class Case_StudyController extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $case_study = DB::table('case_study')->get();
         $pages = DB::table('page')->get();
         return view('backend.case_study',Compact('case_study'));

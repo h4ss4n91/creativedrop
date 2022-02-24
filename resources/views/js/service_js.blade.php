@@ -24,7 +24,7 @@ $(document).ready(function() {
                 var dependent = $(this).data('dependent');
                 var _token = $('input[name="_token"]').val();
                 $.ajax({
-                    url: "services_by_id/" + value,
+                    url: "../services_by_id/" + value,
                     method: "GET",
                     success: function(result) {
                         $(`#dependent_page_sections${ServicerowIdx}`).html(result);
@@ -40,10 +40,10 @@ $(document).ready(function() {
                 var dependent = $(this).data('dependent');
                 var _token = $('input[name="_token"]').val();
                 $.ajax({
-                    url: "../sub_services_by_id/" + value,
+                    url: "../../sub_services_by_id/" + value,
                     method: "GET",
                     success: function(result) {
-                        $(`.sub_service_link${ServicerowIdx}`).val(result['sub_category_link']);
+                        $(`.sub_service_link${ServicerowIdx}`).val(result['class_name']);
                     }
                 })
             }

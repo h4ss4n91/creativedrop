@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class VideoController extends Controller
 {
     /**
@@ -15,6 +17,10 @@ class VideoController extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $videos = DB::table('videos')->get();
         $pages = DB::table('page')->get();
         return view('backend.video',compact('videos','pages'));

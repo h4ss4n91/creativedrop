@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class RequestController extends Controller
 {
     /**
@@ -14,6 +16,10 @@ class RequestController extends Controller
      */
     public function index()
     {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         //
         $request = DB::table('requests')->get();
         $pages = DB::table('page')->get();

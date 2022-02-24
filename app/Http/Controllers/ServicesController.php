@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 class ServicesController extends Controller
 {
     /**
@@ -15,6 +17,10 @@ class ServicesController extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $services = DB::table('services')->get();
         $pages = DB::table('page')->get();
         return view('backend.services',Compact('services','pages'));
