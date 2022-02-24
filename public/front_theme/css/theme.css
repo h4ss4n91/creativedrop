@@ -525,9 +525,9 @@ header nav.desktop-navbar a.whatsapp-link:hover {
     transition: none !important;
 }
 
-header nav.desktop-navbar .dropdown-menu {
+/* header nav.desktop-navbar .dropdown-menu {
     padding: 0 !important;
-}
+} */
 
 header nav.desktop-navbar .dropdown-item {
     padding: .5rem 1.5rem !important;
@@ -2480,8 +2480,23 @@ ul.CTAs a {
     section.creative-banner {
         height: calc(100vh - 330px);
     }
+    .homepage-banner-content {
+        position: absolute;
+        top: 20%;
+        left: 0;
+        transform: translateY(-20%);
+        display: inline-block;
+        width: 50%;
+    }
     .homepage-banner-content h2 {
         font-size: 28px !important;
+    }
+    .home-slider .carousel-indicators
+    {
+           
+            top: 20%;
+          
+            transform: translateY(-50%);
     }
     .home-video-content {
         position: relative;
@@ -2817,6 +2832,9 @@ ul.CTAs a {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+    #sidebar ul ul a, #sidebar ul ul ul a {
+    margin: 0px !important;
+}
     .cs-img .section-padtop-50 {
         padding-top: 20px !important;
     }
@@ -2952,6 +2970,10 @@ ul.CTAs a {
     }
     .home-video-content iframe {
         height: 250px;
+    }
+    .multiselect-native-select
+    {
+        width: auto !important;
     }
     .service-links ul li a {
         font-size: 14px !important;
@@ -4080,4 +4102,16 @@ svg {
 }
 .btn-group.show.case_study_select_btn {
     width: 100% !important;
+}
+.nav-reg-sec
+{
+    /* color: #009C9F !important; */
+    padding-right: .5rem;
+}
+header nav.desktop-navbar .dropdown-menu {
+    top: 95% !important;
+    z-index: 99 !important;
+}
+header nav.desktop-navbar .dropdown-item {
+    padding: 0px 15px !important;
 }

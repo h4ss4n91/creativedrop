@@ -312,7 +312,7 @@
                 <div class="navbar-container main-menu-content" data-menu="menu-container">
                     <!-- include ../../../includes/mixins-->
                     <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/home')}}"><i class="feather icon-home"></i><span data-i18n="Dashboard">Dashboard</span></a>
+                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/home')}}"><i class="fa fa-home"></i><span data-i18n="Dashboard">Dashboard</span></a>
                         </li>
                         <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/menu')}}">
                                 <!-- <i class="feather icon-list"></i> -->
@@ -339,10 +339,10 @@
             @yield('content')
 
             @php
-                $service = DB::table('menus')->get();
-                $service_json = json_encode($service);
+            $service = DB::table('menus')->get();
+            $service_json = json_encode($service);
             @endphp
-            
+
             <script>
                 var services_js_var = '<?php echo $service_json; ?>';
             </script>
@@ -351,15 +351,15 @@
             @include('js/service_js')
             @include('js/case_study_js')
             @include('js/edit_case_study_js')
-            
 
-            
+
+
         </div>
 
 
         <!-- BEGIN: Footer-->
         <footer class="footer footer-static footer-light navbar-shadow">
-            <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright &copy; 2020 <a class="text-bold-800 grey darken-2" href="https://creativedrop.com" target="_blank">CreateDrop </a></span><span class="float-md-right d-none d-lg-block">Hand-crafted & Made with <i class="feather icon-heart pink"></i></span></p>
+            <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright &copy; 2022 <a class="text-bold-800 grey darken-2" href="https://creativedrop.com" target="_blank">CreateDrop </a></span><span class="float-md-right d-none d-lg-block">Hand-crafted & Made with <i class="feather icon-heart pink"></i></span></p>
         </footer>
         <!-- END: Footer-->
 
@@ -396,26 +396,26 @@
     <script src="{{ asset('public/theme/app-assets/js/core/app-menu.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/core/app.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/scripts/customizer.min.js') }}"></script>
-    
-        <!-- BEGIN: Page JS-->
+
+    <!-- BEGIN: Page JS-->
     <script src="{{ asset('public/theme/app-assets/js/scripts/ui/breadcrumbs-with-stats.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/scripts/pages/dashboard-fitness.min.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/scripts/script.js') }}"></script>
-    
+
     <!-- page section -->
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/slider.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/team_member.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/client_and_partner.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/request_meeting.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style1.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style2.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style3.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style4.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style5.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/section_15.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/section_16.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/section_17.js') }}"></script>
-            <script src="{{ asset('public/theme/app-assets/js/page_sections/section_18.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/slider.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/team_member.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/client_and_partner.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/request_meeting.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style1.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style2.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style3.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style4.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/para_style5.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/section_15.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/section_16.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/section_17.js') }}"></script>
+    <script src="{{ asset('public/theme/app-assets/js/page_sections/section_18.js') }}"></script>
     <!-- page section -->
     <!-- END: Page JS-->
 
