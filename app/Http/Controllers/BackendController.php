@@ -424,6 +424,7 @@ class BackendController extends Controller {
         
             $id = DB::table('case_study')->insertGetId([
                         'name' => $request->name,
+                        'slug' => Str::slug($data['title'], '-'),
                         'image' => $file_name,
                         'title' => $request->case_study_name,
                         'short_description' => $request->short_description]
@@ -510,7 +511,7 @@ class BackendController extends Controller {
             $affected = DB::table('case_study')
                     ->where('id', $request->id)
                     ->update(
-                    ['page_id' => $request->page_id, 'name' => $request->name, 'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
+                    ['page_id' => $request->page_id, 'name' => $request->name, 'slug' => Str::slug($data['title'], '-'),'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
             );
             
         } else {

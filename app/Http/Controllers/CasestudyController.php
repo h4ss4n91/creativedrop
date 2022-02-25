@@ -86,6 +86,10 @@ class CasestudyController extends Controller
     }
 
     public function detail_case_study($id){
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $case_study = DB::table('case_study')->where('id','=',$id)->get();
         
         $case_study_industries = DB::table('case_study_industries')
@@ -114,6 +118,7 @@ class CasestudyController extends Controller
     }
 
             public function add_case_study_content(Request $request){
+                
                 $data = $request->all();
 
                 for ($i = 0; $i < count($request->video); $i++) {

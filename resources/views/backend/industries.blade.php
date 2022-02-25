@@ -101,6 +101,12 @@
                                                                         <input type="file" name="industry_image" class="form-control" />
                                                                     </div>
                                                                 </div>
+
+                                                                <div class="col-12">
+                                                                    <div class="row">
+                                                                        @include('padding_top_and_bottom')
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                             <div class="col-4">
                                                                 <img style="width:100%" src="{{asset('public/page_sections/industries.png')}}" />

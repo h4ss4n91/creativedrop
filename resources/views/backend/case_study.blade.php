@@ -116,6 +116,12 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        <div class="col-12">
+                                                            <div class="row">
+                                                                @include('padding_top_and_bottom')
+                                                            </div>
+                                                        </div>
                                     
                                                         <div class="col-12">
                                     
@@ -213,7 +219,7 @@
                                                     <td>{{$case_study_row->name}}</td>
                                                     <td>{{$case_study_row->title}}</td>
                                                     <td>{{$case_study_row->short_description}}</td>
-                                                    <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_case_study/'.$case_study_row->id)}}"> Delete </a> | <a href="{{url('admin/detail_case_study/'.$case_study_row->id)}}"> View </a></td>
+                                                    <td> <a href="{{url('admin/detail_case_study/'.$case_study_row->id)}}"> <i class="fa fa-eye text-success"></i> </a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_case_study/'.$case_study_row->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>  </td>
                                                 </tr>
                                     
                                                 @endforeach

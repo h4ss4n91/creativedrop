@@ -27,7 +27,7 @@ Auth::routes();
 
 Route::get('/send_email', 'WelcomeController@send_email');
 
-Route::get('/case_study/{id}', 'WelcomeController@case_study');
+Route::get('/case-study/{id}', 'WelcomeController@case_study');
 
 Route::get('/admin/home', 'HomeController@index');
 

@@ -398,7 +398,64 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                    <a href="{{url('admin/delete_case_study_content/'.$row_case_study_detail->id)}}"> Delete </a>
+                                                <a href="{{url('admin/edit_case_study_content/'.$row_case_study_detail->id)}}"> Edit </a>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_Modal">
+                                                    Edit
+                                                  </button>
+
+                                                                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="edit_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-xl" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Edit Case Study Content</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <table>
+                                                                        <tr id="R${++caseStudyrowIdx}">
+                                                                            <td class="row-index text-center">
+                                                                                <input id="image${caseStudyrowIdx}" type="file" name="image[]" placeholder="Image" class="video form-control"/>
+                                                                                <input id="image_name${caseStudyrowIdx}" type="text" name="image_name[]" placeholder="Image Name" class="video form-control"/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <select  id="image_bg${caseStudyrowIdx}" class="form-control" name="select_style_for_image[]">
+                                                                                    <option value="">---Select bg Style---</option>
+                                                                                    <option value=""> No </option>
+                                                                                    <option value="section-bg-white">section-bg-white</option>
+                                                                                </select>
+                                                                            </td>
+                                                                            <td class="row-index text-center">
+                                                                                <input id="video${caseStudyrowIdx}" type="text" name="video[]" placeholder="Video Link" class="video form-control"/>
+                                                                                <input id="video_name${caseStudyrowIdx}" type="text" name="video_name[]" placeholder="Video Name" class="video form-control"/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <select  id="image_bg${caseStudyrowIdx}" class="form-control" name="select_style_for_video[]">
+                                                                                    <option value="">---Select video Style---</option>
+                                                                                    <option value="section-padtop-100 section-padbottom-100"> Video With Background </option>
+                                                                                    <option value="bg-white section-bg-white mt-0 pt-0">Video Full Width</option>
+                                                                                </select>    
+                                                                            </td>
+                                                                            <td class="row-index text-center">
+                                                                                <input type="file" name="case_study_video_background[]" class="image_video_bg${caseStudyrowIdx} form-control"/>
+                                                                            </td>
+                                                                            
+                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                            </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+
+                                                |    
+                                                <a href="{{url('admin/delete_case_study_content/'.$row_case_study_detail->id)}}"> Delete </a>
                                             </td>
                                         </tr>
                                     @endforeach

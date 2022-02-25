@@ -88,6 +88,11 @@
                                                                     <input type="text" name="name" class="form-control" id="account-username" required>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-12">
+                                                                <div class="row">
+                                                                    @include('padding_top_and_bottom')
+                                                                </div>
+                                                            </div>
                                                         </div>
 
                                                         <div class="col-12">

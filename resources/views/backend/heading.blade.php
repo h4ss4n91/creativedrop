@@ -119,7 +119,7 @@
                                                             </div>
                                                         </div>
 
-                                                        @include('padding_top_and_bottom');
+                                                        @include('padding_top_and_bottom')
 
 
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
@@ -184,6 +184,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
+                                                                                @include('padding_top_and_bottom')
 
                                                                                 <div class="col-12">
                                                                                     <div class="form-group">

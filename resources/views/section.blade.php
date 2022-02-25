@@ -3,51 +3,53 @@
         @php
         $sliders = DB::table('sliders')->where('name', '=', $row_pages->section_type)->get();
         @endphp
-        <section class="home-slider section-bg-black creative-banner">
-            <!-- Images slider - Start -->
-            <div class="web-container">
-                <div class="row">
-                    <div class="col-12">
+        <div class="main-wrap">
+                <section class="home-slider section-bg-black creative-banner">
+                    <!-- Images slider - Start -->
+                    <div class="web-container">
+                        <div class="row">
+                            <div class="col-12">
 
-                        <div id="carouselExampleIndicators" class="position-relative scrollto-section carousel slide" data-ride="carousel">
-                            <a href="#section-2" id="sectionTwo" class="mouse" aria-hidden="true">
-                                <span class="mouse__wheel"></span>
-                                <span class="mouse__text">SCROLL TO EXPLORE</span>
-                            </a>
-                            <ol class="carousel-indicators">
-                                @php $num = 0; @endphp
-                                @foreach($sliders as $row_slider)
-                                <li data-target="#carouselExampleIndicators" data-slide-to="{{$num++}}" class="{{$row_slider->status}}"></li>
-                                @endforeach
-                            </ol>
-                            <div class="carousel-inner">
+                                <div id="carouselExampleIndicators" class="position-relative scrollto-section carousel slide" data-ride="carousel">
+                                    <a href="#section-2" id="sectionTwo" class="mouse" aria-hidden="true">
+                                        <span class="mouse__wheel"></span>
+                                        <span class="mouse__text">SCROLL TO EXPLORE</span>
+                                    </a>
+                                    <ol class="carousel-indicators">
+                                        @php $num = 0; @endphp
+                                        @foreach($sliders as $row_slider)
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="{{$num++}}" class="{{$row_slider->status}}"></li>
+                                        @endforeach
+                                    </ol>
+                                    <div class="carousel-inner">
 
-                                @foreach($sliders as $row_slider)
-                                <div class="carousel-item {{$row_slider->status}}" style="background: url('{{asset('public/slider/'.$row_slider->image)}}') no-repeat center right;">
-                                    <div class="slider-flex-wrap">
-                                        <div class="homepage-banner-content">
-                                            <p class="web-h5 text-white mb-0">{{$row_slider->text1}}</p>
-                                            <h2 class="web-h2 text-white mb-4">{{$row_slider->text2}}</h2>
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><a id="contact_us" href="#" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
-                                                <li class="list-inline-item"><a href="#" class="blue-link">Learn more <i class="fas fa-chevron-right pl-1"></i></a></li>
-                                            </ul>
+                                        @foreach($sliders as $row_slider)
+                                        <div class="carousel-item {{$row_slider->status}}" style="background: url('{{asset('public/slider/'.$row_slider->image)}}') no-repeat center right;">
+                                            <div class="slider-flex-wrap">
+                                                <div class="homepage-banner-content">
+                                                    <p class="web-h5 text-white mb-0">{{$row_slider->text1}}</p>
+                                                    <h2 class="web-h2 text-white mb-4">{{$row_slider->text2}}</h2>
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item"><a id="contact_us" href="#" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
+                                                        <li class="list-inline-item"><a href="#" class="blue-link">Learn more <i class="fas fa-chevron-right pl-1"></i></a></li>
+                                                    </ul>
 
+                                                </div>
+                                                <div class="banner-img-mob">
+                                                    <img class="img-fluid" src="{{asset('public/slider/'.$row_slider->image)}}" alt="">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="banner-img-mob">
-                                            <img class="img-fluid" src="{{asset('public/slider/'.$row_slider->image)}}" alt="">
-                                        </div>
+                                        @endforeach
+
                                     </div>
                                 </div>
-                                @endforeach
-
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Images slider - End -->
-        </section>
+                    <!-- Images slider - End -->
+                </section>
+        </div>
 
         @elseif( $row_pages->section== '2' )
         @php
@@ -169,7 +171,7 @@
                 @endphp
                 <div class="@foreach($services->unique('service_id') as $row_services) @php $services_name = DB::table('menus')->where('id', '=', $row_services->service_id)->first(); @endphp @if($services_name->id == $row_services->service_id){{$services_name->menu_link}} @endif @endforeach @foreach($services->unique('sub_service_id') as $row_services) @php $sub_services_name = DB::table('child_menus')->where('id', '=', $row_services->sub_service_id)->first(); @endphp @if($sub_services_name->id == $row_services->sub_service_id){{$sub_services_name->item_link}} @endif @endforeach @foreach($industries->unique('industry_id') as $row_industries) @php $industry_name = DB::table('industries')->where('id', '=', $row_industries->industry_id)->first(); @endphp @if($row_industries->industry_id == $industry_name->id){{$industry_name->slug}} @endif @endforeach col-6 col-md-4 col-lg-3 mt-5">
                     <div class="single-portfolio">
-                        <a href="{{url('case_study',$row_case_study->id)}}">
+                        <a href="{{url('case-study',$row_case_study->slug)}}">
                             <div class="portfolio-img">
                                 <div class="img-block web-border-radius-5">
                                     <img src="{{asset('public/case_study/'.$row_case_study->image)}}" alt="" class="obj-cover">
@@ -767,7 +769,7 @@
     $sliders = DB::table('sliders')->where('name', '=', $section_21[0]->slider_name)->get();
     $videos = DB::table('videos')->where('name', '=', $section_21[0]->video_name)->get();
     @endphp
-
+<div class="main-wrap">
     <section class="banner-with-video">
         <section class="home-slider section-bg-black creative-banner">
             <!-- Images slider - Start -->
@@ -831,7 +833,7 @@
         @endforeach
 
     </section>
-
+</div>
     @elseif( $row_pages->section== '22' )
     @php
     $section_22 = DB::table('section_22')->where('name', '=', $row_pages->section_type)->get();

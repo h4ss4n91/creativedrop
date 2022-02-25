@@ -21,10 +21,10 @@
     <div class="content-overlay"></div>
     <div class="content-wrapper">
         <div class="content-header row">
-            <div class="content-header-left col-md-6 col-12 mb-2">
+            <div class="content-header-left col-md-6 col-md-12 mb-2">
                 <h3 class="content-header-title mb-0">Components</h3>
                 <div class="row breadcrumbs-top">
-                    <div class="breadcrumb-wrapper col-12">
+                    <div class="breadcrumb-wrapper col-md-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('admin/')}}">Home</a>
                             </li>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
+            <div class="content-header-right col-md-6 col-md-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
                     <div class="media-left media-middle">
                         <div id="sp-bar-total-sales"></div>
@@ -71,13 +71,13 @@
                                                     <form method="POST" action="{{url('admin/store_slider')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
-                                                            <div class="col-6">
+                                                            <div class="col-md-6">
                                                                 <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
                                                             </div>
-                                                            <div class="col-6">
-                                                                <div class="col-6">
+                                                            <div class="col-md-6">
+                                                                <div class="col-md-6">
                                                                     <div class="row">
-                                                                        <div class="col-12">
+                                                                        <div class="col-md-12">
                                                                             <div class="form-group">
                                                                                 <div class="controls">
                                                                                     <label for="account-username">Page Name</label>
@@ -89,9 +89,9 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                </div>
+                                                                
 
-                                                                <div class="col-12">
+                                                                <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <div class="controls">
                                                                             <label for="account-username">Slider Name</label>
@@ -99,13 +99,14 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            </div>
                                                                 <div class="row">
-                                                                @include('padding_top_and_bottom');
+                                                                @include('padding_top_and_bottom')
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-12">
+                                                            <div class="col-md-12">
                                                                 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="slideraddBtn" type="button"> Add new Slider Row </button>
@@ -132,7 +133,7 @@
                                                             </div>
 
 
-                                                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Slider</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
@@ -182,14 +183,14 @@
                                                                                 <input type="hidden" value="{{$row_sliders->id}}" name="id">
 
                                                                                 <div class="row">
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
 
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Slider Name</label>
@@ -210,7 +211,7 @@
                                                                                         <img style="width:100px" src="{{asset('public/slider/'.$row_sliders->image)}}" />
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Status</label>
@@ -219,7 +220,7 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Heading One</label>
@@ -228,7 +229,7 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Heading Two</label>
@@ -237,7 +238,7 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username"> Button Link</label>
@@ -245,7 +246,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                    <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Slider</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
@@ -296,7 +297,7 @@
                                                         @csrf
                                                         <div class="row">
 
-                                                            <div class="col-12">
+                                                            <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
 
@@ -340,7 +341,7 @@
                                                             @include('padding_top_and_bottom');
 
 
-                                                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Heading</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
@@ -386,7 +387,7 @@
                                                                                 <input type="hidden" value="{{$row_section_23->id}}" name="id">
 
                                                                                 <div class="row">
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
 
@@ -394,7 +395,7 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
@@ -403,7 +404,7 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username"> Heading </label>
@@ -419,7 +420,7 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Title </label>
@@ -429,7 +430,7 @@
                                                                                     </div>
 
 
-                                                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                    <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Heading</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>

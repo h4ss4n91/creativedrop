@@ -45,7 +45,7 @@ class WelcomeController extends Controller
     }
     public function case_study($id)
     {
-        $pages = DB::table('page')->where('title', '=', $id)->get();
+        $pages = DB::table('page')->where('slug', '=', $id)->get();
         $case_study = DB::table('case_study')->where('id', '=', $id)->get();
         $case_study_content = DB::table('case_study_content')->where('case_study_id', '=', $id)->get();
         $main_menu = DB::table('menus')->where('menu_link','!=','#')->get();

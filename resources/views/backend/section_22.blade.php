@@ -91,6 +91,12 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        <div class="col-12">
+                                                            <div class="row">
+                                                                @include('padding_top_and_bottom')
+                                                            </div>
+                                                        </div>
                                     
                                                         <div class="col-12">
                                                             <div class="form-group">

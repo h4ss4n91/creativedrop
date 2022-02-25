@@ -89,7 +89,13 @@
                                                                     <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                 </div>
                                                             </div>
+                                                            <div class="col-12">
+                                                                <div class="row">
+                                                                    @include('padding_top_and_bottom')
+                                                                </div>
+                                                            </div>
                                                         </div>
+                                                        
                                                         <div class="col-6">
                                                             <img style="width:100%" src="{{asset('public/page_sections/team.png')}}" />
                                                         </div>

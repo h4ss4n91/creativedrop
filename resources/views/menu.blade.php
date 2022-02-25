@@ -13,10 +13,10 @@
     <div class="content-overlay"></div>
     <div class="content-wrapper">
         <div class="content-header row">
-            <div class="content-header-left col-md-6 col-12 mb-2">
+            <div class="content-header-left col-md-6 col-md-12 mb-2">
                 <h3 class="content-header-title mb-0">Navigation Setting</h3>
                 <div class="row breadcrumbs-top">
-                    <div class="breadcrumb-wrapper col-12">
+                    <div class="breadcrumb-wrapper col-md-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('admin//')}}">Home</a>
                             </li>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
+            <div class="content-header-right col-md-6 col-md-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
                     <div class="media-left media-middle">
                         <div id="sp-bar-total-sales"></div>
@@ -73,7 +73,7 @@
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
                                             <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-md-12">
                                             <div class="media">
                                                 <div style="color:#fff; border-radius:5px; background-color:#00B5B8; padding:10px;" class="media-body mt-75">
                                                     Create Main Menu
@@ -84,7 +84,7 @@
                                             <form method="POST" action="{{url('admin/store_main_menu')}}">
                                                 @csrf
                                                 <div class="row">
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">Name Main Menu</label>
@@ -93,7 +93,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">Menu Link</label>
@@ -102,7 +102,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">Sorting</label>
@@ -111,7 +111,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                    <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                         <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create
                                                             Menu</button>
                                                         <button type="reset" class="btn btn-light">Cancel</button>
@@ -119,7 +119,7 @@
                                                 </div>
                                             </form>
                                         </div>
-                                            <div class="col-8">
+                                            <div class="col-md-12">
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <h4 style="color:#fff; border-radius:5px; background-color:#00B5B8; padding:10px;" class="card-title">Main Menu List</h4>
@@ -162,7 +162,7 @@
                                                                                                 <input type="hidden" value="{{$row_main_menu->id}}" name="id">
 
                                                                                                 <div class="row">
-                                                                                                    <div class="col-12">
+                                                                                                    <div class="col-md-12">
                                                                                                         <div class="form-group">
                                                                                                             <div class="controls">
                                                                                                                 <label for="account-username">Menu Name</label>
@@ -171,7 +171,7 @@
                                                                                                         </div>
                                                                                                     </div>
 
-                                                                                                    <div class="col-12">
+                                                                                                    <div class="col-md-12">
                                                                                                         <div class="form-group">
                                                                                                             <div class="controls">
                                                                                                                 <label for="account-username">Menu Link / Page Link</label>
@@ -179,7 +179,7 @@
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="col-12">
+                                                                                                    <div class="col-md-12">
                                                                                                         <div class="form-group">
                                                                                                             <div class="controls">
                                                                                                                 <label for="account-username">Sorting</label>
@@ -190,7 +190,7 @@
 
 
 
-                                                                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                                    <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                                         <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create
                                                                                                             Menu</button>
                                                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -227,7 +227,7 @@
                                         
                                         <div class="tab-pane fade" id="account-vertical-info" role="tabpanel" aria-labelledby="account-pill-info" aria-expanded="false">
                                             <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-md-12">
                                             <div class="media">
                                                 <div style="color:#fff; border-radius:5px; background-color:#00B5B8; padding:10px;" class="media-body mt-75">
                                                     Create 2nd Level Menu
@@ -237,7 +237,7 @@
                                             <form method="POST" action="{{url('admin/store_child_menu')}}">
                                                 @csrf
                                                 <div class="row">
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">Select Main Menu</label>
@@ -250,7 +250,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">Name 2nd Level Menu</label>
@@ -259,7 +259,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">2nd Level Menu Link</label>
@@ -268,7 +268,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">Sorting</label>
@@ -277,7 +277,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                    <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                         <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create
                                                             Menu</button>
                                                         <button type="reset" class="btn btn-light">Cancel</button>
@@ -285,7 +285,7 @@
                                                 </div>
                                             </form>
                                         </div>
-                                            <div class="col-8">
+                                            <div class="col-md-12">
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <h4 style="color:#fff; border-radius:5px; background-color:#00B5B8; padding:10px;" class="card-title">2nd Level Menu List</h4>
@@ -295,8 +295,8 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>Main Menu ID</th>
-                                                                    <th>Child Menu Name</th>
-                                                                    <th>Child Menu Link</th>
+                                                                    <th>2nd Level Menu Name</th>
+                                                                    <th>2nd Level Menu Link</th>
                                                                     <th>Sorting</th>
                                                                     <th>Action</th>
                                                                 </tr>
@@ -333,7 +333,7 @@
                                                                                             <input type="hidden" value="{{$row_child_menus->id}}" name="id">
         
                                                                                             <div class="row">
-                                                                                                <div class="col-12">
+                                                                                                <div class="col-md-12">
                                                                                                     <div class="form-group">
                                                                                                         <div class="controls">
                                                                                                             <label for="account-username">Main Menu Name</label>
@@ -350,7 +350,7 @@
                                                                                                     </div>
                                                                                                 </div>
         
-                                                                                                <div class="col-12">
+                                                                                                <div class="col-md-12">
                                                                                                     <div class="form-group">
                                                                                                         <div class="controls">
                                                                                                             <label for="account-username">Child Menu Name</label>
@@ -359,7 +359,7 @@
                                                                                                     </div>
                                                                                                 </div>
         
-                                                                                                <div class="col-12">
+                                                                                                <div class="col-md-12">
                                                                                                     <div class="form-group">
                                                                                                         <div class="controls">
                                                                                                             <label for="account-username">Menu Link / Page Link</label>
@@ -368,7 +368,7 @@
                                                                                                     </div>
                                                                                                 </div>
         
-                                                                                                <div class="col-12">
+                                                                                                <div class="col-md-12">
                                                                                                     <div class="form-group">
                                                                                                         <div class="controls">
                                                                                                             <label for="account-username">Sorting : {{$row_child_menus->sorting}}</label>
@@ -379,7 +379,7 @@
         
         
         
-                                                                                                <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                                <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                                     <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create
                                                                                                         Menu</button>
                                                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -398,8 +398,8 @@
                                                             <tfoot>
                                                                 <tr>
                                                                     <th>Main Menu ID</th>
-                                                                    <th>Child Menu Name</th>
-                                                                    <th>Child Menu Link</th>
+                                                                    <th>2nd Level Menu Name</th>
+                                                                    <th>2nd Level Menu Link</th>
                                                                     <th>Featured Service</th>
                                                                     <th>Action</th>
                                                                 </tr>
@@ -415,7 +415,7 @@
                                         
                                         <div class="tab-pane fade" id="account-vertical-connections" role="tabpanel" aria-labelledby="account-pill-connections" aria-expanded="false">
                                             <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-md-12">
                                             <div class="media">
                                                 <div style="color:#fff; border-radius:5px; background-color:#00B5B8; padding:10px;" class="media-body mt-75">
                                                     Create 3rd Level Menu
@@ -425,7 +425,7 @@
                                             <form method="POST" action="{{url('admin/store_sub_child_menu')}}">
                                                 @csrf
                                                 <div class="row">
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">Select Main Menu</label>
@@ -437,7 +437,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">Select 2nd Level Menu</label>
@@ -447,7 +447,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">3rd Level Menu Name</label>
@@ -456,7 +456,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">3rd Level Menu Link</label>
@@ -465,7 +465,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="controls">
                                                                 <label for="account-username">Sorting</label>
@@ -475,7 +475,7 @@
                                                     </div>
 
 
-                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                    <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                         <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create
                                                             Menu</button>
                                                         <button type="reset" class="btn btn-light">Cancel</button>
@@ -484,7 +484,7 @@
                                             </form>
                                         </div>
                                             
-                                                <div class="col-8">
+                                                <div class="col-md-12">
                                                     <div class="card">
                                                         <div class="card-header">
                                                             <h4 style="color:#fff; border-radius:5px; background-color:#00B5B8; padding:10px;" class="card-title">3rd Level Menu List</h4>
@@ -494,8 +494,8 @@
                                                                 <table class="table table-striped table-bordered dom-jQuery-events">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th>Child Menu Name</th>
                                                                             <th>2nd Level Menu Name</th>
+                                                                            <th>3rd Level Menu Name</th>
                                                                             <th>3rd Level Menu Link</th>
                                                                             <th>Sorting</th>
                                                                             <th>Action</th>
@@ -530,7 +530,7 @@
                                                                                                     <input type="hidden" value="{{$row_sub_child_menus->id}}" name="id">
 
                                                                                                     <div class="row">
-                                                                                                        <div class="col-12">
+                                                                                                        <div class="col-md-12">
                                                                                                             <div class="form-group">
                                                                                                                 <div class="controls">
                                                                                                                     <label for="account-username">2nd Level Menu Name</label>
@@ -547,7 +547,7 @@
                                                                                                             </div>
                                                                                                         </div>
 
-                                                                                                        <div class="col-12">
+                                                                                                        <div class="col-md-12">
                                                                                                             <div class="form-group">
                                                                                                                 <div class="controls">
                                                                                                                     <label for="account-username">3rd Level Menu Name</label>
@@ -556,7 +556,7 @@
                                                                                                             </div>
                                                                                                         </div>
 
-                                                                                                        <div class="col-12">
+                                                                                                        <div class="col-md-12">
                                                                                                             <div class="form-group">
                                                                                                                 <div class="controls">
                                                                                                                     <label for="account-username">3rd Level Menu Link / Page Link</label>
@@ -565,7 +565,7 @@
                                                                                                             </div>
                                                                                                         </div>
 
-                                                                                                        <div class="col-12">
+                                                                                                        <div class="col-md-12">
                                                                                                             <div class="form-group">
                                                                                                                 <div class="controls">
                                                                                                                     <label for="account-username">Sorting</label>
@@ -576,7 +576,7 @@
 
 
 
-                                                                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                                        <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                                             <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create
                                                                                                                 Menu</button>
                                                                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -597,9 +597,9 @@
                                                                     </tbody>
                                                                     <tfoot>
                                                                         <tr>
-                                                                            <th>Main Menu ID</th>
-                                                                            <th>Child Menu Name</th>
-                                                                            <th>Child Menu Link</th>
+                                                                            <th>2nd Level Menu Name</th>
+                                                                            <th>3rd Level Menu Name</th>
+                                                                            <th>3rd Level Menu Name Link</th>
                                                                             <th>Action</th>
                                                                         </tr>
                                                                     </tfoot>
