@@ -146,27 +146,10 @@
                                                                                                         $('#edit_caseStudyServicesaddBtn').on('click', function() {
                                                                                                             // Adding a row inside the tbody.
                                                                                                             $('#edit_caseStudyServicestbody').append(`<tr id="R${++caseStudyServicesrowIdx}">
-                                                                                                            <td class="row-index text-center"><select id="service" name="service[]" class="form-control service${caseStudyServicesrowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
-                                                                                                            <td class="row-index text-center"><select  id="dependent_page_sections${caseStudyServicesrowIdx}" name="sub_category[]" class="form-control"><option>--Select Sub Category--</option></select></td>
+                                                                                                            <td class="row-index text-center"><select id="service${caseStudyServicesrowIdx}" name="service[]" onchange="case_study_main_service_edit(this);" class="form-control service${caseStudyServicesrowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
+                                                                                                            <td class="row-index text-center"><select  id="dependent_page_sections_edit${caseStudyServicesrowIdx}" name="sub_category[]" class="form-control"><option>--Select Sub Category--</option></select></td>
                                                                                                             <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
                                                                                                             </tr>`);
-                                                                                            
-                                                                                                            $('#edit_caseStudyServicestbody').on('change', `.service${caseStudyServicesrowIdx}`, function() {
-                                                                                                            if ($(this).val() != '') {
-                                                                                                                var select = $(this).attr("id");
-                                                                                                                var value = $(this).val();
-                                                                                                                    
-                                                                                                                var dependent = $(this).data('dependent');
-                                                                                                                var _token = $('input[name="_token"]').val();
-                                                                                                                $.ajax({
-                                                                                                                    url: "../services_by_id/" + value,
-                                                                                                                    method: "GET",
-                                                                                                                    success: function(result) {
-                                                                                                                        $(`#dependent_page_sections${caseStudyServicesrowIdx}`).html(result);
-                                                                                                                    }
-                                                                                                                })
-                                                                                                            }
-                                                                                                        });
                                                                                                     });
                                                                                                     // jQuery button click event to remove a row.
                                                                                                     $('#edit_caseStudyServicestbody').on('click', '.remove', function() {
@@ -210,12 +193,12 @@
                                                                                                                 <option value="{{$row_ind->id}}">{{$row_ind->title}}</option>
                                                                                                             @endforeach
                                                                                                             </select></td>
-                                                                                                        <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                                                        <td class="text-center"><button class="btn btn-danger remove_two" type="button">x</button></td>
                                                                                                         </tr>`);
                                                                                                     });
                                                                                             
                                                                                                     // jQuery button click event to remove a row.
-                                                                                                    $('#edit_caseStudyIndustrytbody').on('click', '.remove', function() {
+                                                                                                    $('#edit_caseStudyIndustrytbody').on('click', '.remove_two', function() {
                                                                                                         // Getting all the rows next to the row
                                                                                                         // containing the clicked button
                                                                                                         var child = $(this).closest('tr').nextAll();

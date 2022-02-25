@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     // Denotes total number of rows
     //console.log(services_js_var);
@@ -6,10 +5,10 @@ $(document).ready(function() {
     // jQuery button click event to add a row
     $('#ServiceaddBtn').on('click', function() {
         // Adding a row inside the tbody.
-        
+
         $('#Servicetbody').append(`<tr id="R${++ServicerowIdx}">
-            <td class="row-index text-center"><select id="service" name="service[]" class="form-control service${ServicerowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
-            <td class="row-index text-center"><select  id="dependent_page_sections${ServicerowIdx}" name="sub_category[]" class="sub_service${ServicerowIdx} form-control"><option>--Select Sub Category--</option></select></td>
+            <td class="row-index text-center"><select onchange="services();" id="service${ServicerowIdx}" name="service[]" class="form-control service${ServicerowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
+            <td class="row-index text-center"><select  onchange="sub_services();" id="dependent_page_sections${ServicerowIdx}" name="sub_category[]" class="sub_service${ServicerowIdx} form-control"><option>--Select Sub Category--</option></select></td>
             <td class="row-index text-center"><input name="sub_service_link[]" class="form-control sub_service_link${ServicerowIdx}" type="text"/></td>
             <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
             </tr>`);
@@ -18,16 +17,6 @@ $(document).ready(function() {
             if ($(this).val() != '') {
                 var select = $(this).attr("id");
                 var value = $(this).val();
-
-                var dependent = $(this).data('dependent');
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    url: "services_by_id/" + value,
-                    method: "GET",
-                    success: function(result) {
-                        $(`#dependent_page_sections${ServicerowIdx}`).html(result);
-                    }
-                })
             }
         });
 

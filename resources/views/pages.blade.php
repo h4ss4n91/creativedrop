@@ -156,33 +156,24 @@
                                                                 $('#caseStudyaddBtn_for_page').on('click', function() {
                                                                     // Adding a row inside the tbody.
                                                                     $('#caseStudytbody_for_page').append(`<tr id="R${++caseStudyrowIdx}">
-                                                  <td class="row-index text-center">
-                                                    <select id="page_sections_${caseStudyrowIdx}" class="form-control" name="section[]">
-                                                    <option value="">  --- Select Section --- </option>
-                                                    @foreach($page_section as $row_page_section)
-                                                        <option value="{{$row_page_section->id}}"> {{$row_page_section->name}} </option>
-                                                    @endforeach
-                                                </select>
-                                                    </td>
-                                                  <td class="row-index text-center">
-                                                    <select id="dependent_page_sections_${caseStudyrowIdx}" class="form-control" name="section_type[]">
-                                                        <option></option>
-                                                    </select>
-                                                    </td>
-                                                  <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
-                                                  </tr>`);
+                                                                        <td class="row-index text-center">
+                                                                            <select onchange="page_section(this);" id="page_sections_${caseStudyrowIdx}" class="form-control" name="section[]">
+                                                                            <option value="">  --- Select Section --- </option>
+                                                                            @foreach($page_section as $row_page_section)
+                                                                                <option value="{{$row_page_section->id}}"> {{$row_page_section->name}} </option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                            </td>
+                                                                        <td class="row-index text-center">
+                                                                            <select id="page_section_two_${caseStudyrowIdx}" class="form-control" name="section_type[]">
+                                                                                <option></option>
+                                                                            </select>
+                                                                            </td>
+                                                                        <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
+                                                                        </tr>`);  
 
                                                                     $(`#page_sections_${caseStudyrowIdx}`).change(function() {
-                                                                        var page_section = $(this).children("option:selected").val();
-                                                                        // alert(page_section);
-                                                                        $.ajax({
-                                                                            type: 'GET',
-                                                                            url: 'page_section_id/' + page_section,
-                                                                            success: function(data) {
-                                                                                console.log(data);
-                                                                                $(`#dependent_page_sections_${caseStudyrowIdx}`).html(data);
-                                                                            }
-                                                                        });
+                                                                        
                                                                     });
                                                                 });
                                                                 // jQuery button click event to remove a row.
@@ -817,7 +808,6 @@
                     console.log(result);
                     $('#child_dependent_page_sections').html(result['options']);
                 }
-
             })
         }
     });

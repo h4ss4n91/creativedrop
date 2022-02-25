@@ -67,7 +67,7 @@
                                                         <hr />
 
                                                         <div class="row">
-                                                            <div class="col-6">
+                                                            <div class="col-12">
                                                                 @include('backend.flash_message')
                                                                 <form method="POST" action="{{url('admin/store_para_style_2')}}" enctype="multipart/form-data">
                                                                     @csrf
@@ -80,13 +80,16 @@
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="col-12">
+                                                                        <div class="col-4">
                                                                             <div class="form-group">
                                                                                 <div class="controls">
                                                                                     <label for="account-username">Section Name</label>
                                                                                     <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                 </div>
                                                                             </div>
+                                                                        </div>
+                                                                        <div class="col-8">
+                                                                            <img style="width:100%" src="{{asset('public/page_sections/paragraph_right_image_left_text.png')}}" />
                                                                         </div>
 
                                                                         <div class="col-12">
@@ -122,9 +125,7 @@
 
                                                             </div>
 
-                                                            <div class="col-6">
-                                                                <img style="width:100%" src="{{asset('public/page_sections/paragraph_right_image_left_text.png')}}" />
-                                                            </div>
+                                                            
                                                         </div>
 
                                                         <hr />

@@ -100,7 +100,7 @@
             $('#caseStudyServicesaddBtn').on('click', function() {
                 // Adding a row inside the tbody.
                 $('#caseStudyServicestbody').append(`<tr id="R${++caseStudyServicesrowIdx}">
-                <td class="row-index text-center"><select id="service" onchange="main_service(this);" name="service[]" class="form-control service${caseStudyServicesrowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
+                <td class="row-index text-center"><select id="service${caseStudyServicesrowIdx}" onchange="case_study_main_service(this);" name="service[]" class="form-control service${caseStudyServicesrowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
                 <td class="row-index text-center"><select  id="dependent_page_sections${caseStudyServicesrowIdx}" name="sub_category[]" class="form-control"><option>--Select Sub Category--</option></select></td>
                 <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
                 </tr>`);
@@ -111,15 +111,7 @@
                     var value = $(this).val();
                         
                     var dependent = $(this).data('dependent');
-                    var _token = $('input[name="_token"]').val();
-                    $.ajax({
-                        url: "../services_by_id/" + value,
-                        method: "GET",
-                        success: function(result) {
-                            
-                            $(`#dependent_page_sections${caseStudyServicesrowIdx}`).html(result);
-                        }
-                    })
+                    
                 }
             });
         });

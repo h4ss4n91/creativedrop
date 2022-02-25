@@ -85,26 +85,6 @@
                                         <input type="hidden" value="{{Request::segment(3)}}" name="id" >
                         
                                         <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <div class="controls">
-                                                        <label style="font-weight:bold;"for="account-username">Page Title</label>
-                                                        <input type="text" value="{{$page[0]->title}}" name="title" class="form-control" id="account-username" required
-                                                            data-validation-required-message="This username field is required">
-                                                    </div>
-                                                </div>
-                                            </div>
-                        
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <div class="controls">
-                                                        <label style="font-weight:bold;"for="account-username">Page Slug</label>
-                                                        <input type="text" name="slug" value="{{$page[0]->slug}}" class="form-control" id="account-username" required
-                                                            data-validation-required-message="This username field is required">
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <div class="controls">
@@ -173,6 +153,26 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <div class="controls">
+                                                        <label style="font-weight:bold;"for="account-username">Page Title</label>
+                                                        <input type="text" value="{{$page[0]->title}}" name="title" class="form-control" id="account-username" required
+                                                            data-validation-required-message="This username field is required">
+                                                    </div>
+                                                </div>
+                                            </div>
+                        
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <div class="controls">
+                                                        <label style="font-weight:bold;"for="account-username">Page Slug</label>
+                                                        <input type="text" name="slug" value="{{$page[0]->slug}}" class="form-control" id="account-username" required
+                                                            data-validation-required-message="This username field is required">
+                                                    </div>
+                                                </div>
+                                            </div>
                         
                                             <div class="col-12">
                                                 <div class="form-group">
@@ -221,7 +221,7 @@
                                                                 @endforeach
                                                                 </span>
                                                             </label>
-                                                            <select id="page_sections_{{$row_pages->section_no}}" class="form-control" name="section[]">
+                                                            <select onchange="edit_page_section(this);" id="page_sections_{{$row_pages->section_no}}" class="form-control" name="section[]">
                                                                 @foreach($page_section as $row_page_section)
                                                                     @if($row_page_section->id == $row_pages->section)
                                                                         <option value="{{$row_pages->section}}">  {{$row_page_section->name}} </option>
@@ -242,7 +242,7 @@
                                                         <label style="font-weight:bold;"for="account-username">Type Section {{$row_pages->section_no}} ::: <span class="badge badge-pill badge-info" style="font-weight:bold; font-size:21px;">
                                                             {{$row_pages->section_type}}
                                                         </label>
-                                                            <select id="dependent_page_sections_{{$row_pages->section_no}}" class="form-control" name="section_type[]">
+                                                            <select id="edit_page_section_two_{{$row_pages->section_no}}" class="form-control" name="section_type[]">
                                                                 <option value="{{$row_pages->section_type}}"> {{$row_pages->section_type}} </option>
                                                             </select>
                                                     </div>
@@ -268,28 +268,6 @@
 
                                             </div>
 
-
-                                            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-                                                <script>
-                                                $(document).ready(function(){
-
-                                                    $("#page_sections_{{$row_pages->section_no}}").change(function(){
-                                                        var page_section = $(this).children("option:selected").val();
-                                                            //    alert(page_section);
-                                                        $.ajax({
-                                                                                type:'GET',
-                                                                                url:'../page_section_id/'+page_section,
-                                                                                success:function(data){
-                                                                                    console.log(data);
-                                                                                $('#dependent_page_sections_{{$row_pages->section_no}}').html(data);
-
-                                                                                
-                                                                                }
-                                                                            });
-                                                    });
-                                                });
-                                                </script>
-
                                             @endforeach
 
 
@@ -298,12 +276,13 @@
                                                 $(document).ready(function () {
                                                     // Denotes total number of rows
                                                     var caseStudyrowIdx = {{$count}}
+                                                    console.log(caseStudyrowIdx);
                                                     // jQuery button click event to add a row
                                                     $('#caseStudyaddBtn_for_editpage').on('click', function () {
                                                     // Adding a row inside the tbody.
                                                     $('#caseStudytbody_for_editpage').append(`<tr id="R${++caseStudyrowIdx}">
                                                         <td class="row-index text-center">
-                                                            <select id="page_sections_${caseStudyrowIdx}" class="form-control" name="section[]">
+                                                            <select onchange="edit_page_section(this);" id="page_sections_${+caseStudyrowIdx}" class="form-control" name="section[]">
                                                             <option value="">  --- Select Section --- </option>
                                                             @foreach($page_section as $row_page_section)
                                                                 <option value="{{$row_page_section->id}}"> {{$row_page_section->name}} </option>
@@ -311,26 +290,19 @@
                                                         </select>
                                                             </td>
                                                         <td class="row-index text-center">
-                                                            <select id="dependent_page_sections_${caseStudyrowIdx}" class="form-control" name="section_type[]">
+                                                            <select id="edit_page_section_two_${+caseStudyrowIdx}" class="form-control" name="section_type[]">
                                                                 <option></option>
                                                             </select>
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="section_no[]" value=""/>
+                                                                <input type="text" id="edit_section_no_${+caseStudyrowIdx}" class="form-control" name="section_no[]" value=""/>
                                                             </td>
                                                         <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
                                                         </tr>`);
 
                                                         $(`#page_sections_${caseStudyrowIdx}`).change(function(){
                                                                 var page_section = $(this).children("option:selected").val();
-                                                                    // alert(page_section);
-                                                                $.ajax({
-                                                                    type:'GET',
-                                                                    url:'../page_section_id/'+page_section,
-                                                                    success:function(data){
-                                                                        console.log(data);
-                                                                        $(`#dependent_page_sections_${caseStudyrowIdx}`).html(data);
-                                                                    }});
+                                                                
                                                                 
                                                             });
                                                         

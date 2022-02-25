@@ -69,7 +69,7 @@
                                         <hr>
                                         <div class="row">
                                             @include('backend.flash_message')
-                                            <div class="col-6">
+                                            <div class="col-12">
 
                                                 <form method="POST" action="{{url('admin/store_team')}}" enctype="multipart/form-data">
                                                     @csrf
@@ -82,13 +82,16 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-12">
+                                                        <div class="col-6">
                                                             <div class="form-group">
                                                                 <div class="controls">
                                                                     <label for="account-username">Name Section</label>
                                                                     <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <img style="width:100%" src="{{asset('public/page_sections/team.png')}}" />
                                                         </div>
 
                                                         <div class="col-12">
@@ -122,9 +125,7 @@
 
                                             </div>
 
-                                            <div class="col-6">
-                                                <img style="width:100%" src="{{asset('public/page_sections/team.png')}}" />
-                                            </div>
+                                            
 
                                         </div>
 

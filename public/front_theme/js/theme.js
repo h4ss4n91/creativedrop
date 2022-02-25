@@ -490,10 +490,7 @@ function remove_this_tag(ele) {
     $(ele).parent().parent().remove();
 }
 
-function main_service(ele) {
-    console.log(ele);
 
-}
 
 function remove_main_service_tag(ele) {
     var option_id = $(ele).attr('id');
