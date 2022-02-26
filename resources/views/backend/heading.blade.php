@@ -138,6 +138,7 @@
                                                     <th>Section Name</th>
                                                     <th>Heading</th>
                                                     <th>Title</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -148,11 +149,14 @@
 
                                                     <td>{{$row_section_23->heading}}</td>
                                                     <td>{{$row_section_23->title}}</td>
+                                                    <td>TOP: {{$row_section_23->padding_top}}<br/>
+                                                        Bottom: {{$row_section_23->padding_bottom}}<br/>
+                                                    </td>
 
                                                     <td>
 
-                                                        <a data-toggle="modal" data-target="#section_23_ModalCenter{{$row_section_23->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
-                                                        <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_23/'.$row_section_23->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                        <a class="btn btn-primary" data-toggle="modal" data-target="#section_23_ModalCenter{{$row_section_23->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> 
+                                                        <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_23/'.$row_section_23->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
 
                                                         <!-- Modal -->
                                                         <div class="modal fade" id="section_23_ModalCenter{{$row_section_23->id}}" tabindex="-1" role="dialog" aria-labelledby="section_23_ModalCenter{{$row_section_23->id}}" aria-hidden="true">

@@ -141,6 +141,7 @@
                                                     <th>Title</th>
                                                     <th>Paragraph</th>
                                                     <th>Link</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -163,8 +164,12 @@
                                                     <td>
                                                         {{$row_para_style_3->paragraph}}
                                                     </td>
+                                                    <td>
+                                                        Top: {{$row_para_style_3->padding_top}}<br/>
+                                                        Bottom: {{$row_para_style_3->padding_bottom}}
+                                                    </td>
                                     
-                                                    <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_3/'.$row_para_style_3->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#para_style_3_ModalCenter{{$row_para_style_3->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                    <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_3/'.$row_para_style_3->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary" data-toggle="modal" data-target="#para_style_3_ModalCenter{{$row_para_style_3->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                         <div class="modal fade" id="para_style_3_ModalCenter{{$row_para_style_3->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_3_ModalCenter{{$row_para_style_3->id}}" aria-hidden="true">
                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
@@ -192,6 +197,11 @@
                                                                                             <label for="account-username">Section Name</label>
                                                                                             <input type="text" name="name" value="{{$row_para_style_3->name}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                         </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-12">
+                                                                                    <div class="row">
+                                                                                        @include('padding_top_and_bottom')
                                                                                     </div>
                                                                                 </div>
                                     

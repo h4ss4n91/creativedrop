@@ -224,6 +224,8 @@ Route::get('/{id}', 'WelcomeController@index')->name('pages');
 Route::get('/admin/detail_case_study/{id}', 'CasestudyController@detail_case_study')->name('detail_case_study');
 Route::post('/admin/add_case_study_content', 'CasestudyController@add_case_study_content')->name('add_case_study_content');
 Route::get('/admin/delete_case_study_content/{id}', 'CasestudyController@delete_case_study_content')->name('delete_case_study_content');
+Route::post('/admin/edit_case_study_content', 'CasestudyController@edit_case_study_content')->name('edit_case_study_content');
+
 
 Route::post('/ajax_post', 'WelcomeController@ajax_post')->name('ajax_post');
 

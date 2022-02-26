@@ -128,11 +128,7 @@
                                                         </div>
                                                     </div>
                                                 </form>
-
                                             </div>
-
-                                            
-
                                         </div>
 
                                         <hr />
@@ -143,6 +139,7 @@
                                                     <th>Team Member Image</th>
                                                     <th>Team Member Title</th>
                                                     <th>Team Member Designation</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -155,7 +152,10 @@
                                                     </td>
                                                     <td>{{$case_study_row->name}}</td>
                                                     <td>{{$case_study_row->designation}}</td>
-                                                    <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_team/'.$case_study_row->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#teamStudyModalCenter{{$case_study_row->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                    <td>Top: {{$case_study_row->padding_top}} <br/>
+                                                        Bottom: {{$case_study_row->padding_bottom}} <br/>
+                                                    </td>
+                                                    <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_team/'.$case_study_row->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary" data-toggle="modal" data-target="#teamStudyModalCenter{{$case_study_row->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                         <div class="modal fade" id="teamStudyModalCenter{{$case_study_row->id}}" tabindex="-1" role="dialog" aria-labelledby="teamStudyModalCenter{{$case_study_row->id}}" aria-hidden="true">
                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
@@ -211,6 +211,11 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
+                                                                                <div class="col-12">
+                                                                                    <div class="row">
+                                                                                        @include('padding_top_and_bottom')
+                                                                                    </div>
+                                                                                </div>
 
 
                                                                                 <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
@@ -224,7 +229,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </td>
                                                 </tr>
 

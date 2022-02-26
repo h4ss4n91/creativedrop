@@ -174,4 +174,8 @@ class CasestudyController extends Controller
 
             return redirect()->back()->with('delete_message', 'Deleted Successfully!');
         }
+
+        public function edit_case_study_content(Request $request){
+            dd($request);
+        }
     }

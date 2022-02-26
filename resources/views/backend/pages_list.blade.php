@@ -109,7 +109,7 @@
                                                                                                             <td>{{$row_pages->slug}}</td>
                                                                                                             <td>{{$row_pages->status}}</td>
                                                                                                             <td>
-                                                                                                                <a href="{{url('admin/edit_page_content',$row_pages->id)}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_page',$row_pages->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>
+                                                                                                                <a class="btn btn-primary" href="{{url('admin/edit_page_content',$row_pages->id)}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>  <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_page',$row_pages->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>
                                                                                                             </td>
                                                                                                             <!-- Modal -->
                                                                                                         </tr>

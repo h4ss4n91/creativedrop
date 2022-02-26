@@ -167,6 +167,7 @@
                                                     <th>Image</th>
                                                     <th>Video</th>
                                                     <th>Text</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -178,18 +179,19 @@
                                                     <td>{{$row_section_22->heading_1}}</td>
                                                     <td>{{$row_section_22->heading_2}}</td>
                                                     <td>
-                                    
                                                         @if(!empty($row_section_22->image))
                                                         <img style="width:100px" src="{{asset('public/section_22/'.$row_section_22->image)}}" /> @endif
-                                    
                                                     </td>
                                     
                                                     <td>{{$row_section_22->video}}</td>
                                                     <td>{{$row_section_22->text}}</td>
+                                                    <td>Top: {{$row_section_22->padding_top}} <br/>
+                                                        Bottom: {{$row_section_22->padding_bottom}} <br/>
+                                                    </td>
                                                     <td>
                                     
-                                                        <a data-toggle="modal" data-target="#section_22_ModalCenter{{$row_section_22->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
-                                                        <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_22/'.$row_section_22->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                        <a class="btn btn-primary" data-toggle="modal" data-target="#section_22_ModalCenter{{$row_section_22->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
+                                                        <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_22/'.$row_section_22->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                     
                                                         <!-- Modal -->
                                                         <div class="modal fade" id="section_22_ModalCenter{{$row_section_22->id}}" tabindex="-1" role="dialog" aria-labelledby="section_22_ModalCenter{{$row_section_22->id}}" aria-hidden="true">
@@ -266,6 +268,11 @@
                                                                                             <label for="account-username">Text</label>
                                                                                             <input type="text" name="text" class="form-control" value="{{$row_section_22->text}}" id="account-username" data-validation-required-message="This username field is required">
                                                                                         </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-12">
+                                                                                    <div class="row">
+                                                                                        @include('padding_top_and_bottom')
                                                                                     </div>
                                                                                 </div>
                                     

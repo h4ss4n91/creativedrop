@@ -158,7 +158,7 @@
                                                     <th>Image</th>
                                                     <th>Heading </th>
                                                     <th>Change Position </th>
-                                    
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -178,8 +178,12 @@
                                                         YES
                                                         @endif
                                                     </td>
+                                                    <td>
+                                                        Top: {{$row_section_15->padding_top}}<br/>
+                                                        Bottom: {{$row_section_15->padding_bottom}}
+                                                    </td>
                                     
-                                                    <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_15/'.$row_section_15->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#para_style_5_ModalCenter{{$row_section_15->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                    <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_15/'.$row_section_15->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> <a class="btn btn-primary" data-toggle="modal" data-target="#para_style_5_ModalCenter{{$row_section_15->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                         <div class="modal fade" id="para_style_5_ModalCenter{{$row_section_15->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_5_ModalCenter{{$row_section_15->id}}" aria-hidden="true">
                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
@@ -211,6 +215,11 @@
                                                                                             <label for="account-username">Section Name</label>
                                                                                             <input type="text" name="name" value="{{$row_section_15->name}}" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                         </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-12">
+                                                                                    <div class="row">
+                                                                                        @include('padding_top_and_bottom')
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-12">
@@ -294,6 +303,7 @@
                                                     <th>Section Name</th>
                                                     <th>Image</th>
                                                     <th>Text</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </tfoot>

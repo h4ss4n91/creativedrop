@@ -77,7 +77,7 @@
                                                         @csrf
                                                         <div class="row">
 
-                                                            <div class="col-12">
+                                                            {{-- <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-username">Page Name</label>
@@ -88,7 +88,7 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> --}}
 
                                                             <div class="col-12">
                                                                 <div class="form-group">
@@ -159,6 +159,7 @@
                                                             <th>Main Service</th>
                                                             <th>Sub Service</th>
                                                             <th>Sub Service Link</th>
+                                                            <th>Padding</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -167,10 +168,13 @@
                                                         <tr>
                                                             <td>{{$row_services->name}}</td>
                                                             <td>{{$row_services->bootstra_class_name}}</td>
-                                                            <td>{{$row_services->main_service}}</td>
-                                                            <td>{{$row_services->sub_service}}</td>
-                                                            <td>{{$row_services->sub_service_link}}</td>
-                                                            <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_service/'.$row_services->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#serviceModalCenter{{$row_services->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                            <td>{{$row_services->first_level_menu_name}}</td>
+                                                            <td>{{$row_services->second_level_menu_name}}</td>
+                                                            <td>{{$row_services->second_level_menu_link}}</td>
+                                                            <td>Top: {{$row_services->padding_top}} <br/>
+                                                                Bottom: {{$row_services->padding_bottom}} <br/>
+                                                            </td>
+                                                            <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_service/'.$row_services->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary" data-toggle="modal" data-target="#serviceModalCenter{{$row_services->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                                 <div class="modal fade" id="serviceModalCenter{{$row_services->id}}" tabindex="-1" role="dialog" aria-labelledby="serviceModalCenter{{$row_services->id}}" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                         <div class="modal-content">
@@ -222,7 +226,15 @@
                                                                                             <div class="form-group">
                                                                                                 <div class="controls">
                                                                                                     <label for="account-username">Main Service</label>
-                                                                                                    <input type="text" name="main_service" value="{{$row_services->main_service}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                    <select name="main_service" class="form-control">
+                                                                                                        <option value="{{$row_services->main_service}}">{{$row_services->first_level_menu_name}} </option>
+                                                                                                        @php
+                                                                                                            $_menus = DB::table('menus')->get();
+                                                                                                        @endphp
+                                                                                                        @foreach($_menus as $row_menu)
+                                                                                                            <option value="{{$row_menu->id}}"> {{$row_menu->menu_name}}</option>
+                                                                                                        @endforeach
+                                                                                                    </select>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -231,7 +243,15 @@
                                                                                             <div class="form-group">
                                                                                                 <div class="controls">
                                                                                                     <label for="account-username">Sub Service</label>
-                                                                                                    <input type="text" name="sub_service" value="{{$row_services->sub_service}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                    <select name="sub_service" class="form-control">
+                                                                                                        <option value="{{$row_services->sub_service}}">{{$row_services->second_level_menu_name}} </option>
+                                                                                                        @php
+                                                                                                            $_child_menus = DB::table('child_menus')->get();
+                                                                                                        @endphp
+                                                                                                        @foreach($_child_menus as $row_child_menu)
+                                                                                                            <option value="{{$row_child_menu->id}}"> {{$row_child_menu->item_name}}</option>
+                                                                                                        @endforeach
+                                                                                                    </select>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -242,6 +262,11 @@
                                                                                                     <label for="account-username"> Sub Service Link</label>
                                                                                                     <input type="text" name="sub_service_link" value="{{$row_services->sub_service_link}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                                 </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-12">
+                                                                                            <div class="row">
+                                                                                                @include('padding_top_and_bottom')
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">

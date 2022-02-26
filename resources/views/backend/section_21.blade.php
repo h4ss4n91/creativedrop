@@ -146,6 +146,7 @@
                                                     <th>Section Name</th>
                                                     <th>Slider Name</th>
                                                     <th>Video Name</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -155,9 +156,12 @@
                                                     <td>{{$row_section_21->name}}</td>
                                                     <td>{{$row_section_21->slider_name}}</td>
                                                     <td>{{$row_section_21->video_name}}</td>
+                                                    <td>Top: {{$row_section_21->padding_top}} <br/>
+                                                        Bottom: {{$row_section_21->padding_bottom}} <br/>
+                                                    </td>
                                                     <td>
-                                                        <a data-toggle="modal" data-target="#sliderWithVideoModalCenter{{$row_section_21->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
-                                                        <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_section_21->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                        <a class="btn btn-primary" data-toggle="modal" data-target="#sliderWithVideoModalCenter{{$row_section_21->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
+                                                        <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_section_21->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                     
                                                         <!-- Modal -->
                                                         <div class="modal fade" id="sliderWithVideoModalCenter{{$row_section_21->id}}" tabindex="-1" role="dialog" aria-labelledby="sliderWithVideoModalCenter{{$row_section_21->id}}" aria-hidden="true">
@@ -188,6 +192,11 @@
                                                                                             <label for="account-username">Section Name</label>
                                                                                             <input type="text" name="name" class="form-control" id="account-username" value="{{$row_section_21->name}}">
                                                                                         </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-12">
+                                                                                    <div class="row">
+                                                                                        @include('padding_top_and_bottom')
                                                                                     </div>
                                                                                 </div>
                                     
@@ -249,6 +258,7 @@
                                                     <th>Section Name</th>
                                                     <th>Slider Name</th>
                                                     <th>Video Name</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </tfoot>

@@ -27,6 +27,7 @@ class Case_StudyController extends Controller
 
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

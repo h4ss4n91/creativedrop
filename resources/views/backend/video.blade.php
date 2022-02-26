@@ -155,6 +155,7 @@
                                                         <th>Video Link</th>
                                                         <th>Button Label</th>
                                                         <th>Button Link</th>
+                                                        <th>Padding</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -167,9 +168,12 @@
                                                         <td>{{$row_videos->video_link}}</td>
                                                         <td>{{$row_videos->button_label}}</td>
                                                         <td>{{$row_videos->contact_button_link}}</td>
+                                                        <td>Top: {{$row_videos->padding_top}} <br/>
+                                                            Bottom: {{$row_videos->padding_bottom}} <br/>
+                                                        </td>
                                                         <td>
-                                                            <a data-toggle="modal" data-target="#videoModalCenter{{$row_videos->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
-                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_video/'.$row_videos->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                            <a class="btn btn-primary" data-toggle="modal" data-target="#videoModalCenter{{$row_videos->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> 
+                                                            <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_video/'.$row_videos->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="videoModalCenter{{$row_videos->id}}" tabindex="-1" role="dialog" aria-labelledby="videoModalCenter{{$row_videos->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -216,6 +220,11 @@
                                                                                                 <label for="account-username">Video Link</label>
                                                                                                 <input type="text" name="video_link" value="{{$row_videos->video_link}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                             </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-12">
+                                                                                        <div class="row">
+                                                                                            @include('padding_top_and_bottom')
                                                                                         </div>
                                                                                     </div>
 

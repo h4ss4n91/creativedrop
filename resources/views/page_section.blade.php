@@ -75,36 +75,22 @@
                                                                 <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <div class="col-md-6">
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <div class="form-group">
-                                                                                <div class="controls">
-                                                                                    <label for="account-username">Page Name</label>
-                                                                                    <select class="form-control" name="page_id">
-                                                                                @foreach($pages as $row_page)
-                                                                                        <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                                @endforeach
-                                                                            </select>
+                                                                <div class="col-md-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <div class="controls">
+                                                                                        <label for="account-username">Slider Name</label>
+                                                                                        <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                
-
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <div class="controls">
-                                                                            <label for="account-username">Slider Name</label>
-                                                                            <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                        </div>
+                                                                    <div class="row">
+                                                                        @include('padding_top_and_bottom')
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                                <div class="row">
-                                                                @include('padding_top_and_bottom')
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 
@@ -151,6 +137,7 @@
                                                         <th>Slider Heading 1</th>
                                                         <th>Slider Heading 2</th>
                                                         <th>Status</th>
+                                                        <th>Padding</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -165,9 +152,12 @@
                                                         <td>{{$row_sliders->text1}}</td>
                                                         <td>{{$row_sliders->text2}}</td>
                                                         <td>{{$row_sliders->status}}</td>
+                                                        <td>Top: {{$row_sliders->padding_top}} <br/>
+                                                            Bottom: {{$row_sliders->padding_bottom}} <br/>
+                                                        </td>
                                                         <td>
-                                                            <a data-toggle="modal" data-target="#sliderModalCenter{{$row_sliders->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
-                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                            <a class="btn btn-success" data-toggle="modal" data-target="#sliderModalCenter{{$row_sliders->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> 
+                                                            <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
 
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="sliderModalCenter{{$row_sliders->id}}" tabindex="-1" role="dialog" aria-labelledby="sliderModalCenter{{$row_sliders->id}}" aria-hidden="true">
@@ -216,6 +206,14 @@
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Status</label>
                                                                                                 <input type="text" name="status" class="form-control" value="{{$row_sliders->status}}" id="account-username" data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                @include('padding_top_and_bottom')
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -338,7 +336,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            @include('padding_top_and_bottom');
+                                                            @include('padding_top_and_bottom')
 
 
                                                             <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
@@ -395,6 +393,7 @@
                                                                                         </div>
                                                                                     </div>
 
+
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
@@ -403,6 +402,8 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
+
+                                                                                    
 
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">

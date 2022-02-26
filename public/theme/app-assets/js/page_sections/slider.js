@@ -8,7 +8,14 @@ $(document).ready(function() {
             <td class="row-index text-center"><input type="file" name="slider_image[]" class="form-control"/></td>
             <td class="row-index text-center"><input type="text" name="text_1[]" class="form-control"/></td>
             <td class="row-index text-center"><input type="text" name="text_2[]" class="form-control"/></td>
-            <td class="row-index text-center"><input type="text" name="link[]" class="form-control"/></td>
+            <td class="row-index text-center"><input type="text" name="link[]" class="form-control"/>
+            <select name="link[]" class="form-control">
+                <option value="">--Select link---</option>
+                <option value="btn web-btn web-btn-blue">btn web-btn web-btn-blue</option>
+                <option value="btn web-btn web-btn-white">btn web-btn web-btn-white</option>
+            </select>
+
+            </td>
             <td class="row-index text-center">
             <select name="btn_style" class="form-control">
                 <option value="">--Select Button Style---</option>

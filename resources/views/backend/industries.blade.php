@@ -128,7 +128,8 @@
                                                         <th>Section Name</th>
                                                         <th>Industry Name</th>
                                                         <th>Industry Image</th>
-                                                        <th>Services</th>
+                                                        <th>Padding</th>
+                                                        
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -145,30 +146,12 @@
                                                         <td>
                                                             <img style="width:100px;" src="{{asset('public/industries/'.$row_industries->image)}}" />
                                                         </td>
-                                                        <td>
-                                                            @php
-                                                            $industries_services = DB::table('industries')
-                                                            ->join('menus', 'menus.id', '=', 'industries.service_id')
-                                                            ->join('child_menus', 'child_menus.id', '=', 'industries.sub_category_id')
-                                                            ->where('industries.name', '=', $row_industries->name)->get();
-                                                            @endphp
-                                                            <table>
-                                                                <tr>
-                                                                    <th>Services</th>
-                                                                    <th>Sub Services</th>
-                                                                </tr>
-
-                                                                @foreach($industries_services as $row_industries_services)
-                                                                <tr>
-                                                                    <td>{{$row_industries_services->menu_name}}</td>
-                                                                    <td>{{$row_industries_services->item_name}}</td>
-                                                                </tr>
-
-                                                                @endforeach
-                                                            </table>
-
+                                                        
+                                                        <td>Top: {{$row_industries->padding_top}} <br/>
+                                                            Bottom: {{$row_industries->padding_bottom}} <br/>
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_industry/'.$row_industries->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#industryModalCenter{{$row_industries->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                        
+                                                        <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_industry/'.$row_industries->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary" data-toggle="modal" data-target="#industryModalCenter{{$row_industries->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="industryModalCenter{{$row_industries->id}}" tabindex="-1" role="dialog" aria-labelledby="industryModalCenter{{$row_industries->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
@@ -197,6 +180,11 @@
                                                                                                 <label for="account-username"> Section Name</label>
                                                                                                 <input type="text" name="name" value="{{$row_industries->name}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                             </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-12">
+                                                                                        <div class="row">
+                                                                                            @include('padding_top_and_bottom')
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-12">

@@ -207,7 +207,12 @@
 
     @elseif( $row_pages->section== '5' )
     @php
-    $services = DB::table('services')->where('name', '=', $row_pages->section_type)->get();
+        $services = DB::table('services')
+            ->join('menus','menus.id','=','services.main_service')
+            ->join('child_menus','child_menus.id','=','services.sub_service')
+            ->select('child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','menus.menu_name as first_level_menu_name', 'services.*')
+            ->where('services.name', '=', $row_pages->section_type)
+            ->get();
     @endphp
     <section id="section-2" class="@if(!$services->isEmpty()) {{$services[0]->bootstra_class_name}} @endif section-padtop-30 section-padbottom-30 service-block">
         <div class="web-container">
@@ -220,13 +225,19 @@
 
                 <div class="col-6 col-md-6 col-lg-4">
                     <div class="service-links mt-5">
-                        <h6 class="web-h6 web-border-bottom pb-4 mb-0">{{$row->main_service}}</h6>
+                        <h6 class="web-h6 web-border-bottom pb-4 mb-0">{{$row->first_level_menu_name}}</h6>
                         <ul class="mt-3">
                             @php
-                            $sub_services = DB::table('services')->where('main_service', '=', $row->main_service)->get();
+                                    $sub_services = DB::table('services')
+                                        ->join('menus','menus.id','=','services.main_service')
+                                        ->join('child_menus','child_menus.id','=','services.sub_service')
+                                        ->select('child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','menus.menu_name as first_level_menu_name', 'services.*')
+                                        ->where('services.main_service', '=', $row->main_service)
+                                        ->get();
+                            
                             @endphp
                             @foreach($sub_services as $row_sub_services)
-                            <li><a href="#">{{$row_sub_services->sub_service}}</a></li>
+                            <li><a target="_blank" href="{{url($row_sub_services->second_level_menu_link)}}">{{$row_sub_services->second_level_menu_name}}</a></li>
                             @endforeach
                         </ul>
                     </div>

@@ -145,7 +145,7 @@
                                                                         <td>{{$row_main_menu->created_at}}</td>
                                                                         <td>
 
-                                                                            <a data-toggle="modal" data-target="#exampleModalCenter{{$row_main_menu->id}}"><i class="fa fa-pencil-square-o admin-edit"></i></a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_main_menu/'.$row_main_menu->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                                            <a  class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{$row_main_menu->id}}"><i class="fa fa-pencil-square-o admin-edit"></i></a> <a  class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_main_menu/'.$row_main_menu->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                                                             <!-- Modal -->
                                                                             <div class="modal fade" id="exampleModalCenter{{$row_main_menu->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle{{$row_main_menu->id}}" aria-hidden="true">
                                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -316,7 +316,7 @@
                                                                     <td>{{$row_child_menus->item_link}}</td>
                                                                     <td>{{$row_child_menus->sorting}}</td>
                                                                     <td>
-                                                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#childMenuModal{{$row_child_menus->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_child_menu/'.$row_child_menus->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                                        <a class="btn btn-primary" href="javascript:void(0)" data-toggle="modal" data-target="#childMenuModal{{$row_child_menus->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>  <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_child_menu/'.$row_child_menus->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                                                         <!-- Modal -->
                                                                         <div class="modal fade" id="childMenuModal{{$row_child_menus->id}}" tabindex="-1" role="dialog" aria-labelledby="childMenuModal{{$row_child_menus->id}}" aria-hidden="true">
                                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -513,7 +513,7 @@
                                                                             <td>{{$row_sub_child_menus->sorting}}</td>
                                                                             <td>
 
-                                                                                <a href="javascript:void(0)" data-toggle="modal" data-target="#subChildMenuModal{{$row_sub_child_menus->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_sub_child_menu/'.$row_sub_child_menus->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                                                <a class="btn btn-primary" href="javascript:void(0)" data-toggle="modal" data-target="#subChildMenuModal{{$row_sub_child_menus->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>  <a  class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_sub_child_menu/'.$row_sub_child_menus->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                                                                 <!-- Modal -->
                                                                                 <div class="modal fade" id="subChildMenuModal{{$row_sub_child_menus->id}}" tabindex="-1" role="dialog" aria-labelledby="subChildMenuModal{{$row_sub_child_menus->id}}" aria-hidden="true">
                                                                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

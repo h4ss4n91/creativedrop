@@ -159,6 +159,7 @@
                                                     <th>Heading 1</th>
                                                     <th>Heading 2</th>
                                                     <th>Image</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -174,13 +175,16 @@
                                                     <td>
                                                         {{$row_section_18->headingtwo}}
                                                     </td>
+                                                    
                                                     <td style="width:200px;">
                                                         <img style="width:250px;" src="{{asset('public/section_18/'.$row_section_18->image)}}" />
-                                    
+                                                    </td>
+                                                    <td>Top: {{$row_section_18->padding_top}} <br/>
+                                                        Bottom: {{$row_section_18->padding_bottom}} <br/>
                                                     </td>
                                     
                                                     </td>
-                                                    <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_18/'.$row_section_18->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#row_section_18_ModalCenter{{$row_section_18->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                    <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_18/'.$row_section_18->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a>  <a class="btn btn-primary" data-toggle="modal" data-target="#row_section_18_ModalCenter{{$row_section_18->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                         <div class="modal fade" id="row_section_18_ModalCenter{{$row_section_18->id}}" tabindex="-1" role="dialog" aria-labelledby="row_section_18_ModalCenter{{$row_section_18->id}}" aria-hidden="true">
                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
@@ -209,6 +213,11 @@
                                                                                             <label for="account-username">Section Name</label>
                                                                                             <input type="text" name="name" value="{{$row_section_18->name}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                         </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-12">
+                                                                                    <div class="row">
+                                                                                        @include('padding_top_and_bottom')
                                                                                     </div>
                                                                                 </div>
                                     
@@ -262,7 +271,10 @@
                                             <tfoot>
                                                 <tr>
                                                     <th>Section Name</th>
-                                                    <th>Text</th>
+                                                    <th>Heading 1</th>
+                                                    <th>Heading 2</th>
+                                                    <th>Image</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </tfoot>

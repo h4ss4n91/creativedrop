@@ -250,9 +250,7 @@
           <div class="swiper mySwiper">
             <div class="swiper-wrapper">
               @foreach($child_menu as $row_child_menu)
-
-              <div class="swiper-slide"><a href="{{$row_child_menu->item_link}}" class="p-14">{{$row_child_menu->item_name}}</a></div>
-
+                <div class="swiper-slide"><a href="{{$row_child_menu->item_link}}" class="p-14">{{$row_child_menu->item_name}}</a></div>
               @endforeach
             </div>
           </div>
@@ -271,10 +269,7 @@
   <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
-      <div>
-
-      </div>
-
+      
 
       <div class="sidebar-header">
         <a href="index.html"><img src="{{asset('public/front_theme/images/logo.png')}}" alt="Logo"></a>
@@ -292,26 +287,57 @@
         @php
         $link = $row_main_menu->menu_link;
         @endphp
-        <li> <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{$row_main_menu->menu_name}}</a> </li>
+        <li> <a href="#homeSubmenu{{$row_main_menu->id}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{$row_main_menu->menu_name}}</a> </li>
         @php $sub_menu = DB::table('child_menus')->where('menu_id','=',$row_main_menu->id)->get(); @endphp
-        <ul class="collapse list-unstyled" id="homeSubmenu">
-          @foreach($sub_menu as $row_sub_menu)
-          <li> <a href="#homeSubmenuMulti{{$row_sub_menu->id}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{$row_sub_menu->item_name}}</a> </li>
-          <ul class="collapse list-unstyled" id="homeSubmenuMulti{{$row_sub_menu->id}}">
-            @php
-            $child_sub_menu = DB::table('sub_child_menus')->where('child_menu_id','=',$row_sub_menu->id)->get(); @endphp
-            <li>
-              @foreach($child_sub_menu as $row_child_sub_menu)
-              @php
-              $sub_child_menu_link = $row_child_sub_menu->item_link;
-              @endphp
-              <a href="{{ URL::to($sub_child_menu_link) }}">{{$row_child_sub_menu->item_name}}</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu{{$row_main_menu->id}}">
+              @foreach($sub_menu as $row_sub_menu)
+              <li> <a href="#homeSubmenuMulti{{$row_sub_menu->id}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">{{$row_sub_menu->item_name}}</a> </li>
+              <ul class="collapse list-unstyled" id="homeSubmenuMulti{{$row_sub_menu->id}}">
+                @php
+                $child_sub_menu = DB::table('sub_child_menus')->where('child_menu_id','=',$row_sub_menu->id)->get(); @endphp
+                  <li>
+                      @foreach($child_sub_menu as $row_child_sub_menu)
+                        @php
+                        $sub_child_menu_link = $row_child_sub_menu->item_link;
+                        @endphp
+                      <a href="{{ URL::to($sub_child_menu_link) }}">{{$row_child_sub_menu->item_name}}</a>
+                      @endforeach
+                  </li>
+              </ul>
               @endforeach
-            </li>
-          </ul>
-          @endforeach
-        </ul>
+            </ul>
         @endforeach
+
+        @guest
+        <li> &nbsp; <a class="btn web-btn web-btn-white nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> </li>
+
+        @else
+        <li class="nav-item dropdown">
+          &nbsp; <a class="btn web-btn web-btn-white" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }}
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ url('admin/home') }}"><i class="fa fa-home nav-reg-sec"></i> Dashboard </a>
+            <a class="dropdown-item" href="{{ url('admin/system') }}"><i class="fa fa-cogs nav-reg-sec"></i> System Setting </a>
+            <a class="dropdown-item" href="{{ url('admin/user_profile',Auth::user()->id) }}"><i class="fa fa-user nav-reg-sec"></i> Profile </a>
+
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+              <!-- <i class="fa fa-home nav-reg-sec"></i> -->
+              <i class="fa fa-lock nav-reg-sec"></i>
+
+              {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
+          </div>
+        </li>
+        @endguest
 
       </ul>
 

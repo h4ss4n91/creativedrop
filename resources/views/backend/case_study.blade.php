@@ -207,6 +207,7 @@
                                                     <th>Name</th>
                                                     <th>Case Study Title</th>
                                                     <th>Case Study Short Description</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -218,8 +219,11 @@
                                                     </td>
                                                     <td>{{$case_study_row->name}}</td>
                                                     <td>{{$case_study_row->title}}</td>
-                                                    <td>{{$case_study_row->short_description}}</td>
-                                                    <td> <a href="{{url('admin/detail_case_study/'.$case_study_row->id)}}"> <i class="fa fa-eye text-success"></i> </a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_case_study/'.$case_study_row->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>  </td>
+                                                    <td style="width:160px;">{{$case_study_row->short_description}}</td>
+                                                    <td>Top: {{$case_study_row->padding_top}} <br/>
+                                                        Bottom: {{$case_study_row->padding_bottom}} <br/>
+                                                    </td>
+                                                    <td> <a class="btn btn-primary" href="{{url('admin/detail_case_study/'.$case_study_row->id)}}"> <i class="fa fa-eye"></i> </a>  <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_case_study/'.$case_study_row->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>  </td>
                                                 </tr>
                                     
                                                 @endforeach
