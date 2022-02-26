@@ -193,13 +193,13 @@
             <li class="nav-item"><a class="nav-link" href="{{url('/c/contact')}}">Contact us</a></li>
             <form class="form-inline my-2 my-lg-0 ml-auto">
 
-              <a href="mailto:info@creativedrop.com" class="btn web-btn web-btn-white">Email</a>
+              <a href="mailto:info@creativedrop.com" class="btn web-btn web-btn-white" style="border: 0px;">Email</a>
               <a href="tel:+971503119300" class="btn web-btn web-btn-blue">Call Now</a>
               <a href="https://api.whatsapp.com/send?phone=+971503119300" class="text-white whatsapp-link" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
             </form>
             @guest
             <li class="nav-item">
-              &nbsp; <a class="btn web-btn web-btn-white nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              &nbsp; <a class="btn web-btn web-btn-white" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
 
             @else

@@ -115,47 +115,53 @@
     @endphp
     <section class="section-bg-grey section-padtop-30 section-padbottom-30 portfolio">
         <div class="web-container-fluid">
-            <div class="row justify-content-center">
-                <div class="text-center">
-                    <h4 class="web-h4">Portfolio</h4>
-                    <h2 class="web-h2 mb-0">Case Studies</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="web-container">
+                        <div class="row justify-content-center">
+                            <div class="text-center">
+                                <h4 class="web-h4">Portfolio</h4>
+                                <h2 class="web-h2 mb-0">Case Studies</h2>
 
-                    <div class="portfolio-filters">
-                        <div class="row mt-4 mb-3 p-0">
-                            <div class="col-md-4">
-                                <select id="example-getting-started" class="case_study_page_sections" multiple="multiple">
-                                    @foreach($main_menu as $row_main_menu)
-                                    <option value="{{$row_main_menu->id}}"> {{$row_main_menu->menu_name}} </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <select id="example-getting-started_two" class="case_study_dependent_page_sections" multiple="multiple">
+                                <div class="portfolio-filters">
+                                    <div class="row mt-4 mb-3 p-0">
+                                        <div class="col-md-4 mb-3">
+                                            <select id="example-getting-started" class="case_study_page_sections" multiple="multiple">
+                                                @foreach($main_menu as $row_main_menu)
+                                                <option value="{{$row_main_menu->id}}"> {{$row_main_menu->menu_name}} </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <select id="example-getting-started_two" class="case_study_dependent_page_sections" multiple="multiple">
 
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <select multiple="multiple" id="example-getting-started_industries">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <select multiple="multiple" id="example-getting-started_industries">
 
-                                    @php
-                                    $industries = DB::table('industries')->get();
-                                    @endphp
-                                    @foreach($industries as $row_industries)
+                                                @php
+                                                $industries = DB::table('industries')->get();
+                                                @endphp
+                                                @foreach($industries as $row_industries)
 
-                                    <option value="{{$row_industries->id}}">{{$row_industries->title}}</option>
-                                    @endforeach
+                                                <option value="{{$row_industries->id}}">{{$row_industries->title}}</option>
+                                                @endforeach
 
-                                </select>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="portfolio-filters-tags">
+
+                                    <ul id="industries" class="list-inline mt-4 mb-3 p-0">
+
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-
-                    </div>
-
-                    <div class="portfolio-filters-tags">
-
-                        <ul id="industries" class="list-inline mt-4 mb-3 p-0">
-
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -180,15 +186,23 @@
                             <h5 class="web-h5">{{$row_case_study->title}}</h5>
                             <p class="mb-0 p-14 pb-3">{{$row_case_study->short_description}}</p>
                         </div>
-                        @php
-                        $industry_id = DB::table('case_study_industries')->where('case_study_id','=',$row_case_study->id)->get();
-                        @endphp
-                        @foreach($industry_id as $row_industry_id)
-                        @php
-                        $industry_name = DB::table('industries')->where('id','=',$row_industry_id->industry_id)->get();
-                        @endphp
-                        <a target="_blank" href="#" class="blue-link web-h6">@if(!$industry_name->isEmpty()) {{$industry_name[0]->title}} @endif</a>
-                        @endforeach
+
+                        <div class="portfolio-filters-tags">
+                            <ul class="list-inline mt-4 mb-3 p-0">
+                                @php
+                                $industry_id = DB::table('case_study_industries')->where('case_study_id','=',$row_case_study->id)->get();
+                                @endphp
+                                @foreach($industry_id as $row_industry_id)
+                                @php
+                                $industry_name = DB::table('industries')->where('id','=',$row_industry_id->industry_id)->get();
+                                @endphp
+                                <!-- <li class="list-inline-item">  -->
+                                <a target="_blank" href="#" class="blue-link web-h6">@if(!$industry_name->isEmpty()) {{$industry_name[0]->title}} @endif</a>
+                                <!-- <span><i class="fas fa-times"></i><span></span></span>
+                                </li> -->
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 @endforeach
