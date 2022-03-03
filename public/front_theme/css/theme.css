@@ -525,6 +525,7 @@ header nav.desktop-navbar a.whatsapp-link:hover {
     transition: none !important;
 }
 
+
 /* header nav.desktop-navbar .dropdown-menu {
     padding: 0 !important;
 } */
@@ -2491,12 +2492,9 @@ ul.CTAs a {
     .homepage-banner-content h2 {
         font-size: 28px !important;
     }
-    .home-slider .carousel-indicators
-    {
-           
-            top: 20%;
-          
-            transform: translateY(-50%);
+    .home-slider .carousel-indicators {
+        top: 20%;
+        transform: translateY(-50%);
     }
     .home-video-content {
         position: relative;
@@ -2832,9 +2830,10 @@ ul.CTAs a {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-    #sidebar ul ul a, #sidebar ul ul ul a {
-    margin: 0px !important;
-}
+    #sidebar ul ul a,
+    #sidebar ul ul ul a {
+        margin: 0px !important;
+    }
     .cs-img .section-padtop-50 {
         padding-top: 20px !important;
     }
@@ -2971,8 +2970,7 @@ ul.CTAs a {
     .home-video-content iframe {
         height: 250px;
     }
-    .multiselect-native-select
-    {
+    .multiselect-native-select {
         width: auto !important;
     }
     .service-links ul li a {
@@ -4079,39 +4077,41 @@ svg {
     border-radius: 50px;
     background-color: #fff;
     display: block;
-    width: 250px;
+    width: 260px;
 }
-
 
 .btn-group.btn-group.case_study_page_sections {
     width: 100% !important;
 }
 
-    {
+{
     cursor: pointer;
     padding: 4px;
     width: 100%;
     box-sizing: border-box;
     top: 0;
 }
+
 .multiselect-container>li>a>label.checkbox,
-.multiselect-container>li>a>label.radio
-{
-        padding: 4px;
-        width: 100% !important;
+.multiselect-container>li>a>label.radio {
+    padding: 4px;
+    width: 100% !important;
 }
+
 .btn-group.show.case_study_select_btn {
     width: 100% !important;
 }
-.nav-reg-sec
-{
+
+.nav-reg-sec {
     /* color: #009C9F !important; */
     padding-right: .5rem;
 }
+
 header nav.desktop-navbar .dropdown-menu {
     top: 95% !important;
     z-index: 99 !important;
 }
+
 header nav.desktop-navbar .dropdown-item {
     padding: 0px 15px !important;
 }

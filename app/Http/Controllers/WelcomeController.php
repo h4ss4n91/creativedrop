@@ -76,7 +76,6 @@ class WelcomeController extends Controller
             ->where('page.slug', '=', $id)
             ->orderBy('page_detail.section_no')
             ->get();
-
             
         $main_menu = DB::table('menus')->where('menu_link','!=','#')->get();
         $page_section = DB::table('page_section')->get();
@@ -128,7 +127,7 @@ class WelcomeController extends Controller
         $Array_li = [];
 
         foreach($sub_category as $row){
-            $Array[] = '<option value="'.$row->id.'">'.$row->item_name.'</option>';
+            $Array[] = '<div class="custom-control custom-checkbox"><input onclick="sub_service_clicked(this);" type="checkbox" value="'.$row->item_link.'" class="custom-control-input" id="customCheck_a'.$row->id.'"><label class="custom-control-label" for="customCheck_a'.$row->id.'">'.$row->item_name.'</label></div>';
         }
 
         $final_Result = $Array;
@@ -138,7 +137,7 @@ class WelcomeController extends Controller
 
         foreach($main_category as $row_main_category){
 
-            $mainCategoryArray[] = '<li class="main_service_tag list-inline-item">'.$row_main_category->menu_name.'<span><i id="'.$row_main_category->id.'" onclick="remove_main_service_tag(this);" class="fas fa-times"></i></span></li>';
+            $mainCategoryArray[] = '<li class="main_service_tag list-inline-item">'.$row_main_category->menu_name.'<span><i id="customCheck'.$row_main_category->id.'" onclick="remove_main_service_tag(this);" class="fas fa-times"></i></span></li>';
             $class_nameArray[] = $row_main_category->menu_link;
         }
 
@@ -167,7 +166,7 @@ class WelcomeController extends Controller
 
         foreach($sub_category_id as $row_sub_category){
 
-            $sub_category_id_array[] = '<li class="sub_service_tag list-inline-item">'.$row_sub_category->item_name.'<span><i onclick="remove_sub_service_tag(this);" id="'.$row_sub_category->id.'" class="fas fa-times"></i></span></li>';
+            $sub_category_id_array[] = '<li class="sub_service_tag list-inline-item">'.$row_sub_category->item_name.'<span><i onclick="remove_sub_service_tag(this);" id="customCheck_a'.$row_sub_category->id.'" class="fas fa-times"></i></span></li>';
             $class_nameArray[] = $row_sub_category->item_link;
             $sub_category_menu_id_array[] = $row_sub_category->menu_id;
             
@@ -204,14 +203,14 @@ class WelcomeController extends Controller
 
         foreach($industries as $row_industries){
 
-            $industry_array[] = '<li value="'.$row_industries->slug.'" id="industry" class="industry_tag list-inline-item">'.$row_industries->title.'<span class="'.$row_industries->title.'" id="'.$row_industries->id.'"><i onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
+            $industry_array[] = '<li value="'.$row_industries->slug.'" id="industry" class="industry_tag list-inline-item">'.$row_industries->title.'<span class="'.$row_industries->title.'" id="customCheck_b'.$row_industries->id.'"><i onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
             $industry_class_nameArray[] = $row_industries->slug;
         }
         
         $industries_name = $industry_array;
         $class_name = $industry_class_nameArray;
         
-        return response()->json(["industries_name"=>$industries_name, "class_name"=>$class_name]);
+        return response()->json(["subServices"=>$industries_name, "class_name"=>$class_name]);
     }
 
     
@@ -288,5 +287,16 @@ class WelcomeController extends Controller
      }
      public function contact(){
          return view('contact');
+     }
+
+     public function delete_front_component($detail_page_id){
+        echo $detail_page_id;
+        DB::table('page_detail')->where('id', '=', $detail_page_id)->delete();
+        $message = 'Component Deleted Successfully from this Page';
+        return redirect()->back()->with('delete_message', $message);
+     }
+
+     public function select_page_section($id){
+        return $id;
      }
 }

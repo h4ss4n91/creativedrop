@@ -22,17 +22,41 @@
   <link rel="stylesheet" href="{{ asset('public/front_theme/css/jquery.mCustomScrollbar.min.css')}}">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ asset('public/front_theme/css/theme.css?v=2.9')}}">
+  <link rel="stylesheet" href="{{ asset('public/front_theme/css/theme.css')}}">
+  <link rel="stylesheet" href="{{ asset('public/front_theme/css/multiselect-dropdown.css')}}">
 
   <!-- Multiselect -->
 
   <!-- Multiselect -->
   <!-- MULTISELECT Include the plugin's CSS and JS: -->
 
-  <link rel="stylesheet" href="{{ asset('public/multiselect/dist/css/bootstrap-multiselect.css')}}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('public/multiselect/distMS/css/bootstrap-multiselect.css')}}" type="text/css">
 
-
+  
   <style>
+    .fa-plus{
+      text-align:center;
+
+    }
+    .add_component{
+      text-align:center;
+      border:1px solid #000;
+      background-color:#fff;
+      padding-top:10px;
+      padding-bottom:10px;
+    }
+    .fa-trash{
+      border:1px solid #fff;
+      border-radius: 50%;
+      padding:5px;
+      background:#fff;
+    }
+    .fa-edit{
+      border:1px solid #fff;
+      border-radius: 50%;
+      padding:5px;
+      background:#fff;
+    }
     .multiselect-native-select {
       border: 1px solid #000;
       border-radius: 50px;
@@ -198,9 +222,7 @@
               <a href="https://api.whatsapp.com/send?phone=+971503119300" class="text-white whatsapp-link" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
             </form>
             @guest
-            <li class="nav-item">
-              &nbsp; <a class="btn web-btn web-btn-white nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-            </li>
+            
 
             @else
             <li class="nav-item dropdown">
@@ -309,7 +331,7 @@
         @endforeach
 
         @guest
-        <li> &nbsp; <a class="btn web-btn web-btn-white nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> </li>
+        
 
         @else
         <li class="nav-item dropdown">
@@ -521,7 +543,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script type="text/javascript" src="{{ asset('public/multiselect/dist/js/bootstrap-multiselect.js')}}"></script>
+  <script type="text/javascript" src="{{ asset('public/multiselect/distMS/js/bootstrap-multiselect.js')}}"></script>
   <script src="{{ asset('public/front_theme/js/jquery.counterup.min.js')}}"></script>
   <script src="{{ asset('public/front_theme/js/jquery.waypoints.min.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
@@ -530,16 +552,24 @@
   <script src="{{ asset('public/front_theme/js/ekko-lightbox.min.js')}}"></script>
   <script src="{{ asset('public/front_theme/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script src="{{ asset('public/front_theme/js/theme.js?v=1.9')}}"></script>
+  <script src="{{ asset('public/front_theme/js/theme.js')}}"></script>
 
 
 
   <script>
     //-----------------
     $(document).ready(function() {
-      $('#example-getting-started').multiselect();
-      $('#example-getting-started_two').multiselect();
-      $('#example-getting-started_industries').multiselect();
+      
+      $('.edit_delete_add_component').hide();
+      $('#example-getting-started').multiselect({
+            nonSelectedText: 'Filter by Service Category'
+        });
+      $('#example-getting-started_two').multiselect({
+            nonSelectedText: 'Filter by Service Sub Category'
+        });
+      $('#example-getting-started_industries').multiselect({
+            nonSelectedText: 'Filter by Industries'
+        });
 
       $('#right_content_two').hide();
       $('#loader').hide();

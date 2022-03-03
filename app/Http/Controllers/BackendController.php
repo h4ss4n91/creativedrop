@@ -334,6 +334,8 @@ class BackendController extends Controller {
                         'padding_bottom' => $data['padding_bottom'],
                         'status' => $data['status'][$i],
                         'text1' => $data['text_1'][$i],
+                        'link' => $data['link'][$i],
+                        'style' => $data['btn_style'][$i],
                         'text2' => $data['text_2'][$i],
                         'contact_button_link' => $data['link'][$i]]
             );
@@ -639,6 +641,7 @@ class BackendController extends Controller {
                         'padding_bottom' => $request->padding_bottom,
                         'padding_top' => $request->padding_top, 
                         'name' => $request->name,
+                        'link' => $request->link,
                         'slug' => Str::slug($data['title'], '-'),
                         'title' => $data['title']
                     ]
@@ -653,7 +656,7 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['title' => $request->name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
+                    ['title' => $request->name, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
             );
             $message = 'Successfully Edited';
             return redirect()->back()->with('edit_message', $message);
@@ -1201,6 +1204,96 @@ class BackendController extends Controller {
             } else {
                 $Array[] = '<option value="' . $row->{$attribute} . '">' . $row->{$attribute} . ' </option>';
             }
+        }
+        
+        $final_Result = $Array;
+        return $final_Result;
+    }
+
+
+
+    public function page_section_id_for_component($id,$value) {
+
+        if ($id == 1) {
+            
+            $sliders = DB::table('sliders')->where('name','=',$value)->get();
+            $Array = [];
+            foreach($sliders as $row_slider){
+                $Array[] = '<tr><td><img style="width:200px;" src="http://localhost/creativedrop/public/slider/'.$row_slider->image.'"/></td><td>'.$row_slider->text1.'</td><td>'.$row_slider->text2.'</td></tr>';
+            }
+            $final_Result = $Array;
+            return $final_Result;
+            
+            //return $this->getObjectValuesForComponent("sliders", "name", $value);
+        } else if ($id == 2) {
+            return $this->getObjectValuesForComponent("videos", "video_title");
+        } else if ($id == 3) {
+            return $this->getObjectValuesForComponent("teams", "section_name");
+        } else if ($id == 4) {
+            return $this->getObjectValuesForComponent("case_study", "name");
+        } else if ($id == 5) {
+            //it is for services
+            return $this->getObjectValuesForComponent("services", "name");
+        } else if ($id == 6) {
+            return $this->getObjectValuesForComponent("clientandparterimage", "name");
+        } else if ($id == 7) {
+            return $this->getObjectValuesForComponent("industries", "name");
+        } else if ($id == 8) {
+            return $this->getObjectValuesForComponent("news_and_opinions", "name");
+        } else if ($id == 9) {
+            return $this->getObjectValuesForComponent("requests", "name", "style");
+        } else if ($id == 10) {
+            return $this->getObjectValuesForComponent("para_style_1", "name");
+        } else if ($id == 11) {
+            return $this->getObjectValuesForComponent("para_style_2", "name");
+        } else if ($id == 12) {
+            return $this->getObjectValuesForComponent("para_style_3", "name");
+        } else if ($id == 13) {
+            return $this->getObjectValuesForComponent("para_style_4", "name");
+        } else if ($id == 14) {
+            return $this->getObjectValuesForComponent("para_style_5", "name", "style");
+        } else if ($id == 15) {
+            return $this->getObjectValuesForComponent("section_15", "name", "style");
+        } else if ($id == 16) {
+            return $this->getObjectValuesForComponent("section_16", "name");
+        } else if ($id == 17) {
+            return $this->getObjectValuesForComponent("section_17", "name");
+        } else if ($id == 18) {
+            return $this->getObjectValuesForComponent("section_18", "name");
+        } else if ($id == 19) {
+            return $this->getObjectValuesForComponent("section_19", "name");
+        } else if ($id == 20) {
+            return $this->getObjectValuesForComponent("section_20", "name");
+        } else if ($id == 21) {
+            return $this->getObjectValuesForComponent("section_21", "name");
+        } else if ($id == 22) {
+            return $this->getObjectValuesForComponent("section_22", "name", "style");
+        } else if ($id == 23) {
+            return $this->getObjectValuesForComponent("section_23", "name");
+        }
+        
+    }
+
+    private function getObjectValuesForComponent($table = '', $attribute = '', $style = '',$value='') {
+        if (empty($table)) {
+            return;
+        }
+
+        if (empty($attribute)) {
+            return;
+        }
+
+        if (empty($attribute)) {
+            return;
+        }
+
+        $rows = DB::table($table)->where('name','=',$value)->get();
+        $Array = [];
+        
+        foreach ($rows as $select_row) {
+            
+            $Array[] = '<option value="' . $select_row->{$attribute} . '">' . $select_row->{$attribute} . ' </option>';
+            
         }
         
         $final_Result = $Array;

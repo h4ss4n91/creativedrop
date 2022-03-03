@@ -97,6 +97,12 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="controls">
+                                                                        <label for="account-username">link</label>
+                                                                        <input type="text" name="link" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="controls">
                                                                         <label for="account-username">Industry Image</label>
                                                                         <input type="file" name="industry_image" class="form-control" />
                                                                     </div>
@@ -196,6 +202,15 @@
                                                                                         </div>
                                                                                     </div>
 
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username"> Link</label>
+                                                                                                <input type="text" name="link" value="{{$row_industries->link}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
                                                                                     <div class="col-8">
 
                                                                                         <div class="form-group">
@@ -210,17 +225,6 @@
                                                                                         <img style="width:100px" src="{{asset('public/industries/'.$row_industries->image)}}" />
                                                                                     </div>
 
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username"> Button Link</label>
-                                                                                                <input type="text" name="contact_button_link" value="{{$row_industries->link}}" class="form-control" id="account-username" data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12">
-                                                                                        @include('button_style')
-                                                                                    </div>
 
                                                                                     <div class="col-12">
 

@@ -330,7 +330,7 @@
                                 <li><a class="dropdown-item" href="{{url('admin/page_sections/video')}}" data-toggle="dropdown">Video</a></li>
                                 <li><a class="dropdown-item" href="{{url('admin/page_sections/heading')}}" data-toggle="dropdown">Heading</a></li>
                                 <li><a class="dropdown-item" href="{{url('admin/page_sections/services')}}" data-toggle="dropdown">Services</a></li>
-                                <li><a class="dropdown-item" href="{{url('admin/page_sections/Industries')}}" data-toggle="dropdown">Industries</a></li>
+                                <li><a class="dropdown-item" href="{{url('admin/page_sections/industries')}}" data-toggle="dropdown">Industries</a></li>
                                 <li><a class="dropdown-item" href="{{url('admin/page_sections/case_study')}}" data-toggle="dropdown">Case Study</a></li>
                                 <li><a class="dropdown-item" href="{{url('admin/page_sections/team')}}" data-toggle="dropdown">Team</a></li>
                                 <li><a class="dropdown-item" href="{{url('admin/page_sections/client_and_partner')}}" data-toggle="dropdown">Client and Partner</a></li>

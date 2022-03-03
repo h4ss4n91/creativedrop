@@ -37,8 +37,11 @@ Route::get('/c/contact', 'WelcomeController@contact');
 
 
 Route::get('/admin/page_section_id/{id}', 'BackendController@page_section_id')->name('admin.page_section_id');
+Route::get('/admin/page_section_id_for_component/{id}/{value}', 'BackendController@page_section_id_for_component')->name('admin.page_section_id_for_component');
+
 Route::get('/services_by_id/{id}', 'WelcomeController@services_by_id')->name('services_by_id');
 Route::get('/sub_services_by_id/{id}', 'WelcomeController@sub_services_by_id')->name('sub_services_by_id');
+Route::get('/admin/sub_services_by_id/{id}', 'WelcomeController@sub_services_by_id')->name('sub_services_by_id');
 Route::get('/industry_by_id/{id}', 'WelcomeController@industry_by_id')->name('industry_by_id');
 Route::get('/services_by_id_with_services/{id}', 'WelcomeController@services_by_id_with_services')->name('services_by_id_with_services');
 
@@ -220,6 +223,8 @@ Route::get('/admin/delete_system_user/{id}', 'BackendController@delete_system_us
 
 
 Route::get('/{id}', 'WelcomeController@index')->name('pages');
+Route::get('/delete_front_component/{detail_page_id}', 'WelcomeController@delete_front_component')->name('delete_front_component');
+
 
 Route::get('/admin/detail_case_study/{id}', 'CasestudyController@detail_case_study')->name('detail_case_study');
 Route::post('/admin/add_case_study_content', 'CasestudyController@add_case_study_content')->name('add_case_study_content');
@@ -263,3 +268,5 @@ Route::get('/admin/page_sections/section_23', 'Section_23Controller@index')->nam
 Route::get('/admin/page_sections/section_24', 'Section_24Controller@index')->name('section_24');
 Route::get('/admin/page_sections/section_25', 'Section_25Controller@index')->name('section_25');
 Route::get('/admin/pages_list', 'PagesController@index')->name('pages_list');
+
+

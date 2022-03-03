@@ -41,7 +41,7 @@ function services(ele) {
     var service_id = $(ele).attr('id');
 
     var selected_option = $(`#${service_id} option:selected`).val();
-    console.log(selected_option);
+    console.log('line44' + selected_option);
     var replace = service_id.replace('service', '');
     var _token = $('input[name="_token"]').val();
     $.ajax({
@@ -57,7 +57,7 @@ function sub_services(ele) {
     var class_id = $(ele).attr('id');
     var val = $(`#${class_id}`).find(":selected").text();
     var selected_option = $(`#${class_id} option:selected`).val()
-    console.log(selected_option);
+        // console.log('line60' + selected_option);
     var replace = class_id.replace('sub_services', '');
     var _token = $('input[name="_token"]').val();
     $.ajax({
@@ -68,6 +68,31 @@ function sub_services(ele) {
         }
     })
 }
+
+
+function sub_services_two(ele) {
+    var class_id = $(ele).attr('id');
+    console.log(class_id);
+    var val = $(`#${class_id}`).find(":selected").text();
+    var selected_option = $(`#${class_id} option:selected`).val()
+        // console.log('line78' + selected_option);
+    var replace = class_id.replace('sub_service', '');
+    console.log(replace);
+    var _token = $('input[name="_token"]').val();
+    $.ajax({
+        url: "../sub_services_by_id/" + selected_option,
+        method: "GET",
+        success: function(result) {
+            console.log(result['class_name']);
+            $(`.sub_service_link${replace}`).val(result['class_name']);
+
+        }
+    })
+}
+
+
+
+
 
 
 function page_section(ele) {
