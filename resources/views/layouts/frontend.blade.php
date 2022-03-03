@@ -234,6 +234,7 @@
                 <a class="dropdown-item" href="{{ url('admin/home') }}"><i class="fa fa-home nav-reg-sec"></i> Dashboard </a>
                 <a class="dropdown-item" href="{{ url('admin/system') }}"><i class="fa fa-cogs nav-reg-sec"></i> System Setting </a>
                 <a class="dropdown-item" href="{{ url('admin/user_profile',Auth::user()->id) }}"><i class="fa fa-user nav-reg-sec"></i> Profile </a>
+                <a onclick="frontend_editor();" class="dropdown-item"><i class="fa fa-edit nav-reg-sec"></i> Frontend Editor </a>
 
 
                 <div class="dropdown-divider"></div>
@@ -559,6 +560,10 @@
   <script>
     //-----------------
     $(document).ready(function() {
+
+      funciton frontend_editor(e){
+        $('.edit_delete_add_component').show();  
+      }
       
       $('.edit_delete_add_component').hide();
       $('#example-getting-started').multiselect({

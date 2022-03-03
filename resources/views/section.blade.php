@@ -2416,13 +2416,6 @@ $videos = DB::table('videos')->where('name', '=', $section_21[0]->video_name)->g
 
     <section class="section-bg-white section-padtop-@if(!$videos->isEmpty()){{$videos[0]->padding_top}}@endif section-padbottom-@if(!$videos->isEmpty()){{$videos[0]->padding_bottom}}@endif  home-video-with-banner">
         <div class="web-container">
-            @guest
-            
-            @else
-            
-             
-              
-            @endguest
             <div class="row">
                 <div class="col-md-12">
                     <div class="home-video-content text-center">
