@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="x-apple-disable-message-reformatting" />
     <!--[if mso]>
+    testing
       <style type="text/css">
         table {
           border-collapse: collapse;
