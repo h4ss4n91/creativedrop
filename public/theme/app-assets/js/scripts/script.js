@@ -116,16 +116,13 @@ function page_section(ele) {
 
 function edit_page_section(ele) {
     var class_id = $(ele).attr('id');
-    var val = $(`#${class_id}`).find(":selected").text();
-    var page_section = $(`#${class_id} option:selected`).val()
+    var value = $(ele).val();
     var replace = class_id.replace('page_sections_', '');
-    var _token = $('input[name="_token"]').val();
-
 
 
     $.ajax({
         type: 'GET',
-        url: '../page_section_id/' + page_section,
+        url: '../page_section_id/' + value,
         success: function(data) {
 
             $(`#edit_page_section_two_${replace}`).html(data);

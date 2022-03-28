@@ -284,8 +284,8 @@
                                             {{auth()->user()->name}}
                                         </span>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{url('admin/user_profile/'.auth()->user()->id)}}"><i class="feather icon-user"></i> View Profile</a><a class="dropdown-item" href="app-email.html"><i class="feather icon-mail"></i> My Inbox</a>
-                                        <a class="dropdown-item" href="user-cards.html"><i class="feather icon-check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="feather icon-message-square"></i> Chats</a>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{url('admin/user_profile/'.auth()->user()->id)}}"><i class="feather icon-user"></i> View Profile</a><a class="dropdown-item" href="{{url('admin/user_profile/'.auth()->user()->id)}}"><i class="feather icon-mail"></i> My Inbox</a>
+                                        <a class="dropdown-item" href="{{url('admin/user_profile/'.auth()->user()->id)}}"><i class="feather icon-check-square"></i> Task</a><a class="dropdown-item" href="{{url('admin/user_profile/'.auth()->user()->id)}}"><i class="feather icon-message-square"></i> Chats</a>
                                         <div class="dropdown-divider"></div>
 
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -339,6 +339,8 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{url('admin/pages')}}"><i class="fa fa-book"></i><span data-i18n="Dashboard">Pages</span></a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('admin/system')}}"> <i class="fa fa-cog"></i><span data-i18n="Dashboard">System Configuration</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('admin/user_profile/'.auth()->user()->id)}}"> <i class="fa fa-user"></i><span data-i18n="Dashboard">Profile</span></a></li>
+                        
                     </ul>
                 </div>
                 <!-- /horizontal menu content-->
@@ -385,7 +387,9 @@
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('public/theme/app-assets/vendors/js/vendors.min.js') }}"></script>
     <!-- BEGIN Vendor JS-->
-
+        <script>
+            var path = '<?php echo "http://localhost/creativedrop/"; ?>';
+        </script>
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{ asset('public/theme/app-assets/vendors/js/ui/jquery.sticky.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/vendors/js/charts/jquery.sparkline.min.js') }}"></script>

@@ -2,13 +2,13 @@ $(document).ready(function() {
     $('#request_style').change(function() {
         var value = $(this).val();
         if (value == 'style1') {
-            $("#request_style_content").html('<img style="width:200%" src="../../public/page_sections/request_style1.png" />'); //this is not working
+            $("#request_style_content").html('<img style="width:200%" src="' + path + '/public/page_sections/request_style1.png" />'); //this is not working
         } else if (value == 'style2') {
-            $("#request_style_content").html('<img style="width:200%" src="../../public/page_sections/request_style2.png" />'); //this is not working
+            $("#request_style_content").html('<img style="width:200%" src="' + path + '/public/page_sections/request_style2.png" />'); //this is not working
         } else if (value == 'style3') {
-            $("#request_style_content").html('<img style="width:200%" src="../../public/page_sections/request_style3.png" />'); //this is not working
+            $("#request_style_content").html('<img style="width:200%" src="' + path + '/public/page_sections/request_style3.png" />'); //this is not working
         } else if (value == 'style4') {
-            $("#request_style_content").html('<img style="width:200%" src="../../public/page_sections/request_style4.png" />'); //this is not working
+            $("#request_style_content").html('<img style="width:200%" src="' + path + '/public/page_sections/request_style4.png" />'); //this is not working
         }
     });
 

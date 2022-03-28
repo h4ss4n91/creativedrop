@@ -43,7 +43,18 @@ Route::get('/services_by_id/{id}', 'WelcomeController@services_by_id')->name('se
 Route::get('/sub_services_by_id/{id}', 'WelcomeController@sub_services_by_id')->name('sub_services_by_id');
 Route::get('/admin/sub_services_by_id/{id}', 'WelcomeController@sub_services_by_id')->name('sub_services_by_id');
 Route::get('/industry_by_id/{id}', 'WelcomeController@industry_by_id')->name('industry_by_id');
+
 Route::get('/services_by_id_with_services/{id}', 'WelcomeController@services_by_id_with_services')->name('services_by_id_with_services');
+Route::get('/services_by_id_with_services_two/{param1}/{param2}/{param3}', 'WelcomeController@services_by_id_with_services_two')->name('services_by_id_with_services_two');
+Route::get('/industry_by_id_two/{param1}/{param2}', 'WelcomeController@industry_by_id_two')->name('industry_by_id_two');
+Route::get('/sub_services_by_id_two/{param1}/{param2}', 'WelcomeController@sub_services_by_id_two')->name('sub_services_by_id_two');
+
+Route::get('/ajax_call/{param1}/{param2}/{param3}', 'WelcomeController@ajax_call')->name('ajax_call');
+
+Route::get('/ajax_call_industry_remove/{param1}/{param2}/{param3}', 'WelcomeController@ajax_call_industry_remove')->name('ajax_call_industry_remove');
+Route::get('/ajax_call_main_service_remove/{param1}/{param2}/{param3}/{removed_item_id}', 'WelcomeController@ajax_call_main_service_remove')->name('ajax_call_main_service_remove');
+Route::get('/ajax_call_sub_service_remove/{param1}/{param2}/{param3}', 'WelcomeController@ajax_call_sub_service_remove')->name('ajax_call_sub_service_remove');
+
 
 Route::get('/admin/services_by_id/{id}', 'WelcomeController@services_by_id')->name('services_by_id');
 Route::get('/admin/child_services_by_id/{id}', 'WelcomeController@child_services_by_id')->name('child_services_by_id');

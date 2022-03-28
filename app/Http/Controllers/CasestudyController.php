@@ -176,6 +176,81 @@ class CasestudyController extends Controller
         }
 
         public function edit_case_study_content(Request $request){
-            dd($request);
+            //dd($request);
+
+            $data = $request->all();
+            //  dd($data);
+            //  die();
+            if($data['video'] == NULL){
+
+                $file_content = $request->file('image'); // will get all files
+                $file_content_name = $file_content->getClientOriginalName(); //Get file original name
+                $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
+
+                DB::table('case_study_content')
+                    ->where('id', $request->case_study_content_id)
+                    ->update(
+                        [
+                        'case_study_id' => $data['case_study_id'],
+                        'image' => $file_content_name,
+                        'image_name' => $data['image_name'],
+                        'image_style' => $data['select_style_for_image'],
+
+                            'video_style' => '',
+                            'video_link' => '',
+                            'video_name' => '',
+                            'video_background' => ''
+                    ]
+                );
+            }else{
+
+                if( $data['select_style_for_video'] == "section-padtop-100 section-padbottom-100"){
+
+                    $case_study_video_background = $data['case_study_video_background']; // will get all files
+                    $case_study_video_background_name = $case_study_video_background->getClientOriginalName(); //Get file original name
+                    $case_study_video_background->move(public_path('case_study_content_video_bg'), $case_study_video_background_name); // move files to destination folder
+    
+                    DB::table('case_study_content')
+                    ->where('id', $request->case_study_content_id)
+                    ->update(
+                        [
+                            'case_study_id' => $data['case_study_id'],
+
+                            'image' => '',
+                            'image_name' => '',
+                            'image_style' => '',
+
+
+                            'video_style' => $data['select_style_for_video'],
+                            'video_link' => $data['video'],
+                            'video_name' => $data['video_name'],
+                            'video_background' => $case_study_video_background_name]
+                    );
+
+                }else{
+                    DB::table('case_study_content')
+                    ->where('id', $request->case_study_content_id)
+                    ->update(
+                        [
+                            'case_study_id' => $data['case_study_id'],
+
+                            'image' => '',
+                            'image_name' => '',
+                            'image_style' => '',
+
+
+                            
+                            'video_style' => $data['select_style_for_video'],
+                            'video_name' => $data['video_name'],
+                            'video_link' => $data['video']
+                            ]
+                    );
+                }
+            }
+
+            $message = 'Case Study Content Updated Successfully';
+        return redirect('admin/detail_case_study/' . $request->case_study_id)->with('edit_message', $message);
+
+            
         }
     }

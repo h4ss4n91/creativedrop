@@ -35,12 +35,7 @@
             </div>
             <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-right">
-                        <h3 class="m-0">20</h3><span class="text-muted">Components</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -197,7 +192,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username"> Industry Name</label>
-                                                                                                <input type="text" name="name" value="{{$row_industries->title}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="title" value="{{$row_industries->title}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -223,29 +218,6 @@
                                                                                     </div>
                                                                                     <div class="col-4">
                                                                                         <img style="width:100px" src="{{asset('public/industries/'.$row_industries->image)}}" />
-                                                                                    </div>
-
-
-                                                                                    <div class="col-12">
-
-                                                                                        <div class="container pt-4">
-                                                                                            <button class="btn btn-md btn-primary" id="edit_industryaddBtn" type="button"> Edit Services for Industry </button>
-                                                                                            <div class="table-responsive">
-                                                                                                <table class="table table-bordered">
-                                                                                                    <thead>
-                                                                                                        <tr>
-                                                                                                            <th class="text-center">Service</th>
-                                                                                                            <th class="text-center">Sub Category</th>
-                                                                                                            <th class="text-center">Remove Row</th>
-                                                                                                        </tr>
-                                                                                                    </thead>
-                                                                                                    <tbody id="edit_industrytbody">
-
-                                                                                                    </tbody>
-                                                                                                </table>
-                                                                                            </div>
-
-                                                                                        </div>
                                                                                     </div>
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">

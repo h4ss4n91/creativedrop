@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="x-apple-disable-message-reformatting" />
     <!--[if mso]>
-    testing
       <style type="text/css">
         table {
           border-collapse: collapse;
@@ -332,9 +331,7 @@
                         </tr>
                         <tr style="border-bottom: 1px solid #e5e5e5">
                           <td valign="top" width="80">Message:</td>
-                          <td valign="top">
-                            
-                          </td>
+                          <td valign="top">{{$send_message}}</td>
                         </tr>
                       </table>
                     </td>

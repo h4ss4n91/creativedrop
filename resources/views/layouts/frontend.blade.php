@@ -23,17 +23,17 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="{{ asset('public/front_theme/css/theme.css')}}">
-  <link rel="stylesheet" href="{{ asset('public/front_theme/css/multiselect-dropdown.css')}}">
-
-  <!-- Multiselect -->
-
-  <!-- Multiselect -->
-  <!-- MULTISELECT Include the plugin's CSS and JS: -->
-
-  <link rel="stylesheet" href="{{ asset('public/multiselect/distMS/css/bootstrap-multiselect.css')}}" type="text/css">
-
   
   <style>
+
+@font-face {
+font-family: "CustomFont";
+src: url("./././public/Lato/Lato-Black.ttf");
+src: url("./././public/Lato/Lato-Bold.ttf"),
+url("https://yoursite.com/css/fonts/CustomFont.otf") format("opentype"),
+url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
+}
+
     .fa-plus{
       text-align:center;
 
@@ -57,15 +57,7 @@
       padding:5px;
       background:#fff;
     }
-    .multiselect-native-select {
-      border: 1px solid #000;
-      border-radius: 50px;
-      background-color: #fff;
-      display: block;
-      position: relative;
-      padding-left: 8px;
-      padding-right: 20px;
-    }
+    
 
     .contact-form-left {
       background-image: url("{{asset('public/front_theme/images/contact-form.jpeg') }}");
@@ -101,7 +93,7 @@
       border-bottom: 1px solid #000 !important;
       color: #000 !important;
       font-size: 14px !important;
-      font-family: 'helvetica regular' !important;
+      font-family: 'CustomFont regular' !important;
       padding-left: 0px !important;
       background-color: transparent !important;
     }
@@ -233,12 +225,13 @@
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ url('admin/home') }}"><i class="fa fa-home nav-reg-sec"></i> Dashboard </a>
                 <a class="dropdown-item" href="{{ url('admin/system') }}"><i class="fa fa-cogs nav-reg-sec"></i> System Setting </a>
+                {{-- <a onclick="frontend_editor();" class="dropdown-item"><i class="fa fa-edit"></i> Frontend Editor </a> --}}
                 <a class="dropdown-item" href="{{ url('admin/user_profile',Auth::user()->id) }}"><i class="fa fa-user nav-reg-sec"></i> Profile </a>
 
 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
+                  document.getElementById('logout-form').submit();">
                   <!-- <i class="fa fa-home nav-reg-sec"></i> -->
                   <i class="fa fa-lock nav-reg-sec"></i>
 
@@ -543,7 +536,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script type="text/javascript" src="{{ asset('public/multiselect/distMS/js/bootstrap-multiselect.js')}}"></script>
+  
   <script src="{{ asset('public/front_theme/js/jquery.counterup.min.js')}}"></script>
   <script src="{{ asset('public/front_theme/js/jquery.waypoints.min.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
@@ -561,15 +554,7 @@
     $(document).ready(function() {
       
       $('.edit_delete_add_component').hide();
-      $('#example-getting-started').multiselect({
-            nonSelectedText: 'Filter by Service Category'
-        });
-      $('#example-getting-started_two').multiselect({
-            nonSelectedText: 'Filter by Service Sub Category'
-        });
-      $('#example-getting-started_industries').multiselect({
-            nonSelectedText: 'Filter by Industries'
-        });
+      
 
       $('#right_content_two').hide();
       $('#loader').hide();

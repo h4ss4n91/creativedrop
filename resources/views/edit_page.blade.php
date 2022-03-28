@@ -556,11 +556,11 @@
   
 
   
-$('#edit_page_sections').change(function() {
+$('#edit_page_section').change(function() {
     if ($(this).val() != '') {
         var select = $(this).attr("id");
         var value = $(this).val();
-
+        console.log('line 563');
         var dependent = $(this).data('dependent');
         var _token = $('input[name="_token"]').val();
         $.ajax({

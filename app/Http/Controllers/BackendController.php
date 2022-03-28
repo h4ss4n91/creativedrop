@@ -109,7 +109,9 @@ class BackendController extends Controller {
                 ->where('page.id', '=', $id)
                 ->orderBy('page_detail.section_no', 'ASC')
                 ->get();
-        $count = count($page);
+        
+        $last_row = DB::table('page_detail')->where('page_id', '=', $id)->orderBy('section_no', 'desc')->first();
+        $count = $last_row->section_no +1;
         $page_section = DB::table('page_section')->get();
         return view('edit_page', Compact('page', 'page_section', 'main_menu', 'count'));
     }
@@ -483,7 +485,6 @@ class BackendController extends Controller {
                                     ]
                             );
                         }
-                        
                     }
             }
             }
@@ -656,7 +657,7 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['title' => $request->name, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
+                    ['name' => $request->name, 'title' => $request->title, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
             );
             $message = 'Successfully Edited';
             return redirect()->back()->with('edit_message', $message);
@@ -1088,7 +1089,7 @@ class BackendController extends Controller {
     public function store_para_style_5(Request $request) {
         $data = $request->all();
 
-        for ($i = 0; $i < count($request->heading); $i++) {
+        
             DB::table('para_style_5')->insert(
                     [
                         'page_id' => $request->page_id,
@@ -1096,13 +1097,13 @@ class BackendController extends Controller {
                         'style' => $request->style,
                         'padding_bottom' => $request->padding_bottom,
                         'padding_top' => $request->padding_top, 
-                        'heading_size' => $data['heading_size'][$i],
-                        'heading' => $data['heading'][$i],
-                        'text_left' => $data['text_left'][$i],
-                        'text_right' => $data['text_right'][$i]
+                        'heading_size' => 'h4',
+                        'heading' => $data['heading'],
+                        'text_left' => $data['text_left'],
+                        'text_right' => $data['text_right']
                     ]
             );
-        }
+        
 
         $message = 'Successfully Inserted';
         return redirect()->back()->with('success_message', $message);
@@ -1117,7 +1118,7 @@ class BackendController extends Controller {
             'style' => $request->style,
             'padding_bottom' => $request->padding_bottom,
             'padding_top' => $request->padding_top, 
-            'heading_size' => $request->heading_size,
+            'heading_size' => 'h4',
             'heading' => $request->heading,
             'text_left' => $request->text_left,
             'text_right' => $request->text_right,

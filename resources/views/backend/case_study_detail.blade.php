@@ -96,6 +96,12 @@
                                                                                             </div>
                                                                                         </div>
 
+                                                                                        <div class="col-12">
+                                                                                            <div class="col-row">
+                                                                                            @include('padding_top_and_bottom')
+                                                                                            </div>
+                                                                                        </div>
+
                                                                                         <div class="col-8">
 
                                                                                             <div class="form-group">
@@ -396,7 +402,7 @@
                                             </td>
                                             <td>
                                                 @if($row_case_study_detail->video_background != NULL)
-                                                <img style="width:200px" src="{{asset('public/case_study_video_background/'.$row_case_study_detail->video_background)}}" />
+                                                <img style="width:200px" src="{{asset('public/case_study_content_video_bg/'.$row_case_study_detail->video_background)}}" />
                                                 @endif
                                             </td>
                                             <td>
@@ -413,9 +419,12 @@
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                                 </div>
-                                                                <form method="POST" action="{{url('admin/edit_case_study_content')}}">
+                                                                <form method="POST" enctype="multipart/form-data" action="{{url('admin/edit_case_study_content')}}">
+                                                                    
                                                                     @csrf
                                                                     <input type="hidden" name="case_study_content_id" value="{{$row_case_study_detail->id}}"/>
+                                                                    <input type="hidden" name="case_study_id" value="{{$case_study[0]->id}}"/>
+                                                                    
                                                                 <div class="modal-body">
                                                                     
                                                                     <table>
@@ -475,7 +484,7 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     @if($case_study_content[0]->video_background != NULL)
-                                                                                    <img style="width:200px" src="{{asset('public/case_study_video_background/'.$case_study_content[0]->video_background)}}" />
+                                                                                    <img style="width:200px" src="{{asset('public/case_study_content_video_bg/'.$case_study_content[0]->video_background)}}" />
                                                                                     @endif
                                                                                 </td>
 

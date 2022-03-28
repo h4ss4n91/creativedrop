@@ -1,11 +1,11 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div style="background-color:#f5f5f5; padding-top:100px; padding-bottom:100px;" class="row">
+<div style="background-color:#f5f5f5; padding-top:200px; padding-bottom:100px;" class="row">
     <div  class="web-container">
         
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card shadow">
                     <div style="background-color:#0F69C9 !important; color:#fff;" class="shadow card-header">{{ __('Login') }}</div>
 

@@ -93,11 +93,11 @@
             </a>
         </li>
 
-        <!-- li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link d-flex @if(last(request()->segments()) == 'para_style_5') active @endif" href="{{url('admin/page_sections/para_style_5')}}">
                 <i class="fa fa-paragraph"></i> Paragraph Style 5
             </a>
-        </!-->
+        </li>
 
 
         <li class="nav-item">
