@@ -20,9 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `cdweb_two`
 --
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `case_study`
 --
