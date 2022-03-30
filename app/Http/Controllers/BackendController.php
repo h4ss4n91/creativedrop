@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Redirect;
 use Mail;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\WelcomeEmail;
+use Illuminate\Support\Str;
 
 class BackendController extends Controller {
 
@@ -28,10 +31,14 @@ class BackendController extends Controller {
 
         $deleted = DB::table('page_detail')->where('id', '=', $id)->delete();
         $message = 'Successfully Deleted';
-        return redirect()->back()->with('message', $message);
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function index() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $main_menu = $main_menu_two = $main_menu_four = DB::table('menus')->get();
         $child_menu_four = DB::table('child_menus')->get();
         $child_menus = DB::table('child_menus')->get();
@@ -40,6 +47,10 @@ class BackendController extends Controller {
     }
 
     public function system() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $social = DB::table('social_media')->get();
         $footer_section = DB::table('footer_sections')->get();
         $logo = DB::table('logo')->get();
@@ -51,11 +62,18 @@ class BackendController extends Controller {
 
         DB::table('page')->where('id', '=', $id)->delete();
 
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function create_page(Request $request) {
         $data = $request->all();
+
+        DB::table('sub_child_menus')
+        ->where('id', $request->child_menu_id)
+        ->update(['item_link' => $request->page_slug]);
+
+
 
         $id = DB::table('page')->insertGetId(array(
             'title' => $request->page_title,
@@ -80,7 +98,8 @@ class BackendController extends Controller {
             );
         }
 
-        return redirect()->back();
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_page_content($id) {
@@ -90,7 +109,9 @@ class BackendController extends Controller {
                 ->where('page.id', '=', $id)
                 ->orderBy('page_detail.section_no', 'ASC')
                 ->get();
-        $count = count($page);
+        
+        $last_row = DB::table('page_detail')->where('page_id', '=', $id)->orderBy('section_no', 'desc')->first();
+        $count = $last_row->section_no +1;
         $page_section = DB::table('page_section')->get();
         return view('edit_page', Compact('page', 'page_section', 'main_menu', 'count'));
     }
@@ -123,10 +144,15 @@ class BackendController extends Controller {
             );
         }
 
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function pages() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $main_menu = DB::table('menus')->where('menu_link', '!=', '#')->orderBy('sorting', 'ASC')->get();
         $pages = DB::table('page')->get();
         $page_section = DB::table('page_section')->get();
@@ -134,6 +160,10 @@ class BackendController extends Controller {
     }
 
     public function sections_1() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $section_19 = DB::table('section_19')->get();
         $section_18 = DB::table('section_18')->get();
         $section_17 = DB::table('section_17')->get();
@@ -161,6 +191,10 @@ class BackendController extends Controller {
     }
 
     public function page_sections() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
         $section_23 = DB::table('section_23')->get();
         $section_22 = DB::table('section_22')->get();
         $section_21 = DB::table('section_21')->get();
@@ -196,7 +230,8 @@ class BackendController extends Controller {
         DB::table('menus')->insert(
                 ['menu_name' => $request->main_menu, 'sorting' => $request->sorting, 'menu_link' => $request->menu_link]
         );
-        return redirect()->back();
+        $message = 'Main Menu Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_main_menu(Request $request) {
@@ -209,21 +244,24 @@ class BackendController extends Controller {
             'sorting' => $request->sorting
         ]);
 
-        return redirect()->back();
+        $message = 'Main Menu Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_main_menu($id) {
 
         DB::table('menus')->where('id', '=', $id)->delete();
 
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_child_menu(Request $request) {
         DB::table('child_menus')->insert(
                 ['menu_id' => $request->main_menu_id, 'item_name' => $request->child_menu, 'sorting' => $request->sorting, 'featured_service' => $request->featured_service, 'item_link' => $request->child_menu_link]
         );
-        return redirect()->back();
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_child_menu(Request $request) {
@@ -238,7 +276,8 @@ class BackendController extends Controller {
             'item_link' => $request->item_link
         ]);
 
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_child_menu($id) {
@@ -254,7 +293,8 @@ class BackendController extends Controller {
         DB::table('sub_child_menus')->insert(
                 ['menu_id' => $request->main_menu_id, 'child_menu_id' => $request->child_menu_id, 'sorting' => $request->sorting, 'item_name' => $request->sub_child_item_name, 'item_link' => $request->sub_child_item_link]
         );
-        return redirect()->back();
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_sub_child_menu(Request $request) {
@@ -268,14 +308,16 @@ class BackendController extends Controller {
             'item_link' => $request->edit_sub_child_item_link
         ]);
 
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_sub_child_menu($id) {
 
         DB::table('sub_child_menus')->where('id', '=', $id)->delete();
 
-        return redirect()->back();
+        $message = 'Child Menu Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_slider(Request $request) {
@@ -290,15 +332,19 @@ class BackendController extends Controller {
                     [
                         'image' => $file_name,
                         'name' => $data['name'],
+                        'padding_top' => $data['padding_top'],
+                        'padding_bottom' => $data['padding_bottom'],
                         'status' => $data['status'][$i],
                         'text1' => $data['text_1'][$i],
+                        'link' => $data['link'][$i],
+                        'style' => $data['btn_style'][$i],
                         'text2' => $data['text_2'][$i],
                         'contact_button_link' => $data['link'][$i]]
             );
         }
 
-        $message = 'Sliders Inserted successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_slider(Request $request) {
@@ -308,26 +354,29 @@ class BackendController extends Controller {
             $affected = DB::table('sliders')
                     ->where('id', $request->id)
                     ->update(
-                    ['page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
+                    ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
             );
 
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('slider'), $file_name); // move files to destination folder
             $affected = DB::table('sliders')
                     ->where('id', $request->id)
                     ->update(
-                    ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
+                    ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
             );
 
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_slider($id) {
         DB::table('sliders')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Slider Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Video Section
@@ -337,12 +386,15 @@ class BackendController extends Controller {
         DB::table('videos')->insert([
             'page_id' => $request->page_id,
             'name' => $request->name,
+            'padding_bottom' => $request->padding_bottom, 
+            'padding_top' => $request->padding_top,
             'video_title' => $request->video_title,
             'video_link' => $request->video_link,
             'contact_button_link' => $request->contact_button_link,
             'button_label' => $request->button_label
         ]);
-        return redirect()->back();
+        $message = 'Video Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_video(Request $request) {
@@ -352,97 +404,132 @@ class BackendController extends Controller {
                 ->update([
             'page_id' => $request->page_id,
             'name' => $request->name,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top,
             'video_title' => $request->video_title,
             'video_link' => $request->video_link,
             'contact_button_link' => $request->contact_button_link,
             'button_label' => $request->button_label
         ]);
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_video($id) {
 
         DB::table('videos')->where('id', '=', $id)->delete();
 
-        return redirect()->back();
+        $message = 'Video Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Case Study Section
     public function store_case_study(Request $request) {
 
         $data = $request->all();
-
         
-
-        $file = $data['case_study_image']; // will get all files
-        $file_name = $file->getClientOriginalName(); //Get file original name
-        $file->move(public_path('case_study'), $file_name); // move files to destination folder
-
+            $file = $data['case_study_image']; // will get all files
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('case_study'), $file_name); // move files to destination folder
         
+            $id = DB::table('case_study')->insertGetId([
+                        'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top,
+                        'slug' => Str::slug($data['case_study_name'], '-'),
+                        'image' => $file_name,
+                        'title' => $request->case_study_name,
+                        'short_description' => $request->short_description]
+            );
 
+            if(!$request->video){}
+            else{
+                for ($i = 0; $i < count($request->video); $i++) {
 
-        $id = DB::table('case_study')->insertGetId(
-                [
-                    'name' => $request->name,
-                    'image' => $file_name,
-                    'title' => $request->case_study_name,
-                    'short_description' => $request->short_description]
-        );
+                    if($data['video'][$i] == NULL){
+                        $file_content = $data['image'][$i]; // will get all files
+                        $file_content_name = $file_content->getClientOriginalName(); //Get file original name
+                        $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
+        
+                        DB::table('case_study_content')->insert(
+                            [
+                                'case_study_id' => $id,
+                                'image' => $file_content_name,
+                                'image_name' => $data['image_name'][$i],
+                                'image_style' => $data['select_style_for_image'][$i]]
+                        );
+                    }else{
+        
+                        if( $data['select_style_for_video'][$i] == "section-padtop-100 section-padbottom-100"){
+        
+                            $case_study_video_background = $data['case_study_video_background'][$i]; // will get all files
+                            $case_study_video_background_name = $case_study_video_background->getClientOriginalName(); //Get file original name
+                            $case_study_video_background->move(public_path('case_study_content_video_bg'), $case_study_video_background_name); // move files to destination folder
+            
+                            DB::table('case_study_content')->insert(
+                                [
+                                'case_study_id' => $id,
+                                    'video_style' => $data['select_style_for_video'][$i],
+                                    'video_link' => $data['video'][$i],
+                                    'video_name' => $data['video_name'][$i],
+                                    'video_background' => $case_study_video_background_name]
+                            );
+        
+                        }else{
+                            DB::table('case_study_content')->insert(
+                                [
+                                    'case_study_id' => $id,
+                                    'video_style' => $data['select_style_for_video'][$i],
+                                    'video_name' => $data['video_name'][$i],
+                                    'video_link' => $data['video'][$i]
+                                    ]
+                            );
+                        }
+                    }
+            }
+            }
+            
+        
     
+    if($request->service != NULL){
+        for ($i = 0; $i < count($request->service); $i++) {
 
-    for ($i = 0; $i < count($request->type); $i++) {
-
-        $file_content = $data['case_study_image_content'][$i]; // will get all files
-        $file_content_name = $file_content->getClientOriginalName(); //Get file original name
-        $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
-
-
-        DB::table('case_study_content')->insert(
-            [
-                'case_study_id' => $id,
-                'image' => $file_content,
-                'type' => $data['type'][$i],
-                'video_link' => $data['video'][$i]]
-        );
+            DB::table('case_study_services')->insert(
+                [
+                    'case_study_id' => $id,
+                    'service_id' => $data['service'][$i],
+                    'sub_service_id' => $data['sub_category'][$i]]
+            );
+        }
     }
 
-    for ($i = 0; $i < count($request->service); $i++) {
+    if($request->industry != NULL){
 
-        DB::table('case_study_services')->insert(
-            [
-                'case_study_id' => $id,
-                'service_id' => $data['service'][$i],
-                'sub_service_id' => $data['sub_category'][$i]]
-        );
+        for ($i = 0; $i < count($request->industry); $i++) {
+
+            DB::table('case_study_industries')->insert(
+                [
+                    'case_study_id' => $id,
+                    'industry_id' => $data['industry'][$i]]
+            );
+        }
+
     }
-
-    for ($i = 0; $i < count($request->industry); $i++) {
-
-        DB::table('case_study_industries')->insert(
-            [
-                'case_study_id' => $id,
-                'industry_id' => $data['industry'][$i]]
-        );
-    }
-
-
-
-
-
-        $message = 'Case Study Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+    $message = 'Case Study Successfully Inserted';
+    return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_case_study(Request $request) {
+        $data = $request->all();
         $file = $request->file('case_study_image'); // will get all files
         if ($file == NULL) {
 
             $affected = DB::table('case_study')
                     ->where('id', $request->id)
                     ->update(
-                    ['page_id' => $request->page_id, 'name' => $request->name, 'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
+                    ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'name' => $request->name, 'slug' => Str::slug($data['title'], '-'),'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
             );
-            return redirect()->back();
+            
         } else {
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('case_study'), $file_name); // move files to destination folder
@@ -451,8 +538,35 @@ class BackendController extends Controller {
                     ->update(
                     ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
             );
-            return redirect()->back();
+            
         }
+
+        if($request->service != NULL){
+            for ($i = 0; $i < count($request->service); $i++) {
+    
+                DB::table('case_study_services')->insert(
+                    [
+                        'case_study_id' => $request->id,
+                        'service_id' => $data['service'][$i],
+                        'sub_service_id' => $data['sub_category'][$i]]
+                );
+            }
+        }
+    
+        if($request->industry != NULL){
+    
+            for ($i = 0; $i < count($request->industry); $i++) {
+    
+                DB::table('case_study_industries')->insert(
+                    [
+                        'case_study_id' => $request->id,
+                        'industry_id' => $data['industry'][$i]]
+                );
+            }
+    
+        }
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_case_study($id) {
@@ -472,13 +586,15 @@ class BackendController extends Controller {
             DB::table('clientandparterimage')->insert(
                     [
                         'image' => $file_name,
-                        'name' => $data['name']
+                        'name' => $data['name'],
+                        'padding_top' => $data['padding_top'],
+                        'padding_bottom' => $data['padding_bottom']
                     ]
             );
         }
 
-        $message = 'Case Study Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_client_and_partner(Request $request) {
@@ -487,9 +603,10 @@ class BackendController extends Controller {
             $affected = DB::table('clientandparterimage')
                     ->where('id', $request->id)
                     ->update(
-                    ['page_id' => $request->page_id]
+                    ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, ]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
             $file = $request->file('clientAndParter_image'); // will get all files
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -497,21 +614,24 @@ class BackendController extends Controller {
             $affected = DB::table('clientandparterimage')
                     ->where('id', $request->id)
                     ->update(
-                    ['image' => $file_name, 'page_id' => $request->page_id]
+                    ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'page_id' => $request->page_id]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_client_and_partner($id) {
         DB::table('clientandparterimage')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Industry Section
     public function store_industries(Request $request) {
         $data = $request->all();
         $file = $data['industry_image']; // will get all files
+        
         $file_name = $file->getClientOriginalName(); //Get file original name
         $file->move(public_path('industries'), $file_name); // move files to destination folder
 
@@ -519,11 +639,16 @@ class BackendController extends Controller {
                     [
                         'image' => $file_name,
                         'page_id' => $request->page_id,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'name' => $request->name,
+                        'link' => $request->link,
+                        'slug' => Str::slug($data['title'], '-'),
                         'title' => $data['title']
                     ]
             );
-        return redirect()->back();
+            $message = 'Successfully Inserted';
+            return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_industry(Request $request) {
@@ -532,9 +657,10 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['name' => $request->name, 'page_id' => $request->page_id]
+                    ['name' => $request->name, 'title' => $request->title, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
 
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -542,15 +668,17 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['image' => $file_name, 'name' => $request->name, 'page_id' => $request->page_id]
+                    ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->name, 'page_id' => $request->page_id]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_industry($id) {
         DB::table('industries')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Team Member Section
@@ -564,11 +692,12 @@ class BackendController extends Controller {
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('team'), $file_name); // move files to destination folder
             DB::table('teams')->insert(
-                    ['image' => $file_name, 'section_name' => $data['name'], 'name' => $data['team_member_title'][$i], 'designation' => $data['team_member_designation'][$i]]
+                    ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'section_name' => $data['name'], 'name' => $data['team_member_title'][$i], 'designation' => $data['team_member_designation'][$i]]
             );
         }
 
-        return redirect()->back();
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_team(Request $request) {
@@ -578,9 +707,10 @@ class BackendController extends Controller {
             $affected = DB::table('teams')
                     ->where('id', $request->id)
                     ->update(
-                    ['page_id' => $request->page_id, 'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
+                    ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
 
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -588,15 +718,17 @@ class BackendController extends Controller {
             $affected = DB::table('teams')
                     ->where('id', $request->id)
                     ->update(
-                    ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
+                    ['image' => $file_name, 'page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_team($id) {
         DB::table('teams')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // News and Opinions Industry Section
@@ -608,10 +740,13 @@ class BackendController extends Controller {
             'image' => $file_name_file_industries,
             'page_id' => $request->page_id,
             'title' => $request->news_title,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'description' => $request->news_short_description,
             'link' => $request->link]
         );
-        return redirect()->back();
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_news(Request $request) {
@@ -623,10 +758,13 @@ class BackendController extends Controller {
                     ->update([
                 'page_id' => $request->page_id,
                 'title' => $request->news_title,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'description' => $request->news_short_description,
                 'link' => $request->link]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('news_and_opinions'), $file_name); // move files to destination folder
@@ -635,17 +773,21 @@ class BackendController extends Controller {
                     ->update([
                 'image' => $file_name,
                 'page_id' => $request->page_id,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'title' => $request->news_title,
                 'description' => $request->news_short_description,
                 'link' => $request->link]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_news($id) {
         DB::table('news_and_opinions')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Request  Section
@@ -658,6 +800,8 @@ class BackendController extends Controller {
                     [
                         // 'image' => $file_name,
                         'style' => $data['style'],
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'btn_label' => $data['button_label'][$i],
                         'name' => $data['name'],
                         'title' => $data['request_title'][$i]
@@ -665,8 +809,8 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Request for Meeting Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_request(Request $request) {
@@ -676,16 +820,20 @@ class BackendController extends Controller {
                 ->update([
             'page_id' => $request->page_id,
             'btn_label' => $request->button_label,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'title' => $request->title,
             'style' => $request->style,
             'name' => $request->name]
         );
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_request($id) {
         DB::table('requests')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 1  Section
@@ -701,6 +849,8 @@ class BackendController extends Controller {
             DB::table('para_style_1')->insert(
                     [
                         'image' => $file_name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'page_id' => $request->page_id,
                         'name' => $request->name,
                         'title' => $data['title'][$i],
@@ -710,8 +860,8 @@ class BackendController extends Controller {
         }
 
         //return dd($data);
-        $message = 'Request for Meeting Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_para_style_1(Request $request) {
@@ -723,10 +873,13 @@ class BackendController extends Controller {
                     ->update([
                 'page_id' => $request->page_id,
                 'title' => $request->news_title,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'description' => $request->news_short_description,
                 'link' => $request->link]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('para_style_1'), $file_name); // move files to destination folder
@@ -734,16 +887,20 @@ class BackendController extends Controller {
                 'image' => $file_name,
                 'page_id' => $request->page_id,
                 'title' => $request->title,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_para_style_1($id) {
         DB::table('para_style_1')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 2  Section
@@ -760,6 +917,8 @@ class BackendController extends Controller {
                     [
                         'image' => $file_name,
                         'page_id' => $request->page_id,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'flex_row_reverse' => $data['flex_row_reverse'][$i],
                         'name' => $request->name,
                         'title' => $data['title'][$i],
@@ -768,8 +927,8 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Request for Meeting Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_para_style_2(Request $request) {
@@ -783,10 +942,13 @@ class BackendController extends Controller {
                     ->update([
                 'page_id' => $request->page_id,
                 'title' => $request->title,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
 
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -796,17 +958,21 @@ class BackendController extends Controller {
                     ->update([
                 'image' => $file_name,
                 'page_id' => $request->page_id,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'title' => $request->title,
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_para_style_2($id) {
         DB::table('para_style_2')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 3  Section
@@ -823,14 +989,16 @@ class BackendController extends Controller {
                         'image' => $file_name,
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'title' => $data['title'][$i],
                         'paragraph' => $data['paragraph'][$i]
                     ]
             );
         }
 
-        $message = 'Para Style Three  Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_para_style_3(Request $request) {
@@ -844,10 +1012,13 @@ class BackendController extends Controller {
                     ->update([
                 'page_id' => $request->page_id,
                 'title' => $request->title,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
 
 
@@ -858,17 +1029,21 @@ class BackendController extends Controller {
                     ->update([
                 'image' => $file_name,
                 'page_id' => $request->page_id,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'title' => $request->title,
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_para_style_3($id) {
         DB::table('para_style_3')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 4  Section
@@ -880,13 +1055,15 @@ class BackendController extends Controller {
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'title' => $data['paragraph'][$i]
                     ]
             );
         }
 
-        $message = 'Para Style Four  Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_para_style_4(Request $request) {
@@ -894,36 +1071,42 @@ class BackendController extends Controller {
                 ->where('id', $request->id)
                 ->update([
             'name' => $request->name,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'title' => $request->paragraph]
         );
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_para_style_4($id) {
         DB::table('para_style_4')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 5  Section
     public function store_para_style_5(Request $request) {
         $data = $request->all();
 
-        for ($i = 0; $i < count($request->heading); $i++) {
+        
             DB::table('para_style_5')->insert(
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
                         'style' => $request->style,
-                        'heading_size' => $data['heading_size'][$i],
-                        'heading' => $data['heading'][$i],
-                        'text_left' => $data['text_left'][$i],
-                        'text_right' => $data['text_right'][$i]
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
+                        'heading_size' => 'h4',
+                        'heading' => $data['heading'],
+                        'text_left' => $data['text_left'],
+                        'text_right' => $data['text_right']
                     ]
             );
-        }
+        
 
-        $message = 'Para Style Five  Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_para_style_5(Request $request) {
@@ -933,18 +1116,22 @@ class BackendController extends Controller {
             'page_id' => $request->page_id,
             'name' => $request->name,
             'style' => $request->style,
-            'heading_size' => $request->heading_size,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
+            'heading_size' => 'h4',
             'heading' => $request->heading,
             'text_left' => $request->text_left,
             'text_right' => $request->text_right,
                 ]
         );
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_para_style_5($id) {
         DB::table('para_style_5')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function page_section_id($id) {
@@ -1024,6 +1211,96 @@ class BackendController extends Controller {
         return $final_Result;
     }
 
+
+
+    public function page_section_id_for_component($id,$value) {
+
+        if ($id == 1) {
+            
+            $sliders = DB::table('sliders')->where('name','=',$value)->get();
+            $Array = [];
+            foreach($sliders as $row_slider){
+                $Array[] = '<tr><td><img style="width:200px;" src="http://localhost/creativedrop/public/slider/'.$row_slider->image.'"/></td><td>'.$row_slider->text1.'</td><td>'.$row_slider->text2.'</td></tr>';
+            }
+            $final_Result = $Array;
+            return $final_Result;
+            
+            //return $this->getObjectValuesForComponent("sliders", "name", $value);
+        } else if ($id == 2) {
+            return $this->getObjectValuesForComponent("videos", "video_title");
+        } else if ($id == 3) {
+            return $this->getObjectValuesForComponent("teams", "section_name");
+        } else if ($id == 4) {
+            return $this->getObjectValuesForComponent("case_study", "name");
+        } else if ($id == 5) {
+            //it is for services
+            return $this->getObjectValuesForComponent("services", "name");
+        } else if ($id == 6) {
+            return $this->getObjectValuesForComponent("clientandparterimage", "name");
+        } else if ($id == 7) {
+            return $this->getObjectValuesForComponent("industries", "name");
+        } else if ($id == 8) {
+            return $this->getObjectValuesForComponent("news_and_opinions", "name");
+        } else if ($id == 9) {
+            return $this->getObjectValuesForComponent("requests", "name", "style");
+        } else if ($id == 10) {
+            return $this->getObjectValuesForComponent("para_style_1", "name");
+        } else if ($id == 11) {
+            return $this->getObjectValuesForComponent("para_style_2", "name");
+        } else if ($id == 12) {
+            return $this->getObjectValuesForComponent("para_style_3", "name");
+        } else if ($id == 13) {
+            return $this->getObjectValuesForComponent("para_style_4", "name");
+        } else if ($id == 14) {
+            return $this->getObjectValuesForComponent("para_style_5", "name", "style");
+        } else if ($id == 15) {
+            return $this->getObjectValuesForComponent("section_15", "name", "style");
+        } else if ($id == 16) {
+            return $this->getObjectValuesForComponent("section_16", "name");
+        } else if ($id == 17) {
+            return $this->getObjectValuesForComponent("section_17", "name");
+        } else if ($id == 18) {
+            return $this->getObjectValuesForComponent("section_18", "name");
+        } else if ($id == 19) {
+            return $this->getObjectValuesForComponent("section_19", "name");
+        } else if ($id == 20) {
+            return $this->getObjectValuesForComponent("section_20", "name");
+        } else if ($id == 21) {
+            return $this->getObjectValuesForComponent("section_21", "name");
+        } else if ($id == 22) {
+            return $this->getObjectValuesForComponent("section_22", "name", "style");
+        } else if ($id == 23) {
+            return $this->getObjectValuesForComponent("section_23", "name");
+        }
+        
+    }
+
+    private function getObjectValuesForComponent($table = '', $attribute = '', $style = '',$value='') {
+        if (empty($table)) {
+            return;
+        }
+
+        if (empty($attribute)) {
+            return;
+        }
+
+        if (empty($attribute)) {
+            return;
+        }
+
+        $rows = DB::table($table)->where('name','=',$value)->get();
+        $Array = [];
+        
+        foreach ($rows as $select_row) {
+            
+            $Array[] = '<option value="' . $select_row->{$attribute} . '">' . $select_row->{$attribute} . ' </option>';
+            
+        }
+        
+        $final_Result = $Array;
+        return $final_Result;
+    }
+
     // Para Style 15  Section
     public function store_section_15(Request $request) {
         $data = $request->all();
@@ -1038,6 +1315,8 @@ class BackendController extends Controller {
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'style' => $request->style,
                         'image' => $file_name,
                         'heading1' => $data['heading'][$i],
@@ -1046,8 +1325,8 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Section 15 Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_section_15(Request $request) {
@@ -1059,11 +1338,14 @@ class BackendController extends Controller {
                     ->update([
                 'page_id' => $request->page_id,
                 'style' => $request->style,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'name' => $request->name,
                 'heading1' => $request->heading,
                 'flex_row_reverse' => $request->flex_row_reverse]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
             $file = $request->file('image'); // will get all files
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -1074,17 +1356,21 @@ class BackendController extends Controller {
                 'image' => $file_name,
                 'page_id' => $request->page_id,
                 'style' => $request->style,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'name' => $request->name,
                 'heading1' => $request->heading,
                 'flex_row_reverse' => $request->flex_row_reverse]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_section_15($id) {
         DB::table('section_15')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 16  Section
@@ -1101,6 +1387,8 @@ class BackendController extends Controller {
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'image' => $file_name,
                         'text' => $data['text'][$i],
                         'heading' => $data['heading'][$i]
@@ -1108,8 +1396,8 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Section 16 Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_section_16(Request $request) {
@@ -1118,16 +1406,20 @@ class BackendController extends Controller {
                 ->update([
             'page_id' => $request->page_id,
             'name' => $request->name,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'text' => $request->text,
             'heading' => $request->heading
                 ]
         );
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_section_16($id) {
         DB::table('section_16')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 17  Section
@@ -1140,13 +1432,15 @@ class BackendController extends Controller {
                         'page_id' => $request->page_id,
                         'name' => $request->name,
                         //  'image' => $file_name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'paragraph' => $data['paragraph'][$i]
                     ]
             );
         }
 
-        $message = 'Section 17 Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_section_17(Request $request) {
@@ -1155,15 +1449,19 @@ class BackendController extends Controller {
                 ->update([
             'page_id' => $request->page_id,
             'name' => $request->name,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'paragraph' => $request->paragraph
                 ]
         );
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_section_17($id) {
         DB::table('section_17')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 18  Section
@@ -1180,6 +1478,8 @@ class BackendController extends Controller {
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'image' => $file_name,
                         'headingone' => $data['headingone'],
                         'headingtwo' => $data['headingtwo']
@@ -1187,8 +1487,8 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Section 18 Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_section_18(Request $request) {
@@ -1202,10 +1502,13 @@ class BackendController extends Controller {
                 'page_id' => $request->page_id,
                 'name' => $request->name,
                 'headingone' => $request->headingone,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'headingtwo' => $request->headingtwo
                     ]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
 
 
@@ -1217,17 +1520,21 @@ class BackendController extends Controller {
                 'image' => $file_name,
                 'page_id' => $request->page_id,
                 'name' => $request->name,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'headingone' => $request->headingone,
                 'headingtwo' => $request->headingtwo
                     ]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_section_18($id) {
         DB::table('section_18')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
 // Store Social Media
@@ -1249,14 +1556,15 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Social Media Inserted successfully';
-        return redirect('admin/system')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function delete_social_media($id) {
 
         DB::table('social_media')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Store Social Media
@@ -1302,14 +1610,15 @@ class BackendController extends Controller {
             }
         }
 
-        $message = 'Footer Section Inserted successfully';
-        return redirect('admin/system')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function delete_footer_section($id) {
 
         DB::table('footer_sections')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_logo(Request $request) {
@@ -1322,14 +1631,15 @@ class BackendController extends Controller {
                 ['logo' => $file_name]
         );
 
-        $message = 'Logo Inserted successfully';
-        return redirect('admin/system')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function delete_logo($id) {
 
         DB::table('logo')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_system_user(Request $request) {
@@ -1343,7 +1653,7 @@ class BackendController extends Controller {
         );
 
         $message = 'Logo Inserted successfully';
-        return redirect('admin/system')->with('message', $message);
+        return redirect()->back()->with('message', $message);
     }
 
     public function edit_system_user(Request $request) {
@@ -1358,8 +1668,9 @@ class BackendController extends Controller {
             'role_id' => $data['role_id']
         ]);
 
+        
         $message = 'User Updated successfully';
-        return redirect('admin/user_profile/' . $request->user_id)->with('message', $message);
+        return redirect('admin/user_profile/' . $request->user_id)->with('edit_message', $message);
     }
 
     public function system_user_profile($id) {
@@ -1382,8 +1693,8 @@ class BackendController extends Controller {
                 ]
         );
 
-        $message = 'Section 19 Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_section_19(Request $request) {
@@ -1396,36 +1707,39 @@ class BackendController extends Controller {
             'padding_bottom' => $request->padding_bottom
                 ]
         );
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_section_19($id) {
         DB::table('section_19')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 20  Section
     public function store_section_20(Request $request) {
         $data = $request->all();
 
-        for ($i = 0; $i < count($request->text_1); $i++) {
+        
 
-            $file = $data['slider_image'][$i]; // will get all files
-            $file_name = $file->getClientOriginalName(); //Get file original name
-            $file->move(public_path('section_20_slider'), $file_name); // move files to destination folder
-            DB::table('sliders')->insert(
+            //$file = $data['slider_image'][$i]; // will get all files
+            //$file_name = $file->getClientOriginalName(); //Get file original name
+            //$file->move(public_path('section_20_slider'), $file_name); // move files to destination folder
+            DB::table('section_20')->insert(
                     [
-                        'image' => $file_name,
-                        'name' => $data['name'],
-                        'status' => $data['status'][$i],
-                        'text1' => $data['text_1'][$i],
-                        'text2' => $data['text_2'][$i],
-                        'contact_button_link' => $data['link'][$i]]
+                        'name' => $request->name,
+            'heading_1' => $request->heading_1,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
+            'heading_2' => $request->heading_2,
+            'btn_class' => $request->btn_class,
+            'btn_label' => $request->btn_label]
             );
-        }
+        
 
-        $message = 'Sliders Inserted successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_section_20(Request $request) {
@@ -1435,17 +1749,21 @@ class BackendController extends Controller {
                 ->update([
             'name' => $request->name,
             'heading_1' => $request->heading_1,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'heading_2' => $request->heading_2,
             'btn_class' => $request->btn_class,
             'btn_label' => $request->btn_label
                 ]
         );
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_section_20($id) {
         DB::table('section_20')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Para Style 21  Section
@@ -1455,13 +1773,15 @@ class BackendController extends Controller {
         DB::table('section_21')->insert(
                 [
                     'name' => $request->name,
+                    'padding_bottom' => $request->padding_bottom,
+                    'padding_top' => $request->padding_top, 
                     'slider_name' => $data['slider_name'],
                     'video_name' => $data['video_name']
                 ]
         );
 
-        $message = 'Section 21 Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_section_21(Request $request) {
@@ -1471,15 +1791,19 @@ class BackendController extends Controller {
                 ->update([
             'name' => $request->name,
             'slider_name' => $request->slider_name,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'video_name' => $request->video_name
                 ]
         );
-        return redirect()->back();
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_section_21($id) {
         DB::table('section_21')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // 22  Section
@@ -1497,6 +1821,8 @@ class BackendController extends Controller {
         DB::table('section_22')->insert(
                 [
                     'name' => $request->name,
+                    'padding_bottom' => $request->padding_bottom,
+                    'padding_top' => $request->padding_top, 
                     'heading_1' => $data['heading_1'],
                     'heading_2' => $data['heading_2'],
                     'image' => $file_name,
@@ -1505,8 +1831,8 @@ class BackendController extends Controller {
                 ]
         );
 
-        $message = 'Section 22 Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
     }
 
     public function edit_section_22(Request $request) {
@@ -1518,13 +1844,16 @@ class BackendController extends Controller {
                     ->where('id', $request->id)
                     ->update([
                 'name' => $request->name,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'heading_1' => $request->heading_1,
                 'heading_2' => $request->heading_2,
                 'video' => $request->video,
                 'text' => $request->text
                     ]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         } else {
 
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -1533,6 +1862,8 @@ class BackendController extends Controller {
                     ->where('id', $request->id)
                     ->update([
                 'name' => $request->name,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'heading_1' => $request->heading_1,
                 'heading_2' => $request->heading_2,
                 'image' => $file_name,
@@ -1540,25 +1871,29 @@ class BackendController extends Controller {
                 'text' => $request->text
                     ]
             );
-            return redirect()->back();
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
         }
     }
 
     public function delete_section_22($id) {
         DB::table('section_22')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_service(Request $request) {
         $data = $request->all();
 
-        for ($i = 0; $i < count($request->sub_service); $i++) {
+        for ($i = 0; $i < count($request->service); $i++) {
             DB::table('services')->insert(
                     [
                         'name' => $data['name'],
-                        'main_service' => $data['main_service'],
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
+                        'main_service' => $data['service'][$i],
                         'bootstra_class_name' => $data['class_name'],
-                        'sub_service' => $data['sub_service'][$i],
+                        'sub_service' => $data['sub_category'][$i],
                         'sub_service_link' => $data['sub_service_link'][$i]
                     ]
             );
@@ -1573,15 +1908,17 @@ class BackendController extends Controller {
         $affected = DB::table('services')
                 ->where('id', $request->id)
                 ->update(
-                ['name' => $request->name, 'main_service' => $request->main_service, 'bootstra_class_name' => $request->class_name, 'sub_service' => $request->sub_service, 'sub_service_link' => $request->sub_service_link]
+                ['name' => $request->name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'main_service' => $request->main_service, 'bootstra_class_name' => $request->class_name, 'sub_service' => $request->sub_service, 'sub_service_link' => $request->sub_service_link]
         );
 
-        return redirect()->back();
+        $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_service($id) {
         DB::table('services')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     public function store_footer_bottom(Request $request) {
@@ -1600,14 +1937,18 @@ class BackendController extends Controller {
         DB::table('section_23')->insert(
                 [
                     'name' => $request->name,
+                    'padding_bottom' => $request->padding_bottom,
+                    'padding_top' => $request->padding_top, 
                     'heading' => $request->heading,
                     'title' => $request->title
                     
                 ]
         );
 
-        $message = 'Section 23 Added successfully';
-        return redirect('admin/page_sections')->with('message', $message);
+        $message = 'Successfully Inserted';
+        return redirect()->back()->with('success_message', $message);
+
+        
     }
 
     public function edit_section_23(Request $request) {
@@ -1616,23 +1957,20 @@ class BackendController extends Controller {
             ->where('id', $request->id)
             ->update([
                 'name' => $request->name,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'heading' => $request->heading,
                 'title' => $request->title
                     ]
                 );
-            return redirect()->back();
-            
-
-        
-
-
-
-       
+            $message = 'Successfully Edited';
+            return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_section_23($id) {
         DB::table('section_23')->where('id', '=', $id)->delete();
-        return redirect()->back();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
     }
 
 

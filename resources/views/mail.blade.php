@@ -331,9 +331,7 @@
                         </tr>
                         <tr style="border-bottom: 1px solid #e5e5e5">
                           <td valign="top" width="80">Message:</td>
-                          <td valign="top">
-                            
-                          </td>
+                          <td valign="top">{{$send_message}}</td>
                         </tr>
                       </table>
                     </td>

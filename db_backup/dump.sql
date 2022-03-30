@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 07, 2022 at 08:28 AM
--- Server version: 5.7.26
--- PHP Version: 7.3.33
+-- Host: 127.0.0.1
+-- Generation Time: Feb 26, 2022 at 03:46 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,11 +18,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dropdrop_stage`
+-- Database: `cdweb_two`
 --
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `case_study`
 --
@@ -31,34 +28,168 @@ SET time_zone = "+00:00";
 CREATE TABLE `case_study` (
   `id` int(11) NOT NULL,
   `name` varchar(150) DEFAULT NULL,
+  `slug` varchar(150) DEFAULT NULL,
   `page_id` int(11) DEFAULT NULL,
   `image` varchar(350) DEFAULT NULL,
   `title` varchar(350) DEFAULT NULL,
-  `short_description` varchar(350) DEFAULT NULL,
+  `short_description` text DEFAULT NULL,
   `link` varchar(350) DEFAULT NULL,
   `service` varchar(150) DEFAULT NULL,
   `sub_category` varchar(150) DEFAULT NULL,
   `industry` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `case_study`
 --
 
-INSERT INTO `case_study` (`id`, `name`, `page_id`, `image`, `title`, `short_description`, `link`, `service`, `sub_category`, `industry`, `created_at`, `updated_at`) VALUES
-(9, 'slider1234', NULL, 'No-image-png-1.png', 'asdfasd12344321', 'fasdfasdf122343321', 'button link', '1', '3', '2', '2021-12-27 04:48:15', '2021-12-27 04:48:15'),
-(10, 'slider 1', 18, 'image3.jpg', 'sdfaf', 'asdfads', NULL, '1', '1', '3', '2021-12-27 04:48:15', '2021-12-27 04:48:15'),
-(15, 'First', NULL, 'portfolio-1.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '1', '2022-01-07 11:37:29', '2022-01-07 11:37:29'),
-(16, 'case-study', NULL, 'portfolio-1.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '2', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(17, 'case-study', NULL, 'portfolio-2.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '1', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(18, 'case-study', NULL, 'portfolio-3.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '3', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(19, 'case-study', NULL, 'portfolio-4.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '2', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(20, 'case-study', NULL, 'portfolio-1.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '2', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(21, 'case-study', NULL, 'portfolio-2.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '3', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(22, 'case-study', NULL, 'portfolio-3.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '1', '2022-01-18 13:05:19', '2022-01-18 13:05:19'),
-(23, 'case-study', NULL, 'portfolio-4.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, '1', '1', '2', '2022-01-18 13:05:19', '2022-01-18 13:05:19');
+INSERT INTO `case_study` (`id`, `name`, `slug`, `page_id`, `image`, `title`, `short_description`, `link`, `service`, `sub_category`, `industry`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(4, 'Shapoorji Pollonji', 'shapoorji-pollonji', NULL, 'image.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video1234', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-16 21:11:47', '2022-02-16 21:11:47'),
+(5, 'case study 1', NULL, NULL, 'portfolio-1.jpg', 'Shapoorji Pollonji', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(6, 'case study 1', NULL, NULL, 'image.jpg', 'Shapoorji Pollonji 2123', 'Infographics, Company Profile & Video123', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(7, 'Case study 1', 'title-3', NULL, 'portfolio-3.jpg', 'Title 3', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 09:23:20', '2022-02-17 09:23:20'),
+(8, 'Case study 1', NULL, NULL, 'portfolio-4.jpg', 'Title 4', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(9, 'Asia Paints', NULL, NULL, 'bw.jpg', 'asdfasdf', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(10, 'testing876', 'case-study', NULL, '7f31a9cc-ef90-4350-8a76-5640590da579.jpg', 'case study', 'testing description, testing description, testing description, testing description, testing description, testing description, testing description, testing description,', NULL, NULL, NULL, NULL, 30, 30, '2022-02-26 07:24:44', '2022-02-26 07:24:44'),
+(11, 'testing876', 'case-study', NULL, '7f31a9cc-ef90-4350-8a76-5640590da579.jpg', 'case study', 'testing description, testing description, testing description, testing description, testing description, testing description, testing description, testing description,', NULL, NULL, NULL, NULL, 30, 30, '2022-02-26 07:25:53', '2022-02-26 07:25:53'),
+(12, 'testing876', 'case-study', NULL, '7f31a9cc-ef90-4350-8a76-5640590da579.jpg', 'case study', 'testing description, testing description, testing description, testing description, testing description, testing description, testing description, testing description,', NULL, NULL, NULL, NULL, 30, 30, '2022-02-26 07:31:58', '2022-02-26 07:31:58'),
+(13, 'Asia Paints', 'testing-title', NULL, 'b.png', 'testing title', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, 30, 30, '2022-02-26 08:55:31', '2022-02-26 08:55:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `case_study_content`
+--
+
+CREATE TABLE `case_study_content` (
+  `id` int(11) NOT NULL,
+  `case_study_id` int(11) DEFAULT NULL,
+  `image` varchar(150) DEFAULT NULL,
+  `image_name` varchar(150) DEFAULT NULL,
+  `type` varchar(150) DEFAULT NULL,
+  `video_link` varchar(550) DEFAULT NULL,
+  `video_name` varchar(150) DEFAULT NULL,
+  `image_style` varchar(150) DEFAULT NULL,
+  `video_style` varchar(150) DEFAULT NULL,
+  `sorting` int(11) DEFAULT NULL,
+  `video_background` varchar(150) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `case_study_content`
+--
+
+INSERT INTO `case_study_content` (`id`, `case_study_id`, `image`, `image_name`, `type`, `video_link`, `video_name`, `image_style`, `video_style`, `sorting`, `video_background`, `created_at`, `updated_at`) VALUES
+(12, 4, 'cs-00.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-16 21:11:47', '2022-02-16 21:11:47'),
+(14, 4, NULL, NULL, NULL, 'https://youtu.be/xLhNP0qp38Q', NULL, NULL, 'bg-white section-bg-white mt-0 pt-0', NULL, NULL, '2022-02-16 21:11:47', '2022-02-16 21:11:47'),
+(15, 4, 'cs-04.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-16 21:11:47', '2022-02-16 21:11:47'),
+(16, 5, 'cs-00.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(17, 5, 'cs-01.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(18, 5, 'cs-02.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(19, 5, 'cs-03.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(20, 5, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', NULL, NULL, 'bg-white section-bg-white mt-0 pt-0', NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(21, 5, 'cs-04.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(22, 5, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', NULL, NULL, 'section-padtop-100 section-padbottom-100', NULL, 'cs-03.jpg', '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(23, 5, 'cs-05.jpg', NULL, NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(24, 6, 'cs-00.jpg', 'image 1', NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(25, 6, 'cs-01.jpg', 'image 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(26, 6, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video 1', NULL, 'bg-white section-bg-white mt-0 pt-0', NULL, 'cs-04.jpg', '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(27, 6, 'cs-04.jpg', 'image 4', NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(28, 7, 'cs-00.jpg', 'Image name 2', NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-17 09:23:20', '2022-02-17 09:23:20'),
+(29, 7, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video 1', NULL, 'bg-white section-bg-white mt-0 pt-0', NULL, NULL, '2022-02-17 09:23:20', '2022-02-17 09:23:20'),
+(32, 6, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video 1', NULL, NULL, NULL, NULL, '2022-02-17 10:22:34', '2022-02-17 10:22:34'),
+(36, 8, 'cs-00.jpg', 'image title 1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(37, 8, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video name', NULL, 'bg-white section-bg-white mt-0 pt-0', NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(38, 8, 'cs-01.jpg', 'image name 2', NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(39, 8, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video 2', NULL, NULL, NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(40, 8, 'cs-02.jpg', 'image 3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(42, 9, 'b.png', 'Image name 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(43, 12, 'bw.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-26 07:31:58', '2022-02-26 07:31:58'),
+(44, 12, NULL, NULL, NULL, 'https://youtu.be/xLhNP0qp38Q', 'video 1', NULL, 'section-padtop-100 section-padbottom-100', NULL, 'cs-04.jpg', '2022-02-26 07:31:58', '2022-02-26 07:31:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `case_study_industries`
+--
+
+CREATE TABLE `case_study_industries` (
+  `id` int(11) NOT NULL,
+  `case_study_id` int(11) NOT NULL,
+  `industry_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `case_study_industries`
+--
+
+INSERT INTO `case_study_industries` (`id`, `case_study_id`, `industry_id`, `created_at`, `updated_at`) VALUES
+(1, 5, 6, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(2, 5, 8, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(3, 5, 9, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(4, 6, 6, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(6, 8, 6, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(7, 8, 8, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(10, 9, 6, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(11, 9, 8, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(12, 9, 8, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(13, 9, 9, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(14, 7, 6, '2022-02-25 16:57:48', '2022-02-25 16:57:48'),
+(15, 7, 9, '2022-02-25 16:57:48', '2022-02-25 16:57:48'),
+(16, 12, 6, '2022-02-26 07:31:58', '2022-02-26 07:31:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `case_study_services`
+--
+
+CREATE TABLE `case_study_services` (
+  `id` int(11) NOT NULL,
+  `case_study_id` int(11) DEFAULT NULL,
+  `service_id` int(11) DEFAULT NULL,
+  `sub_service_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `case_study_services`
+--
+
+INSERT INTO `case_study_services` (`id`, `case_study_id`, `service_id`, `sub_service_id`, `created_at`, `updated_at`) VALUES
+(1, 5, 1, 1, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(2, 5, 1, 2, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(3, 5, 2, 6, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(4, 5, 2, 5, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(5, 5, 1, 4, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(6, 5, 2, 8, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(7, 5, 3, 11, '2022-02-17 06:12:36', '2022-02-17 06:12:36'),
+(8, 6, 1, 2, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(9, 6, 2, 7, '2022-02-17 08:13:14', '2022-02-17 08:13:14'),
+(10, 8, 1, 2, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(11, 8, 1, 1, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(12, 8, 2, 7, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(13, 8, 2, 7, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(14, 8, 4, 14, '2022-02-17 14:41:14', '2022-02-17 14:41:14'),
+(15, 8, 5, 19, '2022-02-18 08:19:57', '2022-02-18 08:19:57'),
+(16, 9, 4, 13, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(17, 9, 4, 13, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(18, 9, 3, 9, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(19, 9, 2, 6, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(20, 9, 1, 1, '2022-02-25 05:25:03', '2022-02-25 05:25:03'),
+(21, 7, 1, 1, '2022-02-25 16:57:48', '2022-02-25 16:57:48'),
+(22, 7, 1, 2, '2022-02-25 16:57:48', '2022-02-25 16:57:48'),
+(23, 7, 1, 4, '2022-02-25 16:57:48', '2022-02-25 16:57:48'),
+(24, 12, 1, 2, '2022-02-26 07:31:58', '2022-02-26 07:31:58');
 
 -- --------------------------------------------------------
 
@@ -73,8 +204,8 @@ CREATE TABLE `child_menus` (
   `item_link` varchar(255) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
   `featured_service` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -84,25 +215,25 @@ CREATE TABLE `child_menus` (
 INSERT INTO `child_menus` (`id`, `menu_id`, `item_name`, `item_link`, `sorting`, `featured_service`, `created_at`, `updated_at`) VALUES
 (1, '1', 'Logo Design', 'logo-design', 1, NULL, '2021-07-24 16:19:15', '2021-07-24 16:19:15'),
 (2, '1', 'Graphic Design', 'graphic-design', 2, NULL, '2021-07-24 16:19:24', '2021-07-24 16:19:24'),
-(3, '1', 'Brochures', 'brouchers', NULL, 'No', '2021-07-24 16:19:32', '2021-07-24 16:19:32'),
-(4, '1', 'Presentations', 'presentations', NULL, NULL, '2021-07-24 16:19:42', '2021-07-24 16:19:42'),
-(5, '2', 'Product Design', 'product-design', NULL, NULL, '2021-07-24 16:20:15', '2021-07-24 16:20:15'),
-(6, '2', 'Websites', 'websites', NULL, NULL, '2021-07-24 16:20:22', '2021-07-24 16:20:22'),
-(7, '2', 'Mobile Apps', 'mobile-apps', NULL, NULL, '2021-07-24 16:20:29', '2021-07-24 16:20:29'),
-(8, '2', 'Support', 'support', NULL, NULL, '2021-07-24 16:20:36', '2021-07-24 16:20:36'),
-(9, '3', 'Videography', 'videography', NULL, NULL, '2021-07-24 16:20:50', '2021-07-24 16:20:50'),
-(10, '3', 'Photography', 'photography', NULL, NULL, '2021-07-24 16:20:58', '2021-07-24 16:20:58'),
-(11, '3', '3D Animation\r\n', '3d-animation', NULL, NULL, '2021-07-24 16:21:06', '2021-07-24 16:21:06'),
-(12, '3', '2D Animation\r\n', '2d-animation', NULL, NULL, '2021-07-24 16:21:14', '2021-07-24 16:21:14'),
-(13, '4', 'Digital Marketing', 'digital-marketing', NULL, NULL, '2021-07-24 16:21:29', '2021-07-24 16:21:29'),
-(14, '4', 'Social Media Marketing', 'social-media-marketing', NULL, NULL, '2021-07-24 16:21:35', '2021-07-24 16:21:35'),
-(15, '4', 'Consultancy', 'consultancy', NULL, NULL, '2021-07-24 16:21:42', '2021-07-24 16:21:42'),
-(16, '5', 'Design Services', 'design-services', NULL, NULL, '2021-07-24 16:23:52', '2021-07-24 16:23:52'),
-(17, '5', 'Website & Mobile Apps', 'website-and-mobile-apps', NULL, NULL, '2021-07-24 16:23:57', '2021-07-24 16:23:57'),
-(18, '5', 'Videos & Photography', NULL, NULL, NULL, '2021-07-24 16:24:03', '2021-07-24 16:24:03'),
-(19, '5', '3D & 2D Animation', '3D-2D-Animation', NULL, 'No', '2021-07-24 16:24:10', '2021-07-24 16:24:10'),
-(20, '5', 'Consultancy Services', NULL, NULL, NULL, '2021-07-24 16:24:15', '2021-07-24 16:24:15'),
-(21, '5', 'Digital Marketing\r\n', NULL, NULL, NULL, '2021-07-24 16:24:23', '2021-07-24 16:24:23'),
+(3, '1', 'Brochures', 'brouchers', 4, NULL, '2021-07-24 16:19:32', '2021-07-24 16:19:32'),
+(4, '1', 'Presentations', 'presentations', 3, NULL, '2021-07-24 16:19:42', '2021-07-24 16:19:42'),
+(5, '2', 'Product Design', 'product-design', 1, NULL, '2021-07-24 16:20:15', '2021-07-24 16:20:15'),
+(6, '2', 'Websites', 'websites', 2, NULL, '2021-07-24 16:20:22', '2021-07-24 16:20:22'),
+(7, '2', 'Mobile Apps', 'mobile-apps', 3, NULL, '2021-07-24 16:20:29', '2021-07-24 16:20:29'),
+(8, '2', 'Support', 'support', 4, NULL, '2021-07-24 16:20:36', '2021-07-24 16:20:36'),
+(9, '3', 'Videography', 'videography', 1, NULL, '2021-07-24 16:20:50', '2021-07-24 16:20:50'),
+(10, '3', 'Photography', 'photography', 2, NULL, '2021-07-24 16:20:58', '2021-07-24 16:20:58'),
+(11, '3', '3D Animation\r\n', '3d-animation', 3, NULL, '2021-07-24 16:21:06', '2021-07-24 16:21:06'),
+(12, '3', '2D Animation\r\n', '2d-animation', 4, NULL, '2021-07-24 16:21:14', '2021-07-24 16:21:14'),
+(13, '4', 'Digital Marketing', 'digital-marketing', 3, NULL, '2021-07-24 16:21:29', '2021-07-24 16:21:29'),
+(14, '4', 'Social Media Marketing', 'social-media-marketing', 1, NULL, '2021-07-24 16:21:35', '2021-07-24 16:21:35'),
+(15, '4', 'Consultancy', 'consultancy', 2, NULL, '2021-07-24 16:21:42', '2021-07-24 16:21:42'),
+(16, '5', 'Design Services', 'design-services', 1, NULL, '2021-07-24 16:23:52', '2021-07-24 16:23:52'),
+(17, '5', 'Website & Mobile Apps', 'website-and-mobile-apps', 2, NULL, '2021-07-24 16:23:57', '2021-07-24 16:23:57'),
+(18, '5', 'Videos & Photography', NULL, 3, NULL, '2021-07-24 16:24:03', '2021-07-24 16:24:03'),
+(19, '5', '3D & 2D Animation', '3D-2D-Animation', 4, 'No', '2021-07-24 16:24:10', '2021-07-24 16:24:10'),
+(20, '5', 'Consultancy Services', NULL, 5, NULL, '2021-07-24 16:24:15', '2021-07-24 16:24:15'),
+(21, '5', 'Digital Marketing\r\n', NULL, 6, NULL, '2021-07-24 16:24:23', '2021-07-24 16:24:23'),
 (22, '6', 'Agency', NULL, NULL, NULL, '2021-07-24 16:24:51', '2021-07-24 16:24:51'),
 (23, '6', 'Services', NULL, NULL, NULL, '2021-07-24 16:24:57', '2021-07-24 16:24:57'),
 (24, '6', 'Industries', NULL, NULL, NULL, '2021-07-24 16:25:09', '2021-07-24 16:25:09');
@@ -118,31 +249,35 @@ CREATE TABLE `clientandparterimage` (
   `page_id` int(11) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `clientandparterimage`
 --
 
-INSERT INTO `clientandparterimage` (`id`, `page_id`, `name`, `image`, `created_at`, `updated_at`) VALUES
-(9, 18, 'Home Section 1', 'team-1.jpg', '2021-12-28 12:44:53', '2021-12-28 12:44:53'),
-(10, NULL, 'Home Section 1', 'No-image-png-1.png', '2021-12-28 12:44:53', '2021-12-28 12:44:53'),
-(12, NULL, 'client group 8', 'image1.jpg', '2021-12-30 15:07:21', '2021-12-30 15:07:21'),
-(13, NULL, 'client group 8', 'imaeg2.jpg', '2021-12-30 15:07:21', '2021-12-30 15:07:21'),
-(14, NULL, 'clients and partners', 'client-1.png', '2022-01-08 09:43:42', '2022-01-08 09:43:42'),
-(15, NULL, 'clients and partners', 'client-2.png', '2022-01-08 09:43:42', '2022-01-08 09:43:42'),
-(16, NULL, 'clients and partners', 'client-3.png', '2022-01-08 09:43:42', '2022-01-08 09:43:42'),
-(17, NULL, 'clients and partners', 'client-1.png', '2022-01-08 09:43:42', '2022-01-08 09:43:42'),
-(18, NULL, 'clients and partners', 'client-2.png', '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
-(19, NULL, 'clients and partners', 'client-3.png', '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
-(20, NULL, 'clients and partners', 'client-1.png', '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
-(21, NULL, 'clients and partners', 'client-2.png', '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
-(22, NULL, 'clients and partners', 'client-3.png', '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
-(23, NULL, 'clients and partners', 'client-1.png', '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
-(24, NULL, 'clients and partners', 'client-2.png', '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
-(25, NULL, 'clients and partners', 'client-3.png', '2022-01-08 09:43:43', '2022-01-08 09:43:43');
+INSERT INTO `clientandparterimage` (`id`, `page_id`, `name`, `image`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(9, 18, 'Home Section 1', 'team-1.jpg', NULL, NULL, '2021-12-28 12:44:53', '2021-12-28 12:44:53'),
+(10, NULL, 'Home Section 1', 'No-image-png-1.png', NULL, NULL, '2021-12-28 12:44:53', '2021-12-28 12:44:53'),
+(12, NULL, 'client group 8', 'image1.jpg', NULL, NULL, '2021-12-30 15:07:21', '2021-12-30 15:07:21'),
+(13, NULL, 'client group 8', 'imaeg2.jpg', NULL, NULL, '2021-12-30 15:07:21', '2021-12-30 15:07:21'),
+(14, NULL, 'clients and partners', 'client-1.png', NULL, NULL, '2022-01-08 09:43:42', '2022-01-08 09:43:42'),
+(15, NULL, 'clients and partners', 'client-2.png', NULL, NULL, '2022-01-08 09:43:42', '2022-01-08 09:43:42'),
+(16, NULL, 'clients and partners', 'client-3.png', NULL, NULL, '2022-01-08 09:43:42', '2022-01-08 09:43:42'),
+(17, NULL, 'clients and partners', 'client-1.png', NULL, NULL, '2022-01-08 09:43:42', '2022-01-08 09:43:42'),
+(18, NULL, 'clients and partners', 'client-2.png', NULL, NULL, '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
+(19, NULL, 'clients and partners', 'client-3.png', NULL, NULL, '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
+(20, NULL, 'clients and partners', 'client-1.png', NULL, NULL, '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
+(21, NULL, 'clients and partners', 'client-2.png', NULL, NULL, '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
+(22, NULL, 'clients and partners', 'client-3.png', NULL, NULL, '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
+(23, NULL, 'clients and partners', 'client-1.png', NULL, NULL, '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
+(24, NULL, 'clients and partners', 'client-2.png', NULL, NULL, '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
+(25, NULL, 'clients and partners', 'client-3.png', NULL, NULL, '2022-01-08 09:43:43', '2022-01-08 09:43:43'),
+(27, NULL, 'padding', 'b.png', 30, 30, '2022-02-25 20:23:21', '2022-02-25 20:23:21'),
+(28, NULL, 'Asia Paints', 'b.png', 50, 50, '2022-02-26 08:05:47', '2022-02-26 08:05:47');
 
 -- --------------------------------------------------------
 
@@ -154,15 +289,15 @@ CREATE TABLE `components` (
   `id` int(11) NOT NULL,
   `component_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `body` text,
-  `link` text,
-  `image1` text,
-  `image2` text,
-  `image3` text,
+  `body` text DEFAULT NULL,
+  `link` text DEFAULT NULL,
+  `image1` text DEFAULT NULL,
+  `image2` text DEFAULT NULL,
+  `image3` text DEFAULT NULL,
   `button_text` varchar(255) DEFAULT NULL,
   `button_link` varchar(255) DEFAULT NULL,
-  `video` text,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `video` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -208,8 +343,8 @@ CREATE TABLE `contacts` (
   `phone` varchar(150) DEFAULT NULL,
   `subject` varchar(150) DEFAULT NULL,
   `message` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -224,7 +359,9 @@ INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `phone`, `subj
 (24, 'Faiz', 'Awan', 'admin@gmail.com', '3123762039', NULL, 'testing message', '2022-01-08 07:09:59', '2022-01-08 07:09:59'),
 (23, 'Ahmed', 'Ali', 'ahmed@gmail.com', '123456789', NULL, 'asdfasdf asfd', '2022-01-08 07:08:11', '2022-01-08 07:08:11'),
 (22, 'Ahmed', 'Ali', 'ahmed@gmail.com', '123456789', NULL, 'jhk gjhg kjgh kjhj', '2022-01-08 07:04:55', '2022-01-08 07:04:55'),
-(29, 'Faiz', 'Awan', 'admin@gmail.com', '1232313', NULL, 'testing testing', '2022-02-05 04:14:04', '2022-02-05 04:14:04');
+(29, 'Faiz', 'Awan', 'admin@gmail.com', '1232313', NULL, 'testing testing', '2022-02-05 04:14:04', '2022-02-05 04:14:04'),
+(30, 'Faiz', 'Awan', 'admin@gmail.com', '3123762039', NULL, 'test', '2022-02-23 13:28:30', '2022-02-23 13:28:30'),
+(31, 'Faiz', 'Awan', 'admin@gmail.com', '3123762039', NULL, 'testing message', '2022-02-23 13:28:59', '2022-02-23 13:28:59');
 
 -- --------------------------------------------------------
 
@@ -238,7 +375,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -254,7 +391,7 @@ CREATE TABLE `failed_jobsold` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -268,8 +405,8 @@ CREATE TABLE `footer_bottoms` (
   `city` varchar(150) DEFAULT NULL,
   `address` varchar(150) DEFAULT NULL,
   `copyright` varchar(260) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -291,8 +428,8 @@ CREATE TABLE `footer_sections` (
   `name` varchar(150) DEFAULT NULL,
   `menu` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -328,8 +465,8 @@ CREATE TABLE `header_menu` (
   `id` int(11) NOT NULL,
   `item_name` varchar(255) DEFAULT NULL,
   `item_link` enum('Active','Inactive') DEFAULT 'Active',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -355,29 +492,61 @@ INSERT INTO `header_menu` (`id`, `item_name`, `item_link`, `created_at`, `update
 CREATE TABLE `industries` (
   `id` int(11) NOT NULL,
   `page_id` int(11) DEFAULT NULL,
+  `slug` varchar(150) DEFAULT NULL,
   `service_id` int(11) DEFAULT NULL,
   `sub_category_id` int(11) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `title` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `industries`
 --
 
-INSERT INTO `industries` (`id`, `page_id`, `service_id`, `sub_category_id`, `name`, `title`, `link`, `image`, `created_at`, `updated_at`) VALUES
-(6, NULL, NULL, NULL, 'one', 'FMCG', NULL, 'creativebox-1.jpg', '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(7, NULL, NULL, NULL, 'one', 'Construction', NULL, 'creativebox-2.jpg', '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(8, NULL, NULL, NULL, 'one', 'Gold Trading', NULL, 'creativebox-3.jpg', '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(9, NULL, NULL, NULL, 'one', 'Fintech', NULL, 'creativebox-4.jpg', '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(10, NULL, NULL, NULL, 'one', 'FMCG', NULL, 'creativebox-1.jpg', '2022-01-18 13:34:17', '2022-01-18 13:34:17'),
-(11, NULL, NULL, NULL, 'one', 'Construction', NULL, 'creativebox-2.jpg', '2022-01-18 13:34:18', '2022-01-18 13:34:18'),
-(12, NULL, NULL, NULL, 'one', 'Gold Trading', NULL, 'creativebox-3.jpg', '2022-01-18 13:34:18', '2022-01-18 13:34:18'),
-(13, NULL, NULL, NULL, 'one', 'Fintech', NULL, 'creativebox-4.jpg', '2022-01-18 13:34:18', '2022-01-18 13:34:18');
+INSERT INTO `industries` (`id`, `page_id`, `slug`, `service_id`, `sub_category_id`, `name`, `title`, `link`, `image`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(6, NULL, 'fmcg', NULL, NULL, 'one', 'FMCG', NULL, 'creativebox-1.jpg', NULL, NULL, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(7, NULL, 'construction', NULL, NULL, 'one', 'Construction', NULL, 'creativebox-2.jpg', NULL, NULL, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(8, NULL, 'gold-trading', NULL, NULL, 'one', 'Gold Trading', NULL, 'creativebox-3.jpg', NULL, NULL, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(9, NULL, 'fintech', NULL, NULL, 'one', 'Fintech', NULL, 'creativebox-4.jpg', NULL, NULL, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(37, NULL, 'it-industry', NULL, NULL, 'testing987', 'IT industry', NULL, 'image.jpg', NULL, NULL, '2022-02-12 12:56:10', '2022-02-12 12:56:10'),
+(39, NULL, 'new-123', NULL, NULL, 'new', 'new 123', NULL, 'portfolio-1.jpg', NULL, NULL, '2022-02-22 07:44:28', '2022-02-22 07:44:28'),
+(41, NULL, 'testing-industries', NULL, NULL, 'new section', 'Testing industries', NULL, 'bw.jpg', 30, 30, '2022-02-26 08:06:43', '2022-02-26 08:06:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `industry_services`
+--
+
+CREATE TABLE `industry_services` (
+  `id` int(11) NOT NULL,
+  `industry_id` int(11) DEFAULT NULL,
+  `service_id` int(11) DEFAULT NULL,
+  `sub_service_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `industry_services`
+--
+
+INSERT INTO `industry_services` (`id`, `industry_id`, `service_id`, `sub_service_id`, `created_at`, `updated_at`) VALUES
+(1, 35, 1, 1, '2022-02-11 13:54:50', '2022-02-11 13:54:50'),
+(2, 35, 1, 2, '2022-02-11 13:54:50', '2022-02-11 13:54:50'),
+(3, 35, 1, 3, '2022-02-11 13:54:50', '2022-02-11 13:54:50'),
+(4, 35, 1, 4, '2022-02-11 13:54:50', '2022-02-11 13:54:50'),
+(5, 36, 1, 2, '2022-02-12 05:59:48', '2022-02-12 05:59:48'),
+(6, 36, 1, 3, '2022-02-12 05:59:48', '2022-02-12 05:59:48'),
+(7, 36, 3, 10, '2022-02-12 05:59:48', '2022-02-12 05:59:48'),
+(8, 36, 2, 6, '2022-02-12 05:59:48', '2022-02-12 05:59:48'),
+(9, 36, 1, 3, '2022-02-12 05:59:48', '2022-02-12 05:59:48');
 
 -- --------------------------------------------------------
 
@@ -388,8 +557,8 @@ INSERT INTO `industries` (`id`, `page_id`, `service_id`, `sub_category_id`, `nam
 CREATE TABLE `logo` (
   `id` int(11) NOT NULL,
   `logo` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -408,7 +577,7 @@ INSERT INTO `logo` (`id`, `logo`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `master_component` (
   `id` int(11) NOT NULL,
   `component_name` varchar(1000) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -445,9 +614,9 @@ CREATE TABLE `menus` (
   `menu_name` varchar(255) DEFAULT NULL,
   `menu_link` varchar(255) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
-  `body` text,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `body` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -517,21 +686,23 @@ CREATE TABLE `news_and_opinions` (
   `title` varchar(150) DEFAULT NULL,
   `description` varchar(250) DEFAULT NULL,
   `link` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `news_and_opinions`
 --
 
-INSERT INTO `news_and_opinions` (`id`, `image`, `page_id`, `name`, `title`, `description`, `link`, `created_at`, `updated_at`) VALUES
-(1, 'news.png', NULL, 'section 1', 'Design & Branding', 'Rebranding of Alhamad Switchgear by Creat...', 'link123', '2021-12-18 12:34:33', '2021-12-18 12:34:33'),
-(2, 'news.png', NULL, 'section 1', 'Design', 'Rebranding of Alhamad Switchgear by Creat...', '#', '2021-12-18 12:36:53', '2021-12-18 12:36:53'),
-(4, 'news.png', NULL, 'section 1', 'Design & Branding', 'Rebranding of Alhamad Switchgear by Creat...', '#', '2021-12-30 15:07:34', '2021-12-30 15:07:34'),
-(5, 'news.png', NULL, NULL, 'Insight', 'News & Opinions', '#', '2022-01-08 09:56:25', '2022-01-08 09:56:25'),
-(6, 'news.png', NULL, NULL, 'Insight', 'News & Opinions', '#', '2022-01-08 09:56:37', '2022-01-08 09:56:37'),
-(7, 'news.png', NULL, NULL, 'Insight123', 'News & Opinions123', '#123', '2022-01-08 09:57:28', '2022-01-08 09:57:28');
+INSERT INTO `news_and_opinions` (`id`, `image`, `page_id`, `name`, `title`, `description`, `link`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(1, 'news.png', NULL, 'section 1', 'Design & Branding', 'Rebranding of Alhamad Switchgear by Creat...', 'link123', NULL, NULL, '2021-12-18 12:34:33', '2021-12-18 12:34:33'),
+(2, 'news.png', NULL, 'section 1', 'Design', 'Rebranding of Alhamad Switchgear by Creat...', '#', NULL, NULL, '2021-12-18 12:36:53', '2021-12-18 12:36:53'),
+(4, 'news.png', NULL, 'section 1', 'Design & Branding', 'Rebranding of Alhamad Switchgear by Creat...', '#', NULL, NULL, '2021-12-30 15:07:34', '2021-12-30 15:07:34'),
+(5, 'news.png', NULL, NULL, 'Insight', 'News & Opinions', '#', NULL, NULL, '2022-01-08 09:56:25', '2022-01-08 09:56:25'),
+(6, 'news.png', NULL, NULL, 'Insight', 'News & Opinions', '#', NULL, NULL, '2022-01-08 09:56:37', '2022-01-08 09:56:37'),
+(7, 'news.png', NULL, NULL, 'Insight123', 'News & Opinions123', '#123', NULL, NULL, '2022-01-08 09:57:28', '2022-01-08 09:57:28');
 
 -- --------------------------------------------------------
 
@@ -545,16 +716,16 @@ CREATE TABLE `page` (
   `sub_menu_id` varchar(100) DEFAULT NULL,
   `child_menu_id` varchar(100) DEFAULT NULL,
   `title` varchar(500) DEFAULT NULL,
-  `body` text,
-  `image` text,
+  `body` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
   `slug` varchar(1000) DEFAULT NULL,
   `status` enum('Published','Unpublished','Deleted') DEFAULT 'Unpublished',
-  `meta_keyword` text,
-  `meta_desc` text,
+  `meta_keyword` text DEFAULT NULL,
+  `meta_desc` text DEFAULT NULL,
   `design_menu` enum('N','Y') DEFAULT 'N',
   `user_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -572,7 +743,13 @@ INSERT INTO `page` (`id`, `menu_id`, `sub_menu_id`, `child_menu_id`, `title`, `b
 (47, '1', '1', '6', 'vehicle-branding', NULL, NULL, 'vehicle-branding', 'Published', 'vehicle branding design', 'vehicle branding design', 'N', NULL, '2022-01-08 08:28:02', '2022-01-08 08:28:02'),
 (48, '1', '2', '8', 'Testing', NULL, NULL, 'testing', 'Published', 'testing meta keywords', 'testing meta description', 'N', NULL, '2022-01-13 03:15:32', '2022-01-13 03:15:32'),
 (49, '1', '1', NULL, 'uniform-branding', NULL, NULL, 'uniform-branding', 'Published', 'Meta Keywords for uniform branding', 'Meta Descriptions for uniform branding', 'N', NULL, '2022-01-21 11:36:50', '2022-01-21 11:36:50'),
-(50, '1', '1', NULL, 'packaging-design', NULL, NULL, 'packaging-design', 'Published', 'Meta Keywords for packaging-design', 'Meta Descriptions for packaging-design', 'N', NULL, '2022-01-21 13:07:53', '2022-01-21 13:07:53');
+(50, '1', '1', NULL, 'packaging-design', NULL, NULL, 'packaging-design', 'Published', 'Meta Keywords for packaging-design', 'Meta Descriptions for packaging-design', 'N', NULL, '2022-01-21 13:07:53', '2022-01-21 13:07:53'),
+(51, '1', '4', '27', 'Seminar Presentation', NULL, NULL, 'seminar-presentation', 'Published', 'meta keyword for hom', 'agency meta description', 'N', NULL, '2022-02-24 11:26:37', '2022-02-24 11:26:37'),
+(52, '5', '19', '114', 'Products Modelling', NULL, NULL, 'products-modelling', NULL, NULL, 'meta description for work', 'N', NULL, '2022-02-24 11:51:25', '2022-02-24 11:51:25'),
+(53, '2', '5', '31', 'UI and UX Design', NULL, NULL, 'ui-and-ux-design', NULL, NULL, 'agency', 'N', NULL, '2022-02-24 12:08:36', '2022-02-24 12:08:36'),
+(54, '1', '3', '20', 'Pre-Qualification Design', NULL, NULL, 'pre-qualification-design', NULL, NULL, 'agency meta description', 'N', NULL, '2022-02-24 12:11:04', '2022-02-24 12:11:04'),
+(55, '1', '2', '7', 'Creative Ads Design', NULL, NULL, 'creative-ads-design', NULL, NULL, 'meta description for work', 'N', NULL, '2022-02-24 12:13:31', '2022-02-24 12:13:31'),
+(56, '1', '3', '17', 'Brochure Design', NULL, NULL, 'brochure-design', 'Published', 'meta keywords', 'agency', 'N', NULL, '2022-02-24 12:18:39', '2022-02-24 12:18:39');
 
 -- --------------------------------------------------------
 
@@ -586,8 +763,8 @@ CREATE TABLE `page_detail` (
   `section_no` int(11) DEFAULT NULL,
   `section` int(11) DEFAULT NULL,
   `section_type` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -631,23 +808,6 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 (1387, 44, 3, 10, 'For Agency page', '2022-02-04 09:44:08', '2022-02-04 09:44:08'),
 (1388, 44, 4, 3, 'team-section-01', '2022-02-04 09:44:08', '2022-02-04 09:44:08'),
 (1389, 44, 5, 9, 'meeting', '2022-02-04 09:44:08', '2022-02-04 09:44:08'),
-(1399, 33, NULL, 22, 'logo-design3', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1400, 33, 1, 19, 'padding-y-50', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1401, 33, 2, 22, 'Logo Design section 1', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1402, 33, 4, 12, 'logo-design-04', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1403, 33, 5, 17, 'logo-expertise', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1404, 33, 6, 19, 'padding-y-50', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1405, 33, 7, 18, 'work-samples', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1406, 33, 8, 18, 'work-samples', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1407, 33, 9, 18, 'work-samples', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1408, 33, 10, 9, 'logo-help', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1409, 33, 11, 16, 'logo-design-section-12', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1410, 33, 12, 19, 'padding-y-50', '2022-02-04 09:47:15', '2022-02-04 09:47:15'),
-(1411, 33, 13, 7, 'one', '2022-02-04 09:47:16', '2022-02-04 09:47:16'),
-(1412, 33, 14, 19, 'padding-y-50', '2022-02-04 09:47:16', '2022-02-04 09:47:16'),
-(1413, 33, 15, 5, 'white-bg-services', '2022-02-04 09:47:16', '2022-02-04 09:47:16'),
-(1414, 33, 16, 9, 'meeting', '2022-02-04 09:47:16', '2022-02-04 09:47:16'),
-(1415, 33, 3, 22, 'Heading', '2022-02-04 09:47:16', '2022-02-04 09:47:16'),
 (1425, 46, 1, 19, 'padding-y-50', '2022-02-04 09:55:17', '2022-02-04 09:55:17'),
 (1426, 46, 2, 22, 'brand-guildeline-book', '2022-02-04 09:55:17', '2022-02-04 09:55:17'),
 (1427, 46, 3, 13, 'brand-book-page', '2022-02-04 09:55:17', '2022-02-04 09:55:17'),
@@ -657,25 +817,6 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 (1431, 46, 7, 9, 'project-disc', '2022-02-04 09:55:17', '2022-02-04 09:55:17'),
 (1432, 46, 8, 5, 'Section 1', '2022-02-04 09:55:17', '2022-02-04 09:55:17'),
 (1433, 46, 9, 9, 'meeting', '2022-02-04 09:55:17', '2022-02-04 09:55:17'),
-(1492, 50, 1, 19, 'padding-y-50', '2022-02-04 11:43:00', '2022-02-04 11:43:00'),
-(1493, 50, 2, 22, 'packaging-design', '2022-02-04 11:43:00', '2022-02-04 11:43:00'),
-(1494, 50, 3, 14, 'packaging-design', '2022-02-04 11:43:00', '2022-02-04 11:43:00'),
-(1495, 50, 4, 17, 'packaging-design', '2022-02-04 11:43:00', '2022-02-04 11:43:00'),
-(1496, 50, 5, 4, 'case-study', '2022-02-04 11:43:00', '2022-02-04 11:43:00'),
-(1497, 50, 6, 19, 'padding-y-50', '2022-02-04 11:43:00', '2022-02-04 11:43:00'),
-(1498, 50, 7, 7, 'one', '2022-02-04 11:43:00', '2022-02-04 11:43:00'),
-(1499, 50, 8, 9, 'project-disc', '2022-02-04 11:43:00', '2022-02-04 11:43:00'),
-(1500, 50, 9, 5, 'Section 1', '2022-02-04 11:43:00', '2022-02-04 11:43:00'),
-(1501, 50, 11, 9, 'meeting', '2022-02-04 11:43:00', '2022-02-04 11:43:00'),
-(1536, 38, 1, 21, 'for home page', '2022-02-05 10:08:10', '2022-02-05 10:08:10'),
-(1537, 38, 2, 5, 'Section 1', '2022-02-05 10:08:10', '2022-02-05 10:08:10'),
-(1538, 38, 3, 9, 'custom-proposal', '2022-02-05 10:08:10', '2022-02-05 10:08:10'),
-(1539, 38, 4, 4, 'case-study', '2022-02-05 10:08:10', '2022-02-05 10:08:10'),
-(1540, 38, 5, 6, 'clients and partners', '2022-02-05 10:08:10', '2022-02-05 10:08:10'),
-(1541, 38, 6, 7, 'one', '2022-02-05 10:08:10', '2022-02-05 10:08:10'),
-(1542, 38, 7, 9, 'project-disc', '2022-02-05 10:08:10', '2022-02-05 10:08:10'),
-(1543, 38, 8, 8, 'section 1', '2022-02-05 10:08:10', '2022-02-05 10:08:10'),
-(1544, 38, 9, 9, 'meeting', '2022-02-05 10:08:10', '2022-02-05 10:08:10'),
 (1562, 41, 1, 19, 'padding-y-50', '2022-02-05 10:26:04', '2022-02-05 10:26:04'),
 (1563, 41, 2, 4, 'case-study', '2022-02-05 10:26:04', '2022-02-05 10:26:04'),
 (1564, 41, 3, 5, 'white-bg-services', '2022-02-05 10:26:04', '2022-02-05 10:26:04'),
@@ -707,7 +848,57 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 (1614, 49, 5, 7, 'one', '2022-02-05 12:20:22', '2022-02-05 12:20:22'),
 (1615, 49, 6, 9, 'project-disc', '2022-02-05 12:20:22', '2022-02-05 12:20:22'),
 (1616, 49, 7, 5, 'Section 1', '2022-02-05 12:20:22', '2022-02-05 12:20:22'),
-(1617, 49, 8, 9, 'meeting', '2022-02-05 12:20:22', '2022-02-05 12:20:22');
+(1617, 49, 8, 9, 'meeting', '2022-02-05 12:20:22', '2022-02-05 12:20:22'),
+(1655, 51, 1, 17, 'One', '2022-02-24 11:30:19', '2022-02-24 11:30:19'),
+(1656, 51, 2, 1, 'slider 1', '2022-02-24 11:30:19', '2022-02-24 11:30:19'),
+(1657, 52, 1, 5, 'section 3', '2022-02-24 11:51:25', '2022-02-24 11:51:25'),
+(1658, 53, 1, 1, 'Slider 2', '2022-02-24 12:08:36', '2022-02-24 12:08:36'),
+(1659, 54, 1, 7, 'testing987', '2022-02-24 12:11:04', '2022-02-24 12:11:04'),
+(1660, 55, 1, 4, 'case study 1', '2022-02-24 12:13:31', '2022-02-24 12:13:31'),
+(1662, 56, 1, 4, 'case study 1', '2022-02-25 07:38:27', '2022-02-25 07:38:27'),
+(1663, 56, 2, 13, 'section 1', '2022-02-25 07:38:27', '2022-02-25 07:38:27'),
+(1664, 56, 3, 9, 'section 1', '2022-02-25 07:38:27', '2022-02-25 07:38:27'),
+(1665, 56, 4, 16, 'section 1', '2022-02-25 07:38:27', '2022-02-25 07:38:27'),
+(1666, 33, 1, 22, 'logo-design3', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1667, 33, 2, 19, 'padding-y-50', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1668, 33, 3, 22, 'Logo Design section 1', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1669, 33, 4, 22, 'Heading', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1670, 33, 5, 12, 'logo-design-04', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1671, 33, 6, 17, 'logo-expertise', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1672, 33, 7, 19, 'padding-y-50', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1673, 33, 8, 18, 'work-samples', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1674, 33, 9, 18, 'work-samples', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1675, 33, 10, 18, 'work-samples', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1676, 33, 11, 9, 'logo-help', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1677, 33, 12, 16, 'logo-design-section-12', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1678, 33, 13, 19, 'padding-y-50', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1679, 33, 14, 7, 'one', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1680, 33, 15, 19, 'padding-y-50', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1681, 33, 16, 5, 'white-bg-services', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1682, 33, 17, 9, 'meeting', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1683, 33, 18, 15, 'Vehicle Branding Design', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
+(1694, 50, 1, 19, 'padding-y-50', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1695, 50, 2, 22, 'packaging-design', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1696, 50, 3, 14, 'packaging-design', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1697, 50, 4, 17, 'packaging-design', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1698, 50, 5, 4, 'case-study', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1699, 50, 6, 19, 'padding-y-50', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1700, 50, 10, 7, 'one', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1701, 50, 8, 9, 'project-disc', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1702, 50, 9, 5, 'Section 1', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1703, 50, 7, 9, 'meeting', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1704, 50, 11, 1, 'slider 1', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1705, 50, 12, 5, 'Section 1', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1746, 38, 1, 21, 'for home page', '2022-02-26 11:28:43', '2022-02-26 11:28:43'),
+(1747, 38, 2, 5, 'Section 5', '2022-02-26 11:28:43', '2022-02-26 11:28:43'),
+(1748, 38, 3, 9, 'custom-proposal', '2022-02-26 11:28:43', '2022-02-26 11:28:43'),
+(1749, 38, 4, 4, 'case study 1', '2022-02-26 11:28:43', '2022-02-26 11:28:43'),
+(1750, 38, 5, 6, 'clients and partners', '2022-02-26 11:28:43', '2022-02-26 11:28:43'),
+(1751, 38, 6, 7, 'one', '2022-02-26 11:28:43', '2022-02-26 11:28:43'),
+(1752, 38, 7, 9, 'project-disc', '2022-02-26 11:28:43', '2022-02-26 11:28:43'),
+(1753, 38, 8, 8, 'section 1', '2022-02-26 11:28:43', '2022-02-26 11:28:43'),
+(1754, 38, 9, 9, 'meeting', '2022-02-26 11:28:43', '2022-02-26 11:28:43'),
+(1755, 38, 10, 23, 'testing', '2022-02-26 11:28:43', '2022-02-26 11:28:43');
 
 -- --------------------------------------------------------
 
@@ -718,7 +909,7 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 CREATE TABLE `page_section` (
   `id` int(11) NOT NULL,
   `name` varchar(250) DEFAULT NULL,
-  `detail` longtext,
+  `detail` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -749,7 +940,8 @@ INSERT INTO `page_section` (`id`, `name`, `detail`, `created_at`, `updated_at`) 
 (19, 'Padding', NULL, NULL, NULL),
 (20, 'Background Image with Heading', NULL, NULL, NULL),
 (21, 'Slider with Video', NULL, NULL, NULL),
-(22, 'Two_headings_withVideoOrImage', NULL, NULL, NULL);
+(22, 'Two_headings_withVideoOrImage', NULL, NULL, NULL),
+(23, 'heading', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -759,28 +951,31 @@ INSERT INTO `page_section` (`id`, `name`, `detail`, `created_at`, `updated_at`) 
 
 CREATE TABLE `para_style_1` (
   `id` int(11) NOT NULL,
-  `page_id` text,
+  `page_id` text DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
-  `title` text,
-  `paragraph` text,
+  `title` text DEFAULT NULL,
+  `paragraph` text DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `para_style_1`
 --
 
-INSERT INTO `para_style_1` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `link`, `created_at`, `updated_at`) VALUES
-(6, '11', 'section 1', 'imaeg2.jpg', 'asdfasd', 'fasdfasdf', NULL, '2021-12-28 15:05:28', '2021-12-28 15:05:28'),
-(7, '11', 'section 1', 'image3.jpg', 'asdfasdf', 'asdffas', NULL, '2021-12-28 15:05:28', '2021-12-28 15:05:28'),
-(8, '11', 'section 1', 'image1.jpg', 'dfsdfsdf', 'asdfadf', NULL, '2021-12-28 15:05:28', '2021-12-28 15:05:28'),
-(9, '11', 'section 1', 'image4.jpg', 'afasdfasd', 'sdfasf', NULL, '2021-12-28 15:05:28', '2021-12-28 15:05:28'),
-(10, NULL, 'section 8', 'image3.jpg', 'asdfasd', 'fasdfasdfasdfasdfas', NULL, '2021-12-30 15:11:32', '2021-12-30 15:11:32'),
-(11, NULL, 'section 8', 'image4.jpg', 'asdfasf', 'asfdaf', NULL, '2021-12-30 15:11:32', '2021-12-30 15:11:32'),
-(12, NULL, 'For Agency page', 'creative-art.svg', 'Branding? We build trust & customer loyalty', 'To achieve a disciplined process in your brand awareness campaign to extend your customer loyalty; it requires a mandate from the top to readiness to invest in future. Our expert team will help you to seize every opportunity; why people choose your brand over your competitor.', NULL, '2022-01-08 02:59:33', '2022-01-08 02:59:33');
+INSERT INTO `para_style_1` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `link`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(6, '11', 'section 1', 'imaeg2.jpg', 'asdfasd', 'fasdfasdf', NULL, NULL, NULL, '2021-12-28 15:05:28', '2021-12-28 15:05:28'),
+(7, '11', 'section 1', 'image3.jpg', 'asdfasdf', 'asdffas', NULL, NULL, NULL, '2021-12-28 15:05:28', '2021-12-28 15:05:28'),
+(8, '11', 'section 1', 'image1.jpg', 'dfsdfsdf', 'asdfadf', NULL, NULL, NULL, '2021-12-28 15:05:28', '2021-12-28 15:05:28'),
+(9, '11', 'section 1', 'image4.jpg', 'afasdfasd', 'sdfasf', NULL, NULL, NULL, '2021-12-28 15:05:28', '2021-12-28 15:05:28'),
+(10, NULL, 'section 8', 'image3.jpg', 'asdfasd', 'fasdfasdfasdfasdfas', NULL, NULL, NULL, '2021-12-30 15:11:32', '2021-12-30 15:11:32'),
+(11, NULL, 'section 8', 'image4.jpg', 'asdfasf', 'asfdaf', NULL, NULL, NULL, '2021-12-30 15:11:32', '2021-12-30 15:11:32'),
+(12, NULL, 'For Agency page', 'creative-art.svg', 'Branding? We build trust & customer loyalty', 'To achieve a disciplined process in your brand awareness campaign to extend your customer loyalty; it requires a mandate from the top to readiness to invest in future. Our expert team will help you to seize every opportunity; why people choose your brand over your competitor.', NULL, NULL, NULL, '2022-01-08 02:59:33', '2022-01-08 02:59:33'),
+(13, NULL, 'testing section', 'bw.jpg', 'testing', 'testing paragraph', NULL, 30, 30, '2022-02-26 08:03:26', '2022-02-26 08:03:26');
 
 -- --------------------------------------------------------
 
@@ -793,33 +988,36 @@ CREATE TABLE `para_style_2` (
   `page_id` int(11) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) NOT NULL,
-  `title` text,
-  `paragraph` text,
+  `title` text DEFAULT NULL,
+  `paragraph` text DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
   `flex_row_reverse` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `para_style_2`
 --
 
-INSERT INTO `para_style_2` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `link`, `flex_row_reverse`, `created_at`, `updated_at`) VALUES
-(4, 18, 'section 1', 'imaeg2.jpg', 'adfa', 'sasdfasdfa', NULL, 'flex_row_reverse', '2021-12-28 15:59:25', '2021-12-28 15:59:25'),
-(5, 18, 'section 1', 'image1.jpg', 'sfdafsd', 'afsdf', NULL, NULL, '2021-12-28 15:59:25', '2021-12-28 15:59:25'),
-(6, 18, 'section 1', 'image3.jpg', 'afadf', 'safasdf', NULL, 'flex_row_reverse', '2021-12-28 15:59:25', '2021-12-28 15:59:25'),
-(7, 18, 'section 1', 'image4.jpg', 'asdfasd', 'fasff', NULL, NULL, '2021-12-28 15:59:25', '2021-12-28 15:59:25'),
-(8, NULL, 'section 8', 'image1.jpg', 'asdfasdf', 'd sfasf asfasdf', NULL, 'flex_row_reverse', '2021-12-30 15:12:03', '2021-12-30 15:12:03'),
-(9, NULL, 'section 8', 'image4.jpg', 'asfa sfas', 'fasfasf', NULL, NULL, '2021-12-30 15:12:03', '2021-12-30 15:12:03'),
-(10, NULL, 'corporate-branding', 'corporate-tile-1.jpg', 'Pride –', 'A professionally designed logo and Brand / Identity system will show that you are committed to presenting your company as a major contender in your market.', NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
-(11, NULL, 'corporate-branding', 'corporate-tile-2.jpg', 'Visibility –', 'Most prospective consumers / clients look for highly visible, well-defined businesses, and the “look and feel” of your identity plays a major role in their decision making process.', NULL, 'flex_row_reverse', '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
-(12, NULL, 'corporate-branding', 'corporate-tile-3.jpg', 'Pride –', 'A professionally designed logo and Brand / Identity system will show that you are committed to presenting your company as a major contender in your market.', NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
-(13, NULL, 'corporate-branding', 'corporate-tile-4.jpg', 'Visibility –', 'Most prospective consumers / clients look for highly visible, well-defined businesses, and the “look and feel” of your identity plays a major role in their decision making process.', NULL, 'flex_row_reverse', '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
-(14, NULL, 'corporate-branding', 'corporate-tile-5.jpg', 'Pride –', 'A professionally designed logo and Brand / Identity system will show that you are committed to presenting your company as a major contender in your market.', NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
-(15, NULL, 'corporate-branding', 'corporate-tile-6.jpg', 'Visibility –', 'Most prospective consumers / clients look for highly visible, well-defined businesses, and the “look and feel” of your identity plays a major role in their decision making process.', NULL, 'flex_row_reverse', '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
-(16, NULL, 'corporate-branding', 'corporate-tile-7.jpg', 'Pride –', 'A professionally designed logo and Brand / Identity system will show that you are committed to presenting your company as a major contender in your market.', NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
-(17, NULL, 'corporate-branding', 'corporate-tile-8.jpg', 'Visibility –', 'Most prospective consumers / clients look for highly visible, well-defined businesses, and the “look and feel” of your identity plays a major role in their decision making process.', NULL, 'flex_row_reverse', '2022-01-21 12:41:28', '2022-01-21 12:41:28');
+INSERT INTO `para_style_2` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `link`, `flex_row_reverse`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(4, 18, 'section 1', 'imaeg2.jpg', 'adfa', 'sasdfasdfa', NULL, 'flex_row_reverse', NULL, NULL, '2021-12-28 15:59:25', '2021-12-28 15:59:25'),
+(5, 18, 'section 1', 'image1.jpg', 'sfdafsd', 'afsdf', NULL, NULL, NULL, NULL, '2021-12-28 15:59:25', '2021-12-28 15:59:25'),
+(6, 18, 'section 1', 'image3.jpg', 'afadf', 'safasdf', NULL, 'flex_row_reverse', NULL, NULL, '2021-12-28 15:59:25', '2021-12-28 15:59:25'),
+(7, 18, 'section 1', 'image4.jpg', 'asdfasd', 'fasff', NULL, NULL, NULL, NULL, '2021-12-28 15:59:25', '2021-12-28 15:59:25'),
+(8, NULL, 'section 8', 'image1.jpg', 'asdfasdf', 'd sfasf asfasdf', NULL, 'flex_row_reverse', NULL, NULL, '2021-12-30 15:12:03', '2021-12-30 15:12:03'),
+(9, NULL, 'section 8', 'image4.jpg', 'asfa sfas', 'fasfasf', NULL, NULL, NULL, NULL, '2021-12-30 15:12:03', '2021-12-30 15:12:03'),
+(10, NULL, 'corporate-branding', 'corporate-tile-1.jpg', 'Pride –', 'A professionally designed logo and Brand / Identity system will show that you are committed to presenting your company as a major contender in your market.', NULL, NULL, NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
+(11, NULL, 'corporate-branding', 'corporate-tile-2.jpg', 'Visibility –', 'Most prospective consumers / clients look for highly visible, well-defined businesses, and the “look and feel” of your identity plays a major role in their decision making process.', NULL, 'flex_row_reverse', NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
+(12, NULL, 'corporate-branding', 'corporate-tile-3.jpg', 'Pride –', 'A professionally designed logo and Brand / Identity system will show that you are committed to presenting your company as a major contender in your market.', NULL, NULL, NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
+(13, NULL, 'corporate-branding', 'corporate-tile-4.jpg', 'Visibility –', 'Most prospective consumers / clients look for highly visible, well-defined businesses, and the “look and feel” of your identity plays a major role in their decision making process.', NULL, 'flex_row_reverse', NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
+(14, NULL, 'corporate-branding', 'corporate-tile-5.jpg', 'Pride –', 'A professionally designed logo and Brand / Identity system will show that you are committed to presenting your company as a major contender in your market.', NULL, NULL, NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
+(15, NULL, 'corporate-branding', 'corporate-tile-6.jpg', 'Visibility –', 'Most prospective consumers / clients look for highly visible, well-defined businesses, and the “look and feel” of your identity plays a major role in their decision making process.', NULL, 'flex_row_reverse', NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
+(16, NULL, 'corporate-branding', 'corporate-tile-7.jpg', 'Pride –', 'A professionally designed logo and Brand / Identity system will show that you are committed to presenting your company as a major contender in your market.', NULL, NULL, NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
+(17, NULL, 'corporate-branding', 'corporate-tile-8.jpg', 'Visibility –', 'Most prospective consumers / clients look for highly visible, well-defined businesses, and the “look and feel” of your identity plays a major role in their decision making process.', NULL, 'flex_row_reverse', NULL, NULL, '2022-01-21 12:41:28', '2022-01-21 12:41:28'),
+(18, NULL, 'Testing', 'bwlogo.gif', 'asdfasdf', 'We are logo design agency in Dubai with special expertise in logo design', NULL, 'f', 30, 30, '2022-02-26 08:00:33', '2022-02-26 08:00:33');
 
 -- --------------------------------------------------------
 
@@ -835,25 +1033,28 @@ CREATE TABLE `para_style_3` (
   `title` varchar(150) DEFAULT NULL,
   `paragraph` varchar(550) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `para_style_3`
 --
 
-INSERT INTO `para_style_3` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `link`, `created_at`, `updated_at`) VALUES
-(5, 18, 'section 1', 'imaeg2.jpg', 'asdfasdf', 'safasf', NULL, '2021-12-28 16:29:58', '2021-12-28 16:29:58'),
-(6, 18, 'section 1', 'image1.jpg', 'asdfasfa', 'sdfasfas', NULL, '2021-12-28 16:29:58', '2021-12-28 16:29:58'),
-(7, 18, 'section 1', 'image3.jpg', 'fasfas', 'fdasfdf', NULL, '2021-12-28 16:29:58', '2021-12-28 16:29:58'),
-(8, 18, 'section 1', 'image4.jpg', 'dfdasff', 'asdfasdf', NULL, '2021-12-28 16:29:58', '2021-12-28 16:29:58'),
-(9, NULL, 'section 8', 'image4.jpg', 'asdfa sdfas dfas', 'f asfasdff', NULL, '2021-12-30 15:12:28', '2021-12-30 15:12:28'),
-(10, NULL, 'section 8', 'image1.jpg', 'as dfasdf', 'f asdf', NULL, '2021-12-30 15:12:28', '2021-12-30 15:12:28'),
-(11, NULL, 'logo-design-04', 'design-detail-1.jpg', 'A Good Logo is a reflection of your values', 'Company logo or brand logo can create an impressive impact on every business. As it is said that every book is judged by its cover. Same thing goes with businesses and brands. If your cover (logo) says, “I’m so cheap that I got my friend to design my logo for my brand.” Then guess what, that’s how you and your brand will be perceived.. Cheap logo! Is that really how you want to promote your brand?', NULL, '2022-01-08 08:12:37', '2022-01-08 08:12:37'),
-(12, NULL, 'logo-design-04', 'design-detail-2.jpg', 'Corporate & Brand Logo Designing', 'All big and small organizations are intended to gain attention and stand out in the crowd. A great logo design will just do that itself. A strong logo can help set your brand apart. Imagine your logo appearing beside tons of others. You may not have to, since it happens all the time. Lots of companies agree to sponsor a portion of an event. In return they get their dime-sized logo inscribed on the back of each program. The question is would your logo attract attention in the same situation?', NULL, '2022-01-08 08:12:37', '2022-01-08 08:12:37'),
-(13, NULL, 'corporate-page', 'corporate-img-1.jpg', 'Benefits of Corporate Identity', 'Corporate Identity benefits an organization in myriad ways. An organization that invests in developing a solid corporate identity says to its customer “we are here to stay.” It’s a sign of longevity, which is not only attractive to customers, but also is desirable to potential investors. It’s an indicator that an is serious about being successful, that it is reliable in the industry.', NULL, '2022-01-18 11:48:38', '2022-01-18 11:48:38'),
-(14, NULL, 'corporate-page', 'corporate-img-2.jpg', 'The Importance of Corporate Identity', 'Basically, corporate and brand identities are an expression and reflection of an organizations’s culture, character, personality, and its products and services – inspiring trust with consumers, employees, suppliers, partners and investors. In the middle of the 20th century, the development of visual identity systems became mainstay in almost all branding initiatives.', NULL, '2022-01-18 11:48:38', '2022-01-18 11:48:38');
+INSERT INTO `para_style_3` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `link`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(5, 18, 'section 1', 'imaeg2.jpg', 'asdfasdf', 'safasf', NULL, NULL, NULL, '2021-12-28 16:29:58', '2021-12-28 16:29:58'),
+(6, 18, 'section 1', 'image1.jpg', 'asdfasfa', 'sdfasfas', NULL, NULL, NULL, '2021-12-28 16:29:58', '2021-12-28 16:29:58'),
+(7, 18, 'section 1', 'image3.jpg', 'fasfas', 'fdasfdf', NULL, NULL, NULL, '2021-12-28 16:29:58', '2021-12-28 16:29:58'),
+(8, 18, 'section 1', 'image4.jpg', 'dfdasff', 'asdfasdf', NULL, NULL, NULL, '2021-12-28 16:29:58', '2021-12-28 16:29:58'),
+(9, NULL, 'section 8', 'image4.jpg', 'asdfa sdfas dfas', 'f asfasdff', NULL, NULL, NULL, '2021-12-30 15:12:28', '2021-12-30 15:12:28'),
+(10, NULL, 'section 8', 'image1.jpg', 'as dfasdf', 'f asdf', NULL, NULL, NULL, '2021-12-30 15:12:28', '2021-12-30 15:12:28'),
+(11, NULL, 'logo-design-04', 'design-detail-1.jpg', 'A Good Logo is a reflection of your values', 'Company logo or brand logo can create an impressive impact on every business. As it is said that every book is judged by its cover. Same thing goes with businesses and brands. If your cover (logo) says, “I’m so cheap that I got my friend to design my logo for my brand.” Then guess what, that’s how you and your brand will be perceived.. Cheap logo! Is that really how you want to promote your brand?', NULL, NULL, NULL, '2022-01-08 08:12:37', '2022-01-08 08:12:37'),
+(12, NULL, 'logo-design-04', 'design-detail-2.jpg', 'Corporate & Brand Logo Designing', 'All big and small organizations are intended to gain attention and stand out in the crowd. A great logo design will just do that itself. A strong logo can help set your brand apart. Imagine your logo appearing beside tons of others. You may not have to, since it happens all the time. Lots of companies agree to sponsor a portion of an event. In return they get their dime-sized logo inscribed on the back of each program. The question is would your logo attract attention in the same situation?', NULL, NULL, NULL, '2022-01-08 08:12:37', '2022-01-08 08:12:37'),
+(13, NULL, 'corporate-page', 'corporate-img-1.jpg', 'Benefits of Corporate Identity', 'Corporate Identity benefits an organization in myriad ways. An organization that invests in developing a solid corporate identity says to its customer “we are here to stay.” It’s a sign of longevity, which is not only attractive to customers, but also is desirable to potential investors. It’s an indicator that an is serious about being successful, that it is reliable in the industry.', NULL, NULL, NULL, '2022-01-18 11:48:38', '2022-01-18 11:48:38'),
+(14, NULL, 'corporate-page', 'corporate-img-2.jpg', 'The Importance of Corporate Identity', 'Basically, corporate and brand identities are an expression and reflection of an organizations’s culture, character, personality, and its products and services – inspiring trust with consumers, employees, suppliers, partners and investors. In the middle of the 20th century, the development of visual identity systems became mainstay in almost all branding initiatives.', NULL, NULL, NULL, '2022-01-18 11:48:38', '2022-01-18 11:48:38'),
+(15, NULL, 'testing section', 'b.png', 'asdfasdf', 'asdfasdf', NULL, 30, 30, '2022-02-26 07:50:14', '2022-02-26 07:50:14');
 
 -- --------------------------------------------------------
 
@@ -866,28 +1067,30 @@ CREATE TABLE `para_style_4` (
   `page_id` int(11) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
-  `title` text,
-  `paragraph` text,
+  `title` text DEFAULT NULL,
+  `paragraph` text DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `para_style_4`
 --
 
-INSERT INTO `para_style_4` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `link`, `created_at`, `updated_at`) VALUES
-(5, 18, 'section 1', NULL, 'asdfasdf1234', 'asdfasdf', NULL, '2021-12-28 16:48:10', '2021-12-28 16:48:10'),
-(6, 18, 'section 1', NULL, 'sadfasdfa', 'sadfasdfa', NULL, '2021-12-28 16:48:10', '2021-12-28 16:48:10'),
-(7, NULL, 'section 8', NULL, 'asdfsda fsdfsf', NULL, NULL, '2021-12-30 15:12:47', '2021-12-30 15:12:47'),
-(8, NULL, 'section 8', NULL, 'as fsf asfasdf', NULL, NULL, '2021-12-30 15:12:47', '2021-12-30 15:12:47'),
-(9, NULL, 'section for logo design', NULL, 'A creative logo gets your brand or business noticed', NULL, NULL, '2022-01-08 07:54:48', '2022-01-08 07:54:48'),
-(10, NULL, 'vehicle-page', NULL, 'We have more than 10 years experience in designing corporate identity', NULL, NULL, '2022-01-18 10:44:51', '2022-01-18 10:44:51'),
-(11, NULL, 'brand-book-page', NULL, 'Branding is important. To put it simply, your brand illustrates your promise to the customer. It conveys what can be expected from your product or service, and sets you apart from your competitors. Your brand is not only who you are, but who you strive to become and who people perceive you to be. More importantly, this should be based to some extent on who your target customers want and need you to be.', NULL, NULL, '2022-01-18 11:32:45', '2022-01-18 11:32:45'),
-(12, NULL, 'logo-design-rough', NULL, 'We also provide Express Service', NULL, NULL, '2022-01-18 14:48:21', '2022-01-18 14:48:21'),
-(13, NULL, 'corporate-identity', NULL, 'Brand Identity Design is the creation of the visual identity, “The Branding”, for a company and/or its clients. As Brand Identity Designers we create everything from logos and marketing collateral, to promotional materials, and even advertising campaigns that establish a recognizable corporate identity.', NULL, NULL, '2022-01-18 14:58:58', '2022-01-18 14:58:58'),
-(14, NULL, 'corporate-branding', NULL, 'Brand Identity Design is the creation of the visual identity, “The Branding”, for a company and/or its clients. As Brand Identity Designers we create everything from logos and marketing collateral, to promotional materials, and even advertising campaigns that establish a recognizable corporate identity.', NULL, NULL, '2022-01-21 12:34:03', '2022-01-21 12:34:03');
+INSERT INTO `para_style_4` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `link`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(5, 18, 'section 1', NULL, 'asdfasdf1234', 'asdfasdf', NULL, NULL, NULL, '2021-12-28 16:48:10', '2021-12-28 16:48:10'),
+(6, 18, 'section 1', NULL, 'sadfasdfa', 'sadfasdfa', NULL, NULL, NULL, '2021-12-28 16:48:10', '2021-12-28 16:48:10'),
+(7, NULL, 'section 8', NULL, 'asdfsda fsdfsf', NULL, NULL, NULL, NULL, '2021-12-30 15:12:47', '2021-12-30 15:12:47'),
+(8, NULL, 'section 8', NULL, 'as fsf asfasdf', NULL, NULL, NULL, NULL, '2021-12-30 15:12:47', '2021-12-30 15:12:47'),
+(9, NULL, 'section for logo design', NULL, 'A creative logo gets your brand or business noticed', NULL, NULL, NULL, NULL, '2022-01-08 07:54:48', '2022-01-08 07:54:48'),
+(10, NULL, 'vehicle-page', NULL, 'We have more than 10 years experience in designing corporate identity', NULL, NULL, NULL, NULL, '2022-01-18 10:44:51', '2022-01-18 10:44:51'),
+(11, NULL, 'brand-book-page', NULL, 'Branding is important. To put it simply, your brand illustrates your promise to the customer. It conveys what can be expected from your product or service, and sets you apart from your competitors. Your brand is not only who you are, but who you strive to become and who people perceive you to be. More importantly, this should be based to some extent on who your target customers want and need you to be.', NULL, NULL, NULL, NULL, '2022-01-18 11:32:45', '2022-01-18 11:32:45'),
+(12, NULL, 'logo-design-rough', NULL, 'We also provide Express Service', NULL, NULL, NULL, NULL, '2022-01-18 14:48:21', '2022-01-18 14:48:21'),
+(13, NULL, 'corporate-identity', NULL, 'Brand Identity Design is the creation of the visual identity, “The Branding”, for a company and/or its clients. As Brand Identity Designers we create everything from logos and marketing collateral, to promotional materials, and even advertising campaigns that establish a recognizable corporate identity.', NULL, NULL, NULL, NULL, '2022-01-18 14:58:58', '2022-01-18 14:58:58'),
+(14, NULL, 'corporate-branding', NULL, 'Brand Identity Design is the creation of the visual identity, “The Branding”, for a company and/or its clients. As Brand Identity Designers we create everything from logos and marketing collateral, to promotional materials, and even advertising campaigns that establish a recognizable corporate identity.', NULL, NULL, NULL, NULL, '2022-01-21 12:34:03', '2022-01-21 12:34:03');
 
 -- --------------------------------------------------------
 
@@ -903,25 +1106,27 @@ CREATE TABLE `para_style_5` (
   `image` varchar(150) DEFAULT NULL,
   `title` varchar(150) DEFAULT NULL,
   `paragraph` varchar(150) DEFAULT NULL,
-  `para_left` text,
+  `para_left` text DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `heading` text,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `heading` text DEFAULT NULL,
   `heading_size` varchar(50) DEFAULT NULL,
-  `text_left` text,
-  `text_right` text
+  `text_left` text DEFAULT NULL,
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `text_right` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `para_style_5`
 --
 
-INSERT INTO `para_style_5` (`id`, `page_id`, `name`, `style`, `image`, `title`, `paragraph`, `para_left`, `link`, `created_at`, `updated_at`, `heading`, `heading_size`, `text_left`, `text_right`) VALUES
-(11, NULL, 'For Agency page', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-08 02:44:10', '2022-01-08 02:44:10', 'We Design brands and re-engineer brand experiences for growth and positive social impact.', NULL, 'as competition creates infinite choices, companies look for ways to connect emotionally with customers', 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace'),
-(12, NULL, 'packaging-design', 'style2', NULL, NULL, NULL, NULL, NULL, '2022-02-04 04:58:38', '2022-02-04 04:58:38', NULL, 'h4', 'Design that motivates buyer to believe and buy your brand. We create successful packaging for brands in progress. We work with Brand vendor to craft a brand vision that improves awareness and presentation in the market.', 'Creative Drop solves branding issues for regional and global consumer goods brands in electronics, technology, healthcare, food, snack food, beverage, personal care and home care. We deliver concepts that break through the clutter to: Launch a new brand; Evolve your brand; Influence at shelf. <br><br>  We help you connect with and motivate shoppers at point-of-sale, with design that integrates the brand, the consumer’s personal life, and market trends.'),
-(13, NULL, 'testing', 'style1', NULL, NULL, NULL, NULL, NULL, '2022-02-04 05:00:44', '2022-02-04 05:00:44', NULL, NULL, 'Design that motivates buyer to believe and buy your brand. We create successful packaging for brands in progress. We work with Brand vendor to craft a brand vision that improves awareness and presentation in the market.', 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace. People fall in love with brands, trust them, and believe in their superiority. How a brand is perceived affects its success, regardless of whether it’s a start-up, a nonprofit, or a product.'),
-(14, NULL, 'testingtwo', 'style2', NULL, NULL, NULL, NULL, NULL, '2022-02-04 07:53:20', '2022-02-04 07:53:20', NULL, NULL, 'As competition creates infinite choices, companies look for ways to connect emotionally with customers.', 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace. People fall in love with brands, trust them, and believe in their superiority. How a brand is perceived affects its success, regardless of whether it’s a start-up, a nonprofit, or a product.');
+INSERT INTO `para_style_5` (`id`, `page_id`, `name`, `style`, `image`, `title`, `paragraph`, `para_left`, `link`, `created_at`, `updated_at`, `heading`, `heading_size`, `text_left`, `padding_top`, `padding_bottom`, `text_right`) VALUES
+(11, NULL, 'For Agency page', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-08 02:44:10', '2022-01-08 02:44:10', 'We Design brands and re-engineer brand experiences for growth and positive social impact.', NULL, 'as competition creates infinite choices, companies look for ways to connect emotionally with customers', NULL, NULL, 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace'),
+(12, NULL, 'packaging-design', 'style2', NULL, NULL, NULL, NULL, NULL, '2022-02-04 04:58:38', '2022-02-04 04:58:38', NULL, 'h4', 'Design that motivates buyer to believe and buy your brand. We create successful packaging for brands in progress. We work with Brand vendor to craft a brand vision that improves awareness and presentation in the market.', NULL, NULL, 'Creative Drop solves branding issues for regional and global consumer goods brands in electronics, technology, healthcare, food, snack food, beverage, personal care and home care. We deliver concepts that break through the clutter to: Launch a new brand; Evolve your brand; Influence at shelf. <br><br>  We help you connect with and motivate shoppers at point-of-sale, with design that integrates the brand, the consumer’s personal life, and market trends.'),
+(13, NULL, 'testing', 'style1', NULL, NULL, NULL, NULL, NULL, '2022-02-04 05:00:44', '2022-02-04 05:00:44', NULL, NULL, 'Design that motivates buyer to believe and buy your brand. We create successful packaging for brands in progress. We work with Brand vendor to craft a brand vision that improves awareness and presentation in the market.', NULL, NULL, 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace. People fall in love with brands, trust them, and believe in their superiority. How a brand is perceived affects its success, regardless of whether it’s a start-up, a nonprofit, or a product.'),
+(14, NULL, 'testingtwo', 'style2', NULL, NULL, NULL, NULL, NULL, '2022-02-04 07:53:20', '2022-02-04 07:53:20', NULL, NULL, 'As competition creates infinite choices, companies look for ways to connect emotionally with customers.', NULL, NULL, 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace. People fall in love with brands, trust them, and believe in their superiority. How a brand is perceived affects its success, regardless of whether it’s a start-up, a nonprofit, or a product.');
 
 -- --------------------------------------------------------
 
@@ -949,38 +1154,41 @@ CREATE TABLE `requests` (
   `title` varchar(150) DEFAULT NULL,
   `btn_label` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `name`, `style`, `page_id`, `title`, `btn_label`, `link`, `created_at`, `updated_at`) VALUES
-(4, 'section 1', 'style4', NULL, 'asdfasdfasd', 'Contact us', NULL, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
-(5, 'section 1', '', 18, 'fasdfasd', NULL, NULL, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
-(6, 'section 1', '', 18, 'asdfasdfa', NULL, NULL, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
-(7, 'section 1', '', 18, 'sdfasdfasdfas', NULL, NULL, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
-(8, 'section 1', '', 18, 'dfadsfsdf', NULL, NULL, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
-(9, 'request group 8', '', NULL, 'asdfa sdfasdf', NULL, NULL, '2021-12-30 15:08:04', '2021-12-30 15:08:04'),
-(10, 'request group 8', '', NULL, 'safsaf', NULL, NULL, '2021-12-30 15:08:04', '2021-12-30 15:08:04'),
-(11, 'agency page', 'style1', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for Meeting', NULL, '2022-01-07 09:33:06', '2022-01-07 09:33:06'),
-(12, 'For agency page', '', NULL, 'Meet our creative and expert team to assist you.', NULL, NULL, '2022-01-08 03:01:58', '2022-01-08 03:01:58'),
-(13, 'custom-proposal', 'style1', NULL, 'Are you looking for a customize proposal?', 'Request for a meeting', NULL, '2022-01-18 07:16:06', '2022-01-18 07:16:06'),
-(14, 'logo-expertise', '', NULL, 'We are logo design agency in Dubai with special expertise in logo designing.', NULL, NULL, '2022-01-18 07:31:57', '2022-01-18 07:31:57'),
-(15, 'corporate-page', '', NULL, 'We have more than 10 years experience in designing corporate identity', NULL, NULL, '2022-01-18 11:50:17', '2022-01-18 11:50:17'),
-(16, 'uniform-branding', '', NULL, 'Meet our creative and expert team to assist you.', NULL, NULL, '2022-01-21 11:59:17', '2022-01-21 11:59:17'),
-(17, 'logo-design', '', NULL, 'Meet our creative and expert team to assist you.', NULL, NULL, '2022-01-21 12:27:35', '2022-01-21 12:27:35'),
-(18, 'meet', '', NULL, 'Meet our creative and expert team to assist you.', NULL, NULL, '2022-01-21 12:45:52', '2022-01-21 12:45:52'),
-(19, 'newone', 'style1', NULL, 'title new one', 'request a meet', NULL, '2022-02-04 07:19:35', '2022-02-04 07:19:35'),
-(20, 'logo-help', 'style4', NULL, 'Want help to decide the best style of logo?', 'Contact Now', NULL, '2022-02-04 09:27:10', '2022-02-04 09:27:10'),
-(21, 'meeting', 'style2', NULL, 'Meet our creative and expert team to assist you.', 'Let\'s meet now', NULL, '2022-02-04 09:40:17', '2022-02-04 09:40:17'),
-(22, 'project-disc', 'style3', NULL, 'Let\'s discuss your project', 'Get in touch', NULL, '2022-02-04 09:48:43', '2022-02-04 09:48:43'),
-(23, 'corporate-identity', 'style4', NULL, 'Connect with our team to get expert advise and custom quote', 'Get Started', NULL, '2022-02-05 10:38:30', '2022-02-05 10:38:30'),
-(24, 'vehicle-branding', 'style4', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for a meeting', NULL, '2022-02-05 11:46:54', '2022-02-05 11:46:54'),
-(25, 'uniform-branding', 'style4', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for a meeting', NULL, '2022-02-05 12:06:28', '2022-02-05 12:06:28'),
-(26, 'uniform-branding', 'style4', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for a meeting', NULL, '2022-02-05 12:10:32', '2022-02-05 12:10:32');
+INSERT INTO `requests` (`id`, `name`, `style`, `page_id`, `title`, `btn_label`, `link`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(4, 'section 1', 'style4', NULL, 'asdfasdfasd', 'Contact us', NULL, NULL, NULL, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
+(5, 'section 1', '', 18, 'fasdfasd', NULL, NULL, NULL, NULL, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
+(6, 'section 1', '', 18, 'asdfasdfa', NULL, NULL, NULL, NULL, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
+(7, 'section 1', '', 18, 'sdfasdfasdfas', NULL, NULL, NULL, NULL, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
+(8, 'section 1', '', 18, 'dfadsfsdf', NULL, NULL, NULL, NULL, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
+(9, 'request group 8', '', NULL, 'asdfa sdfasdf', NULL, NULL, NULL, NULL, '2021-12-30 15:08:04', '2021-12-30 15:08:04'),
+(10, 'request group 8', '', NULL, 'safsaf', NULL, NULL, NULL, NULL, '2021-12-30 15:08:04', '2021-12-30 15:08:04'),
+(11, 'agency page', 'style1', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for Meeting', NULL, NULL, NULL, '2022-01-07 09:33:06', '2022-01-07 09:33:06'),
+(12, 'For agency page', '', NULL, 'Meet our creative and expert team to assist you.', NULL, NULL, NULL, NULL, '2022-01-08 03:01:58', '2022-01-08 03:01:58'),
+(13, 'custom-proposal', 'style1', NULL, 'Are you looking for a customize proposal?', 'Request for a meeting', NULL, NULL, NULL, '2022-01-18 07:16:06', '2022-01-18 07:16:06'),
+(14, 'logo-expertise', '', NULL, 'We are logo design agency in Dubai with special expertise in logo designing.', NULL, NULL, NULL, NULL, '2022-01-18 07:31:57', '2022-01-18 07:31:57'),
+(15, 'corporate-page', '', NULL, 'We have more than 10 years experience in designing corporate identity', NULL, NULL, NULL, NULL, '2022-01-18 11:50:17', '2022-01-18 11:50:17'),
+(16, 'uniform-branding', '', NULL, 'Meet our creative and expert team to assist you.', NULL, NULL, NULL, NULL, '2022-01-21 11:59:17', '2022-01-21 11:59:17'),
+(17, 'logo-design', '', NULL, 'Meet our creative and expert team to assist you.', NULL, NULL, NULL, NULL, '2022-01-21 12:27:35', '2022-01-21 12:27:35'),
+(18, 'meet', '', NULL, 'Meet our creative and expert team to assist you.', NULL, NULL, NULL, NULL, '2022-01-21 12:45:52', '2022-01-21 12:45:52'),
+(19, 'newone', 'style1', NULL, 'title new one', 'request a meet', NULL, NULL, NULL, '2022-02-04 07:19:35', '2022-02-04 07:19:35'),
+(20, 'logo-help', 'style4', NULL, 'Want help to decide the best style of logo?', 'Contact Now', NULL, NULL, NULL, '2022-02-04 09:27:10', '2022-02-04 09:27:10'),
+(21, 'meeting', 'style2', NULL, 'Meet our creative and expert team to assist you.', 'Let\'s meet now', NULL, NULL, NULL, '2022-02-04 09:40:17', '2022-02-04 09:40:17'),
+(22, 'project-disc', 'style3', NULL, 'Let\'s discuss your project', 'Get in touch', NULL, NULL, NULL, '2022-02-04 09:48:43', '2022-02-04 09:48:43'),
+(23, 'corporate-identity', 'style4', NULL, 'Connect with our team to get expert advise and custom quote', 'Get Started', NULL, NULL, NULL, '2022-02-05 10:38:30', '2022-02-05 10:38:30'),
+(24, 'vehicle-branding', 'style4', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for a meeting', NULL, NULL, NULL, '2022-02-05 11:46:54', '2022-02-05 11:46:54'),
+(25, 'uniform-branding', 'style4', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for a meeting', NULL, NULL, NULL, '2022-02-05 12:06:28', '2022-02-05 12:06:28'),
+(26, 'uniform-branding', 'style4', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for a meeting', NULL, NULL, NULL, '2022-02-05 12:10:32', '2022-02-05 12:10:32'),
+(27, 'padding', 'style1', NULL, 'title new one', 'request a meet', NULL, 30, 30, '2022-02-25 20:26:16', '2022-02-25 20:26:16');
 
 -- --------------------------------------------------------
 
@@ -998,27 +1206,29 @@ CREATE TABLE `section_15` (
   `image` varchar(150) DEFAULT NULL,
   `text` varchar(250) DEFAULT NULL,
   `flex_row_reverse` varchar(160) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `section_15`
 --
 
-INSERT INTO `section_15` (`id`, `page_id`, `name`, `style`, `heading1`, `heading2`, `image`, `text`, `flex_row_reverse`, `created_at`, `updated_at`) VALUES
-(7, NULL, 'Vehicle Branding Design', NULL, 'Vehicle Branding Design', 'Corporate Identity is actually the corporate image for every business', 'No-image-found.jpg', 'Make a Brand Manual for your organization', 'flex_row_reverse', '2021-12-31 08:07:06', '2021-12-31 08:07:06'),
-(10, NULL, 'Vehicle Branding Design', NULL, 'Make a Brand Manual for your organization', NULL, 'spinner.gif', NULL, NULL, '2022-01-16 20:00:53', '2022-01-16 20:00:53'),
-(11, NULL, 'Vehicle Branding Design', NULL, 'Retail & Customer Facing Staff Uniform Branding', NULL, 'guideline-book-2.jpg', NULL, 'flex_row_reverse', '2022-01-16 20:02:09', '2022-01-16 20:02:09'),
-(12, NULL, 'vehicle-page', 'style2', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'vehicle-box-1.jpg', NULL, NULL, '2022-01-18 09:55:57', '2022-01-18 09:55:57'),
-(15, NULL, 'brand-book-page', 'style1', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'guideline-book-1.jpg', NULL, NULL, '2022-01-18 11:38:14', '2022-01-18 11:38:14'),
-(16, NULL, 'brand-book-page', 'style1', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'guideline-book-2.jpg', NULL, 'flex_row_reverse', '2022-01-18 11:38:14', '2022-01-18 11:38:14'),
-(17, NULL, 'brand-book-page', NULL, 'Retail & Customer Facing Staff Uniform Branding', NULL, 'guideline-book-3.jpg', NULL, NULL, '2022-01-18 11:38:14', '2022-01-18 11:38:14'),
-(18, NULL, 'uniform-branding', 'style3', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'uniform-box-1.jpg', NULL, NULL, '2022-02-03 14:07:49', '2022-02-03 14:07:49'),
-(19, NULL, 'uniform-branding', 'style3', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'uniform-box-1.jpg', NULL, 'flex_row_reverse', '2022-02-03 14:07:49', '2022-02-03 14:07:49'),
-(20, NULL, 'uniform-branding', 'style3', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'uniform-box-1.jpg', NULL, NULL, '2022-02-03 14:07:49', '2022-02-03 14:07:49'),
-(22, NULL, 'vehicle-page', 'style2', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'vehicle-box-2.jpg', NULL, 'flex_row_reverse', '2022-02-05 11:50:10', '2022-02-05 11:50:10'),
-(23, NULL, 'vehicle-page', 'style2', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'vehicle-box-1.jpg', NULL, NULL, '2022-02-05 11:52:52', '2022-02-05 11:52:52');
+INSERT INTO `section_15` (`id`, `page_id`, `name`, `style`, `heading1`, `heading2`, `image`, `text`, `flex_row_reverse`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(7, NULL, 'Vehicle Branding Design', 'style2', 'Vehicle Branding Design', 'Corporate Identity is actually the corporate image for every business', 'No-image-found.jpg', 'Make a Brand Manual for your organization', 'flex_row_reverse', NULL, NULL, '2021-12-31 08:07:06', '2021-12-31 08:07:06'),
+(10, NULL, 'Vehicle Branding Design', 'style2', 'Make a Brand Manual for your organization', NULL, 'spinner.gif', NULL, NULL, NULL, NULL, '2022-01-16 20:00:53', '2022-01-16 20:00:53'),
+(11, NULL, 'Vehicle Branding Design', NULL, 'Retail & Customer Facing Staff Uniform Branding', NULL, 'guideline-book-2.jpg', NULL, 'flex_row_reverse', NULL, NULL, '2022-01-16 20:02:09', '2022-01-16 20:02:09'),
+(12, NULL, 'vehicle-page', 'style2', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'vehicle-box-1.jpg', NULL, NULL, NULL, NULL, '2022-01-18 09:55:57', '2022-01-18 09:55:57'),
+(15, NULL, 'brand-book-page', 'style1', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'guideline-book-1.jpg', NULL, NULL, NULL, NULL, '2022-01-18 11:38:14', '2022-01-18 11:38:14'),
+(16, NULL, 'brand-book-page', 'style1', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'guideline-book-2.jpg', NULL, 'flex_row_reverse', NULL, NULL, '2022-01-18 11:38:14', '2022-01-18 11:38:14'),
+(17, NULL, 'brand-book-page', 'style1', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'guideline-book-3.jpg', NULL, NULL, NULL, NULL, '2022-01-18 11:38:14', '2022-01-18 11:38:14'),
+(18, NULL, 'uniform-branding', 'style3', 'Retail & Customer Facing Staff Uniform Branding ONE', NULL, 'uniform-box-1.jpg', NULL, NULL, NULL, NULL, '2022-02-03 14:07:49', '2022-02-03 14:07:49'),
+(19, NULL, 'uniform-branding', 'style3', 'Retail & Customer Facing Staff Uniform Branding TWO', NULL, 'uniform-box-1.jpg', NULL, 'flex_row_reverse', NULL, NULL, '2022-02-03 14:07:49', '2022-02-03 14:07:49'),
+(20, NULL, 'uniform-branding', 'style3', 'Retail & Customer Facing Staff Uniform Branding THREE', NULL, 'uniform-box-1.jpg', NULL, NULL, NULL, NULL, '2022-02-03 14:07:49', '2022-02-03 14:07:49'),
+(22, NULL, 'vehicle-page', 'style2', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'vehicle-box-2.jpg', NULL, 'flex_row_reverse', NULL, NULL, '2022-02-05 11:50:10', '2022-02-05 11:50:10'),
+(23, NULL, 'vehicle-page', 'style2', 'Retail & Customer Facing Staff Uniform Branding', NULL, 'vehicle-box-1.jpg', NULL, NULL, NULL, NULL, '2022-02-05 11:52:52', '2022-02-05 11:52:52');
 
 -- --------------------------------------------------------
 
@@ -1031,30 +1241,32 @@ CREATE TABLE `section_16` (
   `page_id` int(11) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
-  `text` text,
+  `text` text DEFAULT NULL,
   `heading1` varchar(150) DEFAULT NULL,
   `heading2` varchar(150) DEFAULT NULL,
   `heading` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `section_16`
 --
 
-INSERT INTO `section_16` (`id`, `page_id`, `image`, `name`, `text`, `heading1`, `heading2`, `heading`, `created_at`, `updated_at`) VALUES
-(2, 18, 'image1.jpg', 'section 1', 'asdfas', NULL, NULL, NULL, '2021-12-28 21:39:24', '2021-12-28 21:39:24'),
-(3, 18, 'image4.jpg', 'section 1', 'asfdasfafsd', NULL, NULL, NULL, '2021-12-28 21:39:24', '2021-12-28 21:39:24'),
-(4, 18, 'No-image-found.jpg', 'section 1', 'asdfasdf', NULL, NULL, 'sadfasdf', '2021-12-28 21:45:09', '2021-12-28 21:45:09'),
-(6, 18, 'No-image-found.jpg', 'section 2', 'dfasfd', NULL, NULL, 'sdfasdfa', '2021-12-28 21:45:09', '2021-12-28 21:45:09'),
-(7, NULL, 'image1.jpg', 'section 9', 'asdf asdfas', NULL, NULL, 'dfas fsdf', '2021-12-30 15:14:05', '2021-12-30 15:14:05'),
-(8, NULL, 'imaeg2.jpg', 'section 9', 'adsfasfs', NULL, NULL, 'f asfsfdasdf', '2021-12-30 15:14:05', '2021-12-30 15:14:05'),
-(9, NULL, 'image4.jpg', 'section 9', 'asfddfs', NULL, NULL, 'fasfsf a', '2021-12-30 15:14:05', '2021-12-30 15:14:05'),
-(10, NULL, 'logo-box-1.svg', 'logo-design-section-12', 'We collect a brief about your company, products, services, business activity, clients and Target Industry. Then we start creative content writing with the perspective of sales and marketing. The best professional content writing can help and motivate the buyer, client or customer to take an action. It builds trust between you and your clients.', NULL, NULL, '1. Provide Your Logo Brief', '2022-01-08 09:34:06', '2022-01-08 09:34:06'),
-(11, NULL, 'logo-box-2.svg', 'logo-design-section-12', 'We do a short online survey about your competitors and clients. Then we start designing the logo. We provide 12 to 15 different design options to the client. Client can select any 3 option. Client can ask for Modification, Editing or even merging of any selected options. After changes and modification client will received revised 6 to 8 logo design form the selected options.', NULL, NULL, '2. Design Process', '2022-01-08 09:34:06', '2022-01-08 09:34:06'),
-(12, NULL, 'logo-box-3.svg', 'logo-design-section-12', 'Once you receive 2nd round logo design options. Just select your final logo. After Approval we will send you your logo original file including all guidelines and pantone codes. We will include black and white option too. We have express charges for over night logo deign.', NULL, NULL, '3. Design Changes & Modifications', '2022-01-08 09:34:06', '2022-01-08 09:34:06'),
-(13, NULL, 'logo-box-4.svg', 'logo-design-section-12', 'You will get your logo in multi formats such as: PDF, Illustrator, JPG and EPS including basic color and font guideline.', NULL, NULL, '4. Final Delivery of Logo', '2022-01-08 09:34:07', '2022-01-08 09:34:07');
+INSERT INTO `section_16` (`id`, `page_id`, `image`, `name`, `text`, `heading1`, `heading2`, `heading`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(2, 18, 'image1.jpg', 'section 1', 'asdfas', NULL, NULL, NULL, NULL, NULL, '2021-12-28 21:39:24', '2021-12-28 21:39:24'),
+(3, 18, 'image4.jpg', 'section 1', 'asfdasfafsd', NULL, NULL, NULL, NULL, NULL, '2021-12-28 21:39:24', '2021-12-28 21:39:24'),
+(4, 18, 'No-image-found.jpg', 'section 1', 'asdfasdf', NULL, NULL, 'sadfasdf', NULL, NULL, '2021-12-28 21:45:09', '2021-12-28 21:45:09'),
+(6, 18, 'No-image-found.jpg', 'section 2', 'dfasfd', NULL, NULL, 'sdfasdfa', NULL, NULL, '2021-12-28 21:45:09', '2021-12-28 21:45:09'),
+(7, NULL, 'image1.jpg', 'section 9', 'asdf asdfas', NULL, NULL, 'dfas fsdf', NULL, NULL, '2021-12-30 15:14:05', '2021-12-30 15:14:05'),
+(8, NULL, 'imaeg2.jpg', 'section 9', 'adsfasfs', NULL, NULL, 'f asfsfdasdf', NULL, NULL, '2021-12-30 15:14:05', '2021-12-30 15:14:05'),
+(9, NULL, 'image4.jpg', 'section 9', 'asfddfs', NULL, NULL, 'fasfsf a', NULL, NULL, '2021-12-30 15:14:05', '2021-12-30 15:14:05'),
+(10, NULL, 'logo-box-1.svg', 'logo-design-section-12', 'We collect a brief about your company, products, services, business activity, clients and Target Industry. Then we start creative content writing with the perspective of sales and marketing. The best professional content writing can help and motivate the buyer, client or customer to take an action. It builds trust between you and your clients.', NULL, NULL, '1. Provide Your Logo Brief', NULL, NULL, '2022-01-08 09:34:06', '2022-01-08 09:34:06'),
+(11, NULL, 'logo-box-2.svg', 'logo-design-section-12', 'We do a short online survey about your competitors and clients. Then we start designing the logo. We provide 12 to 15 different design options to the client. Client can select any 3 option. Client can ask for Modification, Editing or even merging of any selected options. After changes and modification client will received revised 6 to 8 logo design form the selected options.', NULL, NULL, '2. Design Process', NULL, NULL, '2022-01-08 09:34:06', '2022-01-08 09:34:06'),
+(12, NULL, 'logo-box-3.svg', 'logo-design-section-12', 'Once you receive 2nd round logo design options. Just select your final logo. After Approval we will send you your logo original file including all guidelines and pantone codes. We will include black and white option too. We have express charges for over night logo deign.', NULL, NULL, '3. Design Changes & Modifications', NULL, NULL, '2022-01-08 09:34:06', '2022-01-08 09:34:06'),
+(13, NULL, 'logo-box-4.svg', 'logo-design-section-12', 'You will get your logo in multi formats such as: PDF, Illustrator, JPG and EPS including basic color and font guideline.', NULL, NULL, '4. Final Delivery of Logo', NULL, NULL, '2022-01-08 09:34:07', '2022-01-08 09:34:07');
 
 -- --------------------------------------------------------
 
@@ -1068,21 +1280,23 @@ CREATE TABLE `section_17` (
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
   `title` varchar(150) DEFAULT NULL,
-  `paragraph` text,
+  `paragraph` text DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `section_17`
 --
 
-INSERT INTO `section_17` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `link`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'One', NULL, NULL, 'testing paragraph', NULL, '2021-12-31 06:13:38', '2021-12-31 06:13:38'),
-(2, NULL, 'logo-expertise', NULL, NULL, 'We are logo design agency in Dubai with special expertise in logo designing.', NULL, '2022-01-18 07:34:44', '2022-01-18 07:34:44'),
-(3, NULL, 'corporate-page', NULL, NULL, 'We have more than 10 years experience in designing corporate identity', NULL, '2022-01-18 11:52:54', '2022-01-18 11:52:54'),
-(4, NULL, 'packaging-design', NULL, NULL, 'We have more than 10 years experience in designing corporate identity', NULL, '2022-01-21 13:05:57', '2022-01-21 13:05:57');
+INSERT INTO `section_17` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `link`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'One', NULL, NULL, 'testing paragraph', NULL, NULL, NULL, '2021-12-31 06:13:38', '2021-12-31 06:13:38'),
+(2, NULL, 'logo-expertise', NULL, NULL, 'We are logo design agency in Dubai with special expertise in logo designing.', NULL, 30, 30, '2022-01-18 07:34:44', '2022-01-18 07:34:44'),
+(3, NULL, 'corporate-page', NULL, NULL, 'We have more than 10 years experience in designing corporate identity', NULL, 30, 30, '2022-01-18 11:52:54', '2022-01-18 11:52:54'),
+(4, NULL, 'packaging-design', NULL, NULL, 'We have more than 10 years experience in designing corporate identity', NULL, NULL, NULL, '2022-01-21 13:05:57', '2022-01-21 13:05:57');
 
 -- --------------------------------------------------------
 
@@ -1100,25 +1314,28 @@ CREATE TABLE `section_18` (
   `headingone` varchar(150) DEFAULT NULL,
   `headingtwo` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `section_18`
 --
 
-INSERT INTO `section_18` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `headingone`, `headingtwo`, `link`, `created_at`, `updated_at`) VALUES
-(5, NULL, 'Logo Design 2', 'No-image-found.jpg', NULL, NULL, 'Logo Design 2', 'Corporate Design', NULL, '2021-12-31 12:06:26', '2021-12-31 12:06:26'),
-(7, NULL, 'corporate 2', 'No-image-found.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, '2021-12-31 12:29:29', '2021-12-31 12:29:29'),
-(8, NULL, 'corporate 2', 'imaeg2.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, '2021-12-31 12:29:29', '2021-12-31 12:29:29'),
-(9, NULL, 'corporate 2', 'image3.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, '2021-12-31 12:29:29', '2021-12-31 12:29:29'),
-(10, NULL, 'corporate 2', 'spinner.gif', NULL, NULL, 'heading one', 'heading two', NULL, '2021-12-31 12:29:29', '2021-12-31 12:29:29'),
-(11, NULL, 'work-samples', 'logo-design-1.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, '2022-01-18 08:04:39', '2022-01-18 08:04:39'),
-(12, NULL, 'work-samples', 'logo-design-2.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, '2022-01-18 08:04:39', '2022-01-18 08:04:39'),
-(13, NULL, 'work-samples', 'logo-design-3.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, '2022-01-18 08:04:39', '2022-01-18 08:04:39'),
-(14, NULL, 'work-samples', 'logo-design-4.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, '2022-01-18 08:04:39', '2022-01-18 08:04:39'),
-(15, NULL, 'work-samples', 'logo-design-5.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, '2022-01-18 08:04:39', '2022-01-18 08:04:39');
+INSERT INTO `section_18` (`id`, `page_id`, `name`, `image`, `title`, `paragraph`, `headingone`, `headingtwo`, `link`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(5, NULL, 'Logo Design 2', 'No-image-found.jpg', NULL, NULL, 'Logo Design 2', 'Corporate Design', NULL, NULL, NULL, '2021-12-31 12:06:26', '2021-12-31 12:06:26'),
+(7, NULL, 'corporate 2', 'No-image-found.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, NULL, NULL, '2021-12-31 12:29:29', '2021-12-31 12:29:29'),
+(8, NULL, 'corporate 2', 'imaeg2.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, NULL, NULL, '2021-12-31 12:29:29', '2021-12-31 12:29:29'),
+(9, NULL, 'corporate 2', 'image3.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, NULL, NULL, '2021-12-31 12:29:29', '2021-12-31 12:29:29'),
+(10, NULL, 'corporate 2', 'spinner.gif', NULL, NULL, 'heading one', 'heading two', NULL, NULL, NULL, '2021-12-31 12:29:29', '2021-12-31 12:29:29'),
+(11, NULL, 'work-samples', 'logo-design-1.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, NULL, NULL, '2022-01-18 08:04:39', '2022-01-18 08:04:39'),
+(12, NULL, 'work-samples', 'logo-design-2.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, NULL, NULL, '2022-01-18 08:04:39', '2022-01-18 08:04:39'),
+(13, NULL, 'work-samples', 'logo-design-3.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, NULL, NULL, '2022-01-18 08:04:39', '2022-01-18 08:04:39'),
+(14, NULL, 'work-samples', 'logo-design-4.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, NULL, NULL, '2022-01-18 08:04:39', '2022-01-18 08:04:39'),
+(15, NULL, 'work-samples', 'logo-design-5.jpg', NULL, NULL, 'Logo Design', 'Corporate Logo Design', NULL, NULL, NULL, '2022-01-18 08:04:39', '2022-01-18 08:04:39'),
+(16, NULL, 'Asia Paints', 'b.png', NULL, NULL, 'Logo Design', 'Corporate Design', NULL, 30, 30, '2022-02-26 07:44:51', '2022-02-26 07:44:51');
 
 -- --------------------------------------------------------
 
@@ -1136,8 +1353,8 @@ CREATE TABLE `section_19` (
   `title` varchar(150) DEFAULT NULL,
   `paragraph` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1165,16 +1382,19 @@ CREATE TABLE `section_20` (
   `heading_2` varchar(150) DEFAULT NULL,
   `btn_label` varchar(150) DEFAULT NULL,
   `btn_class` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `section_20`
 --
 
-INSERT INTO `section_20` (`id`, `name`, `heading_1`, `heading_2`, `btn_label`, `btn_class`, `created_at`, `updated_at`) VALUES
-(1, 'Section 1', 'Creative Agency', 'We are a team of experts, experienced and energetic people2', 'Meet us', 'btn web-btn web-btn-white', '2022-01-08 02:01:35', '2022-01-08 02:01:35');
+INSERT INTO `section_20` (`id`, `name`, `heading_1`, `heading_2`, `btn_label`, `btn_class`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(1, 'Section 1', 'Creative Agency', 'We are a team of experts, experienced and energetic people2', 'Meet us', 'btn web-btn web-btn-white', NULL, NULL, '2022-01-08 02:01:35', '2022-01-08 02:01:35'),
+(2, 'testing section', 'First Heading', 'Second Heading', 'Meet us2', 'btn web-btn web-btn-blue mt-3', 30, 30, '2022-02-26 07:43:01', '2022-02-26 07:43:01');
 
 -- --------------------------------------------------------
 
@@ -1187,16 +1407,19 @@ CREATE TABLE `section_21` (
   `name` varchar(250) DEFAULT NULL,
   `slider_name` varchar(150) DEFAULT NULL,
   `video_name` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `section_21`
 --
 
-INSERT INTO `section_21` (`id`, `name`, `slider_name`, `video_name`, `created_at`, `updated_at`) VALUES
-(1, 'for home page', 'home-slider', 'video 2', '2022-01-08 04:16:31', '2022-01-08 04:16:31');
+INSERT INTO `section_21` (`id`, `name`, `slider_name`, `video_name`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(1, 'for home page', 'home-slider', 'video 2', NULL, NULL, '2022-01-08 04:16:31', '2022-01-08 04:16:31'),
+(2, 'testing section 1', 'Slider 2', 'video 2', 30, 30, '2022-02-26 07:37:35', '2022-02-26 07:37:35');
 
 -- --------------------------------------------------------
 
@@ -1216,23 +1439,52 @@ CREATE TABLE `section_22` (
   `heading` varchar(150) DEFAULT NULL,
   `btn_label_2` varchar(150) DEFAULT NULL,
   `text` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `section_22`
 --
 
-INSERT INTO `section_22` (`id`, `name`, `style`, `heading_1`, `heading_2`, `btn_label`, `image`, `video`, `heading`, `btn_label_2`, `text`, `created_at`, `updated_at`) VALUES
-(1, 'Logo Design section 1', NULL, 'Logo Design Experts', 'A creative logo gets your brand or business noticed', NULL, '', 'https://www.youtube.com/embed/K1QICrgxTjA?rel=0', NULL, NULL, 'Do you need a new logo modify your existing logo?', '2022-01-08 10:49:20', '2022-01-08 10:49:20'),
-(2, 'corporate-identity-banner', NULL, 'Corporate Identity', 'Corporate Identity is actually the corporate image of every business', NULL, 'corporate-identity-banner.png', NULL, NULL, NULL, 'Get a Corporate Identity for your organization', '2022-01-08 11:55:32', '2022-01-08 11:55:32'),
-(3, 'vehicle-page', NULL, 'Vehicle Branding Design', 'Corporate Identity is actually the corporate image of every business', NULL, 'vehicle-banner.jpg', NULL, NULL, NULL, 'Make a Brand Manual for your Organization.', '2022-01-18 09:39:35', '2022-01-18 09:39:35'),
-(4, 'brand-guildeline-book', NULL, 'Brand Guideline Book', 'Corporate Identity is actually the corporate image of every business', NULL, 'brand-guideline-banner.jpg', NULL, NULL, NULL, 'Make a Brand Manual for your Organization.', '2022-01-18 11:25:35', '2022-01-18 11:25:35'),
-(5, 'uniform-branding', NULL, 'Uniform Branding', 'Corporate Identity is actually the corporate image of every business', NULL, 'uniform-banner.jpg', NULL, NULL, NULL, 'Make a Brand Manual for your Organization.', '2022-01-21 11:42:04', '2022-01-21 11:42:04'),
-(6, 'packaging-design', NULL, 'Brand Packaging Design', 'Innovative & Creative Branding & Packaging services delivered with a personal touch', NULL, 'packaging-banner.jpg', NULL, NULL, NULL, 'Get a Corporate Identity for your organization', '2022-01-21 13:01:48', '2022-01-21 13:01:48'),
-(7, 'logo-design3', NULL, NULL, 'We also provide Express Service', NULL, '', NULL, NULL, NULL, NULL, '2022-02-01 07:56:34', '2022-02-01 07:56:34'),
-(8, 'Heading', NULL, 'Creative Samples', NULL, NULL, '', NULL, NULL, NULL, NULL, '2022-02-04 09:45:37', '2022-02-04 09:45:37');
+INSERT INTO `section_22` (`id`, `name`, `style`, `heading_1`, `heading_2`, `btn_label`, `image`, `video`, `heading`, `btn_label_2`, `text`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(1, 'Logo Design section 1', NULL, 'Logo Design Experts', 'A creative logo gets your brand or business noticed', NULL, '', 'https://www.youtube.com/embed/K1QICrgxTjA?rel=0', NULL, NULL, 'Do you need a new logo modify your existing logo?', NULL, NULL, '2022-01-08 10:49:20', '2022-01-08 10:49:20'),
+(2, 'corporate-identity-banner', NULL, 'Corporate Identity', 'Corporate Identity is actually the corporate image of every business', NULL, 'corporate-identity-banner.png', NULL, NULL, NULL, 'Get a Corporate Identity for your organization', NULL, NULL, '2022-01-08 11:55:32', '2022-01-08 11:55:32'),
+(3, 'vehicle-page', NULL, 'Vehicle Branding Design', 'Corporate Identity is actually the corporate image of every business', NULL, 'vehicle-banner.jpg', NULL, NULL, NULL, 'Make a Brand Manual for your Organization.', NULL, NULL, '2022-01-18 09:39:35', '2022-01-18 09:39:35'),
+(4, 'brand-guildeline-book', NULL, 'Brand Guideline Book', 'Corporate Identity is actually the corporate image of every business', NULL, 'brand-guideline-banner.jpg', NULL, NULL, NULL, 'Make a Brand Manual for your Organization.', NULL, NULL, '2022-01-18 11:25:35', '2022-01-18 11:25:35'),
+(5, 'uniform-branding', NULL, 'Uniform Branding', 'Corporate Identity is actually the corporate image of every business', NULL, 'uniform-banner.jpg', NULL, NULL, NULL, 'Make a Brand Manual for your Organization.', NULL, NULL, '2022-01-21 11:42:04', '2022-01-21 11:42:04'),
+(6, 'packaging-design', NULL, 'Brand Packaging Design', 'Innovative & Creative Branding & Packaging services delivered with a personal touch', NULL, 'packaging-banner.jpg', NULL, NULL, NULL, 'Get a Corporate Identity for your organization', NULL, NULL, '2022-01-21 13:01:48', '2022-01-21 13:01:48'),
+(7, 'logo-design3', NULL, NULL, 'We also provide Express Service', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-01 07:56:34', '2022-02-01 07:56:34'),
+(8, 'Heading', NULL, 'Creative Samples', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-04 09:45:37', '2022-02-04 09:45:37'),
+(9, 'testing section', NULL, 'first heading', 'send heading', NULL, '', NULL, NULL, NULL, NULL, 30, 30, '2022-02-26 07:35:02', '2022-02-26 07:35:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `section_23`
+--
+
+CREATE TABLE `section_23` (
+  `id` int(11) NOT NULL,
+  `name` varchar(150) DEFAULT NULL,
+  `heading` varchar(150) DEFAULT NULL,
+  `title` varchar(150) DEFAULT NULL,
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `section_23`
+--
+
+INSERT INTO `section_23` (`id`, `name`, `heading`, `title`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(3, 'testing', 'h3', 'testing123', 70, 70, '2022-02-23 07:04:09', '2022-02-23 07:04:09'),
+(4, 'section 2', 'h2', 'Creative Samples', 30, 30, '2022-02-26 05:05:14', '2022-02-26 05:05:14'),
+(5, 'Section Two Three', 'h1', 'Heading Two Three', 100, 100, '2022-02-26 14:34:29', '2022-02-26 14:34:29');
 
 -- --------------------------------------------------------
 
@@ -1244,11 +1496,11 @@ CREATE TABLE `seo` (
   `id` int(11) NOT NULL,
   `meta_title` varchar(1000) DEFAULT NULL,
   `slug` varchar(120) DEFAULT NULL,
-  `meta_desc` text,
-  `meta_keyword` text,
-  `google_tag_manager` text,
-  `facebook_pixel` text,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `meta_desc` text DEFAULT NULL,
+  `meta_keyword` text DEFAULT NULL,
+  `google_tag_manager` text DEFAULT NULL,
+  `facebook_pixel` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1272,49 +1524,25 @@ CREATE TABLE `services` (
   `sub_service` varchar(150) DEFAULT NULL,
   `sub_service_link` varchar(160) DEFAULT NULL,
   `bootstra_class_name` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`id`, `name`, `main_service`, `sub_service`, `sub_service_link`, `bootstra_class_name`, `created_at`, `updated_at`) VALUES
-(1, 'Section 1', 'Design Services', 'Logo & Branding', 'logo_and_branding', 'section-bg-grey-grad', '2022-01-06 06:11:18', '2022-01-06 06:11:18'),
-(2, 'Section 1', 'Design Services', 'Graphic Design', 'graphic_design', NULL, '2022-01-06 06:11:18', '2022-01-06 06:11:18'),
-(3, 'Section 1', 'Design Services', 'Creative Ads', 'creative_ads', NULL, '2022-01-06 06:11:18', '2022-01-06 06:11:18'),
-(4, 'Section 1', 'Design Services', 'Brouchers', 'brouchers', NULL, '2022-01-06 06:11:18', '2022-01-06 06:11:18'),
-(5, 'Section 1', 'Website & Mobile Apps', 'Website Design', 'website_design', NULL, '2022-01-06 06:27:17', '2022-01-06 06:27:17'),
-(6, 'Section 1', 'Website & Mobile Apps', 'UI / UX Design', 'ui_ux_design', NULL, '2022-01-06 06:27:17', '2022-01-06 06:27:17'),
-(7, 'Section 1', 'Website & Mobile Apps', 'Mobile Apps', 'mobile_apps', NULL, '2022-01-06 06:27:17', '2022-01-06 06:27:17'),
-(8, 'Section 1', 'Website & Mobile Apps', 'Cloud Software', 'cloud_software', NULL, '2022-01-06 06:27:17', '2022-01-06 06:27:17'),
-(9, 'Section 1', 'Website & Mobile Apps', 'eCommerce Expert', 'ecommmerce_expert', NULL, '2022-01-06 06:27:17', '2022-01-06 06:27:17'),
-(19, 'Section 1', 'Videos & Photography', 'Food Photography', 'food-photography', NULL, '2022-01-06 12:00:23', '2022-01-06 12:00:23'),
-(18, 'Section 1', 'Videos & Photography', 'Products Photography', 'products-photography', NULL, '2022-01-06 12:00:23', '2022-01-06 12:00:23'),
-(16, 'Section 1', 'Videos & Photography', 'Corporate Videos', 'corporate-videos', NULL, '2022-01-06 12:00:23', '2022-01-06 12:00:23'),
-(17, 'Section 1', 'Videos & Photography', 'Presentation Videos', 'presentation-videos', NULL, '2022-01-06 12:00:23', '2022-01-06 12:00:23'),
-(20, 'Section 1', 'Videos & Photography', 'Marketing Videos', 'marketing-videos', NULL, '2022-01-06 12:00:23', '2022-01-06 12:00:23'),
-(21, 'Section 1', '3D & 2D Animation', '3D Architecture Videos', '3D-architecture-videos', NULL, '2022-01-06 12:05:08', '2022-01-06 12:05:08'),
-(22, 'Section 1', '3D & 2D Animation', '3D Modelling & Animation', '3D-modelling-animation', NULL, '2022-01-06 12:05:08', '2022-01-06 12:05:08'),
-(23, 'Section 1', '3D & 2D Animation', 'Explainer Videos', 'explainer-videos', NULL, '2022-01-06 12:05:08', '2022-01-06 12:05:08'),
-(24, 'Section 1', '3D & 2D Animation', 'Products Modelling', 'products-modelling', NULL, '2022-01-06 12:05:08', '2022-01-06 12:05:08'),
-(25, 'Section 1', '3D & 2D Animation', 'Safety Induction Videos', 'safety-induction-videos', NULL, '2022-01-06 12:05:08', '2022-01-06 12:05:08'),
-(26, 'Section 1', 'Consultancy Services', 'Marketing Strategies', 'marketing-strategies', NULL, '2022-01-06 12:13:19', '2022-01-06 12:13:19'),
-(27, 'Section 1', 'Consultancy Services', 'Business Plans', 'business-plans', 'section-bg-white', '2022-01-06 12:13:19', '2022-01-06 12:13:19'),
-(28, 'Section 1', 'Consultancy Services', 'eCommerce Consultancy', 'ecommerce-consultancy', NULL, '2022-01-06 12:13:19', '2022-01-06 12:13:19'),
-(29, 'Section 1', 'Consultancy Services', 'Marketing Consultancy', 'marketing-consultancy', NULL, '2022-01-06 12:13:19', '2022-01-06 12:13:19'),
-(30, 'Section 1', 'Consultancy Services', 'Creative Consultancy', 'creative-consultancy', NULL, '2022-01-06 12:13:19', '2022-01-06 12:13:19'),
-(31, 'Section 1', 'Digital Marketing', 'Social Media Marketing', 'social-media-marketing', NULL, '2022-01-06 12:15:52', '2022-01-06 12:15:52'),
-(32, 'Section 1', 'Digital Marketing', 'Google Ads', 'google-ads', NULL, '2022-01-06 12:15:52', '2022-01-06 12:15:52'),
-(33, 'Section 1', 'Digital Marketing', 'Google SEO', 'google-seo', NULL, '2022-01-06 12:15:52', '2022-01-06 12:15:52'),
-(34, 'Section 1', 'Digital Marketing', 'Video Marketing', 'video-marketing', NULL, '2022-01-06 12:15:52', '2022-01-06 12:15:52'),
-(35, 'Section 1', 'Digital Marketing', 'PPC Management', 'ppc-management', NULL, '2022-01-06 12:15:52', '2022-01-06 12:15:52'),
-(37, 'white-bg-services', 'Design Services', 'Logo & Branding', 'logo-branding', 'section-bg-white', '2022-01-08 07:27:23', '2022-01-08 07:27:23'),
-(38, 'white-bg-services', 'Design Services', 'Graphic Design', 'graphic-design', 'section-bg-white', '2022-01-08 07:27:23', '2022-01-08 07:27:23'),
-(39, 'white-bg-services', 'Design Services', 'Creative Ads', 'creative-ads', 'section-bg-white', '2022-01-08 07:27:23', '2022-01-08 07:27:23'),
-(40, 'white-bg-services', 'Design Services', 'Brochures', 'brochures', NULL, '2022-01-08 07:27:23', '2022-01-08 07:27:23'),
-(41, 'white-bg-services', 'Design Services', 'Presentations', 'presentations', NULL, '2022-01-08 07:27:23', '2022-01-08 07:27:23');
+INSERT INTO `services` (`id`, `name`, `main_service`, `sub_service`, `sub_service_link`, `bootstra_class_name`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(46, 'Section 5', '1', '1', 'logo-design', 'section-bg-grey-grad', 0, 0, '2022-02-15 13:40:49', '2022-02-15 13:40:49'),
+(47, 'Section 5', '1', '2', 'graphic-design', 'section-bg-white', NULL, NULL, '2022-02-15 13:40:49', '2022-02-15 13:40:49'),
+(48, 'Section 5', '1', '3', 'brouchers', 'section-bg-white', NULL, NULL, '2022-02-15 13:40:49', '2022-02-15 13:40:49'),
+(49, 'Section 5', '1', '4', 'presentations', 'section-bg-white', NULL, NULL, '2022-02-15 13:40:49', '2022-02-15 13:40:49'),
+(50, 'testing service', '5', '19', '3D-2D-Animation', 'section-bg-white', 30, 30, '2022-02-26 07:17:33', '2022-02-26 07:17:33'),
+(51, 'testing 123', '1', '2', 'graphic-design', 'section-bg-white', 30, 30, '2022-02-26 09:01:27', '2022-02-26 09:01:27'),
+(52, 'testing 123', '2', '7', 'mobile-apps', 'section-bg-white', 30, 30, '2022-02-26 09:01:27', '2022-02-26 09:01:27'),
+(53, 'testing 123', '2', '6', 'websites', 'section-bg-white', 30, 30, '2022-02-26 09:01:27', '2022-02-26 09:01:27');
 
 -- --------------------------------------------------------
 
@@ -1327,7 +1555,7 @@ CREATE TABLE `settings` (
   `page_url` varchar(255) DEFAULT NULL,
   `page_name` varchar(255) DEFAULT NULL,
   `status` enum('Active','Inactive') DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1354,29 +1582,39 @@ CREATE TABLE `sliders` (
   `id` int(11) NOT NULL,
   `page_id` varchar(11) DEFAULT NULL,
   `name` varchar(120) DEFAULT NULL,
+  `padingTop` int(11) DEFAULT NULL,
+  `paddingBottom` int(11) DEFAULT NULL,
   `image` varchar(260) DEFAULT NULL,
   `text1` varchar(250) DEFAULT NULL,
   `text2` varchar(260) DEFAULT NULL,
   `contact_button_link` varchar(125) DEFAULT NULL,
   `status` varchar(120) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `style` varchar(200) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sliders`
 --
 
-INSERT INTO `sliders` (`id`, `page_id`, `name`, `image`, `text1`, `text2`, `contact_button_link`, `status`, `created_at`, `updated_at`) VALUES
-(17, NULL, 'slider 1', 'homepage-banner-image.jpg', 'Creative Designing', 'Designing, Branding and Marketing Services', 'test', 'active', '2021-12-27 04:06:40', '2021-12-27 04:06:40'),
-(23, NULL, 'slider 1', 'No-image-found.jpg', 'creative Agency', 'Web and Apps', 'asdfa', NULL, '2021-12-30 11:03:09', '2021-12-30 11:03:09'),
-(24, NULL, 'Slider 2', 'No-image-found.jpg', 'Corporate Branding', 'Designing, Branding and Marketing Services', NULL, 'active', '2022-01-07 10:34:18', '2022-01-07 10:34:18'),
-(26, NULL, 'home-slider', 'homepage-banner-image.jpg', 'Creative Agency', 'Designing, Branding & Marketing Services', '#', NULL, '2022-01-08 10:14:17', '2022-01-08 10:14:17'),
-(27, NULL, 'home-slider', 'homepage-banner-image.jpg', 'Creative Agency', 'Web and Apps UI/UX Design Services', '#', NULL, '2022-01-08 10:14:17', '2022-01-08 10:14:17'),
-(28, NULL, 'home-slider', 'homepage-banner-image.jpg', 'Creative Agency', 'Designing, Branding & Marketing Services', '#', 'active', '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
-(29, NULL, 'home-slider', 'homepage-banner-image.jpg', 'Creative Agency', 'Web and Apps UI/UX Design Services', '#', NULL, '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
-(30, NULL, 'home-slider', 'homepage-banner-image.jpg', 'Creative Agency', 'Videography, Photogrpahy, 2D & 3D Animations Services', '#', NULL, '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
-(31, NULL, 'home-slider', 'homepage-banner-image.jpg', 'Creative Agency', 'Digital & Social Media Marketing Services', '#', NULL, '2022-01-08 10:14:38', '2022-01-08 10:14:38');
+INSERT INTO `sliders` (`id`, `page_id`, `name`, `padingTop`, `paddingBottom`, `image`, `text1`, `text2`, `contact_button_link`, `status`, `padding_top`, `padding_bottom`, `style`, `created_at`, `updated_at`) VALUES
+(17, NULL, 'slider 1', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Designing', 'Designing, Branding and Marketing Services', 'test', 'active', NULL, NULL, NULL, '2021-12-27 04:06:40', '2021-12-27 04:06:40'),
+(23, NULL, 'slider 1', NULL, NULL, 'No-image-found.jpg', 'creative Agency', 'Web and Apps', 'asdfa', NULL, NULL, NULL, NULL, '2021-12-30 11:03:09', '2021-12-30 11:03:09'),
+(24, NULL, 'Slider 2', NULL, NULL, 'No-image-found.jpg', 'Corporate Branding', 'Designing, Branding and Marketing Services', NULL, 'active', NULL, NULL, NULL, '2022-01-07 10:34:18', '2022-01-07 10:34:18'),
+(26, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Designing, Branding & Marketing Services', '#', NULL, 30, 30, NULL, '2022-01-08 10:14:17', '2022-01-08 10:14:17'),
+(27, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency 123654', 'Web and Apps UI/UX Design Services 123654', '#', NULL, 70, 70, NULL, '2022-01-08 10:14:17', '2022-01-08 10:14:17'),
+(28, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Designing, Branding & Marketing Services', '#', 'active', NULL, NULL, NULL, '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
+(29, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Web and Apps UI/UX Design Services', '#', NULL, NULL, NULL, NULL, '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
+(30, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Videography, Photogrpahy, 2D & 3D Animations Services', '#', NULL, NULL, NULL, NULL, '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
+(31, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Digital & Social Media Marketing Services', '#', NULL, NULL, NULL, NULL, '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
+(34, NULL, 'testing999', NULL, NULL, 'cs-05.jpg', 'heading 1', 'heading 2', 'button link', 'active', NULL, NULL, NULL, '2022-02-22 09:33:15', '2022-02-22 09:33:15'),
+(35, NULL, 'testing999', NULL, NULL, 'image.jpg', 'testing123', 'heading 2', 'button link', NULL, NULL, NULL, NULL, '2022-02-22 09:33:15', '2022-02-22 09:33:15'),
+(36, NULL, 'home-slider', NULL, NULL, 'png-clipart-wheat-logo-wheat-wheat-logo.png', 'heading 1 36', 'heading 2 36', '#', NULL, NULL, NULL, NULL, '2022-02-22 11:02:32', '2022-02-22 11:02:32'),
+(37, NULL, 'SEction Testing 2', NULL, NULL, 'b.png', 'heading 1 37', 'heading 2 37', 'testing', 'active', 30, 30, NULL, '2022-02-26 05:11:32', '2022-02-26 05:11:32'),
+(38, NULL, 'testing 45', NULL, NULL, '7f31a9cc-ef90-4350-8a76-5640590da579.jpg', 'heading 1 38', 'heading 2 38', 'pre-qualification-design', 'active', 30, 30, NULL, '2022-02-26 05:30:02', '2022-02-26 05:30:02');
 
 -- --------------------------------------------------------
 
@@ -1386,13 +1624,13 @@ INSERT INTO `sliders` (`id`, `page_id`, `name`, `image`, `text1`, `text2`, `cont
 
 CREATE TABLE `social` (
   `id` int(11) NOT NULL,
-  `fb` text,
-  `insta` text,
-  `linedin` text,
-  `twitter` text,
+  `fb` text DEFAULT NULL,
+  `insta` text DEFAULT NULL,
+  `linedin` text DEFAULT NULL,
+  `twitter` text DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `body` text,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `body` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1414,8 +1652,8 @@ CREATE TABLE `social_media` (
   `icon` varchar(150) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1435,12 +1673,12 @@ INSERT INTO `social_media` (`id`, `icon`, `name`, `link`, `created_at`, `updated
 
 CREATE TABLE `stmp` (
   `id` int(11) NOT NULL,
-  `host` text,
+  `host` text DEFAULT NULL,
   `username` varchar(1000) DEFAULT NULL,
   `password` varchar(1000) DEFAULT NULL,
   `port` varchar(255) DEFAULT NULL,
   `encpt` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1464,7 +1702,7 @@ CREATE TABLE `sub_child_menus` (
   `item_name` varchar(255) DEFAULT NULL,
   `item_link` varchar(255) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1479,7 +1717,7 @@ INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `i
 (4, NULL, 1, 'Brand Packaging Design', 'packaging-design', NULL, '2021-07-24 12:08:56', '2021-07-24 12:08:56'),
 (5, NULL, 1, 'Uniform Branding', 'uniform-branding', NULL, '2021-07-24 12:09:04', '2021-07-24 12:09:04'),
 (6, NULL, 1, 'Vehicle Branding', 'vehicle-branding', NULL, '2021-07-24 12:09:17', '2021-07-24 12:09:17'),
-(7, NULL, 2, 'Creative Ads Design', '#', NULL, '2021-07-24 12:20:03', '2021-07-24 12:20:03'),
+(7, NULL, 2, 'Creative Ads Design', 'creative-ads-design', NULL, '2021-07-24 12:20:03', '2021-07-24 12:20:03'),
 (8, NULL, 2, 'Magazine Ads', '#', NULL, '2021-07-24 12:25:57', '2021-07-24 12:25:57'),
 (9, NULL, 2, 'Banner Design', '#', NULL, '2021-07-24 12:26:06', '2021-07-24 12:26:06'),
 (10, NULL, 2, 'Animated Banner', '#', NULL, '2021-07-24 12:26:16', '2021-07-24 12:26:16'),
@@ -1489,7 +1727,7 @@ INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `i
 (14, NULL, 2, 'Infographics Design', '#', NULL, '2021-07-24 12:26:58', '2021-07-24 12:26:58'),
 (15, NULL, 2, 'Stand Design', '#', NULL, '2021-07-24 12:27:07', '2021-07-24 12:27:07'),
 (16, NULL, 3, 'Company Profile Design', NULL, NULL, '2021-07-24 14:23:01', '2021-07-24 14:23:01'),
-(17, NULL, 3, 'Brochure Design', NULL, NULL, '2021-07-24 14:23:12', '2021-07-24 14:23:12'),
+(17, NULL, 3, 'Brochure Design', 'brochure-design', NULL, '2021-07-24 14:23:12', '2021-07-24 14:23:12'),
 (18, NULL, 3, 'Catague Design', NULL, NULL, '2021-07-24 14:23:23', '2021-07-24 14:23:23'),
 (19, NULL, 3, 'Menu Booklet', NULL, NULL, '2021-07-24 14:23:33', '2021-07-24 14:23:33'),
 (20, NULL, 3, 'Pre-Qualification Design', NULL, NULL, '2021-07-24 14:23:44', '2021-07-24 14:23:44'),
@@ -1499,7 +1737,7 @@ INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `i
 (24, NULL, 4, 'Sales Presentation', NULL, NULL, '2021-07-24 14:25:03', '2021-07-24 14:25:03'),
 (25, NULL, 4, 'Conference Presentation', NULL, NULL, '2021-07-24 14:25:13', '2021-07-24 14:25:13'),
 (26, NULL, 4, 'Investment Presentation', NULL, NULL, '2021-07-24 14:25:23', '2021-07-24 14:25:23'),
-(27, NULL, 4, 'Seminar Presentation', NULL, NULL, '2021-07-24 14:25:33', '2021-07-24 14:25:33'),
+(27, NULL, 4, 'Seminar Presentation', 'seminar-presentation', NULL, '2021-07-24 14:25:33', '2021-07-24 14:25:33'),
 (28, NULL, 4, 'Creative Presentation', NULL, NULL, '2021-07-24 14:25:43', '2021-07-24 14:25:43'),
 (29, NULL, 4, 'Product Presentation', NULL, NULL, '2021-07-24 14:25:53', '2021-07-24 14:25:53'),
 (30, NULL, 5, 'Product Strategy', NULL, NULL, '2021-07-24 14:29:27', '2021-07-24 14:29:27'),
@@ -1544,7 +1782,7 @@ INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `i
 (69, NULL, 11, 'Project 3D Videos', NULL, NULL, '2021-07-24 14:37:44', '2021-07-24 14:37:44'),
 (70, NULL, 11, '3D Character Animation Videos', NULL, NULL, '2021-07-24 14:37:54', '2021-07-24 14:37:54'),
 (71, NULL, 11, '3D Interior Modelling', NULL, NULL, '2021-07-24 14:38:03', '2021-07-24 14:38:03'),
-(72, NULL, 12, 'Motion Graphics Videos', 'Motion Graphics Videos', NULL, '2021-07-24 14:38:17', '2021-07-24 14:38:17'),
+(72, NULL, 12, 'Motion Graphics Videos', 'Motion Graphics Videos', 1, '2021-07-24 14:38:17', '2021-07-24 14:38:17'),
 (73, NULL, 12, 'Explainer Videos', NULL, NULL, '2021-07-24 14:38:27', '2021-07-24 14:38:27'),
 (74, NULL, 12, 'Cartoon Animated Videos', NULL, NULL, '2021-07-24 14:38:36', '2021-07-24 14:38:36'),
 (75, NULL, 12, '2D Presentation Videos', NULL, NULL, '2021-07-24 14:38:45', '2021-07-24 14:38:45'),
@@ -1556,12 +1794,12 @@ INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `i
 (81, NULL, 13, 'Email Marketing', NULL, NULL, '2021-07-24 14:41:29', '2021-07-24 14:41:29'),
 (82, NULL, 13, 'Landing Pages', NULL, NULL, '2021-07-24 14:41:37', '2021-07-24 14:41:37'),
 (83, NULL, 13, 'Lead Generation', NULL, NULL, '2021-07-24 14:41:48', '2021-07-24 14:41:48'),
-(84, NULL, 14, 'Social Media Management', NULL, NULL, '2021-07-24 14:42:02', '2021-07-24 14:42:02'),
-(85, NULL, 14, 'Video Marketing', NULL, NULL, '2021-07-24 14:42:12', '2021-07-24 14:42:12'),
-(86, NULL, 14, 'Pay-Per-Click Advertising (PPC)', NULL, NULL, '2021-07-24 14:42:22', '2021-07-24 14:42:22'),
-(87, NULL, 14, 'YouTube Marketing', NULL, NULL, '2021-07-24 14:42:32', '2021-07-24 14:42:32'),
-(88, NULL, 14, 'Personal Promotion', NULL, NULL, '2021-07-24 14:42:40', '2021-07-24 14:42:40'),
-(89, NULL, 14, 'F&B Marketing', NULL, NULL, '2021-07-24 14:42:49', '2021-07-24 14:42:49'),
+(84, NULL, 14, 'Social Media Management', '#', 1, '2021-07-24 14:42:02', '2021-07-24 14:42:02'),
+(85, NULL, 14, 'Video Marketing', '#', 2, '2021-07-24 14:42:12', '2021-07-24 14:42:12'),
+(86, NULL, 14, 'Pay-Per-Click Advertising (PPC)', '#', 3, '2021-07-24 14:42:22', '2021-07-24 14:42:22'),
+(87, NULL, 14, 'YouTube Marketing', '#', 6, '2021-07-24 14:42:32', '2021-07-24 14:42:32'),
+(88, NULL, 14, 'Personal Promotion', '#', 5, '2021-07-24 14:42:40', '2021-07-24 14:42:40'),
+(89, NULL, 14, 'F&B Marketing', '#', 4, '2021-07-24 14:42:49', '2021-07-24 14:42:49'),
 (90, NULL, 15, 'Marketing Plans & Strategy', NULL, NULL, '2021-07-24 14:43:04', '2021-07-24 14:43:04'),
 (91, NULL, 15, 'Digital Marketing Strategy', NULL, NULL, '2021-07-24 14:43:15', '2021-07-24 14:43:15'),
 (92, NULL, 15, 'eCommerce Consultancy', NULL, NULL, '2021-07-24 14:43:24', '2021-07-24 14:43:24'),
@@ -1586,7 +1824,7 @@ INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `i
 (111, NULL, 19, '3D Architecture Videos', '3D-Architecture-Videos', NULL, '2021-07-24 14:50:21', '2021-07-24 14:50:21'),
 (112, NULL, 19, '3D Modelling & Animation', NULL, NULL, '2021-07-24 14:50:29', '2021-07-24 14:50:29'),
 (113, NULL, 19, 'Explainer Videos', NULL, NULL, '2021-07-24 14:50:35', '2021-07-24 14:50:35'),
-(114, NULL, 19, 'Products Modelling', NULL, NULL, '2021-07-24 14:50:41', '2021-07-24 14:50:41'),
+(114, NULL, 19, 'Products Modelling', 'products-modelling', NULL, '2021-07-24 14:50:41', '2021-07-24 14:50:41'),
 (115, NULL, 19, 'Safety Induction Videos', NULL, NULL, '2021-07-24 14:50:48', '2021-07-24 14:50:48'),
 (116, NULL, 20, 'Marketing Strategies', NULL, NULL, '2021-07-24 14:50:59', '2021-07-24 14:50:59'),
 (117, NULL, 20, 'Business Plans', NULL, NULL, '2021-07-24 14:51:06', '2021-07-24 14:51:06'),
@@ -1617,7 +1855,10 @@ INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `i
 (142, NULL, 24, 'Trading', NULL, NULL, '2021-07-24 15:02:49', '2021-07-24 15:02:49'),
 (146, 5, 23, 'services1', 'services1', NULL, '2021-12-11 12:10:58', NULL),
 (147, 1, 1, 'testing_logo_design1', 'testing_logo_design1', NULL, '2021-12-11 12:13:28', NULL),
-(148, 1, 1, 'newSubChildNav', 'newSubChildNav', NULL, '2021-12-11 15:49:30', NULL);
+(148, 1, 1, 'newSubChildNav', 'newSubChildNav', NULL, '2021-12-11 15:49:30', NULL),
+(149, 2, 5, 'Testing Product', 'testing-product', 0, '2022-02-24 08:36:07', NULL),
+(150, 3, 9, 'video graphy', 'video-graphy', 0, '2022-02-24 08:36:52', NULL),
+(151, 1, 2, '5th row menu', '5th-row-menu', 5, '2022-02-24 09:06:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -1632,27 +1873,45 @@ CREATE TABLE `teams` (
   `image` varchar(250) DEFAULT NULL,
   `designation` varchar(250) DEFAULT NULL,
   `name` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teams`
 --
 
-INSERT INTO `teams` (`id`, `section_name`, `page_id`, `image`, `designation`, `name`, `created_at`, `updated_at`) VALUES
-(9, 'team group 8', NULL, 'No-image-png-1.png', 'fasf asfd1234', 'asdf asdf asdfasf as1234', '2021-12-30 15:05:55', '2021-12-30 15:05:55'),
-(10, 'team group 8', NULL, 'image3.jpg', 'asdsad', 'asfdafd fas d', '2021-12-30 15:05:55', '2021-12-30 15:05:55'),
-(11, 'team group 8', NULL, 'image1.jpg', 'asd fasdf', 'saf sdff', '2021-12-30 15:05:55', '2021-12-30 15:05:55'),
-(12, 'team group 2', NULL, 'team-1.jpg', 'Manger', 'Hassan', '2021-12-30 20:15:06', '2021-12-30 20:15:06'),
-(13, 'team group 2', NULL, 'image3.jpg', 'asfasfdsa', 'sdfsdfasf asf', '2021-12-30 20:15:06', '2021-12-30 20:15:06'),
-(14, 'team group 2', NULL, 'imaeg2.jpg', 'asfasfdsa', 'asdfasdfas', '2021-12-30 20:15:06', '2021-12-30 20:15:06'),
-(15, 'team-section-01', NULL, 'profile-pic-1.jpg', 'CEO, Founder & Creative Director', 'Hamid Shah', '2022-01-08 06:57:00', '2022-01-08 06:57:00'),
-(16, 'team-section-01', NULL, 'team-1.jpg', 'CEO, Founder & Creative Director', 'Hamid Shah', '2022-01-08 06:57:00', '2022-01-08 06:57:00'),
-(17, 'team-section-01', NULL, 'profile-pic-1.jpg', 'CEO, Founder & Creative Director', 'CEO, Founder & Creative Director', '2022-01-08 06:57:00', '2022-01-08 06:57:00'),
-(18, 'team-section-01', NULL, 'team-1.jpg', 'CEO, Founder & Creative Director', 'CEO, Founder & Creative Director', '2022-01-08 06:57:01', '2022-01-08 06:57:01'),
-(19, 'team-section-01', NULL, 'profile-pic-1.jpg', 'CEO, Founder & Creative Director', 'CEO, Founder & Creative Director', '2022-01-08 06:57:01', '2022-01-08 06:57:01'),
-(20, 'team-section-01', NULL, 'team-1.jpg', 'CEO, Founder & Creative Director', 'CEO, Founder & Creative Director', '2022-01-08 06:57:01', '2022-01-08 06:57:01');
+INSERT INTO `teams` (`id`, `section_name`, `page_id`, `image`, `designation`, `name`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(9, 'team group 8', NULL, 'No-image-png-1.png', 'fasf asfd1234', 'asdf asdf asdfasf as1234', NULL, NULL, '2021-12-30 15:05:55', '2021-12-30 15:05:55'),
+(10, 'team group 8', NULL, 'image3.jpg', 'asdsad', 'asfdafd fas d', NULL, NULL, '2021-12-30 15:05:55', '2021-12-30 15:05:55'),
+(11, 'team group 8', NULL, 'image1.jpg', 'asd fasdf', 'saf sdff', NULL, NULL, '2021-12-30 15:05:55', '2021-12-30 15:05:55'),
+(12, 'team group 2', NULL, 'team-1.jpg', 'Manger', 'Hassan', NULL, NULL, '2021-12-30 20:15:06', '2021-12-30 20:15:06'),
+(13, 'team group 2', NULL, 'image3.jpg', 'asfasfdsa', 'sdfsdfasf asf', NULL, NULL, '2021-12-30 20:15:06', '2021-12-30 20:15:06'),
+(14, 'team group 2', NULL, 'imaeg2.jpg', 'asfasfdsa', 'asdfasdfas', NULL, NULL, '2021-12-30 20:15:06', '2021-12-30 20:15:06'),
+(15, 'team-section-01', NULL, 'profile-pic-1.jpg', 'CEO, Founder & Creative Director', 'Hamid Shah', NULL, NULL, '2022-01-08 06:57:00', '2022-01-08 06:57:00'),
+(16, 'team-section-01', NULL, 'team-1.jpg', 'CEO, Founder & Creative Director', 'Hamid Shah', NULL, NULL, '2022-01-08 06:57:00', '2022-01-08 06:57:00'),
+(17, 'team-section-01', NULL, 'profile-pic-1.jpg', 'CEO, Founder & Creative Director', 'CEO, Founder & Creative Director', NULL, NULL, '2022-01-08 06:57:00', '2022-01-08 06:57:00'),
+(18, 'team-section-01', NULL, 'team-1.jpg', 'CEO, Founder & Creative Director', 'CEO, Founder & Creative Director', NULL, NULL, '2022-01-08 06:57:01', '2022-01-08 06:57:01'),
+(19, 'team-section-01', NULL, 'profile-pic-1.jpg', 'CEO, Founder & Creative Director', 'CEO, Founder & Creative Director', NULL, NULL, '2022-01-08 06:57:01', '2022-01-08 06:57:01'),
+(20, 'team-section-01', NULL, 'team-1.jpg', 'CEO, Founder & Creative Director', 'CEO, Founder & Creative Director', NULL, NULL, '2022-01-08 06:57:01', '2022-01-08 06:57:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `temp`
+--
+
+CREATE TABLE `temp` (
+  `id` int(11) NOT NULL,
+  `unique_id` int(11) NOT NULL,
+  `main_service_id` int(11) NOT NULL,
+  `sub_service_id` int(11) NOT NULL,
+  `industry_id` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
+  `created_at` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1677,7 +1936,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@admin.com', 1, NULL, '$2y$10$W3lra9WWzZ2VtSyf8Vxbh.gapGUu7ohikPMMka7pTtX8x6wfhJs06', 'IrGZ1jrway5PKKtPcSWjUaWmWlEEXtLjOjXj8Hh0njGHW6qHXh5CGODseJsP', '2021-12-08 11:38:44', '2021-12-08 11:38:44'),
+(1, 'Admin', 'admin@admin.com', 1, NULL, '$2y$10$W3lra9WWzZ2VtSyf8Vxbh.gapGUu7ohikPMMka7pTtX8x6wfhJs06', 'OuZA5bVjbmzotQo39Ts52efGhXKZmUT4KFqXRPBwx45ry1VqoJh9DC6ARvhk', '2021-12-08 11:38:44', '2021-12-08 11:38:44'),
 (2, 'testing', 'testing@test.com', 1, NULL, '$2y$10$iRR8Juuu5BGvgxLl5o/GQ.sCme7plQd4Hd3ZLvyia.dBnUNB2CXl6', NULL, '2021-12-09 00:36:40', '2021-12-09 00:36:40'),
 (6, 'Faiz', 'faiz@faiz.com', 3, NULL, '$2y$10$QpU5GDUVv9b9AOxWiB.eXuzXVXkoOxjxd7BZcBTuUcH7DEMJh758a', NULL, NULL, NULL);
 
@@ -1719,17 +1978,18 @@ CREATE TABLE `videos` (
   `video_link` varchar(150) DEFAULT NULL,
   `contact_button_link` varchar(150) DEFAULT NULL,
   `button_label` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `padding_top` int(11) DEFAULT NULL,
+  `padding_bottom` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `videos`
 --
 
-INSERT INTO `videos` (`id`, `name`, `video_title`, `page_id`, `video_link`, `contact_button_link`, `button_label`, `created_at`, `updated_at`) VALUES
-(1, 'video 2', 'Know more about us', NULL, 'https://www.youtube.com/embed/8AwIJZj07s8', 'https://youtu.be/nLbC1Y-nmqs', 'Contact us', '2021-12-13 05:32:05', '2021-12-13 05:32:05'),
-(2, 'video 1234', 'checking1234', NULL, 'https://www.youtube.com/embed/8AwIJZj07s8', 'button1234', 'meeting1233', '2021-12-13 12:26:03', '2021-12-13 12:26:03');
+INSERT INTO `videos` (`id`, `name`, `video_title`, `page_id`, `video_link`, `contact_button_link`, `button_label`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(1, 'video 2', 'Know more about us', NULL, 'https://www.youtube.com/embed/8AwIJZj07s8', 'https://youtu.be/nLbC1Y-nmqs', 'Contact us', 50, 50, '2021-12-13 05:32:05', '2021-12-13 05:32:05');
 
 --
 -- Indexes for dumped tables
@@ -1739,6 +1999,24 @@ INSERT INTO `videos` (`id`, `name`, `video_title`, `page_id`, `video_link`, `con
 -- Indexes for table `case_study`
 --
 ALTER TABLE `case_study`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `case_study_content`
+--
+ALTER TABLE `case_study_content`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `case_study_industries`
+--
+ALTER TABLE `case_study_industries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `case_study_services`
+--
+ALTER TABLE `case_study_services`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1800,6 +2078,12 @@ ALTER TABLE `header_menu`
 -- Indexes for table `industries`
 --
 ALTER TABLE `industries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `industry_services`
+--
+ALTER TABLE `industry_services`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1947,6 +2231,12 @@ ALTER TABLE `section_22`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `section_23`
+--
+ALTER TABLE `section_23`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `seo`
 --
 ALTER TABLE `seo`
@@ -2001,6 +2291,12 @@ ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `temp`
+--
+ALTER TABLE `temp`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -2028,7 +2324,25 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `case_study`
 --
 ALTER TABLE `case_study`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `case_study_content`
+--
+ALTER TABLE `case_study_content`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `case_study_industries`
+--
+ALTER TABLE `case_study_industries`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `case_study_services`
+--
+ALTER TABLE `case_study_services`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `child_menus`
@@ -2040,7 +2354,7 @@ ALTER TABLE `child_menus`
 -- AUTO_INCREMENT for table `clientandparterimage`
 --
 ALTER TABLE `clientandparterimage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `components`
@@ -2052,7 +2366,7 @@ ALTER TABLE `components`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -2088,7 +2402,13 @@ ALTER TABLE `header_menu`
 -- AUTO_INCREMENT for table `industries`
 --
 ALTER TABLE `industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT for table `industry_services`
+--
+ALTER TABLE `industry_services`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `logo`
@@ -2130,37 +2450,37 @@ ALTER TABLE `news_and_opinions`
 -- AUTO_INCREMENT for table `page`
 --
 ALTER TABLE `page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `page_detail`
 --
 ALTER TABLE `page_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1618;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1756;
 
 --
 -- AUTO_INCREMENT for table `page_section`
 --
 ALTER TABLE `page_section`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `para_style_1`
 --
 ALTER TABLE `para_style_1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `para_style_2`
 --
 ALTER TABLE `para_style_2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `para_style_3`
 --
 ALTER TABLE `para_style_3`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `para_style_4`
@@ -2178,7 +2498,7 @@ ALTER TABLE `para_style_5`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `section_15`
@@ -2202,7 +2522,7 @@ ALTER TABLE `section_17`
 -- AUTO_INCREMENT for table `section_18`
 --
 ALTER TABLE `section_18`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `section_19`
@@ -2214,19 +2534,25 @@ ALTER TABLE `section_19`
 -- AUTO_INCREMENT for table `section_20`
 --
 ALTER TABLE `section_20`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `section_21`
 --
 ALTER TABLE `section_21`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `section_22`
 --
 ALTER TABLE `section_22`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `section_23`
+--
+ALTER TABLE `section_23`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `seo`
@@ -2238,7 +2564,7 @@ ALTER TABLE `seo`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -2250,7 +2576,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `social`
@@ -2274,13 +2600,19 @@ ALTER TABLE `stmp`
 -- AUTO_INCREMENT for table `sub_child_menus`
 --
 ALTER TABLE `sub_child_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `temp`
+--
+ALTER TABLE `temp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -2298,7 +2630,7 @@ ALTER TABLE `usersold`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

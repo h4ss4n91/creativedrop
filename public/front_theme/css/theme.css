@@ -1,16 +1,20 @@
 @font-face {
-    src: url('../webfonts/helveticaneue.ttf');
+    src: url('../webfonts/Lato/Lato-Regular.ttf');
     font-family: helvetica regular;
 }
 
 @font-face {
-    src: url('../webfonts/HelveticaLTStd-Light.otf');
+    src: url('../webfonts/Lato/Lato-Light.ttf');
     font-family: helvetica light;
 }
 
 @font-face {
-    src: url('../webfonts/HelveticaLTStd-Bold.otf');
+    src: url('../webfonts//Lato/Lato-Bold.ttf');
     font-family: helvetica bold;
+}
+
+.btn-group.show.case_study_select_btn {
+    width: 100% !important;
 }
 
 .web-h1 {
@@ -521,9 +525,10 @@ header nav.desktop-navbar a.whatsapp-link:hover {
     transition: none !important;
 }
 
-header nav.desktop-navbar .dropdown-menu {
+
+/* header nav.desktop-navbar .dropdown-menu {
     padding: 0 !important;
-}
+} */
 
 header nav.desktop-navbar .dropdown-item {
     padding: .5rem 1.5rem !important;
@@ -1980,6 +1985,26 @@ ul.CTAs a {
     cursor: pointer;
 }
 
+.message-box {
+    display: block;
+    margin: 0 30px;
+    width: 100%;
+}
+
+.message-box i {
+    font-weight: bold !important;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.message-box.error-box i {
+    color: #9f9f9f;
+}
+
+.message-box.success-box i {
+    color: #9f9f9f;
+}
+
 
 /** 
 ## MEDIA QUERIES START
@@ -2476,8 +2501,20 @@ ul.CTAs a {
     section.creative-banner {
         height: calc(100vh - 330px);
     }
+    .homepage-banner-content {
+        position: absolute;
+        top: 20%;
+        left: 0;
+        transform: translateY(-20%);
+        display: inline-block;
+        width: 50%;
+    }
     .homepage-banner-content h2 {
         font-size: 28px !important;
+    }
+    .home-slider .carousel-indicators {
+        top: 20%;
+        transform: translateY(-50%);
     }
     .home-video-content {
         position: relative;
@@ -2813,6 +2850,10 @@ ul.CTAs a {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+    #sidebar ul ul a,
+    #sidebar ul ul ul a {
+        margin: 0px !important;
+    }
     .cs-img .section-padtop-50 {
         padding-top: 20px !important;
     }
@@ -2948,6 +2989,9 @@ ul.CTAs a {
     }
     .home-video-content iframe {
         height: 250px;
+    }
+    .multiselect-native-select {
+        width: auto !important;
     }
     .service-links ul li a {
         font-size: 14px !important;
@@ -4046,4 +4090,130 @@ svg {
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: #0f69c9;
     color: white
+}
+
+.multiselect-native-select {
+    border: 1px solid #000;
+    border-radius: 50px;
+    background-color: #fff;
+    display: block;
+    width: 260px;
+}
+
+.btn-group.btn-group.case_study_page_sections {
+    width: 100% !important;
+}
+
+{
+    cursor: pointer;
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    top: 0;
+}
+
+.multiselect-container>li>a>label.checkbox,
+.multiselect-container>li>a>label.radio {
+    padding: 4px;
+    width: 100% !important;
+}
+
+.btn-group.show.case_study_select_btn {
+    width: 100% !important;
+}
+
+.nav-reg-sec {
+    /* color: #009C9F !important; */
+    padding-right: .5rem;
+}
+
+header nav.desktop-navbar .dropdown-menu {
+    top: 95% !important;
+    z-index: 99 !important;
+}
+
+header nav.desktop-navbar .dropdown-item {
+    padding: 0px 15px !important;
+}
+
+.case-study-dropdown-ul li {
+    margin: 0 20px !important;
+}
+
+.case-study-dropdown .dropdown-toggle {
+    padding: 10px 40px 10px 30px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    background-color: #fff;
+    color: #000;
+    min-width: 270px;
+    font-size: 16px;
+}
+
+.case-study-dropdown .dropdown-toggle::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "\f0b0";
+    font-family: 'Font Awesome 5 Free';
+    border: 0 !important;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.case-study-dropdown-btn:not(:disabled):not(.disabled).active,
+.case-study-dropdown-btn:not(:disabled):not(.disabled):active,
+.show>.case-study-dropdown-btn.dropdown-toggle {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+    border-radius: 25px 25px 0 0 !important;
+}
+
+.case-study-dropdown-btn:not(:disabled):not(.disabled).active:focus,
+.case-study-dropdown-btn:not(:disabled):not(.disabled):active:focus,
+.show>.case-study-dropdown-btn.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+.case-study-dropdown .dropdown-menu {
+    padding: 10px 15px;
+    margin: 0;
+    font-size: 16px;
+    color: #000;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #000;
+    border-radius: 0 0 25px 25px;
+    width: 100%;
+}
+
+.case-study-dropdown .dropdown-menu.show {
+    transform: translate3d(0px, 42px, 0px);
+}
+
+transform: translate3d(0px,
+42px,
+0px);
+
+}
+px);
+
+}
+x);
+
+}
+x);
+
+}
+
+}
+);
+
+}
+
+}
+
 }

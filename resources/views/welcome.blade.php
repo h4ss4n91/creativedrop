@@ -2,7 +2,7 @@
 @section('content')
 @section('meta_description')@if(!$pages->isEmpty()){{$pages[0]->meta_desc}}@endif @endsection
 @section('meta_keywords')@if(!$pages->isEmpty()){{$pages[0]->meta_keyword}}@endif @endsection
-
+ 
  <!-- BEGIN: Content-->
  
  <!--@if(!$pages->isEmpty())-->
@@ -14,6 +14,7 @@
                             @if($row_pages->section == $row_page_section->id)
 
                                 @include('section')
+                                
 
                             @endif
                 @endforeach
