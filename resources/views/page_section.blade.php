@@ -143,7 +143,6 @@
                                                         <td>
                                                             <img style="width:100px" src="{{asset('public/slider/'.$row_sliders->image)}}" />
                                                         </td>
-
                                                         <td>{{$row_sliders->text1}}</td>
                                                         <td>{{$row_sliders->text2}}</td>
                                                         <td>{{$row_sliders->status}}</td>
@@ -208,7 +207,37 @@
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
-                                                                                                @include('padding_top_and_bottom')
+                                                                                                <div class="col-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <div class="controls">
+                                                                                                            <label for="account-username">Padding TOP  </label>
+                                                                                                            <select name="padding_top" class="form-control">
+                                                                                                                <option value="{{$row_sliders->padding_top}}"> {{$row_sliders->padding_top}} </option>
+                                                                                                                <option value="0"> 0 </option>
+                                                                                                                <option value="30"> 30 </option>
+                                                                                                                <option value="50"> 50 </option>
+                                                                                                                <option value="70"> 70 </option>
+                                                                                                                <option value="100"> 100 </option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                
+                                                                                                <div class="col-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <div class="controls">
+                                                                                                            <label for="account-username">Padding BOTTOM  </label>
+                                                                                                            <select name="padding_bottom" class="form-control">
+                                                                                                                <option value="{{$row_sliders->padding_bottom}}"> {{$row_sliders->padding_bottom}} </option>
+                                                                                                                <option value="0"> 0 </option>
+                                                                                                                <option value="30"> 30 </option>
+                                                                                                                <option value="50"> 50 </option>
+                                                                                                                <option value="70"> 70 </option>
+                                                                                                                <option value="100"> 100 </option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
