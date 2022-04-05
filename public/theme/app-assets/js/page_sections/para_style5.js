@@ -1,13 +1,16 @@
     $(document).ready(function() {
 
         $('#para_style_5_style').change(function() {
-                    var value = $(this).val();
-                    if(value == 'style1'){
-                        $( "#para_style_5_style_content" ).html( '<img style="width:100%" src="{{asset("public/page_sections/paragraph_with_main_heading_left_right_text_column.png")}}" />'); //this is not working
-                    }else if(value == 'style2'){
-                        $( "#para_style_5_style_content" ).html( '<img style="width:100%" src="{{asset("public/page_sections/section_22_style2.png")}}" />'); //this is not working
-                    }
-                });
+            var value = $(this).val();
+            if (value == 'style1') {
+                $("#para_style_5_style_content").html('<h1>'+value+'</h1>'); //this is not working
+                $("#para_style_5_style_content").html('<img style="width:100%" src="'+path+'/public/page_sections/para_style_5_style1.png" />'); //this is not working
+                
+            } else if (value == 'style2') {
+                $("#para_style_5_style_content").html('<h1>'+value+'</h1>'); //this is not working
+                $("#para_style_5_style_content").html('<img style="width:100%" src="'+path+'/public/page_sections/para_style_5_style2.png" />'); //this is not working
+            }
+        });
 
         // Denotes total number of rows
         var paraStyleFiverowIdx = 0;

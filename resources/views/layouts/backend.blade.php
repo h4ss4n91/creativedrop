@@ -67,11 +67,11 @@
     <!-- <script src="https://kit.fontawesome.com/869e3d369a.js" crossorigin="anonymous"></script> -->
     <style>
         .admin-edit {
-            color: #009C9F !important;
+            color: #fff !important;
         }
 
         .admin-delete {
-            color: #FF7588 !important;
+            color: #fff !important;
         }
     </style>
 
@@ -284,8 +284,8 @@
                                             {{auth()->user()->name}}
                                         </span>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{url('admin/user_profile/'.auth()->user()->id)}}"><i class="feather icon-user"></i> View Profile</a><a class="dropdown-item" href="app-email.html"><i class="feather icon-mail"></i> My Inbox</a>
-                                        <a class="dropdown-item" href="user-cards.html"><i class="feather icon-check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="feather icon-message-square"></i> Chats</a>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{url('admin/user_profile/'.auth()->user()->id)}}"><i class="feather icon-user"></i> View Profile</a><a class="dropdown-item" href="{{url('admin/user_profile/'.auth()->user()->id)}}"><i class="feather icon-mail"></i> My Inbox</a>
+                                        <a class="dropdown-item" href="{{url('admin/user_profile/'.auth()->user()->id)}}"><i class="feather icon-check-square"></i> Task</a><a class="dropdown-item" href="{{url('admin/user_profile/'.auth()->user()->id)}}"><i class="feather icon-message-square"></i> Chats</a>
                                         <div class="dropdown-divider"></div>
 
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -312,23 +312,35 @@
                 <div class="navbar-container main-menu-content" data-menu="menu-container">
                     <!-- include ../../../includes/mixins-->
                     <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/home')}}"><i class="fa fa-home"></i><span data-i18n="Dashboard">Dashboard</span></a>
+                        <li class="nav-item"><a class="nav-link" href="{{url('admin/home')}}"><i class="fa fa-home"></i><span data-i18n="Dashboard">Dashboard</span></a>
                         </li>
-                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/menu')}}">
+                        <li class="nav-item"><a class="nav-link" href="{{url('admin/menu')}}">
                                 <!-- <i class="feather icon-list"></i> -->
                                 <i class="fa fa-bars"></i>
                                 <span data-i18n="Dashboard">Menu Navigation</span>
                             </a>
 
                         </li>
-                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/page_sections')}}">
+                        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" href="{{url('admin/page_sections')}}">
                                 <!-- <i class="feather icon-list"></i> -->
-                                <i class="fa fa-cogs"></i>
-
-                                <span data-i18n="Dashboard">Components</span>
-                            </a></li>
-                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/pages')}}"><i class="fa fa-book"></i><span data-i18n="Dashboard">Pages</span></a></li>
-                        <li class="nav-item" data-menu="dropdown"><a class="nav-link" href="{{url('admin/system')}}"> <i class="fa fa-cog"></i><span data-i18n="Dashboard">System Configuration</span></a></li>
+                                <i class="fa fa-cogs"></i> <span data-i18n="Dashboard">Components</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{url('admin/page_sections')}}" data-toggle="dropdown">Slider</a></li>
+                                <li><a class="dropdown-item" href="{{url('admin/page_sections/video')}}" data-toggle="dropdown">Video</a></li>
+                                <li><a class="dropdown-item" href="{{url('admin/page_sections/heading')}}" data-toggle="dropdown">Heading</a></li>
+                                <li><a class="dropdown-item" href="{{url('admin/page_sections/services')}}" data-toggle="dropdown">Services</a></li>
+                                <li><a class="dropdown-item" href="{{url('admin/page_sections/industries')}}" data-toggle="dropdown">Industries</a></li>
+                                <li><a class="dropdown-item" href="{{url('admin/page_sections/case_study')}}" data-toggle="dropdown">Case Study</a></li>
+                                <li><a class="dropdown-item" href="{{url('admin/page_sections/team')}}" data-toggle="dropdown">Team</a></li>
+                                <li><a class="dropdown-item" href="{{url('admin/page_sections/client_and_partner')}}" data-toggle="dropdown">Client and Partner</a></li>
+                                <li><a class="dropdown-item" href="{{url('admin/page_sections/request')}}" data-toggle="dropdown">Request for meeting</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('admin/pages')}}"><i class="fa fa-book"></i><span data-i18n="Dashboard">Pages</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('admin/system')}}"> <i class="fa fa-cog"></i><span data-i18n="Dashboard">System Configuration</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('admin/user_profile/'.auth()->user()->id)}}"> <i class="fa fa-user"></i><span data-i18n="Dashboard">Profile</span></a></li>
+                        
                     </ul>
                 </div>
                 <!-- /horizontal menu content-->
@@ -349,6 +361,7 @@
 
 
             @include('js/service_js')
+            @include('js/slider_js')
             @include('js/case_study_js')
             @include('js/edit_case_study_js')
 
@@ -358,17 +371,25 @@
 
 
         <!-- BEGIN: Footer-->
-        <footer class="footer footer-static footer-light navbar-shadow">
-            <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright &copy; 2022 <a class="text-bold-800 grey darken-2" href="https://creativedrop.com" target="_blank">CreateDrop </a></span><span class="float-md-right d-none d-lg-block">Hand-crafted & Made with <i class="feather icon-heart pink"></i></span></p>
-        </footer>
-        <!-- END: Footer-->
+        
 
     </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <footer class="footer footer-static footer-light navbar-shadow">
+                        <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright &copy; 2022 <a class="text-bold-800 grey darken-2" href="https://creativedrop.com" target="_blank">CreateDrop </a></span><span class="float-md-right d-none d-lg-block">Hand-crafted by CreativeDrop Team </span></p>
+                    </footer>
+                </div>
+            </div>
+    
+    <!-- END: Footer-->
 
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('public/theme/app-assets/vendors/js/vendors.min.js') }}"></script>
     <!-- BEGIN Vendor JS-->
-
+        <script>
+            var path = '<?php echo "http://localhost/creativedrop/"; ?>';
+        </script>
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{ asset('public/theme/app-assets/vendors/js/ui/jquery.sticky.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/vendors/js/charts/jquery.sparkline.min.js') }}"></script>
@@ -403,7 +424,7 @@
     <script src="{{ asset('public/theme/app-assets/js/scripts/script.js') }}"></script>
 
     <!-- page section -->
-    <script src="{{ asset('public/theme/app-assets/js/page_sections/slider.js') }}"></script>
+    {{-- <script src="{{ asset('public/theme/app-assets/js/page_sections/slider.js') }}"></script> --}}
     <script src="{{ asset('public/theme/app-assets/js/page_sections/team_member.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/page_sections/client_and_partner.js') }}"></script>
     <script src="{{ asset('public/theme/app-assets/js/page_sections/request_meeting.js') }}"></script>

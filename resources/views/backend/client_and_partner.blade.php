@@ -35,12 +35,7 @@
             </div>
             <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-right">
-                        <h3 class="m-0">20</h3><span class="text-muted">Components</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -90,6 +85,11 @@
                                                                         <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-12">
+                                                                    <div class="row">
+                                                                        @include('padding_top_and_bottom')
+                                                                    </div>
+                                                                </div>
                                                             </div>
 
                                                             <div class="col-12">
@@ -134,6 +134,7 @@
                                                     <tr>
                                                         <th>Section Name</th>
                                                         <th>Client and Parter Image</th>
+                                                        <th>Padding</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -143,10 +144,16 @@
                                                         <td>
                                                             {{$row_clientandpartnerimage->name}}
                                                         </td>
+
                                                         <td>
                                                             <img style="width:100px;" src="{{asset('public/client_and_partner/'.$row_clientandpartnerimage->image)}}" />
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_client_and_partner/'.$row_clientandpartnerimage->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                        <td>
+                                                            Top: {{$row_clientandpartnerimage->padding_top}}<br/>
+                                                            Bottom: {{$row_clientandpartnerimage->padding_bottom}}
+                                                        </td>
+
+                                                        <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_client_and_partner/'.$row_clientandpartnerimage->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary" data-toggle="modal" data-target="#clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}" tabindex="-1" role="dialog" aria-labelledby="clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
@@ -190,6 +197,41 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
+                                                                                    <div class="col-12">
+                                                                                        <div class="row">
+                                                                                            <div class="col-6">
+                                                                                                <div class="form-group">
+                                                                                                    <div class="controls">
+                                                                                                        <label for="account-username">Padding TOP  </label>
+                                                                                                        <select name="padding_top" class="form-control">
+                                                                                                            <option value="{{$row_clientandpartnerimage->padding_top}}"> {{$row_clientandpartnerimage->padding_top}} </option>
+                                                                                                            <option value="0"> 0 </option>
+                                                                                                            <option value="30"> 30 </option>
+                                                                                                            <option value="50"> 50 </option>
+                                                                                                            <option value="70"> 70 </option>
+                                                                                                            <option value="100"> 100 </option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            
+                                                                                            <div class="col-6">
+                                                                                                <div class="form-group">
+                                                                                                    <div class="controls">
+                                                                                                        <label for="account-username">Padding BOTTOM  </label>
+                                                                                                        <select name="padding_bottom" class="form-control">
+                                                                                                            <option value="{{$row_clientandpartnerimage->padding_bottom}}"> {{$row_clientandpartnerimage->padding_bottom}} </option>
+                                                                                                            <option value="0"> 0 </option>
+                                                                                                            <option value="30"> 30 </option>
+                                                                                                            <option value="50"> 50 </option>
+                                                                                                            <option value="70"> 70 </option>
+                                                                                                            <option value="100"> 100 </option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Client and Partner</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
@@ -210,6 +252,7 @@
                                                 <tfoot>
                                                     <tr>
                                                         <th>Client and Parter Image</th>
+                                                        <th>Padding</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </tfoot>

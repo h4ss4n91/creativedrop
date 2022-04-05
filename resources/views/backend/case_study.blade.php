@@ -35,12 +35,7 @@
             </div>
             <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-right">
-                        <h3 class="m-0">20</h3><span class="text-muted">Components</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -114,6 +109,12 @@
                                                                     <label for="account-username">Short Description</label>
                                                                     <input type="text" name="short_description" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                 </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12">
+                                                            <div class="row">
+                                                                @include('padding_top_and_bottom')
                                                             </div>
                                                         </div>
                                     
@@ -201,6 +202,7 @@
                                                     <th>Name</th>
                                                     <th>Case Study Title</th>
                                                     <th>Case Study Short Description</th>
+                                                    <th>Padding</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -212,8 +214,11 @@
                                                     </td>
                                                     <td>{{$case_study_row->name}}</td>
                                                     <td>{{$case_study_row->title}}</td>
-                                                    <td>{{$case_study_row->short_description}}</td>
-                                                    <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_case_study/'.$case_study_row->id)}}"> Delete </a> | <a href="{{url('admin/detail_case_study/'.$case_study_row->id)}}"> View </a></td>
+                                                    <td style="width:160px;">{{$case_study_row->short_description}}</td>
+                                                    <td>Top: {{$case_study_row->padding_top}} <br/>
+                                                        Bottom: {{$case_study_row->padding_bottom}} <br/>
+                                                    </td>
+                                                    <td> <a class="btn btn-primary" href="{{url('admin/detail_case_study/'.$case_study_row->id)}}"> <i class="fa fa-eye"></i> </a>  <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_case_study/'.$case_study_row->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>  </td>
                                                 </tr>
                                     
                                                 @endforeach

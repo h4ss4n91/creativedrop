@@ -26,12 +26,7 @@
             </div>
             <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-right">
-                        <h3 class="m-0">20</h3><span class="text-muted">Website Pages</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -109,7 +104,7 @@
                                                                                                             <td>{{$row_pages->slug}}</td>
                                                                                                             <td>{{$row_pages->status}}</td>
                                                                                                             <td>
-                                                                                                                <a href="{{url('admin/edit_page_content',$row_pages->id)}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> | <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_page',$row_pages->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>
+                                                                                                                <a class="btn btn-primary" href="{{url('admin/edit_page_content',$row_pages->id)}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>  <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_page',$row_pages->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>
                                                                                                             </td>
                                                                                                             <!-- Modal -->
                                                                                                         </tr>

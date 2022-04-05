@@ -10,7 +10,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   
-
+<div class="row">
+    <div class="col-md-12">
+    
 <div class="app-content container center-layout mt-2">
     <div class="content-overlay"></div>
     <div class="content-wrapper">
@@ -91,6 +93,12 @@
                                                                                                     <label for="account-username">Case Study Name</label>
                                                                                                     <input type="text" name="name" class="form-control" value="{{$case_study[0]->name}}" id="account-username">
                                                                                                 </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-12">
+                                                                                            <div class="col-row">
+                                                                                            @include('padding_top_and_bottom')
                                                                                             </div>
                                                                                         </div>
 
@@ -394,11 +402,108 @@
                                             </td>
                                             <td>
                                                 @if($row_case_study_detail->video_background != NULL)
-                                                <img style="width:200px" src="{{asset('public/case_study_video_background/'.$row_case_study_detail->video_background)}}" />
+                                                <img style="width:200px" src="{{asset('public/case_study_content_video_bg/'.$row_case_study_detail->video_background)}}" />
                                                 @endif
                                             </td>
                                             <td>
-                                                    <a href="{{url('admin/delete_case_study_content/'.$row_case_study_detail->id)}}"> Delete </a>
+                                                
+                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit_Modal{{$row_case_study_detail->id}}">
+                                                    <i style="color:#fff"  class="fa fa-pencil"></i>
+                                                  </button><!-- Modal -->
+                                                        <div class="modal fade" id="edit_Modal{{$row_case_study_detail->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-xl" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Edit Case Study Content</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                </div>
+                                                                <form method="POST" enctype="multipart/form-data" action="{{url('admin/edit_case_study_content')}}">
+                                                                    
+                                                                    @csrf
+                                                                    <input type="hidden" name="case_study_content_id" value="{{$row_case_study_detail->id}}"/>
+                                                                    <input type="hidden" name="case_study_id" value="{{$case_study[0]->id}}"/>
+                                                                    
+                                                                <div class="modal-body">
+                                                                    
+                                                                    <table>
+                                                                            <tr id="R${++caseStudyrowIdx}">
+                                                                                <td class="row-index text-center">
+                                                                                    <input id="image" type="file" name="image" placeholder="Image" class="video form-control"/>
+                                                                                    <input id="image_name" type="text" name="image_name" placeholder="Image Name" class="video form-control"/>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <select  id="image_bg" class="form-control" name="select_style_for_image">
+                                                                                        <option value="">---Select bg Style---</option>
+                                                                                        <option value=""> No </option>
+                                                                                        <option value="section-bg-white">section-bg-white</option>
+                                                                                    </select>
+                                                                                </td>
+                                                                                <td class="row-index text-center">
+                                                                                    <input id="video" type="text" name="video" placeholder="Video Link" class="video form-control"/>
+                                                                                    <input id="video_name" type="text" name="video_name" placeholder="Video Name" class="video form-control"/>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <select  id="image_bg" class="form-control" name="select_style_for_video">
+                                                                                        <option value="">---Select video Style---</option>
+                                                                                        <option value="section-padtop-100 section-padbottom-100"> Video With Background </option>
+                                                                                        <option value="bg-white section-bg-white mt-0 pt-0">Video Full Width</option>
+                                                                                    </select>    
+                                                                                </td>
+                                                                                <td class="row-index text-center">
+                                                                                    <input type="file" name="case_study_video_background" class="image_video_bg form-control"/>
+                                                                                </td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                    <hr/>
+                                                                    <table class="table table-hover">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Image</th>
+                                                                                <th>Video</th>
+                                                                                <th>Video Background</th>
+                                                                                
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            @php
+                                                                                $case_study_content = DB::table('case_study_content')->where('id','=',$row_case_study_detail->id)->get()
+                                                                            @endphp
+                                                                            <tr>
+                                                                                <td>
+                                                                                    @if($case_study_content[0]->image != NULL)
+                                                                                        <img style="width:200px" src="{{asset('public/case_study_content/'.$case_study_content[0]->image)}}" />
+                                                                                    @endif
+                                                                                </td>
+                                                                                <td>
+                                                                                    @if($case_study_content[0]->video_link != NULL)
+                                                                                        <iframe width="200" height="200" src="{{$case_study_content[0]->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                                                    @endif
+                                                                                </td>
+                                                                                <td>
+                                                                                    @if($case_study_content[0]->video_background != NULL)
+                                                                                    <img style="width:200px" src="{{asset('public/case_study_content_video_bg/'.$case_study_content[0]->video_background)}}" />
+                                                                                    @endif
+                                                                                </td>
+
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Edit Content</button>
+                                                                </div>
+                                                            </form>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger">
+                                                                <a href="{{url('admin/delete_case_study_content/'.$row_case_study_detail->id)}}"> <i style="color:#fff" class="fa fa-trash-o"></i> </a>
+                                                        </button>
                                             </td>
                                         </tr>
                                     @endforeach

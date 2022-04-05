@@ -14,6 +14,7 @@
                             @if($row_pages->section == $row_page_section->id)
 
                                 @include('section')
+                                
 
                             @endif
                 @endforeach

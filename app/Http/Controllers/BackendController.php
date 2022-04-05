@@ -109,7 +109,9 @@ class BackendController extends Controller {
                 ->where('page.id', '=', $id)
                 ->orderBy('page_detail.section_no', 'ASC')
                 ->get();
-        $count = count($page);
+        
+        $last_row = DB::table('page_detail')->where('page_id', '=', $id)->orderBy('section_no', 'desc')->first();
+        $count = $last_row->section_no +1;
         $page_section = DB::table('page_section')->get();
         return view('edit_page', Compact('page', 'page_section', 'main_menu', 'count'));
     }
@@ -330,8 +332,12 @@ class BackendController extends Controller {
                     [
                         'image' => $file_name,
                         'name' => $data['name'],
+                        'padding_top' => $data['padding_top'],
+                        'padding_bottom' => $data['padding_bottom'],
                         'status' => $data['status'][$i],
                         'text1' => $data['text_1'][$i],
+                        'link' => $data['link'][$i],
+                        'style' => $data['btn_style'][$i],
                         'text2' => $data['text_2'][$i],
                         'contact_button_link' => $data['link'][$i]]
             );
@@ -348,7 +354,7 @@ class BackendController extends Controller {
             $affected = DB::table('sliders')
                     ->where('id', $request->id)
                     ->update(
-                    ['page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
+                    ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
             );
 
             $message = 'Successfully Edited';
@@ -359,7 +365,7 @@ class BackendController extends Controller {
             $affected = DB::table('sliders')
                     ->where('id', $request->id)
                     ->update(
-                    ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
+                    ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
             );
 
             $message = 'Successfully Edited';
@@ -380,6 +386,8 @@ class BackendController extends Controller {
         DB::table('videos')->insert([
             'page_id' => $request->page_id,
             'name' => $request->name,
+            'padding_bottom' => $request->padding_bottom, 
+            'padding_top' => $request->padding_top,
             'video_title' => $request->video_title,
             'video_link' => $request->video_link,
             'contact_button_link' => $request->contact_button_link,
@@ -396,6 +404,8 @@ class BackendController extends Controller {
                 ->update([
             'page_id' => $request->page_id,
             'name' => $request->name,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top,
             'video_title' => $request->video_title,
             'video_link' => $request->video_link,
             'contact_button_link' => $request->contact_button_link,
@@ -424,55 +434,62 @@ class BackendController extends Controller {
         
             $id = DB::table('case_study')->insertGetId([
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top,
+                        'slug' => Str::slug($data['case_study_name'], '-'),
                         'image' => $file_name,
                         'title' => $request->case_study_name,
                         'short_description' => $request->short_description]
             );
 
-        for ($i = 0; $i < count($request->video); $i++) {
+            if(!$request->video){}
+            else{
+                for ($i = 0; $i < count($request->video); $i++) {
 
-            if($data['video'][$i] == NULL){
-                $file_content = $data['image'][$i]; // will get all files
-                $file_content_name = $file_content->getClientOriginalName(); //Get file original name
-                $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
-
-                DB::table('case_study_content')->insert(
-                    [
-                        'case_study_id' => $id,
-                        'image' => $file_content_name,
-                        'image_name' => $data['image_name'][$i],
-                        'image_style' => $data['select_style_for_image'][$i]]
-                );
-            }else{
-
-                if( $data['select_style_for_video'][$i] == "section-padtop-100 section-padbottom-100"){
-
-                    $case_study_video_background = $data['case_study_video_background'][$i]; // will get all files
-                    $case_study_video_background_name = $case_study_video_background->getClientOriginalName(); //Get file original name
-                    $case_study_video_background->move(public_path('case_study_content_video_bg'), $case_study_video_background_name); // move files to destination folder
-    
-                    DB::table('case_study_content')->insert(
-                        [
-                        'case_study_id' => $id,
-                            'video_style' => $data['select_style_for_video'][$i],
-                            'video_link' => $data['video'][$i],
-                            'video_name' => $data['video_name'][$i],
-                            'video_background' => $case_study_video_background_name]
-                    );
-
-                }else{
-                    DB::table('case_study_content')->insert(
-                        [
-                            'case_study_id' => $id,
-                            'video_style' => $data['select_style_for_video'][$i],
-                            'video_name' => $data['video_name'][$i],
-                            'video_link' => $data['video'][$i]
-                            ]
-                    );
-                }
-                
+                    if($data['video'][$i] == NULL){
+                        $file_content = $data['image'][$i]; // will get all files
+                        $file_content_name = $file_content->getClientOriginalName(); //Get file original name
+                        $file_content->move(public_path('case_study_content'), $file_content_name); // move files to destination folder
+        
+                        DB::table('case_study_content')->insert(
+                            [
+                                'case_study_id' => $id,
+                                'image' => $file_content_name,
+                                'image_name' => $data['image_name'][$i],
+                                'image_style' => $data['select_style_for_image'][$i]]
+                        );
+                    }else{
+        
+                        if( $data['select_style_for_video'][$i] == "section-padtop-100 section-padbottom-100"){
+        
+                            $case_study_video_background = $data['case_study_video_background'][$i]; // will get all files
+                            $case_study_video_background_name = $case_study_video_background->getClientOriginalName(); //Get file original name
+                            $case_study_video_background->move(public_path('case_study_content_video_bg'), $case_study_video_background_name); // move files to destination folder
+            
+                            DB::table('case_study_content')->insert(
+                                [
+                                'case_study_id' => $id,
+                                    'video_style' => $data['select_style_for_video'][$i],
+                                    'video_link' => $data['video'][$i],
+                                    'video_name' => $data['video_name'][$i],
+                                    'video_background' => $case_study_video_background_name]
+                            );
+        
+                        }else{
+                            DB::table('case_study_content')->insert(
+                                [
+                                    'case_study_id' => $id,
+                                    'video_style' => $data['select_style_for_video'][$i],
+                                    'video_name' => $data['video_name'][$i],
+                                    'video_link' => $data['video'][$i]
+                                    ]
+                            );
+                        }
+                    }
             }
-    }
+            }
+            
+        
     
     if($request->service != NULL){
         for ($i = 0; $i < count($request->service); $i++) {
@@ -510,7 +527,7 @@ class BackendController extends Controller {
             $affected = DB::table('case_study')
                     ->where('id', $request->id)
                     ->update(
-                    ['page_id' => $request->page_id, 'name' => $request->name, 'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
+                    ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'name' => $request->name, 'slug' => Str::slug($data['title'], '-'),'title' => $request->title, 'short_description' => $request->short_description, 'link' => $request->link]
             );
             
         } else {
@@ -569,7 +586,9 @@ class BackendController extends Controller {
             DB::table('clientandparterimage')->insert(
                     [
                         'image' => $file_name,
-                        'name' => $data['name']
+                        'name' => $data['name'],
+                        'padding_top' => $data['padding_top'],
+                        'padding_bottom' => $data['padding_bottom']
                     ]
             );
         }
@@ -584,7 +603,7 @@ class BackendController extends Controller {
             $affected = DB::table('clientandparterimage')
                     ->where('id', $request->id)
                     ->update(
-                    ['page_id' => $request->page_id]
+                    ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, ]
             );
             $message = 'Successfully Edited';
             return redirect()->back()->with('edit_message', $message);
@@ -595,7 +614,7 @@ class BackendController extends Controller {
             $affected = DB::table('clientandparterimage')
                     ->where('id', $request->id)
                     ->update(
-                    ['image' => $file_name, 'page_id' => $request->page_id]
+                    ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'page_id' => $request->page_id]
             );
             $message = 'Successfully Edited';
             return redirect()->back()->with('edit_message', $message);
@@ -620,7 +639,10 @@ class BackendController extends Controller {
                     [
                         'image' => $file_name,
                         'page_id' => $request->page_id,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'name' => $request->name,
+                        'link' => $request->link,
                         'slug' => Str::slug($data['title'], '-'),
                         'title' => $data['title']
                     ]
@@ -635,7 +657,7 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['title' => $request->name, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
+                    ['name' => $request->name, 'title' => $request->title, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
             );
             $message = 'Successfully Edited';
             return redirect()->back()->with('edit_message', $message);
@@ -646,7 +668,7 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['image' => $file_name, 'name' => $request->name, 'page_id' => $request->page_id]
+                    ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->name, 'page_id' => $request->page_id]
             );
             $message = 'Successfully Edited';
         return redirect()->back()->with('edit_message', $message);
@@ -670,7 +692,7 @@ class BackendController extends Controller {
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('team'), $file_name); // move files to destination folder
             DB::table('teams')->insert(
-                    ['image' => $file_name, 'section_name' => $data['name'], 'name' => $data['team_member_title'][$i], 'designation' => $data['team_member_designation'][$i]]
+                    ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'section_name' => $data['name'], 'name' => $data['team_member_title'][$i], 'designation' => $data['team_member_designation'][$i]]
             );
         }
 
@@ -685,7 +707,7 @@ class BackendController extends Controller {
             $affected = DB::table('teams')
                     ->where('id', $request->id)
                     ->update(
-                    ['page_id' => $request->page_id, 'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
+                    ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
             );
             $message = 'Successfully Edited';
             return redirect()->back()->with('edit_message', $message);
@@ -696,7 +718,7 @@ class BackendController extends Controller {
             $affected = DB::table('teams')
                     ->where('id', $request->id)
                     ->update(
-                    ['image' => $file_name, 'page_id' => $request->page_id, 'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
+                    ['image' => $file_name, 'page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
             );
             $message = 'Successfully Edited';
             return redirect()->back()->with('edit_message', $message);
@@ -718,6 +740,8 @@ class BackendController extends Controller {
             'image' => $file_name_file_industries,
             'page_id' => $request->page_id,
             'title' => $request->news_title,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'description' => $request->news_short_description,
             'link' => $request->link]
         );
@@ -734,6 +758,8 @@ class BackendController extends Controller {
                     ->update([
                 'page_id' => $request->page_id,
                 'title' => $request->news_title,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'description' => $request->news_short_description,
                 'link' => $request->link]
             );
@@ -747,6 +773,8 @@ class BackendController extends Controller {
                     ->update([
                 'image' => $file_name,
                 'page_id' => $request->page_id,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'title' => $request->news_title,
                 'description' => $request->news_short_description,
                 'link' => $request->link]
@@ -772,6 +800,8 @@ class BackendController extends Controller {
                     [
                         // 'image' => $file_name,
                         'style' => $data['style'],
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'btn_label' => $data['button_label'][$i],
                         'name' => $data['name'],
                         'title' => $data['request_title'][$i]
@@ -790,6 +820,8 @@ class BackendController extends Controller {
                 ->update([
             'page_id' => $request->page_id,
             'btn_label' => $request->button_label,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'title' => $request->title,
             'style' => $request->style,
             'name' => $request->name]
@@ -817,6 +849,8 @@ class BackendController extends Controller {
             DB::table('para_style_1')->insert(
                     [
                         'image' => $file_name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'page_id' => $request->page_id,
                         'name' => $request->name,
                         'title' => $data['title'][$i],
@@ -839,6 +873,8 @@ class BackendController extends Controller {
                     ->update([
                 'page_id' => $request->page_id,
                 'title' => $request->news_title,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'description' => $request->news_short_description,
                 'link' => $request->link]
             );
@@ -851,6 +887,8 @@ class BackendController extends Controller {
                 'image' => $file_name,
                 'page_id' => $request->page_id,
                 'title' => $request->title,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
@@ -879,6 +917,8 @@ class BackendController extends Controller {
                     [
                         'image' => $file_name,
                         'page_id' => $request->page_id,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'flex_row_reverse' => $data['flex_row_reverse'][$i],
                         'name' => $request->name,
                         'title' => $data['title'][$i],
@@ -902,6 +942,8 @@ class BackendController extends Controller {
                     ->update([
                 'page_id' => $request->page_id,
                 'title' => $request->title,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
@@ -916,6 +958,8 @@ class BackendController extends Controller {
                     ->update([
                 'image' => $file_name,
                 'page_id' => $request->page_id,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'title' => $request->title,
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
@@ -945,6 +989,8 @@ class BackendController extends Controller {
                         'image' => $file_name,
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'title' => $data['title'][$i],
                         'paragraph' => $data['paragraph'][$i]
                     ]
@@ -966,6 +1012,8 @@ class BackendController extends Controller {
                     ->update([
                 'page_id' => $request->page_id,
                 'title' => $request->title,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
@@ -981,6 +1029,8 @@ class BackendController extends Controller {
                     ->update([
                 'image' => $file_name,
                 'page_id' => $request->page_id,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'title' => $request->title,
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
@@ -1005,6 +1055,8 @@ class BackendController extends Controller {
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'title' => $data['paragraph'][$i]
                     ]
             );
@@ -1019,6 +1071,8 @@ class BackendController extends Controller {
                 ->where('id', $request->id)
                 ->update([
             'name' => $request->name,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'title' => $request->paragraph]
         );
         $message = 'Successfully Edited';
@@ -1035,19 +1089,21 @@ class BackendController extends Controller {
     public function store_para_style_5(Request $request) {
         $data = $request->all();
 
-        for ($i = 0; $i < count($request->heading); $i++) {
+        
             DB::table('para_style_5')->insert(
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
                         'style' => $request->style,
-                        'heading_size' => $data['heading_size'][$i],
-                        'heading' => $data['heading'][$i],
-                        'text_left' => $data['text_left'][$i],
-                        'text_right' => $data['text_right'][$i]
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
+                        'heading_size' => 'h4',
+                        'heading' => $data['heading'],
+                        'text_left' => $data['text_left'],
+                        'text_right' => $data['text_right']
                     ]
             );
-        }
+        
 
         $message = 'Successfully Inserted';
         return redirect()->back()->with('success_message', $message);
@@ -1060,7 +1116,9 @@ class BackendController extends Controller {
             'page_id' => $request->page_id,
             'name' => $request->name,
             'style' => $request->style,
-            'heading_size' => $request->heading_size,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
+            'heading_size' => 'h4',
             'heading' => $request->heading,
             'text_left' => $request->text_left,
             'text_right' => $request->text_right,
@@ -1153,6 +1211,96 @@ class BackendController extends Controller {
         return $final_Result;
     }
 
+
+
+    public function page_section_id_for_component($id,$value) {
+
+        if ($id == 1) {
+            
+            $sliders = DB::table('sliders')->where('name','=',$value)->get();
+            $Array = [];
+            foreach($sliders as $row_slider){
+                $Array[] = '<tr><td><img style="width:200px;" src="http://localhost/creativedrop/public/slider/'.$row_slider->image.'"/></td><td>'.$row_slider->text1.'</td><td>'.$row_slider->text2.'</td></tr>';
+            }
+            $final_Result = $Array;
+            return $final_Result;
+            
+            //return $this->getObjectValuesForComponent("sliders", "name", $value);
+        } else if ($id == 2) {
+            return $this->getObjectValuesForComponent("videos", "video_title");
+        } else if ($id == 3) {
+            return $this->getObjectValuesForComponent("teams", "section_name");
+        } else if ($id == 4) {
+            return $this->getObjectValuesForComponent("case_study", "name");
+        } else if ($id == 5) {
+            //it is for services
+            return $this->getObjectValuesForComponent("services", "name");
+        } else if ($id == 6) {
+            return $this->getObjectValuesForComponent("clientandparterimage", "name");
+        } else if ($id == 7) {
+            return $this->getObjectValuesForComponent("industries", "name");
+        } else if ($id == 8) {
+            return $this->getObjectValuesForComponent("news_and_opinions", "name");
+        } else if ($id == 9) {
+            return $this->getObjectValuesForComponent("requests", "name", "style");
+        } else if ($id == 10) {
+            return $this->getObjectValuesForComponent("para_style_1", "name");
+        } else if ($id == 11) {
+            return $this->getObjectValuesForComponent("para_style_2", "name");
+        } else if ($id == 12) {
+            return $this->getObjectValuesForComponent("para_style_3", "name");
+        } else if ($id == 13) {
+            return $this->getObjectValuesForComponent("para_style_4", "name");
+        } else if ($id == 14) {
+            return $this->getObjectValuesForComponent("para_style_5", "name", "style");
+        } else if ($id == 15) {
+            return $this->getObjectValuesForComponent("section_15", "name", "style");
+        } else if ($id == 16) {
+            return $this->getObjectValuesForComponent("section_16", "name");
+        } else if ($id == 17) {
+            return $this->getObjectValuesForComponent("section_17", "name");
+        } else if ($id == 18) {
+            return $this->getObjectValuesForComponent("section_18", "name");
+        } else if ($id == 19) {
+            return $this->getObjectValuesForComponent("section_19", "name");
+        } else if ($id == 20) {
+            return $this->getObjectValuesForComponent("section_20", "name");
+        } else if ($id == 21) {
+            return $this->getObjectValuesForComponent("section_21", "name");
+        } else if ($id == 22) {
+            return $this->getObjectValuesForComponent("section_22", "name", "style");
+        } else if ($id == 23) {
+            return $this->getObjectValuesForComponent("section_23", "name");
+        }
+        
+    }
+
+    private function getObjectValuesForComponent($table = '', $attribute = '', $style = '',$value='') {
+        if (empty($table)) {
+            return;
+        }
+
+        if (empty($attribute)) {
+            return;
+        }
+
+        if (empty($attribute)) {
+            return;
+        }
+
+        $rows = DB::table($table)->where('name','=',$value)->get();
+        $Array = [];
+        
+        foreach ($rows as $select_row) {
+            
+            $Array[] = '<option value="' . $select_row->{$attribute} . '">' . $select_row->{$attribute} . ' </option>';
+            
+        }
+        
+        $final_Result = $Array;
+        return $final_Result;
+    }
+
     // Para Style 15  Section
     public function store_section_15(Request $request) {
         $data = $request->all();
@@ -1167,6 +1315,8 @@ class BackendController extends Controller {
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'style' => $request->style,
                         'image' => $file_name,
                         'heading1' => $data['heading'][$i],
@@ -1188,6 +1338,8 @@ class BackendController extends Controller {
                     ->update([
                 'page_id' => $request->page_id,
                 'style' => $request->style,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'name' => $request->name,
                 'heading1' => $request->heading,
                 'flex_row_reverse' => $request->flex_row_reverse]
@@ -1204,6 +1356,8 @@ class BackendController extends Controller {
                 'image' => $file_name,
                 'page_id' => $request->page_id,
                 'style' => $request->style,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'name' => $request->name,
                 'heading1' => $request->heading,
                 'flex_row_reverse' => $request->flex_row_reverse]
@@ -1233,6 +1387,8 @@ class BackendController extends Controller {
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'image' => $file_name,
                         'text' => $data['text'][$i],
                         'heading' => $data['heading'][$i]
@@ -1250,6 +1406,8 @@ class BackendController extends Controller {
                 ->update([
             'page_id' => $request->page_id,
             'name' => $request->name,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'text' => $request->text,
             'heading' => $request->heading
                 ]
@@ -1274,6 +1432,8 @@ class BackendController extends Controller {
                         'page_id' => $request->page_id,
                         'name' => $request->name,
                         //  'image' => $file_name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'paragraph' => $data['paragraph'][$i]
                     ]
             );
@@ -1289,6 +1449,8 @@ class BackendController extends Controller {
                 ->update([
             'page_id' => $request->page_id,
             'name' => $request->name,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'paragraph' => $request->paragraph
                 ]
         );
@@ -1316,6 +1478,8 @@ class BackendController extends Controller {
                     [
                         'page_id' => $request->page_id,
                         'name' => $request->name,
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'image' => $file_name,
                         'headingone' => $data['headingone'],
                         'headingtwo' => $data['headingtwo']
@@ -1338,6 +1502,8 @@ class BackendController extends Controller {
                 'page_id' => $request->page_id,
                 'name' => $request->name,
                 'headingone' => $request->headingone,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'headingtwo' => $request->headingtwo
                     ]
             );
@@ -1354,6 +1520,8 @@ class BackendController extends Controller {
                 'image' => $file_name,
                 'page_id' => $request->page_id,
                 'name' => $request->name,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'headingone' => $request->headingone,
                 'headingtwo' => $request->headingtwo
                     ]
@@ -1553,21 +1721,22 @@ class BackendController extends Controller {
     public function store_section_20(Request $request) {
         $data = $request->all();
 
-        for ($i = 0; $i < count($request->text_1); $i++) {
+        
 
-            $file = $data['slider_image'][$i]; // will get all files
-            $file_name = $file->getClientOriginalName(); //Get file original name
-            $file->move(public_path('section_20_slider'), $file_name); // move files to destination folder
-            DB::table('sliders')->insert(
+            //$file = $data['slider_image'][$i]; // will get all files
+            //$file_name = $file->getClientOriginalName(); //Get file original name
+            //$file->move(public_path('section_20_slider'), $file_name); // move files to destination folder
+            DB::table('section_20')->insert(
                     [
-                        'image' => $file_name,
-                        'name' => $data['name'],
-                        'status' => $data['status'][$i],
-                        'text1' => $data['text_1'][$i],
-                        'text2' => $data['text_2'][$i],
-                        'contact_button_link' => $data['link'][$i]]
+                        'name' => $request->name,
+            'heading_1' => $request->heading_1,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
+            'heading_2' => $request->heading_2,
+            'btn_class' => $request->btn_class,
+            'btn_label' => $request->btn_label]
             );
-        }
+        
 
         $message = 'Successfully Inserted';
         return redirect()->back()->with('success_message', $message);
@@ -1580,6 +1749,8 @@ class BackendController extends Controller {
                 ->update([
             'name' => $request->name,
             'heading_1' => $request->heading_1,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'heading_2' => $request->heading_2,
             'btn_class' => $request->btn_class,
             'btn_label' => $request->btn_label
@@ -1602,6 +1773,8 @@ class BackendController extends Controller {
         DB::table('section_21')->insert(
                 [
                     'name' => $request->name,
+                    'padding_bottom' => $request->padding_bottom,
+                    'padding_top' => $request->padding_top, 
                     'slider_name' => $data['slider_name'],
                     'video_name' => $data['video_name']
                 ]
@@ -1618,6 +1791,8 @@ class BackendController extends Controller {
                 ->update([
             'name' => $request->name,
             'slider_name' => $request->slider_name,
+            'padding_bottom' => $request->padding_bottom,
+            'padding_top' => $request->padding_top, 
             'video_name' => $request->video_name
                 ]
         );
@@ -1646,6 +1821,8 @@ class BackendController extends Controller {
         DB::table('section_22')->insert(
                 [
                     'name' => $request->name,
+                    'padding_bottom' => $request->padding_bottom,
+                    'padding_top' => $request->padding_top, 
                     'heading_1' => $data['heading_1'],
                     'heading_2' => $data['heading_2'],
                     'image' => $file_name,
@@ -1667,6 +1844,8 @@ class BackendController extends Controller {
                     ->where('id', $request->id)
                     ->update([
                 'name' => $request->name,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'heading_1' => $request->heading_1,
                 'heading_2' => $request->heading_2,
                 'video' => $request->video,
@@ -1683,6 +1862,8 @@ class BackendController extends Controller {
                     ->where('id', $request->id)
                     ->update([
                 'name' => $request->name,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'heading_1' => $request->heading_1,
                 'heading_2' => $request->heading_2,
                 'image' => $file_name,
@@ -1708,6 +1889,8 @@ class BackendController extends Controller {
             DB::table('services')->insert(
                     [
                         'name' => $data['name'],
+                        'padding_bottom' => $request->padding_bottom,
+                        'padding_top' => $request->padding_top, 
                         'main_service' => $data['service'][$i],
                         'bootstra_class_name' => $data['class_name'],
                         'sub_service' => $data['sub_category'][$i],
@@ -1725,7 +1908,7 @@ class BackendController extends Controller {
         $affected = DB::table('services')
                 ->where('id', $request->id)
                 ->update(
-                ['name' => $request->name, 'main_service' => $request->main_service, 'bootstra_class_name' => $request->class_name, 'sub_service' => $request->sub_service, 'sub_service_link' => $request->sub_service_link]
+                ['name' => $request->name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'main_service' => $request->main_service, 'bootstra_class_name' => $request->class_name, 'sub_service' => $request->sub_service, 'sub_service_link' => $request->sub_service_link]
         );
 
         $message = 'Successfully Edited';
@@ -1754,6 +1937,8 @@ class BackendController extends Controller {
         DB::table('section_23')->insert(
                 [
                     'name' => $request->name,
+                    'padding_bottom' => $request->padding_bottom,
+                    'padding_top' => $request->padding_top, 
                     'heading' => $request->heading,
                     'title' => $request->title
                     
@@ -1772,6 +1957,8 @@ class BackendController extends Controller {
             ->where('id', $request->id)
             ->update([
                 'name' => $request->name,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
                 'heading' => $request->heading,
                 'title' => $request->title
                     ]

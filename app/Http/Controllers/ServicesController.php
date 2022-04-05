@@ -21,7 +21,14 @@ class ServicesController extends Controller
             {
                 return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
             }
-        $services = DB::table('services')->get();
+        $services = DB::table('services')
+        ->join('menus','menus.id','=','services.main_service')
+        ->join('child_menus','child_menus.id','=','services.sub_service')
+        ->select('child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','menus.menu_name as first_level_menu_name', 'services.*')
+        ->get();
+
+        
+
         $pages = DB::table('page')->get();
         return view('backend.services',Compact('services','pages'));
     }

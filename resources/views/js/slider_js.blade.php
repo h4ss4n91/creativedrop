@@ -1,3 +1,7 @@
+@php
+    $page = DB::table('page')->get();
+    
+@endphp
 <script>
 $(document).ready(function() {
     // Denotes total number of rows
@@ -9,9 +13,16 @@ $(document).ready(function() {
             <td class="row-index text-center"><input type="file" name="slider_image[]" class="form-control"/></td>
             <td class="row-index text-center"><input type="text" name="text_1[]" class="form-control"/></td>
             <td class="row-index text-center"><input type="text" name="text_2[]" class="form-control"/></td>
-            <td class="row-index text-center"><input type="text" name="link[]" class="form-control"/></td>
             <td class="row-index text-center">
-            <select name="btn_style" class="form-control">
+                <select data-live-search="true" data-live-search-style="begins" name="link[]" class="selectpicker form-control">
+                    <option value="">--Select Link---</option>
+                    @foreach($page as $row_page)
+                            <option value="{{$row_page->slug}}">{{$row_page->slug}}</option>    
+                    @endforeach
+                </select>
+                </td>
+            <td class="row-index text-center">
+            <select name="btn_style[]" class="form-control">
                 <option value="">--Select Button Style---</option>
                 <option value="btn web-btn web-btn-blue">btn web-btn web-btn-blue</option>
                 <option value="btn web-btn web-btn-white">btn web-btn web-btn-white</option>

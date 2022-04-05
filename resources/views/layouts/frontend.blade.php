@@ -22,26 +22,44 @@
   <link rel="stylesheet" href="{{ asset('public/front_theme/css/jquery.mCustomScrollbar.min.css')}}">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ asset('public/front_theme/css/theme.css?v=2.9')}}">
-
-  <!-- Multiselect -->
-
-  <!-- Multiselect -->
-  <!-- MULTISELECT Include the plugin's CSS and JS: -->
-
-  <link rel="stylesheet" href="{{ asset('public/multiselect/dist/css/bootstrap-multiselect.css')}}" type="text/css">
-
+  <link rel="stylesheet" href="{{ asset('public/front_theme/css/theme.css')}}">
 
   <style>
-    .multiselect-native-select {
-      border: 1px solid #000;
-      border-radius: 50px;
-      background-color: #fff;
-      display: block;
-      position: relative;
-      padding-left: 8px;
-      padding-right: 20px;
+    @font-face {
+      font-family: "CustomFont";
+      src: url("./././public/Lato/Lato-Black.ttf");
+      src: url("./././public/Lato/Lato-Bold.ttf"),
+        url("https://yoursite.com/css/fonts/CustomFont.otf") format("opentype"),
+        url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
     }
+
+    .fa-plus {
+      text-align: center;
+
+    }
+
+    .add_component {
+      text-align: center;
+      border: 1px solid #000;
+      background-color: #fff;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .fa-trash {
+      border: 1px solid #fff;
+      border-radius: 50%;
+      padding: 5px;
+      background: #fff;
+    }
+
+    .fa-edit {
+      border: 1px solid #fff;
+      border-radius: 50%;
+      padding: 5px;
+      background: #fff;
+    }
+
 
     .contact-form-left {
       background-image: url("{{asset('public/front_theme/images/contact-form.jpeg') }}");
@@ -77,7 +95,7 @@
       border-bottom: 1px solid #000 !important;
       color: #000 !important;
       font-size: 14px !important;
-      font-family: 'helvetica regular' !important;
+      font-family: 'CustomFont regular' !important;
       padding-left: 0px !important;
       background-color: transparent !important;
     }
@@ -198,9 +216,7 @@
               <a href="https://api.whatsapp.com/send?phone=+971503119300" class="text-white whatsapp-link" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
             </form>
             @guest
-            <li class="nav-item">
-              &nbsp; <a class="btn web-btn web-btn-white" href="{{ route('login') }}">{{ __('Login') }}</a>
-            </li>
+
 
             @else
             <li class="nav-item dropdown">
@@ -211,12 +227,13 @@
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ url('admin/home') }}"><i class="fa fa-home nav-reg-sec"></i> Dashboard </a>
                 <a class="dropdown-item" href="{{ url('admin/system') }}"><i class="fa fa-cogs nav-reg-sec"></i> System Setting </a>
+                {{-- <a onclick="frontend_editor();" class="dropdown-item"><i class="fa fa-edit"></i> Frontend Editor </a> --}}
                 <a class="dropdown-item" href="{{ url('admin/user_profile',Auth::user()->id) }}"><i class="fa fa-user nav-reg-sec"></i> Profile </a>
 
 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
+                  document.getElementById('logout-form').submit();">
                   <!-- <i class="fa fa-home nav-reg-sec"></i> -->
                   <i class="fa fa-lock nav-reg-sec"></i>
 
@@ -250,9 +267,7 @@
           <div class="swiper mySwiper">
             <div class="swiper-wrapper">
               @foreach($child_menu as $row_child_menu)
-
               <div class="swiper-slide"><a href="{{$row_child_menu->item_link}}" class="p-14">{{$row_child_menu->item_name}}</a></div>
-
               @endforeach
             </div>
           </div>
@@ -271,9 +286,6 @@
   <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
-      <div>
-
-      </div>
 
 
       <div class="sidebar-header">
@@ -292,11 +304,11 @@
         @php
         $link = $row_main_menu->menu_link;
         @endphp
-        <li> <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{$row_main_menu->menu_name}}</a> </li>
+        <li> <a href="#homeSubmenu{{$row_main_menu->id}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{$row_main_menu->menu_name}}</a> </li>
         @php $sub_menu = DB::table('child_menus')->where('menu_id','=',$row_main_menu->id)->get(); @endphp
-        <ul class="collapse list-unstyled" id="homeSubmenu">
+        <ul class="collapse list-unstyled" id="homeSubmenu{{$row_main_menu->id}}">
           @foreach($sub_menu as $row_sub_menu)
-          <li> <a href="#homeSubmenuMulti{{$row_sub_menu->id}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{$row_sub_menu->item_name}}</a> </li>
+          <li> <a href="#homeSubmenuMulti{{$row_sub_menu->id}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">{{$row_sub_menu->item_name}}</a> </li>
           <ul class="collapse list-unstyled" id="homeSubmenuMulti{{$row_sub_menu->id}}">
             @php
             $child_sub_menu = DB::table('sub_child_menus')->where('child_menu_id','=',$row_sub_menu->id)->get(); @endphp
@@ -313,6 +325,37 @@
         </ul>
         @endforeach
 
+        @guest
+
+
+        @else
+        <li class="nav-item dropdown">
+          &nbsp; <a class="btn web-btn web-btn-white" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }}
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ url('admin/home') }}"><i class="fa fa-home nav-reg-sec"></i> Dashboard </a>
+            <a class="dropdown-item" href="{{ url('admin/system') }}"><i class="fa fa-cogs nav-reg-sec"></i> System Setting </a>
+            <a class="dropdown-item" href="{{ url('admin/user_profile',Auth::user()->id) }}"><i class="fa fa-user nav-reg-sec"></i> Profile </a>
+
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+              <!-- <i class="fa fa-home nav-reg-sec"></i> -->
+              <i class="fa fa-lock nav-reg-sec"></i>
+
+              {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
+          </div>
+        </li>
+        @endguest
+
       </ul>
 
       <div class="sidebar-links">
@@ -326,9 +369,9 @@
   </div>
 
   <div class="overlay"></div>
-  <div class="main-wrap">
-    @yield('content')
-  </div>
+
+  @yield('content')
+
   <footer class="section-bg-white">
     <section class="footer-links section-padtop-50 section-padbottom-50">
       <div class="web-container">
@@ -495,7 +538,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script type="text/javascript" src="{{ asset('public/multiselect/dist/js/bootstrap-multiselect.js')}}"></script>
+
   <script src="{{ asset('public/front_theme/js/jquery.counterup.min.js')}}"></script>
   <script src="{{ asset('public/front_theme/js/jquery.waypoints.min.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
@@ -504,16 +547,16 @@
   <script src="{{ asset('public/front_theme/js/ekko-lightbox.min.js')}}"></script>
   <script src="{{ asset('public/front_theme/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script src="{{ asset('public/front_theme/js/theme.js?v=1.9')}}"></script>
+  <script src="{{ asset('public/front_theme/js/theme.js')}}"></script>
 
 
 
   <script>
     //-----------------
     $(document).ready(function() {
-      $('#example-getting-started').multiselect();
-      $('#example-getting-started_two').multiselect();
-      $('#example-getting-started_industries').multiselect();
+
+      $('.edit_delete_add_component').hide();
+
 
       $('#right_content_two').hide();
       $('#loader').hide();

@@ -35,12 +35,7 @@
             </div>
             <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-right">
-                        <h3 class="m-0">20</h3><span class="text-muted">Components</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -155,6 +150,7 @@
                                                         <th>Video Link</th>
                                                         <th>Button Label</th>
                                                         <th>Button Link</th>
+                                                        <th>Padding</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -167,9 +163,12 @@
                                                         <td>{{$row_videos->video_link}}</td>
                                                         <td>{{$row_videos->button_label}}</td>
                                                         <td>{{$row_videos->contact_button_link}}</td>
+                                                        <td>Top: {{$row_videos->padding_top}} <br/>
+                                                            Bottom: {{$row_videos->padding_bottom}} <br/>
+                                                        </td>
                                                         <td>
-                                                            <a data-toggle="modal" data-target="#videoModalCenter{{$row_videos->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
-                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_video/'.$row_videos->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                            <a class="btn btn-primary" data-toggle="modal" data-target="#videoModalCenter{{$row_videos->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> 
+                                                            <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_video/'.$row_videos->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="videoModalCenter{{$row_videos->id}}" tabindex="-1" role="dialog" aria-labelledby="videoModalCenter{{$row_videos->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -215,6 +214,41 @@
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Video Link</label>
                                                                                                 <input type="text" name="video_link" value="{{$row_videos->video_link}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-12">
+                                                                                        <div class="row">
+                                                                                            <div class="col-6">
+                                                                                                <div class="form-group">
+                                                                                                    <div class="controls">
+                                                                                                        <label for="account-username">Padding TOP  </label>
+                                                                                                        <select name="padding_top" class="form-control">
+                                                                                                            <option value="{{$row_videos->padding_top}}"> {{$row_videos->padding_top}} </option>
+                                                                                                            <option value="0"> 0 </option>
+                                                                                                            <option value="30"> 30 </option>
+                                                                                                            <option value="50"> 50 </option>
+                                                                                                            <option value="70"> 70 </option>
+                                                                                                            <option value="100"> 100 </option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            
+                                                                                            <div class="col-6">
+                                                                                                <div class="form-group">
+                                                                                                    <div class="controls">
+                                                                                                        <label for="account-username">Padding BOTTOM  </label>
+                                                                                                        <select name="padding_bottom" class="form-control">
+                                                                                                            <option value="{{$row_videos->padding_bottom}}"> {{$row_videos->padding_bottom}} </option>
+                                                                                                            <option value="0"> 0 </option>
+                                                                                                            <option value="30"> 30 </option>
+                                                                                                            <option value="50"> 50 </option>
+                                                                                                            <option value="70"> 70 </option>
+                                                                                                            <option value="100"> 100 </option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

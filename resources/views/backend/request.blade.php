@@ -35,12 +35,7 @@
             </div>
             <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-right">
-                        <h3 class="m-0">20</h3><span class="text-muted">Components</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -87,6 +82,12 @@
                                                                         <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                     </div>
                                                                 </div>
+
+                                                                <div class="col-12">
+                                                                    <div class="row">
+                                                                        @include('padding_top_and_bottom')
+                                                                    </div>
+                                                                </div>
                                                             </div>
 
                                                             <div class="col-12">
@@ -105,8 +106,6 @@
                                                             </div>
 
                                                             <div class="col-12">
-                                                                
-
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="requestaddBtn" type="button"> Add Request Meeting </button>
                                                                     <div class="table-responsive">
@@ -149,6 +148,7 @@
                                                         <th>Section Name</th>
                                                         <th>Request A Meeting Title</th>
                                                         <th>Button Label</th>
+                                                        <th>Padding</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -164,7 +164,11 @@
                                                         <td>
                                                             {{$row_request->btn_label}}
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_request/'.$row_request->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#requestModalCenter{{$row_request->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                        <td>
+                                                            Top: {{$row_request->padding_top}}<br/>
+                                                            Bottom: {{$row_request->padding_bottom}}
+                                                        </td>
+                                                        <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_request/'.$row_request->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary" data-toggle="modal" data-target="#requestModalCenter{{$row_request->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="requestModalCenter{{$row_request->id}}" tabindex="-1" role="dialog" aria-labelledby="requestModalCenter{{$row_request->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
@@ -192,6 +196,41 @@
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
                                                                                                 <input type="text" name="name" value="{{$row_request->name}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-12">
+                                                                                        <div class="row">
+                                                                                            <div class="col-6">
+                                                                                                <div class="form-group">
+                                                                                                    <div class="controls">
+                                                                                                        <label for="account-username">Padding TOP  </label>
+                                                                                                        <select name="padding_top" class="form-control">
+                                                                                                            <option value="{{$row_request->padding_top}}"> {{$row_request->padding_top}} </option>
+                                                                                                            <option value="0"> 0 </option>
+                                                                                                            <option value="30"> 30 </option>
+                                                                                                            <option value="50"> 50 </option>
+                                                                                                            <option value="70"> 70 </option>
+                                                                                                            <option value="100"> 100 </option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            
+                                                                                            <div class="col-6">
+                                                                                                <div class="form-group">
+                                                                                                    <div class="controls">
+                                                                                                        <label for="account-username">Padding BOTTOM  </label>
+                                                                                                        <select name="padding_bottom" class="form-control">
+                                                                                                            <option value="{{$row_request->padding_bottom}}"> {{$row_request->padding_bottom}} </option>
+                                                                                                            <option value="0"> 0 </option>
+                                                                                                            <option value="30"> 30 </option>
+                                                                                                            <option value="50"> 50 </option>
+                                                                                                            <option value="70"> 70 </option>
+                                                                                                            <option value="100"> 100 </option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

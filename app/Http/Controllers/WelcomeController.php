@@ -45,9 +45,9 @@ class WelcomeController extends Controller
     }
     public function case_study($id)
     {
-        $pages = DB::table('page')->where('title', '=', $id)->get();
-        $case_study = DB::table('case_study')->where('id', '=', $id)->get();
-        $case_study_content = DB::table('case_study_content')->where('case_study_id', '=', $id)->get();
+        $pages = DB::table('page')->where('slug', '=', $id)->get();
+        $case_study = DB::table('case_study')->where('slug', '=', $id)->get();
+        $case_study_content = DB::table('case_study_content')->where('case_study_id', '=', $case_study[0]->id)->get();
         $main_menu = DB::table('menus')->where('menu_link','!=','#')->get();
         $main_menus = "";
         $para_style_1 = "";
@@ -71,12 +71,12 @@ class WelcomeController extends Controller
 
     public function index($id)
     {
+        
         $pages = DB::table('page')
             ->join('page_detail', 'page.id', '=', 'page_detail.page_id')
             ->where('page.slug', '=', $id)
             ->orderBy('page_detail.section_no')
             ->get();
-
             
         $main_menu = DB::table('menus')->where('menu_link','!=','#')->get();
         $page_section = DB::table('page_section')->get();
@@ -128,7 +128,7 @@ class WelcomeController extends Controller
         $Array_li = [];
 
         foreach($sub_category as $row){
-            $Array[] = '<option value="'.$row->id.'">'.$row->item_name.'</option>';
+            $Array[] = '<div class="custom-control custom-checkbox"><input onclick="sub_service_clicked(this);" type="checkbox" value="'.$row->item_link.'" class="custom-control-input" id="customCheck_a'.$row->id.'"><label class="custom-control-label" for="customCheck_a'.$row->id.'">'.$row->item_name.'</label></div>';
         }
 
         $final_Result = $Array;
@@ -138,7 +138,7 @@ class WelcomeController extends Controller
 
         foreach($main_category as $row_main_category){
 
-            $mainCategoryArray[] = '<li class="main_service_tag list-inline-item">'.$row_main_category->menu_name.'<span><i id="'.$row_main_category->id.'" onclick="remove_main_service_tag(this);" class="fas fa-times"></i></span></li>';
+            $mainCategoryArray[] = '<li class="main_service_tag list-inline-item">'.$row_main_category->menu_name.'<span><i id="customCheck'.$row_main_category->id.'" onclick="remove_main_service_tag(this);" class="fas fa-times"></i></span></li>';
             $class_nameArray[] = $row_main_category->menu_link;
         }
 
@@ -149,6 +149,33 @@ class WelcomeController extends Controller
         $class_name_array = $class_nameArray;
 
         return response()->json(["options" => $final_Result, "subServices"=>$final_main_category_array, "class_name"=>$class_name_array]);
+    }
+
+    public function services_by_id_with_services_two ($id){
+        
+        $exp = explode(",",$id);
+        
+        
+
+        $main_category = DB::table('menus')->get();
+
+        $Array_li = [];
+        
+        $mainCategoryArray = [];
+        $class_nameArray = [];
+
+        foreach($main_category as $row_main_category){
+
+            $class_nameArray[] = $row_main_category->menu_link;
+        }
+
+        $final_main_category_array = $mainCategoryArray;
+
+        
+
+        $class_name_array = $class_nameArray;
+
+        return response()->json(["class_name"=>$class_name_array]);
     }
 
 
@@ -163,11 +190,11 @@ class WelcomeController extends Controller
         $sub_category_id_array = [];
         $sub_category_menu_id_array = [];
         $main_category_id_array = [];
-        $options = [];
+        
 
         foreach($sub_category_id as $row_sub_category){
 
-            $sub_category_id_array[] = '<li class="sub_service_tag list-inline-item">'.$row_sub_category->item_name.'<span><i onclick="remove_sub_service_tag(this);" id="'.$row_sub_category->id.'" class="fas fa-times"></i></span></li>';
+            $sub_category_id_array[] = '<li class="sub_service_tag list-inline-item">'.$row_sub_category->item_name.'<span><i onclick="remove_sub_service_tag(this);" id="customCheck_a'.$row_sub_category->id.'" class="fas fa-times"></i></span></li>';
             $class_nameArray[] = $row_sub_category->item_link;
             $sub_category_menu_id_array[] = $row_sub_category->menu_id;
             
@@ -183,35 +210,330 @@ class WelcomeController extends Controller
         }
 
         $final_mainCat_class = $main_category_class_nameArray;
-        $final_options = $options;
+        
         $final_mainCat = $main_category_id_array;
 
         $final_sub_category_id_array = $sub_category_id_array;
         $final_class_nameArray = $class_nameArray;
 
         
-        return response()->json(["mainServices"=>$final_mainCat,"options"=>$final_options,"main_service_class"=>$final_mainCat_class, "subServices"=>$final_sub_category_id_array, "sub_category_link"=>$final_sub_category_id_array, "class_name"=>$final_class_nameArray]);
+        return response()->json(["mainServices"=>$final_mainCat,"main_service_class"=>$final_mainCat_class, "subServices"=>$final_sub_category_id_array, "sub_category_link"=>$final_sub_category_id_array, "class_name"=>$final_class_nameArray]);
     }
+
+    public function ajax_call($param1, $param2, $param3){
+
+        $sub_services_option = [];
+        $Array = [];
+        $tags_array = [];
+        $links_array = [];
+
+        if($param1 == 0 && $param2 == 0 && $param3 == 0 ){
+            
+        
+        $sub_services_id = explode(",",$param2);
+        $industries_id = explode(",",$param3);
+        $main_services_id = explode(",",$param1);
+        $main_services = DB::table('menus')->get();
+        
+        $industries_id = DB::table('industries')->get();
+        
+            foreach($main_services as $row_main_category_id){
+                $sub_services_option[] = '<option value="'.$row_main_category_id->id.'">'.$row_main_category_id->menu_name.'</option>';
+                $links_array[] = $row_main_category_id->menu_link;
+            }
+            
+            foreach($industries_id as $row_industries_id){
+                $links_array[] = $row_industries_id->slug;
+            }
+        }else{
+
+            $sub_services_id = explode(",",$param2);
+            $industries_id = explode(",",$param3);
+            $main_services_id = explode(",",$param1);
+            $main_services = DB::table('menus')->whereIn('id', $main_services_id)->get();
+            $sub_category = DB::table('child_menus')->whereIn('menu_id', $main_services_id)->get();
+    
+            $sub_categories = DB::table('child_menus')->whereIn('id', $sub_services_id)->get();
+            $industries_id = DB::table('industries')->whereIn('id', $industries_id)->get();
+            
+                foreach($sub_category as $row){
+                    $Array[] = '<div class="custom-control custom-checkbox"><input onclick="sub_service_clicked(this);" type="checkbox" class="custom-control-input" id="customCheck_a'.$row->id.'"><label class="custom-control-label" for="customCheck_a'.$row->id.'">'.$row->item_name.'</label></div>';
+                }
+                foreach($main_services as $row_main_category_id){
+                            
+                    $sub_services_option[] = '<option value="'.$row_main_category_id->id.'">'.$row_main_category_id->menu_name.'</option>';
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_main_category_id->menu_name.'<span><i id="customCheck'.$row_main_category_id->id.'" onclick="remove_main_service_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_main_category_id->menu_link;
+                }
+                foreach($sub_categories as $row_sub_categories){
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_sub_categories->item_name.'<span><i id="customCheck_a'.$row_sub_categories->id.'" onclick="remove_sub_service_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_sub_categories->item_link;
+                }
+                foreach($industries_id as $row_industries_id){
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_industries_id->slug.'<span><i id="customCheck_b'.$row_industries_id->id.'" onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_industries_id->slug;
+                }   
+        }
+            return response()->json(["options"=>$sub_services_option, "sub_category_dropdown"=>$Array, "tags"=>$tags_array, "links"=>$links_array, "class_name"=>$links_array]);        
+    }
+
+    public function ajax_call_industry_remove($param1, $param2, $param3){
+
+        $sub_services_option = [];
+        $Array = [];
+        $tags_array = [];
+        $links_array = [];
+
+        if($param1 == 0 && $param2 == 0 && $param3 == 0 ){
+            
+        
+            $sub_services_id = explode(",",$param2);
+        $industries_id = explode(",",$param3);
+        $main_services_id = explode(",",$param1);
+        $main_services = DB::table('menus')->get();
+        
+        $industries_id = DB::table('industries')->get();
+        
+        
+            foreach($main_services as $row_main_category_id){
+                $sub_services_option[] = '<option value="'.$row_main_category_id->id.'">'.$row_main_category_id->menu_name.'</option>';
+                $links_array[] = $row_main_category_id->menu_link;
+            }
+            
+            foreach($industries_id as $row_industries_id){
+                $links_array[] = $row_industries_id->slug;
+            }
+        }else{
+
+            $sub_services_id = explode(",",$param2);
+            $industries_id = explode(",",$param3);
+            $main_services_id = explode(",",$param1);
+            $main_services = DB::table('menus')->whereIn('id', $main_services_id)->get();
+            $sub_category = DB::table('child_menus')->whereIn('menu_id', $main_services_id)->get();
+    
+            $sub_categories = DB::table('child_menus')->whereIn('id', $sub_services_id)->get();
+            $industries_id = DB::table('industries')->whereIn('id', $industries_id)->get();
+            
+                foreach($sub_category as $row){
+                    $Array[] = '<div class="custom-control custom-checkbox"><input onclick="sub_service_clicked(this);" type="checkbox" class="custom-control-input" id="customCheck_a'.$row->id.'"><label class="custom-control-label" for="customCheck_a'.$row->id.'">'.$row->item_name.'</label></div>';
+                }
+                foreach($main_services as $row_main_category_id){
+                            
+                    $sub_services_option[] = '<option value="'.$row_main_category_id->id.'">'.$row_main_category_id->menu_name.'</option>';
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_main_category_id->menu_name.'<span><i id="customCheck'.$row_main_category_id->id.'" onclick="remove_main_service_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_main_category_id->menu_link;
+                }
+                foreach($sub_categories as $row_sub_categories){
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_sub_categories->item_name.'<span><i id="customCheck_a'.$row_sub_categories->id.'" onclick="remove_sub_service_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_sub_categories->item_link;
+                }
+                foreach($industries_id as $row_industries_id){
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_industries_id->slug.'<span><i id="customCheck_b'.$row_industries_id->id.'" onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_industries_id->slug;
+                }   
+        }
+            return response()->json(["options"=>$sub_services_option, "sub_category_dropdown"=>$Array, "tags"=>$tags_array, "links"=>$links_array, "class_name"=>$links_array]);        
+   
+       
+    }
+
+    public function ajax_call_main_service_remove($param1, $param2, $param3, $removed_item_id){
+
+        $sub_services_option = [];
+        $Array = [];
+        $tags_array = [];
+        $links_array = [];
+
+        if($param1 == 0 && $param2 == 0 && $param3 == 0 ){
+            
+        
+            $sub_services_id = explode(",",$param2);
+        $industries_id = explode(",",$param3);
+        $main_services_id = explode(",",$param1);
+        $main_services = DB::table('menus')->get();
+        
+        $industries_id = DB::table('industries')->get();
+        
+        
+            foreach($main_services as $row_main_category_id){
+                $sub_services_option[] = '<option value="'.$row_main_category_id->id.'">'.$row_main_category_id->menu_name.'</option>';
+                $links_array[] = $row_main_category_id->menu_link;
+            }
+            
+            foreach($industries_id as $row_industries_id){
+                $links_array[] = $row_industries_id->slug;
+            }
+        }else{
+
+            $sub_services_id = explode(",",$param2);
+            $industries_id = explode(",",$param3);
+            $main_services_id = explode(",",$param1);
+            $main_services_id_removed = explode(",",$removed_item_id);
+            
+            $main_services = DB::table('menus')->whereIn('id', $main_services_id)->whereNotIn('id', $main_services_id_removed)->get();
+            $sub_category = DB::table('child_menus')->whereIn('menu_id', $main_services_id)->whereNotIn('menu_id', $main_services_id_removed)->get();
+    
+            $sub_categories = DB::table('child_menus')->whereIn('id', $sub_services_id)->whereNotIn('menu_id', $main_services_id_removed)->get();
+            $industries_id = DB::table('industries')->whereIn('id', $industries_id)->get();
+            
+                foreach($sub_category as $row){
+                    $Array[] = '<div class="custom-control custom-checkbox"><input onclick="sub_service_clicked(this);" type="checkbox" class="custom-control-input" id="customCheck_a'.$row->id.'"><label class="custom-control-label" for="customCheck_a'.$row->id.'">'.$row->item_name.'</label></div>';
+                }
+                foreach($main_services as $row_main_category_id){
+                            
+                    $sub_services_option[] = '<option value="'.$row_main_category_id->id.'">'.$row_main_category_id->menu_name.'</option>';
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_main_category_id->menu_name.'<span><i id="customCheck'.$row_main_category_id->id.'" onclick="remove_main_service_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_main_category_id->menu_link;
+                }
+                foreach($sub_categories as $row_sub_categories){
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_sub_categories->item_name.'<span><i id="customCheck_a'.$row_sub_categories->id.'" onclick="remove_sub_service_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_sub_categories->item_link;
+                }
+                foreach($industries_id as $row_industries_id){
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_industries_id->slug.'<span><i id="customCheck_b'.$row_industries_id->id.'" onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_industries_id->slug;
+                }   
+        }
+            return response()->json(["options"=>$sub_services_option, "sub_category_dropdown"=>$Array, "tags"=>$tags_array, "links"=>$links_array, "class_name"=>$links_array]);        
+   
+
+    }
+
+    public function ajax_call_sub_service_remove($param1, $param2, $param3){
+  $sub_services_option = [];
+        $Array = [];
+        $tags_array = [];
+        $links_array = [];
+
+        if($param1 == 0 && $param2 == 0 && $param3 == 0 ){
+            
+        
+            $sub_services_id = explode(",",$param2);
+        $industries_id = explode(",",$param3);
+        $main_services_id = explode(",",$param1);
+        $main_services = DB::table('menus')->get();
+        
+        $industries_id = DB::table('industries')->get();
+        
+        
+            foreach($main_services as $row_main_category_id){
+                $sub_services_option[] = '<option value="'.$row_main_category_id->id.'">'.$row_main_category_id->menu_name.'</option>';
+                $links_array[] = $row_main_category_id->menu_link;
+            }
+            
+            foreach($industries_id as $row_industries_id){
+                $links_array[] = $row_industries_id->slug;
+            }
+        }else{
+
+            $sub_services_id = explode(",",$param2);
+            $industries_id = explode(",",$param3);
+            $main_services_id = explode(",",$param1);
+            $main_services = DB::table('menus')->whereIn('id', $main_services_id)->get();
+            $sub_category = DB::table('child_menus')->whereIn('menu_id', $main_services_id)->get();
+    
+            $sub_categories = DB::table('child_menus')->whereIn('id', $sub_services_id)->get();
+            $industries_id = DB::table('industries')->whereIn('id', $industries_id)->get();
+            
+                foreach($sub_category as $row){
+                    $Array[] = '<div class="custom-control custom-checkbox"><input onclick="sub_service_clicked(this);" type="checkbox" class="custom-control-input" id="customCheck_a'.$row->id.'"><label class="custom-control-label" for="customCheck_a'.$row->id.'">'.$row->item_name.'</label></div>';
+                }
+                foreach($main_services as $row_main_category_id){
+                            
+                    $sub_services_option[] = '<option value="'.$row_main_category_id->id.'">'.$row_main_category_id->menu_name.'</option>';
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_main_category_id->menu_name.'<span><i id="customCheck'.$row_main_category_id->id.'" onclick="remove_main_service_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_main_category_id->menu_link;
+                }
+                foreach($sub_categories as $row_sub_categories){
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_sub_categories->item_name.'<span><i id="customCheck_a'.$row_sub_categories->id.'" onclick="remove_sub_service_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_sub_categories->item_link;
+                }
+                foreach($industries_id as $row_industries_id){
+                    $tags_array[] = '<li class="main_service_tag list-inline-item">'.$row_industries_id->slug.'<span><i id="customCheck_b'.$row_industries_id->id.'" onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
+                    $links_array[] = $row_industries_id->slug;
+                }   
+        }
+            return response()->json(["options"=>$sub_services_option, "sub_category_dropdown"=>$Array, "tags"=>$tags_array, "links"=>$links_array, "class_name"=>$links_array]);        
+   
+            
+    }
+
+    public function sub_services_by_id_two ($param1, $param2){
+        
+        
+        
+        $sub_category_id = DB::table('child_menus')->get();
+        
+        $sub_category_id_array = [];
+        $sub_category_menu_id_array = [];
+        $main_category_id_array = [];
+        $options = [];
+
+        foreach($sub_category_id as $row_sub_category){
+
+            $sub_category_id_array[] = '<li class="sub_service_tag list-inline-item">'.$row_sub_category->item_name.'<span><i onclick="remove_sub_service_tag(this);" id="customCheck_a'.$row_sub_category->id.'" class="fas fa-times"></i></span></li>';
+            $class_nameArray[] = $row_sub_category->item_link;
+            $sub_category_menu_id_array[] = $row_sub_category->menu_id;
+            
+        }
+
+        $main_category_id = DB::table('menus')->whereIn('id', $sub_category_menu_id_array)->get();
+
+        foreach($main_category_id as $row_main_category_id){
+
+            $main_category_id_array[] = '<li class="main_service_tag list-inline-item">'.$row_main_category_id->menu_name.'<span><i id="'.$row_main_category_id->id.'" class="fas fa-times"></i></span></li>';
+            $main_category_class_nameArray[] = $row_main_category_id->menu_link;
+            
+        }
+
+        
+        $final_options = $options;
+        
+
+        $final_sub_category_id_array = $sub_category_id_array;
+        $final_class_nameArray = $class_nameArray;
+
+        
+        return response()->json(["options"=>$final_options, "subServices"=>$final_sub_category_id_array, "sub_category_link"=>$final_sub_category_id_array, "class_name"=>$final_class_nameArray]);
+    }
+
 
     public function industry_by_id ($id){
 
         $exp = explode(",",$id);
-        
         $industries = DB::table('industries')->whereIn('id', $exp)->get();
-
         $industry_array = [];
         $industry_class_nameArray = [];
 
         foreach($industries as $row_industries){
-
-            $industry_array[] = '<li value="'.$row_industries->slug.'" id="industry" class="industry_tag list-inline-item">'.$row_industries->title.'<span class="'.$row_industries->title.'" id="'.$row_industries->id.'"><i onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
+            $industry_array[] = '<li value="'.$row_industries->slug.'" id="industry" class="industry_tag list-inline-item">'.$row_industries->title.'<span class="'.$row_industries->title.'" id="customCheck_b'.$row_industries->id.'"><i onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
             $industry_class_nameArray[] = $row_industries->slug;
         }
         
         $industries_name = $industry_array;
         $class_name = $industry_class_nameArray;
         
-        return response()->json(["industries_name"=>$industries_name, "class_name"=>$class_name]);
+        return response()->json(["subServices"=>$industries_name, "class_name"=>$class_name]);
+    }
+
+
+    public function industry_by_id_two ($param1, $param2){
+
+        $industries = DB::table('industries')->get();
+
+        $industry_array = [];
+        $industry_class_nameArray = [];
+
+        foreach($industries as $row_industries){
+
+            $industry_array[] = '<li value="'.$row_industries->slug.'" id="industry" class="industry_tag list-inline-item">'.$row_industries->title.'<span class="'.$row_industries->title.'" id="customCheck_b'.$row_industries->id.'"><i onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>';
+            $industry_class_nameArray[] = $row_industries->slug;
+        }
+        
+        $industries_name = $industry_array;
+        $class_name = $industry_class_nameArray;
+        
+        return response()->json(["class_name"=>$class_name]);
     }
 
     
@@ -234,6 +556,7 @@ class WelcomeController extends Controller
     
      public function ajax_post(Request $request)
      {
+
         $data = $request->all();
         
         if(empty($data['first_name'])){
@@ -259,13 +582,13 @@ class WelcomeController extends Controller
                 'email'=>$data['email'],
                 'url'=>$data['url'],
                 'phone'=>$data['phone'],
-                'message'=>$data['message']
+                'send_message'=>$data['message']
                 );
         
           Mail::send('mail', $mail_data, function($message) {
-             $message->to('dev@creativedrop.com', 'Faiz Awan')->subject
+             $message->to('faiz@creativedrop.com', 'Faiz Awan')->subject
                 ('Form Submission from Contact Form');
-             $message->from('dev@creativedrop.com','From Creative Drop');
+             $message->from('creativedropweb@gmail.com','From Creative Drop');
           });
         
         $result = DB::table('contacts')->insert(
@@ -288,5 +611,16 @@ class WelcomeController extends Controller
      }
      public function contact(){
          return view('contact');
+     }
+
+     public function delete_front_component($detail_page_id){
+        echo $detail_page_id;
+        DB::table('page_detail')->where('id', '=', $detail_page_id)->delete();
+        $message = 'Component Deleted Successfully from this Page';
+        return redirect()->back()->with('delete_message', $message);
+     }
+
+     public function select_page_section($id){
+        return $id;
      }
 }

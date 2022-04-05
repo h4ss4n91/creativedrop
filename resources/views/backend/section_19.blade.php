@@ -35,12 +35,7 @@
             </div>
             <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-right">
-                        <h3 class="m-0">20</h3><span class="text-muted">Components</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -146,7 +141,7 @@
                                                         {{$row_section_19->padding_bottom}}
                                                     </td>
                                                     </td>
-                                                    <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_19/'.$row_section_19->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> | <a data-toggle="modal" data-target="#row_section_19_ModalCenter{{$row_section_19->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                    <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_19/'.$row_section_19->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> <a class="btn btn-primary" data-toggle="modal" data-target="#row_section_19_ModalCenter{{$row_section_19->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                         <div class="modal fade" id="row_section_19_ModalCenter{{$row_section_19->id}}" tabindex="-1" role="dialog" aria-labelledby="row_section_18_ModalCenter{{$row_section_19->id}}" aria-hidden="true">
                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
@@ -177,7 +172,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                    
+                                                                                
                                                                                 <div class="col-12">
                                                                                     <div class="form-group">
                                                                                         <div class="controls">

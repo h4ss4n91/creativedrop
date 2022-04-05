@@ -21,10 +21,10 @@
     <div class="content-overlay"></div>
     <div class="content-wrapper">
         <div class="content-header row">
-            <div class="content-header-left col-md-6 col-12 mb-2">
+            <div class="content-header-left col-md-6 col-md-12 mb-2">
                 <h3 class="content-header-title mb-0">Components</h3>
                 <div class="row breadcrumbs-top">
-                    <div class="breadcrumb-wrapper col-12">
+                    <div class="breadcrumb-wrapper col-md-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('admin/')}}">Home</a>
                             </li>
@@ -33,14 +33,9 @@
                     </div>
                 </div>
             </div>
-            <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
+            <div class="content-header-right col-md-6 col-md-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-right">
-                        <h3 class="m-0">20</h3><span class="text-muted">Components</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -71,41 +66,28 @@
                                                     <form method="POST" action="{{url('admin/store_slider')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
-                                                            <div class="col-6">
+                                                            <div class="col-md-6">
                                                                 <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
                                                             </div>
-                                                            <div class="col-6">
-                                                                <div class="col-6">
-                                                                    <div class="row">
-                                                                        <div class="col-12">
-                                                                            <div class="form-group">
-                                                                                <div class="controls">
-                                                                                    <label for="account-username">Page Name</label>
-                                                                                    <select class="form-control" name="page_id">
-                                                                                @foreach($pages as $row_page)
-                                                                                        <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                                @endforeach
-                                                                            </select>
+                                                            <div class="col-md-6">
+                                                                <div class="col-md-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <div class="controls">
+                                                                                        <label for="account-username">Slider Name</label>
+                                                                                        <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                </div>
-
-                                                                <div class="col-12">
-                                                                    <div class="form-group">
-                                                                        <div class="controls">
-                                                                            <label for="account-username">Slider Name</label>
-                                                                            <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                        </div>
+                                                                    <div class="row">
+                                                                        @include('padding_top_and_bottom')
                                                                     </div>
                                                                 </div>
-                                                                <div class="row">
-                                                                @include('padding_top_and_bottom');
-                                                                </div>
                                                             </div>
-                                                        </div>
                                                         <div class="row">
-                                                            <div class="col-12">
+                                                            <div class="col-md-12">
                                                                 
                                                                 <div class="container pt-4">
                                                                     <button class="btn btn-md btn-primary" id="slideraddBtn" type="button"> Add new Slider Row </button>
@@ -132,7 +114,7 @@
                                                             </div>
 
 
-                                                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Slider</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
@@ -150,6 +132,7 @@
                                                         <th>Slider Heading 1</th>
                                                         <th>Slider Heading 2</th>
                                                         <th>Status</th>
+                                                        <th>Padding</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -160,13 +143,15 @@
                                                         <td>
                                                             <img style="width:100px" src="{{asset('public/slider/'.$row_sliders->image)}}" />
                                                         </td>
-
                                                         <td>{{$row_sliders->text1}}</td>
                                                         <td>{{$row_sliders->text2}}</td>
                                                         <td>{{$row_sliders->status}}</td>
+                                                        <td>Top: {{$row_sliders->padding_top}} <br/>
+                                                            Bottom: {{$row_sliders->padding_bottom}} <br/>
+                                                        </td>
                                                         <td>
-                                                            <a data-toggle="modal" data-target="#sliderModalCenter{{$row_sliders->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> |
-                                                            <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                            <a class="btn btn-success" data-toggle="modal" data-target="#sliderModalCenter{{$row_sliders->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> 
+                                                            <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
 
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="sliderModalCenter{{$row_sliders->id}}" tabindex="-1" role="dialog" aria-labelledby="sliderModalCenter{{$row_sliders->id}}" aria-hidden="true">
@@ -182,14 +167,14 @@
                                                                                 <input type="hidden" value="{{$row_sliders->id}}" name="id">
 
                                                                                 <div class="row">
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
 
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Slider Name</label>
@@ -210,7 +195,7 @@
                                                                                         <img style="width:100px" src="{{asset('public/slider/'.$row_sliders->image)}}" />
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Status</label>
@@ -219,7 +204,45 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <div class="col-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <div class="controls">
+                                                                                                            <label for="account-username">Padding TOP  </label>
+                                                                                                            <select name="padding_top" class="form-control">
+                                                                                                                <option value="{{$row_sliders->padding_top}}"> {{$row_sliders->padding_top}} </option>
+                                                                                                                <option value="0"> 0 </option>
+                                                                                                                <option value="30"> 30 </option>
+                                                                                                                <option value="50"> 50 </option>
+                                                                                                                <option value="70"> 70 </option>
+                                                                                                                <option value="100"> 100 </option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                
+                                                                                                <div class="col-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <div class="controls">
+                                                                                                            <label for="account-username">Padding BOTTOM  </label>
+                                                                                                            <select name="padding_bottom" class="form-control">
+                                                                                                                <option value="{{$row_sliders->padding_bottom}}"> {{$row_sliders->padding_bottom}} </option>
+                                                                                                                <option value="0"> 0 </option>
+                                                                                                                <option value="30"> 30 </option>
+                                                                                                                <option value="50"> 50 </option>
+                                                                                                                <option value="70"> 70 </option>
+                                                                                                                <option value="100"> 100 </option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Heading One</label>
@@ -228,7 +251,7 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Heading Two</label>
@@ -237,7 +260,7 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username"> Button Link</label>
@@ -245,7 +268,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                    <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Slider</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
@@ -296,7 +319,7 @@
                                                         @csrf
                                                         <div class="row">
 
-                                                            <div class="col-12">
+                                                            <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
 
@@ -337,10 +360,10 @@
                                                                 </div>
                                                             </div>
 
-                                                            @include('padding_top_and_bottom');
+                                                            @include('padding_top_and_bottom')
 
 
-                                                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Heading</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
@@ -386,7 +409,7 @@
                                                                                 <input type="hidden" value="{{$row_section_23->id}}" name="id">
 
                                                                                 <div class="row">
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
 
@@ -394,7 +417,8 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Section Name</label>
@@ -403,7 +427,9 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    
+
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username"> Heading </label>
@@ -419,7 +445,7 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Title </label>
@@ -429,7 +455,7 @@
                                                                                     </div>
 
 
-                                                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                    <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Heading</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>

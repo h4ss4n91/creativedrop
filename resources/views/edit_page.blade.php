@@ -89,7 +89,7 @@
                                                 <div class="form-group">
                                                     <div class="controls">
                                                                 <label  style="font-weight:bold" for="account-username">Main Menu</label>
-                                                                <select id="page_sections" class="form-control" name="main_menu_id">
+                                                                <select id="edit_page_sections" class="form-control" name="main_menu_id">
                                                                 @php    
                                                                         $menus = DB::table('menus')->where('id', '=', $page[0]->menu_id)->get();
                                                                 @endphp
@@ -116,7 +116,7 @@
                                                         @php
                                                                 $sub_menus = DB::table('child_menus')->where('id', '=', $page[0]->sub_menu_id)->get();
                                                         @endphp
-                                                                <select id="dependent_page_sections" class="form-control" name="sub_menu_id">
+                                                                <select id="edit_dependent_page_sections" class="form-control" name="sub_menu_id">
                                                                     <option value="{{$page[0]->sub_menu_id}}"> 
                                                                         @if($page[0]->sub_menu_id != NULL)
                                                                             @if($sub_menus[0]->id == $page[0]->sub_menu_id)
@@ -137,7 +137,7 @@
                                                         @php
                                                                 $sub_child_menus = DB::table('sub_child_menus')->where('id', '=', $page[0]->child_menu_id)->get();
                                                         @endphp
-                                                                <select id="child_dependent_page_sections" class="form-control" name="child_menu_id">
+                                                                <select id="edit_child_dependent_page_sections" class="form-control" name="child_menu_id">
                                                                     <option value="{{$page[0]->child_menu_id}}">
                                                                         @if($page[0]->child_menu_id != NULL)
                                                                         
@@ -199,7 +199,7 @@
                                                 <div class="form-group">
                                                     <div class="controls">
                                                         <label style="font-weight:bold;"for="account-username">Page Status  <span style="font-weight:bold; color:green; font-size:16px;">  {{$page[0]->status}}</span></label>
-                                                        <select id="page_sections" class="form-control" name="status">
+                                                        <select class="form-control" name="status">
                                                             <option value="{{$page[0]->status}}"> {{$page[0]->status}}</option>
                                                             <option value="published"> Published </option>
                                                             <option value="unpublished"> Unpublished </option>
@@ -553,312 +553,14 @@
   <!-- END: Content-->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script>
-  $(document).ready(function(){
-
-      $("#page_sections_1").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#dependent_page_sections_1').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#page_sections_2").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#dependent_page_sections_2').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#page_sections_3").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#dependent_page_sections_3').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#page_sections_4").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#dependent_page_sections_4').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#page_sections_5").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#dependent_page_sections_5').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#page_sections_6").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#dependent_page_sections_6').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#page_sections_7").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#dependent_page_sections_7').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#page_sections_8").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#dependent_page_sections_8').html(data);
-                                }
-                            });
-         
-      });
-
-      $("#page_sections_9").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#dependent_page_sections_9').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-
-
-
-
-
-
-
-
-
-      $("#edit_page_sections_1").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#edit_dependent_page_sections_1').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#edit_page_sections_2").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#edit_dependent_page_sections_2').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#edit_page_sections_3").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#edit_dependent_page_sections_3').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#edit_page_sections_4").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#edit_dependent_page_sections_4').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#edit_page_sections_5").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#edit_dependent_page_sections_5').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#edit_page_sections_6").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#edit_dependent_page_sections_6').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#edit_page_sections_7").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#edit_dependent_page_sections_7').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#edit_page_sections_8").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#edit_dependent_page_sections_8').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-      $("#edit_page_sections_9").change(function(){
-          var page_section = $(this).children("option:selected").val();
-        //    alert(page_section);
-           $.ajax({
-                                type:'GET',
-                                url:'../page_section_id/'+page_section,
-                                success:function(data){
-                                     console.log(data);
-                                   $('#edit_dependent_page_sections_9').html(data);
-
-                                   
-                                }
-                            });
-         
-      });
-
-
-  });
+  
 
   
-$('#page_sections').change(function() {
+$('#edit_page_section').change(function() {
     if ($(this).val() != '') {
         var select = $(this).attr("id");
         var value = $(this).val();
-
+        console.log('line 563');
         var dependent = $(this).data('dependent');
         var _token = $('input[name="_token"]').val();
         $.ajax({
@@ -866,19 +568,19 @@ $('#page_sections').change(function() {
             method: "GET",
             success: function(result) {
                 console.log(result);
-                $('#dependent_page_sections').html(result);
+                $('#edit_dependent_page_sections').html(result);
             }
         })
     }
     
     if ($(this).val() == '#') {
-        $('#dependent_page_sections').val('');
-        $('#child_dependent_page_sections').val('');
+        $('#edit_dependent_page_sections').val('');
+        
     }
     
 });
 
-$('#dependent_page_sections').change(function() {
+$('#edit_dependent_page_sections').change(function() {
     if ($(this).val() != '') {
         var select = $(this).attr("id");
         var value = $(this).val();
@@ -886,11 +588,11 @@ $('#dependent_page_sections').change(function() {
         var dependent_page_sections = $(this).data('dependent');
         var _token = $('input[name="_token"]').val();
         $.ajax({
-            url: "../child_services_by_id/" + value,
+            url: "../get_3rd_level_menu/" + value,
             method: "GET",
             success: function(result) {
                 console.log(result);
-                $('#child_dependent_page_sections').html(result);
+                $('#edit_child_dependent_page_sections').html(result['options']);
             }
 
         })

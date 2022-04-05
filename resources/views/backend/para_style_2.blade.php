@@ -35,12 +35,7 @@
             </div>
             <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-right">
-                        <h3 class="m-0">20</h3><span class="text-muted">Components</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -87,13 +82,58 @@
                                                                                     <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                 </div>
                                                                             </div>
+                                                                            <div class="col-12">
+                                                                                <div class="row">
+                                                                                    @include('padding_top_and_bottom')
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="col-8">
                                                                             <img style="width:100%" src="{{asset('public/page_sections/paragraph_right_image_left_text.png')}}" />
                                                                         </div>
 
                                                                         <div class="col-12">
-
+                                                                            <script>
+                                                                                $(document).ready(function() {
+                                                                                    // Denotes total number of rows
+                                                                                    var paraStyleTworowIdx = 0;
+                                                                                    // jQuery button click event to add a row
+                                                                                    $('#paraStyleTwoaddBtn').on('click', function() {
+                                                                                        // Adding a row inside the tbody.
+                                                                                        $('#paraStyleTwotbody').append(`<tr id="R${++paraStyleTworowIdx}">
+                                                                                            <td class="row-index text-center"><input type="file" name="image[]" class="form-control"/></td>
+                                                                                            <td class="row-index text-center"><input type="text" name="title[]" class="form-control"/></td>
+                                                                                            <td class="row-index text-center"><input type="text" name="paragraph[]" class="form-control"/></td>
+                                                                                            <td class="row-index text-center"><select name="flex_row_reverse" class="form-control"><option value="">No</option><option value="flex_row_reverse">Yes</option></select></td>
+                                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">Remove</button></td>
+                                                                                            </tr>`);
+                                                                                    });
+                                                                                    // jQuery button click event to remove a row.
+                                                                                    $('#paraStyleTwotbody').on('click', '.remove', function() {
+                                                                                        // Getting all the rows next to the row
+                                                                                        // containing the clicked button
+                                                                                        var child = $(this).closest('tr').nextAll();
+                                                                                        // Iterating across all the rows 
+                                                                                        // obtained to change the index
+                                                                                        child.each(function() {
+                                                                                            // Getting <tr> id.
+                                                                                            var id = $(this).attr('id');
+                                                                                            // Getting the <p> inside the .row-index class.
+                                                                                            var idx = $(this).children('.row-index').children('p');
+                                                                                            // Gets the row number from <tr> id.
+                                                                                            var dig = parseInt(id.substring(1));
+                                                                                            // Modifying row index.
+                                                                                            idx.html(`Row ${dig - 1}`);
+                                                                                            // Modifying row id.
+                                                                                            $(this).attr('id', `R${dig - 1}`);
+                                                                                        });
+                                                                                        // Removing the current row.
+                                                                                        $(this).closest('tr').remove();
+                                                                                        // Decreasing total number of rows by 1.
+                                                                                        paraStyleTworowIdx--;
+                                                                                    });
+                                                                                });
+                                                                            </script>
                                                                             <div class="container pt-4">
                                                                                 <button class="btn btn-md btn-primary" id="paraStyleTwoaddBtn" type="button"> Add Para Style Two </button>
                                                                                 <div class="table-responsive">
@@ -137,6 +177,7 @@
                                                                     <th>Title</th>
                                                                     <th>Paragraph</th>
                                                                     <th>Change Position</th>
+                                                                    <th>Padding</th>
                                                                     <th>Action</th>
                                                                 </tr>
                                                             </thead>
@@ -155,14 +196,18 @@
                                                                     <td>
                                                                         {{$row_para_style_2->title}}
                                                                     </td>
-                                                                    <td>
+                                                                    <td style="width:300px;">
                                                                         {{$row_para_style_2->paragraph}}
                                                                     </td>
                                                                     <td>
                                                                         @if($row_para_style_2->flex_row_reverse == NULL) NO @else() YES @endif
                                                                     </td>
+                                                                    <td>
+                                                                        Top: {{$row_para_style_2->padding_top}}<br/>
+                                                                        Bottom: {{$row_para_style_2->padding_bottom}}
+                                                                    </td>
 
-                                                                    <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_2/'.$row_para_style_2->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#para_style_2_ModalCenter{{$row_para_style_2->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                                    <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_para_style_2/'.$row_para_style_2->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary" data-toggle="modal" data-target="#para_style_2_ModalCenter{{$row_para_style_2->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                                         <div class="modal fade" id="para_style_2_ModalCenter{{$row_para_style_2->id}}" tabindex="-1" role="dialog" aria-labelledby="para_style_2_ModalCenter{{$row_para_style_2->id}}" aria-hidden="true">
                                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                                 <div class="modal-content">
@@ -189,6 +234,42 @@
                                                                                                         <div class="controls">
                                                                                                             <label for="account-username">Section Name</label>
                                                                                                             <input type="text" name="name" value="{{$row_para_style_2->name}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-12">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-6">
+                                                                                                            <div class="form-group">
+                                                                                                                <div class="controls">
+                                                                                                                    <label for="account-username">Padding TOP  </label>
+                                                                                                                    <select name="padding_top" class="form-control">
+                                                                                                                        <option value="{{$row_para_style_2->padding_top}}"> {{$row_para_style_2->padding_top}} </option>
+                                                                                                                        <option value="0"> 0 </option>
+                                                                                                                        <option value="30"> 30 </option>
+                                                                                                                        <option value="50"> 50 </option>
+                                                                                                                        <option value="70"> 70 </option>
+                                                                                                                        <option value="100"> 100 </option>
+                                                                                                                    </select>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        
+                                                                                                        <div class="col-6">
+                                                                                                            <div class="form-group">
+                                                                                                                <div class="controls">
+                                                                                                                    <label for="account-username">Padding BOTTOM  </label>
+                                                                                                                    <select name="padding_bottom" class="form-control">
+                                                                                                                        <option value="{{$row_para_style_2->padding_bottom}}"> {{$row_para_style_2->padding_bottom}} </option>
+                                                                                                                        <option value="0"> 0 </option>
+                                                                                                                        <option value="30"> 30 </option>
+                                                                                                                        <option value="50"> 50 </option>
+                                                                                                                        <option value="70"> 70 </option>
+                                                                                                                        <option value="100"> 100 </option>
+                                                                                                                    </select>
+                                                                                                                </div>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>

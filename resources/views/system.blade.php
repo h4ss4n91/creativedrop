@@ -52,7 +52,15 @@
           <div class="col-md-2 mb-2 mb-md-0">
             <ul class="nav nav-pills flex-column mt-md-0 mt-1">
               <li class="nav-item">
-                <a class="nav-link d-flex active" id="account-pill-general" data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
+                <a class="nav-link d-flex active" id="account-pill-general" data-toggle="pill" href="#account-vertical-general_setting" aria-expanded="true">
+                  <!-- <i class="feather icon-list"></i> -->
+                  <i class="fa fa-cogs"></i>
+                  General Setting
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link d-flex" id="account-pill-general" data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
                   <!-- <i class="feather icon-list"></i> -->
                   <i class="fa fa-comments-o"></i>
                   Social Media
@@ -98,7 +106,10 @@
               <div class="card-content">
                 <div class="card-body">
                   <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
+                    <div role="tabpanel" class="tab-pane active" id="account-vertical-general_setting" aria-labelledby="account-pill-general" aria-expanded="true">
+                      <h1>General Setting</h1>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
                       <div class="media">
                         <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
                           Social Media

@@ -11,8 +11,8 @@ $(document).ready(function() {
         
         $('#Servicetbody').append(`<tr id="R${++ServicerowIdx}">
             <td class="row-index text-center"><select onchange="services(this);" id="service${ServicerowIdx}" name="service[]" class="form-control service${ServicerowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
-            <td class="row-index text-center"><select  onchange="sub_services(this);" id="sub_service${ServicerowIdx}" name="sub_category[]" class="sub_service${ServicerowIdx} form-control"><option>--Select Sub Category--</option></select></td>
-            <td class="row-index text-center"><input name="sub_service_link[]" class="form-control sub_service_link${ServicerowIdx}" type="text"/></td>
+            <td class="row-index text-center"><select  onchange="sub_services_two(this);" id="sub_service${ServicerowIdx}" name="sub_category[]" class="sub_service${ServicerowIdx} form-control"><option>--Select Sub Category--</option></select></td>
+            <td class="row-index text-center"><input onchange="third_level_services(this);" id="sub_service_link${ServicerowIdx}" name="sub_service_link[]" class="form-control sub_service_link${ServicerowIdx}" type="text"/></td>
             <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
             </tr>`);
 
@@ -30,13 +30,7 @@ $(document).ready(function() {
                 var value = $(this).val();
                 var dependent = $(this).data('dependent');
                 var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    url: "../../sub_services_by_id/" + value,
-                    method: "GET",
-                    success: function(result) {
-                        $(`.sub_service_link${ServicerowIdx}`).val(result['class_name']);
-                    }
-                })
+                
             }
         });
     });

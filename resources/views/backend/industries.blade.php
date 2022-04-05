@@ -35,12 +35,7 @@
             </div>
             <div class="content-header-right col-md-6 col-12 mb-md-0 mb-2">
                 <div class="media width-250 float-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-right">
-                        <h3 class="m-0">20</h3><span class="text-muted">Components</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -97,8 +92,20 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="controls">
+                                                                        <label for="account-username">link</label>
+                                                                        <input type="text" name="link" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="controls">
                                                                         <label for="account-username">Industry Image</label>
                                                                         <input type="file" name="industry_image" class="form-control" />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12">
+                                                                    <div class="row">
+                                                                        @include('padding_top_and_bottom')
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -122,7 +129,8 @@
                                                         <th>Section Name</th>
                                                         <th>Industry Name</th>
                                                         <th>Industry Image</th>
-                                                        <th>Services</th>
+                                                        <th>Padding</th>
+                                                        
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -139,30 +147,12 @@
                                                         <td>
                                                             <img style="width:100px;" src="{{asset('public/industries/'.$row_industries->image)}}" />
                                                         </td>
-                                                        <td>
-                                                            @php
-                                                            $industries_services = DB::table('industries')
-                                                            ->join('menus', 'menus.id', '=', 'industries.service_id')
-                                                            ->join('child_menus', 'child_menus.id', '=', 'industries.sub_category_id')
-                                                            ->where('industries.name', '=', $row_industries->name)->get();
-                                                            @endphp
-                                                            <table>
-                                                                <tr>
-                                                                    <th>Services</th>
-                                                                    <th>Sub Services</th>
-                                                                </tr>
-
-                                                                @foreach($industries_services as $row_industries_services)
-                                                                <tr>
-                                                                    <td>{{$row_industries_services->menu_name}}</td>
-                                                                    <td>{{$row_industries_services->item_name}}</td>
-                                                                </tr>
-
-                                                                @endforeach
-                                                            </table>
-
+                                                        
+                                                        <td>Top: {{$row_industries->padding_top}} <br/>
+                                                            Bottom: {{$row_industries->padding_bottom}} <br/>
                                                         </td>
-                                                        <td> <a onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_industry/'.$row_industries->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a> | <a data-toggle="modal" data-target="#industryModalCenter{{$row_industries->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                        
+                                                        <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_industry/'.$row_industries->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary" data-toggle="modal" data-target="#industryModalCenter{{$row_industries->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="industryModalCenter{{$row_industries->id}}" tabindex="-1" role="dialog" aria-labelledby="industryModalCenter{{$row_industries->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
@@ -194,10 +184,54 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-12">
+                                                                                        <div class="row">
+                                                                                            <div class="col-6">
+                                                                                                <div class="form-group">
+                                                                                                    <div class="controls">
+                                                                                                        <label for="account-username">Padding TOP  </label>
+                                                                                                        <select name="padding_top" class="form-control">
+                                                                                                            <option value="{{$row_industries->padding_top}}"> {{$row_industries->padding_top}} </option>
+                                                                                                            <option value="0"> 0 </option>
+                                                                                                            <option value="30"> 30 </option>
+                                                                                                            <option value="50"> 50 </option>
+                                                                                                            <option value="70"> 70 </option>
+                                                                                                            <option value="100"> 100 </option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            
+                                                                                            <div class="col-6">
+                                                                                                <div class="form-group">
+                                                                                                    <div class="controls">
+                                                                                                        <label for="account-username">Padding BOTTOM  </label>
+                                                                                                        <select name="padding_bottom" class="form-control">
+                                                                                                            <option value="{{$row_industries->padding_bottom}}"> {{$row_industries->padding_bottom}} </option>
+                                                                                                            <option value="0"> 0 </option>
+                                                                                                            <option value="30"> 30 </option>
+                                                                                                            <option value="50"> 50 </option>
+                                                                                                            <option value="70"> 70 </option>
+                                                                                                            <option value="100"> 100 </option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-12">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username"> Industry Name</label>
-                                                                                                <input type="text" name="name" value="{{$row_industries->title}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="title" value="{{$row_industries->title}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username"> Link</label>
+                                                                                                <input type="text" name="link" value="{{$row_industries->link}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -214,40 +248,6 @@
                                                                                     </div>
                                                                                     <div class="col-4">
                                                                                         <img style="width:100px" src="{{asset('public/industries/'.$row_industries->image)}}" />
-                                                                                    </div>
-
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username"> Button Link</label>
-                                                                                                <input type="text" name="contact_button_link" value="{{$row_industries->link}}" class="form-control" id="account-username" data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12">
-                                                                                        @include('button_style')
-                                                                                    </div>
-
-                                                                                    <div class="col-12">
-
-                                                                                        <div class="container pt-4">
-                                                                                            <button class="btn btn-md btn-primary" id="edit_industryaddBtn" type="button"> Edit Services for Industry </button>
-                                                                                            <div class="table-responsive">
-                                                                                                <table class="table table-bordered">
-                                                                                                    <thead>
-                                                                                                        <tr>
-                                                                                                            <th class="text-center">Service</th>
-                                                                                                            <th class="text-center">Sub Category</th>
-                                                                                                            <th class="text-center">Remove Row</th>
-                                                                                                        </tr>
-                                                                                                    </thead>
-                                                                                                    <tbody id="edit_industrytbody">
-
-                                                                                                    </tbody>
-                                                                                                </table>
-                                                                                            </div>
-
-                                                                                        </div>
                                                                                     </div>
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
