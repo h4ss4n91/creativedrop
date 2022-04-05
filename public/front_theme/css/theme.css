@@ -4387,17 +4387,6 @@ svg {
 }
 
 
-/*.portfolio-filters ul li select option:hover {*/
-
-
-/*    transition: ease-in .2s !important;*/
-
-
-/*    background: #0f69c9 !important;*/
-
-
-/*}*/
-
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: #0f69c9;
     color: white
@@ -4413,15 +4402,6 @@ svg {
 
 .btn-group.btn-group.case_study_page_sections {
     width: 100% !important;
-}
-
-{
-    cursor: pointer;
-    padding: 4px;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    top: 0;
 }
 
 .multiselect-container>li>a>label.checkbox,
