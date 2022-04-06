@@ -324,6 +324,14 @@ class BackendController extends Controller {
 
         $data = $request->all();
 
+        $parent_id = DB::table('sliders')->insertGetId(
+            [
+                'name' => $data['name'],
+                'padding_top' => $data['padding_top'],
+                'padding_bottom' => $data['padding_bottom']
+            ]
+        );
+
         for ($i = 0; $i < count($request->text_1); $i++) {
             $file = $data['slider_image'][$i]; // will get all files
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -331,9 +339,7 @@ class BackendController extends Controller {
             DB::table('sliders')->insert(
                     [
                         'image' => $file_name,
-                        'name' => $data['name'],
-                        'padding_top' => $data['padding_top'],
-                        'padding_bottom' => $data['padding_bottom'],
+                        'parent' => $parent_id,
                         'status' => $data['status'][$i],
                         'text1' => $data['text_1'][$i],
                         'link' => $data['link'][$i],
