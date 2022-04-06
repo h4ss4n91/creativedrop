@@ -1023,122 +1023,8 @@ $industries = DB::table('industries')->where('name', '=', $row_pages->section_ty
 
 <section class="section-bg-black section-padtop-@if(!$industries->isEmpty()){{$industries[0]->padding_top}}@endif section-padbottom-@if(!$industries->isEmpty()){{$industries[0]->padding_bottom}}@endif creative-slider">
     <div class="slide-container">
-
         <div class="row">
-            <div class="col-md-10">
-                @guest
-
-                @else
-
-                <div class="edit_delete_add_component" style="float:right">
-                    <button type="button" data-toggle="modal" data-target="#lineheightModal{{$row_pages->id}}">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <!-- spacer Modal -->
-                    <div class="modal fade" id="lineheightModal{{$row_pages->id}}" tabindex="-1" role="dialog" aria-labelledby="lineheightModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-xl" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="lineheightModalLabel">Add Space in this Section Component</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" data-toggle="modal" data-target="#exampleModal{{$row_pages->id}}">
-                        <i class="fa fa-edit"></i>
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal{{$row_pages->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-xl" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Edit Component</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a onclick='return confirm("Are you sure? You want to delete this Component")' href="{{url('delete_front_component/'.$row_pages->id)}}" href=""> <i class="fa fa-trash"></i> </a>
-                    <button type="button" data-toggle="modal" data-target="#add_component{{$row_pages->id}}">
-                        <i class="fa fa-plus"></i>
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="add_component{{$row_pages->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-xl" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Add New Component</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    <label for="account-username">Select Page Section</label>
-                                                    <select id="page_section_{{$row_pages->id}}" onchange="select_page_section(this);" name="page_section" class="form-control">
-                                                        @php
-                                                        $page_section = DB::table('page_section')->get();
-                                                        @endphp
-                                                        @foreach($page_section as $row_page_sections)
-                                                        <option value="{{$row_page_sections->id}}">{{$row_page_sections->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="account-username">Select Page Section Component</label>
-                                            <select id="page_section_component_{{$row_pages->id}}" onchange="select_page_section_component(this);" name="page_section_component" class="page_section_component form-control">
-
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="image_page_section" id="image_page_section_{{$row_pages->id}}"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <table class="table_page_section" id="table_page_section_{{$row_pages->id}}"></table>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Add New Component</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                @endguest
-            </div>
             <div class="col-10 col-md-12">
-
                 <p class="web-h5 text-white mb-0">Industries</p>
                 <h3 class="web-h3 text-white mb-0">Our experience spans every industry</h3>
             </div>
@@ -1157,18 +1043,19 @@ $industries = DB::table('industries')->where('name', '=', $row_pages->section_ty
                 </div>
 
                 @endforeach
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="#" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
-                        <li class="list-inline-item"><a href="#" class="blue-link">Learn more <i class="fas fa-chevron-right pl-1"></i></a></li>
-                    </ul>
-                </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
+                    <li class="list-inline-item"><a href="#" class="blue-link">Learn more <i class="fas fa-chevron-right pl-1"></i></a></li>
+                </ul>
             </div>
         </div>
+    </div>
 
 </section>
 

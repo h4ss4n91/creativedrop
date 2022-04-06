@@ -13,7 +13,7 @@
 
   <title>{{ config('app.name', 'Laravel') }}</title>
 
-
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <link rel="shortcut icon" href="{{ asset('public/front_theme/images/favicon.png')}}" type="image/png">
   <link rel="stylesheet" href="{{ asset('public/front_theme/css/all.min.css')}}">
   <link rel="stylesheet" href="{{ asset('public/front_theme/css/bootstrap.min.css')}}">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="{{ asset('public/front_theme/css/ekko-lightbox.css')}}">
   <link rel="stylesheet" href="{{ asset('public/front_theme/css/jquery.mCustomScrollbar.min.css')}}">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous" />
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  
   <link rel="stylesheet" href="{{ asset('public/front_theme/css/theme.css')}}">
 
   <style>
