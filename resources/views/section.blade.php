@@ -665,25 +665,6 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                             @endforeach
                     </ul>
 
-                    <ul id="industries_list" class="list-inline mt-4 mb-1 p-0">
-                        
-                        @foreach($services->unique('service_id') as $row_services) 
-                            @php 
-                                $services_name = DB::table('menus')->where('id', '=', $row_services->service_id)->first(); 
-                            @endphp 
-                                @if($services_name->id == $row_services->service_id)
-                            @endif 
-                            <li  style="color:#000;" class="badge badge-primary">{{$services_name->menu_link}}</li>
-                        @endforeach 
-                            @foreach($services->unique('sub_service_id') as $row_services) 
-                                @php $sub_services_name = DB::table('child_menus')->where('id', '=', $row_services->sub_service_id)->first(); @endphp 
-                                    @if($sub_services_name->id == $row_services->sub_service_id)
-                                @endif 
-                                <li style="color:#000;" class="badge badge-success">{{$sub_services_name->item_link}}</li>
-                            @endforeach
-                </ul>
-
-
                 </div>
             </div>
             @endforeach
