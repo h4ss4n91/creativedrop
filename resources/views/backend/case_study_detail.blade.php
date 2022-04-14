@@ -24,6 +24,7 @@
             <div class="breadcrumb-wrapper col-12">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{url('admin/home')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{url('admin/page_sections/case_study')}}">Case Study</a></li>
                 <li class="breadcrumb-item">{{$case_study[0]->title}}</li>
               </ol>
             </div>
@@ -290,7 +291,7 @@
                                                                                                                     
 
 
-                                                                                                                    <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                                                                    <td class="text-center"><button class="btn btn-danger remove_two" type="button">x</button></td>
                                                                                                                 </tr>
 
                                                                                                                 
