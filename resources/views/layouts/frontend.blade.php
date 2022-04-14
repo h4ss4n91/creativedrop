@@ -367,9 +367,10 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
   </div>
 
   <div class="overlay"></div>
-  
+  <div class="main-wrap">
+
     @yield('content')
-  
+  </div>
   <footer class="section-bg-white">
     <section class="footer-links section-padtop-50 section-padbottom-50">
       <div class="web-container">
