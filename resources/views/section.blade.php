@@ -647,7 +647,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                     </a>
                     <div class="web-border-bottom mt-4 mb-3">
                         <h5 class="web-h5">{{$row_case_study->title}}</h5>
-                        <p class="mb-0 p-14 pb-3">{{$row_case_study->short_description}}</p>
+                        <p class="mb-0 p-14 mb-3">{{$row_case_study->short_description}}</p>
                     </div>
                     @php
                     $industry_id = DB::table('case_study_industries')->where('case_study_id','=',$row_case_study->id)->get();
