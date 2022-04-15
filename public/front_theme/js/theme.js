@@ -97,6 +97,17 @@ var swiper = new Swiper(".mySwiper", {
 
 
 
+const instance_swiper = new Swiper(".swiper-slide-active", {
+    on: {
+      slideChange: function () {
+            //
+        alert('Testing');
+      },
+    },
+  });
+
+
+
 // ===== Video Modal ====
 $(document).ready(function() {
 
@@ -1246,3 +1257,7 @@ $(document).ready(function() {
         function frontend_editor() {
             $('.edit_delete_add_component').show();
         }
+
+
+        
+        
