@@ -823,6 +823,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                                     ->join('child_menus','child_menus.id','=','services.sub_service')
                                     ->select('child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','menus.menu_name as first_level_menu_name', 'services.*')
                                     ->where('services.main_service', '=', $row->main_service)
+                                    ->where('services.name', '=', $row_pages->section_type)
                                     ->get();
                         
                         @endphp
