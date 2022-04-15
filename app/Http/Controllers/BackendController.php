@@ -637,13 +637,18 @@ class BackendController extends Controller {
     public function store_industries(Request $request) {
         $data = $request->all();
         $file = $data['industry_image']; // will get all files
+        $background_file = $data['industry_background_image']; // will get all files
         
         $file_name = $file->getClientOriginalName(); //Get file original name
         $file->move(public_path('industries'), $file_name); // move files to destination folder
 
+        $background_file_name = $background_file->getClientOriginalName(); //Get file original name
+        $background_file->move(public_path('background_industries'), $background_file_name); // move files to destination folder
+
             $id = DB::table('industries')->insertGetId(
                     [
                         'image' => $file_name,
+                        'background_image' => $background_file_name,
                         'page_id' => $request->page_id,
                         'padding_bottom' => $request->padding_bottom,
                         'padding_top' => $request->padding_top, 
@@ -658,27 +663,52 @@ class BackendController extends Controller {
     }
 
     public function edit_industry(Request $request) {
+        
         $file = $request->file('industry_image'); // will get all files
+        $background_file = $request->file('industry_background_image'); // will get all files
         if ($file == NULL) {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
                     ['name' => $request->name, 'title' => $request->title, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            
         } else {
 
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('industries'), $file_name); // move files to destination folder
+            
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
                     ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->name, 'page_id' => $request->page_id]
             );
-            $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+            
         }
+
+        if ($background_file == NULL) {
+            $affected = DB::table('industries')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['name' => $request->name, 'title' => $request->title, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
+            );
+            
+        } else {
+
+            $background_file_name = $background_file->getClientOriginalName(); //Get file original name
+            $background_file->move(public_path('background_industries'), $background_file_name); // move files to destination folder
+            
+            $affected = DB::table('industries')
+                    ->where('id', $request->id)
+                    ->update(
+                    ['background_image' => $background_file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->name, 'page_id' => $request->page_id]
+            );
+            
+        }
+
+        
+        $message = 'Successfully Edited';
+        return redirect()->back()->with('edit_message', $message);
     }
 
     public function delete_industry($id) {

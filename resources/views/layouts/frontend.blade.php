@@ -174,7 +174,7 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
                             $sub_child_menu = DB::table('sub_child_menus')->where('child_menu_id','=',$row_sub_menu->id)->orderBy('sorting','ASC')->get();
                             @endphp
                             @foreach($sub_child_menu as $row_sub_child_menu)
-                            <li><a href="{{$row_sub_child_menu->item_link}}" class="p-14">{{$row_sub_child_menu->item_name}}</a></li>
+                            <li><a href="{{URL::to($row_sub_child_menu->item_link)}}" class="p-14">{{$row_sub_child_menu->item_name}}</a></li>
                             @endforeach
                           </ul>
                         </div>
