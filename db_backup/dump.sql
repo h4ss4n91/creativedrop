@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 06, 2022 at 11:44 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Host: localhost:3306
+-- Generation Time: Apr 18, 2022 at 09:38 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cdweb_three`
+-- Database: `dropdrop_stage`
 --
 
 -- --------------------------------------------------------
@@ -34,15 +35,15 @@ CREATE TABLE `case_study` (
   `page_id` int(11) DEFAULT NULL,
   `image` varchar(350) DEFAULT NULL,
   `title` varchar(350) DEFAULT NULL,
-  `short_description` text DEFAULT NULL,
+  `short_description` text,
   `link` varchar(350) DEFAULT NULL,
   `service` varchar(150) DEFAULT NULL,
   `sub_category` varchar(150) DEFAULT NULL,
   `industry` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -50,12 +51,18 @@ CREATE TABLE `case_study` (
 --
 
 INSERT INTO `case_study` (`id`, `name`, `slug`, `page_id`, `image`, `title`, `short_description`, `link`, `service`, `sub_category`, `industry`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
-(1, 'case study 1', 'ur-vintageous', NULL, 'bigC.jpg', 'UR VINTAGEOUS', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, 0, 0, '2022-03-04 09:49:22', '2022-03-04 09:49:22'),
-(2, 'case study 1', 'shapoorji-pallonji', NULL, 'bw.jpg', 'SHAPOORJI PALLONJI', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, 0, 0, '2022-03-04 09:52:23', '2022-03-04 09:52:23'),
-(3, 'case study 1', 'medgulf', NULL, 'portfolio-3.jpg', 'MEDGULF', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, 0, 0, '2022-03-04 10:03:15', '2022-03-04 10:03:15'),
-(4, 'case study 1', 'lemon-lime', NULL, 'portfolio-1.jpg', 'LEMON LIME', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, 0, 0, '2022-03-04 15:55:07', '2022-03-04 15:55:07'),
-(6, 'case study 1', 'giancarlo-gioielli', NULL, 'portfolio-4.jpg', 'GIANCARLO GIOIELLI', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, 0, 0, '2022-03-04 15:57:23', '2022-03-04 15:57:23'),
-(7, 'case study 1', 'big-boss-beverages', NULL, 'deal.jpg', 'BIG BOSS BEVERAGES', 'Infographics, Company Profile & Video', NULL, NULL, NULL, NULL, 0, 0, '2022-03-07 04:24:04', '2022-03-07 04:24:04');
+(8, 'case study 1', 'amrita-honey', NULL, 'amrita-honey-thumb.jpg', 'Amrita Honey', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 50, 50, '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(9, 'case study 1', 'albashir-international', NULL, 'albashir-thumb.jpg', 'ALBASHIR INTERNATIONAL', 'Description is not available', NULL, NULL, NULL, NULL, 0, 0, '2022-04-12 05:47:36', '2022-04-12 05:47:36'),
+(10, 'case study 1', 'big-boss', NULL, 'big-boss-thumb.jpg', 'Big Boss', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 0, 0, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(12, 'case study 1', 'giancarlo-gioielli', NULL, 'giancarlo-thumbnail.jpg', 'Giancarlo Gioielli', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 0, 0, '2022-04-13 06:43:46', '2022-04-13 06:43:46'),
+(13, 'case study 1', 'lemon-lime', NULL, 'lemon-lime-thumbnail.jpg', 'Lemon Lime', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 0, 0, '2022-04-13 06:50:10', '2022-04-13 06:50:10'),
+(14, 'case study 1', 'medgulf', NULL, 'medgulf-thumbnail.jpg', 'Medgulf', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 0, 0, '2022-04-13 07:00:56', '2022-04-13 07:00:56'),
+(15, 'case study 1', 'shapoorji-pallonji', NULL, 'SHAPOORJI PALLONJI-thumnail.jpg', 'SHAPOORJI PALLONJI', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 0, 0, '2022-04-13 07:16:45', '2022-04-13 07:16:45'),
+(16, 'case study 1', 'ur-vintageous', NULL, 'UR-VINTAGEOUS-thumnail.jpg', 'UR VINTAGEOUS', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 0, 0, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(17, 'case study 1', 'rjl', NULL, 'rjlt-thumb.jpg', 'RJL', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 0, 0, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(18, 'case study 1', 'rich-craft', NULL, 'richcraftthumb.jpg', 'RICH CRAFT', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 0, 0, '2022-04-14 07:51:32', '2022-04-14 07:51:32'),
+(19, 'case study 1', 'omnia-real-estate', NULL, 'omniatu.jpg', 'OMNIA REAL ESTATE', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 0, 0, '2022-04-14 08:02:12', '2022-04-14 08:02:12'),
+(20, 'case study 1', 'ocyana-perfumes', NULL, 'ocyanathumb.jpg', 'OCYANA PERFUMES', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.', NULL, NULL, NULL, NULL, 0, 0, '2022-04-14 08:21:27', '2022-04-14 08:21:27');
 
 -- --------------------------------------------------------
 
@@ -75,8 +82,8 @@ CREATE TABLE `case_study_content` (
   `video_style` varchar(150) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
   `video_background` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -84,7 +91,7 @@ CREATE TABLE `case_study_content` (
 --
 
 INSERT INTO `case_study_content` (`id`, `case_study_id`, `image`, `image_name`, `type`, `video_link`, `video_name`, `image_style`, `video_style`, `sorting`, `video_background`, `created_at`, `updated_at`) VALUES
-(1, 1, 'cs-05.jpg', 'image 1', NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-03-04 09:49:22', '2022-03-04 09:49:22'),
+(1, 1, 'amrita-honey1.jpg', NULL, NULL, '', '', NULL, '', NULL, '', '2022-03-04 09:49:22', '2022-03-04 09:49:22'),
 (2, 1, 'cs-01.jpg', 'image 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-03-04 09:49:22', '2022-03-04 09:49:22'),
 (3, 1, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video 2', NULL, 'section-padtop-100 section-padbottom-100', NULL, 'cs-00.jpg', '2022-03-04 09:49:22', '2022-03-04 09:49:22'),
 (4, 1, 'cs-03.jpg', 'image 3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-03-04 09:49:22', '2022-03-04 09:49:22'),
@@ -103,7 +110,86 @@ INSERT INTO `case_study_content` (`id`, `case_study_id`, `image`, `image_name`, 
 (17, 6, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', NULL, NULL, 'section-padtop-100 section-padbottom-100', NULL, 'cs-04.jpg', '2022-03-04 15:57:23', '2022-03-04 15:57:23'),
 (18, 7, NULL, NULL, NULL, 'https://www.youtube.com/embed/dCj4rA58-qY', 'video name', NULL, 'bg-white section-bg-white mt-0 pt-0', NULL, NULL, '2022-03-07 04:24:04', '2022-03-07 04:24:04'),
 (19, 7, 'bigC.jpg', 'image 1', NULL, NULL, NULL, 'section-bg-white', NULL, NULL, NULL, '2022-03-07 04:24:04', '2022-03-07 04:24:04'),
-(20, 7, 'portfolio-1.jpg', 'image name 4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-03-07 04:24:04', '2022-03-07 04:24:04');
+(20, 7, 'portfolio-1.jpg', 'image name 4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-03-07 04:24:04', '2022-03-07 04:24:04'),
+(21, 8, 'amrita-honey1.webp', 'amrita-honey', NULL, '', '', NULL, '', NULL, '', '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(22, 8, 'amrita-honey2.webp', 'amrita-honey', NULL, '', '', NULL, '', NULL, '', '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(23, 8, 'amrita-honey3.webp', 'amrita-honey', NULL, '', '', NULL, '', NULL, '', '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(24, 8, 'amrita-honey4.webp', 'amrita-honey', NULL, '', '', NULL, '', NULL, '', '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(25, 8, 'amrita-honey5.webp', NULL, NULL, '', '', NULL, '', NULL, '', '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(26, 8, 'amrita-honey6.webp', 'amrita-honey', NULL, '', '', NULL, '', NULL, '', '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(27, 9, 'albashir1.webp', 'albashir', NULL, '', '', NULL, '', NULL, '', '2022-04-12 05:47:36', '2022-04-12 05:47:36'),
+(28, 9, 'albashir2.webp', NULL, NULL, '', '', NULL, '', NULL, '', '2022-04-12 05:47:36', '2022-04-12 05:47:36'),
+(29, 9, 'albashir3.webp', NULL, NULL, '', '', NULL, '', NULL, '', '2022-04-12 05:47:36', '2022-04-12 05:47:36'),
+(30, 9, 'albashir4.webp', 'albashir', NULL, '', '', NULL, '', NULL, '', '2022-04-12 05:47:36', '2022-04-12 05:47:36'),
+(31, 9, 'albashir5.webp', NULL, NULL, '', '', NULL, '', NULL, '', '2022-04-12 05:47:36', '2022-04-12 05:47:36'),
+(32, 9, 'albashir6.webp', 'albashir', NULL, '', '', NULL, '', NULL, '', '2022-04-12 05:47:37', '2022-04-12 05:47:37'),
+(33, 9, 'albashir7.webp', 'albashir', NULL, '', '', NULL, '', NULL, '', '2022-04-12 05:47:37', '2022-04-12 05:47:37'),
+(34, 10, 'big-boss1-.webp', 'big-boss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(35, 10, 'big-boss2-.webp', 'big-boss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(36, 10, 'big-boss3-.webp', 'big-boss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(37, 10, 'big-boss4-.webp', 'big-boss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(38, 10, 'big-boss5-.webp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(39, 11, 'giancarlocasestudy1.webp', 'Giancarlo Gioielli', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:40:49', '2022-04-13 06:40:49'),
+(40, 11, 'giancarlocasestudy2.webp', 'Giancarlo Gioielli', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:40:49', '2022-04-13 06:40:49'),
+(41, 11, 'giancarlocasestudy3.webp', 'Giancarlo Gioielli', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:40:49', '2022-04-13 06:40:49'),
+(42, 11, 'giancarlocasestudy4.webp', 'Giancarlo Gioielli', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:40:49', '2022-04-13 06:40:49'),
+(43, 12, 'giancarlocasestudy1.webp', 'Giancarlo Gioielli', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:43:46', '2022-04-13 06:43:46'),
+(44, 12, 'giancarlocasestudy2.webp', 'Giancarlo Gioielli', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:43:46', '2022-04-13 06:43:46'),
+(45, 12, 'giancarlocasestudy3.webp', 'Giancarlo Gioielli', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:43:46', '2022-04-13 06:43:46'),
+(46, 12, 'giancarlocasestudy4.webp', 'Giancarlo Gioielli', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:43:46', '2022-04-13 06:43:46'),
+(47, 13, 'lemonlime1-.webp', 'Lemon Lime', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:50:10', '2022-04-13 06:50:10'),
+(48, 13, 'lemonlime2-.webp', 'Lemon Lime', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:50:10', '2022-04-13 06:50:10'),
+(49, 13, 'lemonlime3-.webp', 'Lemon Lime', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:50:10', '2022-04-13 06:50:10'),
+(50, 13, 'lemonlime4-.webp', 'Lemon Lime', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:50:10', '2022-04-13 06:50:10'),
+(51, 13, 'lemonlime5-.webp', 'Lemon Lime', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:50:10', '2022-04-13 06:50:10'),
+(52, 13, 'lemonlime6-.webp', 'Lemon Lime', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 06:50:10', '2022-04-13 06:50:10'),
+(54, 14, 'medgulf-1.webp', 'Medgulf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(55, 14, 'medgulf2-.webp', 'Medgulf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(56, 14, 'medgulf3-.webp', 'Medgulf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(57, 14, 'medgulf4-.webp', 'Medgulf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(58, 14, 'medgulf5-.webp', 'Medgulf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(59, 14, 'medgulf6-.webp', 'Medgulf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(60, 14, 'medgulf7-.webp', 'Medgulf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(61, 14, 'medgulf8-.webp', 'Medgulf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(62, 15, 'shapoorjipallonji1-.webp', 'SHAPOORJI PALLONJI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:16:45', '2022-04-13 07:16:45'),
+(63, 15, 'shapoorjipallonji2-.webp', 'SHAPOORJI PALLONJI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:16:45', '2022-04-13 07:16:45'),
+(64, 15, 'shapoorjipallonji3-.webp', 'SHAPOORJI PALLONJI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:16:45', '2022-04-13 07:16:45'),
+(65, 15, 'shapoorjipallonji4-.webp', 'SHAPOORJI PALLONJI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:16:45', '2022-04-13 07:16:45'),
+(66, 15, 'shapoorjipallonji5-.webp', 'SHAPOORJI PALLONJI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:16:45', '2022-04-13 07:16:45'),
+(67, 15, 'shapoorjipallonji6-.webp', 'SHAPOORJI PALLONJI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:16:45', '2022-04-13 07:16:45'),
+(68, 15, 'shapoorjipallonji7-.webp', 'SHAPOORJI PALLONJI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:16:46', '2022-04-13 07:16:46'),
+(69, 15, 'shapoorjipallonji8-.webp', 'SHAPOORJI PALLONJI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:16:46', '2022-04-13 07:16:46'),
+(70, 16, 'ur-vintageous1.webp', 'ur vintageous', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(71, 16, 'ur-vintageous2.webp', 'ur vintageous', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(72, 16, 'ur-vintageous3.webp', 'ur vintageous', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(73, 16, 'ur-vintageous4.webp', 'ur vintageous', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(74, 16, 'ur-vintageous5.webp', 'ur vintageous', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(75, 16, 'ur-vintageous6.webp', 'ur vintageous', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(76, 16, 'ur-vintageous7.webp', 'ur vintageous', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(77, 16, 'ur-vintageous8.webp', 'ur vintageous', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(78, 17, 'rjl1.webp', 'RJL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(79, 17, 'rjl2.webp', 'RJL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(80, 17, 'rjl3.webp', 'RJL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(81, 17, 'rjl4.webp', 'RJL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(82, 18, 'richcraft1.webp', 'RICH CRAFT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 07:51:32', '2022-04-14 07:51:32'),
+(83, 18, 'richcraft2.webp', 'RICH CRAFT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 07:51:32', '2022-04-14 07:51:32'),
+(84, 18, 'richcraft3.webp', 'RICH CRAFT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 07:51:32', '2022-04-14 07:51:32'),
+(85, 18, 'richcraft4.jpg', NULL, NULL, '', '', NULL, '', NULL, '', '2022-04-14 07:51:32', '2022-04-14 07:51:32'),
+(86, 18, 'richcraft5.webp', 'RICH CRAFT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 07:51:32', '2022-04-14 07:51:32'),
+(87, 19, 'omnia1.webp', 'omnia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:02:12', '2022-04-14 08:02:12'),
+(88, 19, 'omni1.webp', 'omnia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:02:12', '2022-04-14 08:02:12'),
+(89, 19, 'omnia2.webp', 'omnia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:02:12', '2022-04-14 08:02:12'),
+(90, 19, 'omnia3.webp', 'omnia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:02:12', '2022-04-14 08:02:12'),
+(91, 19, 'omnia4.webp', 'omnia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:02:12', '2022-04-14 08:02:12'),
+(92, 20, 'ocyana1.webp', 'OCYANA PERFUMES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(93, 20, 'ocyana2.webp', 'OCYANA PERFUMES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(94, 20, 'ocyana3.webp', 'OCYANA PERFUMES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(95, 20, 'ocyana4.webp', 'OCYANA PERFUMES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(96, 20, 'ocyana5.webp', 'OCYANA PERFUMES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(97, 20, 'ocyana6.webp', 'OCYANA PERFUMES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(98, 20, 'ocyana7.webp', 'OCYANA PERFUMES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(99, 20, 'ocyana8.webp', 'OCYANA PERFUMES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(100, 20, 'ocyana9.webp', 'OCYANA PERFUMES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-14 08:21:27', '2022-04-14 08:21:27');
 
 -- --------------------------------------------------------
 
@@ -115,8 +201,8 @@ CREATE TABLE `case_study_industries` (
   `id` int(11) NOT NULL,
   `case_study_id` int(11) NOT NULL,
   `industry_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -133,7 +219,28 @@ INSERT INTO `case_study_industries` (`id`, `case_study_id`, `industry_id`, `crea
 (7, 4, 6, '2022-03-04 15:55:07', '2022-03-04 15:55:07'),
 (8, 4, 37, '2022-03-04 15:55:07', '2022-03-04 15:55:07'),
 (9, 6, 37, '2022-03-04 15:57:23', '2022-03-04 15:57:23'),
-(10, 7, 9, '2022-03-07 04:24:05', '2022-03-07 04:24:05');
+(10, 7, 9, '2022-03-07 04:24:05', '2022-03-07 04:24:05'),
+(11, 8, 54, '2022-04-11 10:08:06', '2022-04-11 10:08:06'),
+(12, 9, 54, '2022-04-12 05:47:37', '2022-04-12 05:47:37'),
+(13, 9, 6, '2022-04-12 07:18:47', '2022-04-12 07:18:47'),
+(14, 10, 54, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(15, 10, 6, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(16, 8, 6, '2022-04-12 07:32:36', '2022-04-12 07:32:36'),
+(17, 11, 44, '2022-04-13 06:40:49', '2022-04-13 06:40:49'),
+(18, 12, 44, '2022-04-13 06:43:46', '2022-04-13 06:43:46'),
+(19, 13, 6, '2022-04-13 06:50:10', '2022-04-13 06:50:10'),
+(20, 13, 54, '2022-04-13 06:50:11', '2022-04-13 06:50:11'),
+(21, 14, 9, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(22, 14, 55, '2022-04-13 07:05:04', '2022-04-13 07:05:04'),
+(23, 15, 9, '2022-04-13 07:16:46', '2022-04-13 07:16:46'),
+(24, 15, 7, '2022-04-13 07:16:46', '2022-04-13 07:16:46'),
+(25, 16, 45, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(26, 17, 48, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(27, 17, 7, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(28, 17, 46, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(29, 17, 50, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(30, 18, 7, '2022-04-14 07:51:33', '2022-04-14 07:51:33'),
+(31, 20, 44, '2022-04-14 08:21:27', '2022-04-14 08:21:27');
 
 -- --------------------------------------------------------
 
@@ -146,8 +253,8 @@ CREATE TABLE `case_study_services` (
   `case_study_id` int(11) DEFAULT NULL,
   `service_id` int(11) DEFAULT NULL,
   `sub_service_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -157,19 +264,58 @@ CREATE TABLE `case_study_services` (
 INSERT INTO `case_study_services` (`id`, `case_study_id`, `service_id`, `sub_service_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, 1, '2022-03-04 09:49:22', '2022-03-04 09:49:22'),
 (2, 1, 2, 6, '2022-03-04 09:49:22', '2022-03-04 09:49:22'),
-(3, 2, 5, 16, '2022-03-04 09:52:23', '2022-03-04 09:52:23'),
 (4, 2, 3, 10, '2022-03-04 09:52:23', '2022-03-04 09:52:23'),
 (5, 3, 3, 11, '2022-03-04 10:03:15', '2022-03-04 10:03:15'),
 (6, 3, 4, 15, '2022-03-04 10:03:15', '2022-03-04 10:03:15'),
 (7, 4, 4, 13, '2022-03-04 15:55:07', '2022-03-04 15:55:07'),
 (8, 4, 4, 15, '2022-03-04 15:55:07', '2022-03-04 15:55:07'),
 (9, 4, 3, 10, '2022-03-04 15:55:07', '2022-03-04 15:55:07'),
-(10, 4, 5, 19, '2022-03-04 15:55:07', '2022-03-04 15:55:07'),
 (11, 6, 1, 3, '2022-03-04 15:57:23', '2022-03-04 15:57:23'),
 (12, 6, 2, 7, '2022-03-04 15:57:23', '2022-03-04 15:57:23'),
-(13, 6, 5, 21, '2022-03-04 15:57:23', '2022-03-04 15:57:23'),
 (14, 7, 3, 10, '2022-03-07 04:24:04', '2022-03-07 04:24:04'),
-(15, 7, 5, 19, '2022-03-07 04:24:05', '2022-03-07 04:24:05');
+(16, 8, 1, 1, '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(17, 8, 1, 2, '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(18, 8, 2, 6, '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(19, 8, 2, 7, '2022-04-11 10:08:05', '2022-04-11 10:08:05'),
+(20, 8, 2, 8, '2022-04-11 10:08:06', '2022-04-11 10:08:06'),
+(21, 9, 2, 6, '2022-04-12 05:47:37', '2022-04-12 05:47:37'),
+(22, 9, 2, 8, '2022-04-12 05:47:37', '2022-04-12 05:47:37'),
+(24, 10, 1, 1, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(25, 10, 1, 2, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(26, 10, 2, 6, '2022-04-12 07:30:23', '2022-04-12 07:30:23'),
+(27, 11, 1, 3, '2022-04-13 06:40:49', '2022-04-13 06:40:49'),
+(28, 11, 1, 2, '2022-04-13 06:40:49', '2022-04-13 06:40:49'),
+(29, 11, 1, 1, '2022-04-13 06:40:49', '2022-04-13 06:40:49'),
+(30, 12, 1, 2, '2022-04-13 06:43:46', '2022-04-13 06:43:46'),
+(31, 12, 1, 3, '2022-04-13 06:43:46', '2022-04-13 06:43:46'),
+(32, 12, 2, 6, '2022-04-13 06:43:46', '2022-04-13 06:43:46'),
+(34, 13, 1, 1, '2022-04-13 06:50:10', '2022-04-13 06:50:10'),
+(35, 13, 1, 2, '2022-04-13 06:50:10', '2022-04-13 06:50:10'),
+(36, 14, 1, 2, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(37, 14, 1, 2, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(38, 14, 2, 6, '2022-04-13 07:00:57', '2022-04-13 07:00:57'),
+(39, 15, 1, 2, '2022-04-13 07:16:46', '2022-04-13 07:16:46'),
+(40, 15, 1, 3, '2022-04-13 07:16:46', '2022-04-13 07:16:46'),
+(41, 15, 2, 6, '2022-04-13 07:16:46', '2022-04-13 07:16:46'),
+(42, 16, 1, 1, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(43, 16, 1, 2, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(44, 16, 2, 6, '2022-04-13 07:26:36', '2022-04-13 07:26:36'),
+(45, 17, 1, 1, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(46, 17, 1, 3, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(47, 17, 4, 13, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(48, 17, 2, 6, '2022-04-14 07:35:59', '2022-04-14 07:35:59'),
+(49, 18, 1, 1, '2022-04-14 07:51:32', '2022-04-14 07:51:32'),
+(50, 18, 1, 2, '2022-04-14 07:51:32', '2022-04-14 07:51:32'),
+(51, 18, 1, 3, '2022-04-14 07:51:32', '2022-04-14 07:51:32'),
+(52, 18, 4, 13, '2022-04-14 07:51:32', '2022-04-14 07:51:32'),
+(54, 18, 2, 6, '2022-04-14 07:51:33', '2022-04-14 07:51:33'),
+(55, 19, 1, 3, '2022-04-14 08:02:12', '2022-04-14 08:02:12'),
+(56, 19, 1, 1, '2022-04-14 08:02:12', '2022-04-14 08:02:12'),
+(57, 19, 2, 5, '2022-04-14 08:02:12', '2022-04-14 08:02:12'),
+(58, 20, 1, 1, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(59, 20, 1, 4, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(60, 20, 4, 13, '2022-04-14 08:21:27', '2022-04-14 08:21:27'),
+(61, 20, 2, 5, '2022-04-14 08:21:27', '2022-04-14 08:21:27');
 
 -- --------------------------------------------------------
 
@@ -184,8 +330,8 @@ CREATE TABLE `child_menus` (
   `item_link` varchar(255) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
   `featured_service` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -193,10 +339,10 @@ CREATE TABLE `child_menus` (
 --
 
 INSERT INTO `child_menus` (`id`, `menu_id`, `item_name`, `item_link`, `sorting`, `featured_service`, `created_at`, `updated_at`) VALUES
-(1, '1', 'Logo Design', 'logo-design', 1, NULL, '2021-07-24 16:19:15', '2021-07-24 16:19:15'),
+(1, '1', 'Branding Services', 'branding-services', 1, NULL, '2021-07-24 16:19:15', '2021-07-24 16:19:15'),
 (2, '1', 'Graphic Design', 'graphic-design', 2, NULL, '2021-07-24 16:19:24', '2021-07-24 16:19:24'),
-(3, '1', 'Brochures', 'brouchers', 4, NULL, '2021-07-24 16:19:32', '2021-07-24 16:19:32'),
-(4, '1', 'Presentations', 'presentations', 3, NULL, '2021-07-24 16:19:42', '2021-07-24 16:19:42'),
+(3, '1', 'Brochures', 'brouchers', 3, NULL, '2021-07-24 16:19:32', '2021-07-24 16:19:32'),
+(4, '1', 'Presentations', 'presentations', 4, NULL, '2021-07-24 16:19:42', '2021-07-24 16:19:42'),
 (5, '2', 'Product Design', 'product-design', 1, NULL, '2021-07-24 16:20:15', '2021-07-24 16:20:15'),
 (6, '2', 'Websites', 'websites', 2, NULL, '2021-07-24 16:20:22', '2021-07-24 16:20:22'),
 (7, '2', 'Mobile Apps', 'mobile-apps', 3, NULL, '2021-07-24 16:20:29', '2021-07-24 16:20:29'),
@@ -205,12 +351,12 @@ INSERT INTO `child_menus` (`id`, `menu_id`, `item_name`, `item_link`, `sorting`,
 (10, '3', 'Photography', 'photography', 2, NULL, '2021-07-24 16:20:58', '2021-07-24 16:20:58'),
 (11, '3', '3D Animation\r\n', '3d-animation', 3, NULL, '2021-07-24 16:21:06', '2021-07-24 16:21:06'),
 (12, '3', '2D Animation\r\n', '2d-animation', 4, NULL, '2021-07-24 16:21:14', '2021-07-24 16:21:14'),
-(13, '4', 'Digital Marketing', 'digital-marketing', 3, NULL, '2021-07-24 16:21:29', '2021-07-24 16:21:29'),
-(14, '4', 'Social Media Marketing', 'social-media-marketing', 1, NULL, '2021-07-24 16:21:35', '2021-07-24 16:21:35'),
-(15, '4', 'Consultancy', 'consultancy', 2, NULL, '2021-07-24 16:21:42', '2021-07-24 16:21:42'),
+(13, '4', 'Digital Marketing', 'digital-marketing', 1, NULL, '2021-07-24 16:21:29', '2021-07-24 16:21:29'),
+(14, '4', 'Social Media Marketing', 'social-media-marketing', 2, NULL, '2021-07-24 16:21:35', '2021-07-24 16:21:35'),
+(15, '4', 'Consultancy', 'consultancy', 3, NULL, '2021-07-24 16:21:42', '2021-07-24 16:21:42'),
 (16, '5', 'Design Services', 'design-services', 1, NULL, '2021-07-24 16:23:52', '2021-07-24 16:23:52'),
 (17, '5', 'Website & Mobile Apps', 'website-and-mobile-apps', 2, NULL, '2021-07-24 16:23:57', '2021-07-24 16:23:57'),
-(18, '5', 'Videos & Photography', 'videos-and-photography', 3, NULL, '2021-07-24 16:24:03', '2021-07-24 16:24:03'),
+(18, '5', 'Videos & Photography', 'video-and-photography', 3, NULL, '2021-07-24 16:24:03', '2021-07-24 16:24:03'),
 (19, '5', '3D & 2D Animation', '3D-2D-Animation', 4, 'No', '2021-07-24 16:24:10', '2021-07-24 16:24:10'),
 (20, '5', 'Consultancy Services', 'consultancy-services', 5, NULL, '2021-07-24 16:24:15', '2021-07-24 16:24:15'),
 (21, '5', 'Digital Marketing\r\n', 'digital-marketing', 6, NULL, '2021-07-24 16:24:23', '2021-07-24 16:24:23'),
@@ -231,8 +377,8 @@ CREATE TABLE `clientandparterimage` (
   `image` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -269,15 +415,15 @@ CREATE TABLE `components` (
   `id` int(11) NOT NULL,
   `component_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `body` text DEFAULT NULL,
-  `link` text DEFAULT NULL,
-  `image1` text DEFAULT NULL,
-  `image2` text DEFAULT NULL,
-  `image3` text DEFAULT NULL,
+  `body` text,
+  `link` text,
+  `image1` text,
+  `image2` text,
+  `image3` text,
   `button_text` varchar(255) DEFAULT NULL,
   `button_link` varchar(255) DEFAULT NULL,
-  `video` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `video` text,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -323,8 +469,8 @@ CREATE TABLE `contacts` (
   `phone` varchar(150) DEFAULT NULL,
   `subject` varchar(150) DEFAULT NULL,
   `message` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -346,7 +492,9 @@ INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `phone`, `subj
 (33, 'Faiz', 'Awan', 'testing@faiz.com', '1234567898', NULL, 'this is my testing message', '2022-03-10 12:05:02', '2022-03-10 12:05:02'),
 (34, 'Asad', 'Javed', 'asad@javed.com', '1234567898', NULL, 'This is my testing message', '2022-03-10 12:11:58', '2022-03-10 12:11:58'),
 (35, 'testing', 'testing', 'asad@javed.com', '1234567898', NULL, 'testing message', '2022-03-10 12:15:45', '2022-03-10 12:15:45'),
-(36, 'Faiz', 'Awan', 'admin@gmail.com', '3123762039', NULL, 'testing message', '2022-03-10 12:43:10', '2022-03-10 12:43:10');
+(36, 'Faiz', 'Awan', 'admin@gmail.com', '3123762039', NULL, 'testing message', '2022-03-10 12:43:10', '2022-03-10 12:43:10'),
+(37, 'testing', 'testing', 'testing@testing.com', '123123123', NULL, 'this is testing message', '2022-03-17 09:25:57', '2022-03-17 09:25:57'),
+(38, 'testing', 'testing', 'testing@testing.com', '1234567898', NULL, 'this is my testing message', '2022-03-17 11:00:59', '2022-03-17 11:00:59');
 
 -- --------------------------------------------------------
 
@@ -360,7 +508,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -376,7 +524,7 @@ CREATE TABLE `failed_jobsold` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -390,8 +538,8 @@ CREATE TABLE `footer_bottoms` (
   `city` varchar(150) DEFAULT NULL,
   `address` varchar(150) DEFAULT NULL,
   `copyright` varchar(260) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -413,8 +561,8 @@ CREATE TABLE `footer_sections` (
   `name` varchar(150) DEFAULT NULL,
   `menu` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -450,8 +598,8 @@ CREATE TABLE `header_menu` (
   `id` int(11) NOT NULL,
   `item_name` varchar(255) DEFAULT NULL,
   `item_link` enum('Active','Inactive') DEFAULT 'Active',
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -486,8 +634,8 @@ CREATE TABLE `industries` (
   `image` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -495,15 +643,23 @@ CREATE TABLE `industries` (
 --
 
 INSERT INTO `industries` (`id`, `page_id`, `slug`, `service_id`, `sub_category_id`, `name`, `title`, `link`, `image`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
-(6, NULL, 'fmcg', NULL, NULL, 'one', 'FMCG', 'work', 'creativebox-1.jpg', 50, 50, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(7, NULL, 'construction', NULL, NULL, 'one', 'Construction', 'work', 'creativebox-2.jpg', 50, 50, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(8, NULL, 'gold-trading', NULL, NULL, 'one', 'Gold Trading', 'work', 'creativebox-3.jpg', 50, 50, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(9, NULL, 'fintech', NULL, NULL, 'one', 'Fintech', 'work', 'creativebox-4.jpg', 50, 50, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(37, NULL, 'it-industry', NULL, NULL, 'one', 'IT industry', 'work', 'image.jpg', 50, 50, '2022-02-12 12:56:10', '2022-02-12 12:56:10'),
-(43, NULL, 'industry-9', NULL, NULL, 'one', 'industry 9', 'work', 'product1.jpg', 0, 0, '2022-04-05 10:31:35', '2022-04-05 10:31:35'),
-(44, NULL, 'industry-90', NULL, NULL, 'one', 'industry 90', 'work', 'new-parent-category.png', 0, 0, '2022-04-05 10:32:01', '2022-04-05 10:32:01'),
-(45, NULL, 'another-industry', NULL, NULL, 'one', 'another industry', 'work', 'creativebox-3.jpg', 0, 0, '2022-04-05 10:33:01', '2022-04-05 10:33:01'),
-(46, NULL, 'thirty-industry-name', NULL, NULL, 'one', 'thirty industry name', 'work', 'wpress-extractor.exe', 0, 0, '2022-04-05 10:33:32', '2022-04-05 10:33:32');
+(6, NULL, 'one', NULL, NULL, 'one', 'FMCG', 'work', 'FMCG3.jpg', 70, 70, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(7, NULL, 'one', NULL, NULL, 'one', 'Construction & Infrastructure', 'work', 'Construction-_-Architectural.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(8, NULL, 'one', NULL, NULL, 'one', 'Automobiles', 'work', 'Automobiles2.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(9, NULL, 'one', NULL, NULL, 'one', 'Property & Real Estate', 'work', 'Property-_-Real-Estate.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(37, NULL, 'one', NULL, NULL, 'one', 'Education', 'work', 'Education.jpg', 0, 0, '2022-02-12 12:56:10', '2022-02-12 12:56:10'),
+(44, NULL, 'one', NULL, NULL, 'one', 'Cosmetics & Beauty', 'work', 'Cosmetics-_-Beauty.jpg', 0, 0, '2022-04-05 09:17:05', '2022-04-05 09:17:05'),
+(45, NULL, 'one', NULL, NULL, 'one', 'Fashion & Entertainment', 'work', 'Fashion-_-Entertainment.jpg', 0, 0, '2022-04-05 09:22:00', '2022-04-05 09:22:00'),
+(46, NULL, 'one', NULL, NULL, 'one', 'Technology & Artificial Intelligence', 'work', 'Technology---Artificial----Intelligence.jpg', 0, 0, '2022-04-05 09:24:42', '2022-04-05 09:24:42'),
+(47, NULL, 'one', NULL, NULL, 'one', 'Healthcare & Aesthetics', 'work', 'Healthcare2.jpg', 0, 0, '2022-04-05 09:47:11', '2022-04-05 09:47:11'),
+(48, NULL, 'oil-gas', NULL, NULL, 'one', 'Oil & Gas', 'work', 'Oil-_-Gas.jpg', 0, 0, '2022-04-05 10:12:52', '2022-04-05 10:12:52'),
+(49, NULL, 'aviation', NULL, NULL, 'one', 'Aviation', 'work', 'Aviation.jpg', 0, 0, '2022-04-05 10:15:40', '2022-04-05 10:15:40'),
+(50, NULL, 'land-agriculture', NULL, NULL, 'one', 'Land & Agriculture', 'work', 'Land-_-Agriculture.jpg', 0, 0, '2022-04-05 10:20:44', '2022-04-05 10:20:44'),
+(51, NULL, 'travels-tourism', NULL, NULL, 'one', 'Travels & Tourism', 'work', 'Travels-_-Tourism2.jpg', 0, 0, '2022-04-05 10:23:29', '2022-04-05 10:23:29'),
+(53, NULL, 'gold-trading', NULL, NULL, 'one', 'Gold Trading', 'work', 'gold trading.jpg', 0, 0, '2022-04-06 07:13:06', '2022-04-06 07:13:06'),
+(54, NULL, 'food-beverages', NULL, NULL, 'one', 'Food & Beverages', 'work', 'Food-_-Beverages.jpg', 0, 0, '2022-04-09 10:19:02', '2022-04-09 10:19:02'),
+(55, NULL, 'finance-corporate', NULL, NULL, 'one', 'Finance & Corporate', 'work', 'Finance-_-Corporate.jpg', 0, 0, '2022-04-09 10:56:27', '2022-04-09 10:56:27'),
+(56, NULL, 'trading-logistics', NULL, NULL, 'one', 'Trading & Logistics', 'work', 'Trading-_-Logistics.jpg', 0, 0, '2022-04-09 10:57:48', '2022-04-09 10:57:48');
 
 -- --------------------------------------------------------
 
@@ -516,8 +672,8 @@ CREATE TABLE `industry_services` (
   `industry_id` int(11) DEFAULT NULL,
   `service_id` int(11) DEFAULT NULL,
   `sub_service_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -544,8 +700,8 @@ INSERT INTO `industry_services` (`id`, `industry_id`, `service_id`, `sub_service
 CREATE TABLE `logo` (
   `id` int(11) NOT NULL,
   `logo` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -564,7 +720,7 @@ INSERT INTO `logo` (`id`, `logo`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `master_component` (
   `id` int(11) NOT NULL,
   `component_name` varchar(1000) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -601,9 +757,9 @@ CREATE TABLE `menus` (
   `menu_name` varchar(255) DEFAULT NULL,
   `menu_link` varchar(255) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
-  `body` text DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `body` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -614,8 +770,7 @@ INSERT INTO `menus` (`id`, `menu_name`, `menu_link`, `sorting`, `body`, `created
 (1, 'Designs', 'designs', 1, NULL, '2021-07-24 16:17:30', '2021-07-24 16:17:30'),
 (2, 'Web & Apps', 'webapps', 2, NULL, '2021-07-24 16:17:38', '2021-07-24 16:17:38'),
 (3, 'Videos', 'videos', 3, NULL, '2021-07-24 16:17:48', '2021-07-24 16:17:48'),
-(4, 'Marketing', 'marketing', 4, NULL, '2021-07-24 16:17:58', '2021-07-24 16:17:58'),
-(5, 'Services', 'servicesblock', 5, NULL, '2021-07-24 16:18:21', '2021-07-24 16:18:21');
+(4, 'Marketing', 'marketing', 4, NULL, '2021-07-24 16:17:58', '2021-07-24 16:17:58');
 
 -- --------------------------------------------------------
 
@@ -675,8 +830,8 @@ CREATE TABLE `news_and_opinions` (
   `link` varchar(250) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -703,16 +858,16 @@ CREATE TABLE `page` (
   `sub_menu_id` varchar(100) DEFAULT NULL,
   `child_menu_id` varchar(100) DEFAULT NULL,
   `title` varchar(500) DEFAULT NULL,
-  `body` text DEFAULT NULL,
-  `image` text DEFAULT NULL,
+  `body` text,
+  `image` text,
   `slug` varchar(1000) DEFAULT NULL,
   `status` enum('Published','Unpublished','Deleted') DEFAULT 'Unpublished',
-  `meta_keyword` text DEFAULT NULL,
-  `meta_desc` text DEFAULT NULL,
+  `meta_keyword` text,
+  `meta_desc` text,
   `design_menu` enum('N','Y') DEFAULT 'N',
   `user_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -735,7 +890,7 @@ INSERT INTO `page` (`id`, `menu_id`, `sub_menu_id`, `child_menu_id`, `title`, `b
 (52, '5', '19', '114', 'Products Modelling', NULL, NULL, 'products-modelling', NULL, NULL, 'meta description for work', 'N', NULL, '2022-02-24 11:51:25', '2022-02-24 11:51:25'),
 (53, '2', '5', '31', 'UI and UX Design', NULL, NULL, 'ui-and-ux-design', NULL, NULL, 'agency', 'N', NULL, '2022-02-24 12:08:36', '2022-02-24 12:08:36'),
 (54, '1', '3', '20', 'Pre-Qualification Design', NULL, NULL, 'pre-qualification-design', NULL, NULL, 'agency meta description', 'N', NULL, '2022-02-24 12:11:04', '2022-02-24 12:11:04'),
-(55, '1', '2', '7', 'Creative Ads Design', NULL, NULL, 'creative-ads-design', NULL, NULL, 'meta description for work', 'N', NULL, '2022-02-24 12:13:31', '2022-02-24 12:13:31'),
+(55, '1', '2', '7', 'Creative Ads Design', NULL, NULL, 'creative-ads-design', NULL, 'meta keywords', 'meta description for work', 'N', NULL, '2022-02-24 12:13:31', '2022-02-24 12:13:31'),
 (56, '1', '3', '17', 'Brochure Design', NULL, NULL, 'brochure-design', 'Published', 'meta keywords', 'agency', 'N', NULL, '2022-02-24 12:18:39', '2022-02-24 12:18:39');
 
 -- --------------------------------------------------------
@@ -750,8 +905,8 @@ CREATE TABLE `page_detail` (
   `section_no` int(11) DEFAULT NULL,
   `section` int(11) DEFAULT NULL,
   `section_type` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -783,8 +938,6 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 (35, 37, 3, 19, 'PaddingTOP70_Bottom50', '2022-01-04 21:23:52', '2022-01-04 21:23:52'),
 (36, 37, 4, 3, 'team group 2', '2022-01-04 21:23:52', '2022-01-04 21:23:52'),
 (37, 37, 5, 9, 'section 1', '2022-01-04 21:23:52', '2022-01-04 21:23:52'),
-(77, 39, 1, 1, 'slider 1', '2022-01-06 16:03:28', '2022-01-06 16:03:28'),
-(78, 39, 2, 2, 'testing title', '2022-01-06 16:03:28', '2022-01-06 16:03:28'),
 (108, 43, 1, 4, 'slider 1', '2022-01-07 13:32:48', '2022-01-07 13:32:48'),
 (399, 48, 1, 2, 'testing title', '2022-01-13 03:22:16', '2022-01-13 03:22:16'),
 (400, 48, 2, 5, 'white-bg-services', '2022-01-13 03:22:16', '2022-01-13 03:22:16'),
@@ -825,7 +978,6 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 (1657, 52, 1, 5, 'section 3', '2022-02-24 11:51:25', '2022-02-24 11:51:25'),
 (1658, 53, 1, 1, 'Slider 2', '2022-02-24 12:08:36', '2022-02-24 12:08:36'),
 (1659, 54, 1, 7, 'testing987', '2022-02-24 12:11:04', '2022-02-24 12:11:04'),
-(1660, 55, 1, 4, 'case study 1', '2022-02-24 12:13:31', '2022-02-24 12:13:31'),
 (1662, 56, 1, 4, 'case study 1', '2022-02-25 07:38:27', '2022-02-25 07:38:27'),
 (1663, 56, 2, 13, 'section 1', '2022-02-25 07:38:27', '2022-02-25 07:38:27'),
 (1664, 56, 3, 9, 'section 1', '2022-02-25 07:38:27', '2022-02-25 07:38:27'),
@@ -848,39 +1000,52 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 (1681, 33, 16, 5, 'white-bg-services', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
 (1682, 33, 17, 9, 'meeting', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
 (1683, 33, 18, 15, 'Vehicle Branding Design', '2022-02-25 07:51:23', '2022-02-25 07:51:23'),
-(1756, 38, 1, 21, 'for home page', '2022-03-11 05:48:38', '2022-03-11 05:48:38'),
-(1757, 38, 2, 5, 'Section 5', '2022-03-11 05:48:38', '2022-03-11 05:48:38'),
-(1758, 38, 3, 9, 'custom-proposal', '2022-03-11 05:48:38', '2022-03-11 05:48:38'),
-(1759, 38, 4, 4, 'case study 1', '2022-03-11 05:48:38', '2022-03-11 05:48:38'),
-(1760, 38, 5, 6, 'clients and partners', '2022-03-11 05:48:38', '2022-03-11 05:48:38'),
-(1761, 38, 6, 7, 'one', '2022-03-11 05:48:38', '2022-03-11 05:48:38'),
-(1762, 38, 7, 9, 'project-disc', '2022-03-11 05:48:38', '2022-03-11 05:48:38'),
-(1763, 38, 8, 14, 'For Agency page', '2022-03-11 05:48:38', '2022-03-11 05:48:38'),
-(1768, 41, 1, 19, 'padding-y-50', '2022-03-14 04:14:04', '2022-03-14 04:14:04'),
-(1769, 41, 2, 4, 'case study 1', '2022-03-14 04:14:04', '2022-03-14 04:14:04'),
-(1770, 41, 3, 5, 'Section 5', '2022-03-14 04:14:04', '2022-03-14 04:14:04'),
-(1771, 41, 4, 9, 'meeting', '2022-03-14 04:14:04', '2022-03-14 04:14:04'),
-(1772, 40, 1, 19, 'padding-y-50', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1773, 40, 2, 22, 'corporate-identity-banner', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1774, 40, 3, 12, 'corporate-page', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1775, 40, 4, 17, 'corporate-page', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1776, 40, 5, 4, 'case-study', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1777, 40, 6, 13, 'corporate-branding', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1778, 40, 7, 11, 'corporate-branding', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1779, 40, 8, 9, 'corporate-identity', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1780, 40, 9, 7, 'one', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1781, 40, 10, 9, 'project-disc', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1782, 40, 11, 5, 'Section 1', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1783, 40, 12, 9, 'meeting', '2022-03-14 04:39:24', '2022-03-14 04:39:24'),
-(1806, 50, 1, 19, 'padding-y-50', '2022-03-17 06:48:38', '2022-03-17 06:48:38'),
-(1807, 50, 2, 22, 'packaging-design', '2022-03-17 06:48:38', '2022-03-17 06:48:38'),
-(1808, 50, 3, 14, 'packaging-design', '2022-03-17 06:48:38', '2022-03-17 06:48:38'),
-(1809, 50, 4, 17, 'packaging-design', '2022-03-17 06:48:38', '2022-03-17 06:48:38'),
-(1810, 50, 7, 9, 'corporate-page', '2022-03-17 06:48:38', '2022-03-17 06:48:38'),
-(1811, 50, 8, 4, 'case study 1', '2022-03-17 06:48:38', '2022-03-17 06:48:38'),
-(1812, 50, 9, 9, 'project-disc', '2022-03-17 06:48:38', '2022-03-17 06:48:38'),
-(1813, 50, 10, 5, 'Section 5', '2022-03-17 06:48:38', '2022-03-17 06:48:38'),
-(1814, 50, 11, 7, 'one', '2022-03-17 06:48:38', '2022-03-17 06:48:38');
+(1694, 50, 1, 19, 'padding-y-50', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1695, 50, 2, 22, 'packaging-design', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1696, 50, 3, 14, 'packaging-design', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1697, 50, 4, 17, 'packaging-design', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1698, 50, 5, 4, 'case-study', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1699, 50, 6, 19, 'padding-y-50', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1700, 50, 10, 7, 'one', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1701, 50, 8, 9, 'project-disc', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1702, 50, 9, 5, 'Section 1', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1703, 50, 7, 9, 'meeting', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1704, 50, 11, 1, 'slider 1', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1705, 50, 12, 5, 'Section 1', '2022-02-25 08:27:46', '2022-02-25 08:27:46'),
+(1784, 40, 1, 19, 'padding-y-50', '2022-03-17 08:39:31', '2022-03-17 08:39:31'),
+(1785, 40, 2, 22, 'corporate-identity-banner', '2022-03-17 08:39:31', '2022-03-17 08:39:31'),
+(1786, 40, 3, 12, 'corporate-page', '2022-03-17 08:39:31', '2022-03-17 08:39:31'),
+(1787, 40, 4, 17, 'corporate-page', '2022-03-17 08:39:32', '2022-03-17 08:39:32'),
+(1788, 40, 5, 4, 'case study 1', '2022-03-17 08:39:32', '2022-03-17 08:39:32'),
+(1789, 40, 6, 13, 'corporate-branding', '2022-03-17 08:39:32', '2022-03-17 08:39:32'),
+(1790, 40, 7, 11, 'corporate-branding', '2022-03-17 08:39:32', '2022-03-17 08:39:32'),
+(1791, 40, 8, 9, 'corporate-identity', '2022-03-17 08:39:32', '2022-03-17 08:39:32'),
+(1792, 40, 9, 7, 'one', '2022-03-17 08:39:32', '2022-03-17 08:39:32'),
+(1793, 40, 10, 9, 'project-disc', '2022-03-17 08:39:32', '2022-03-17 08:39:32'),
+(1794, 40, 11, 5, 'Section 1', '2022-03-17 08:39:32', '2022-03-17 08:39:32'),
+(1795, 40, 12, 9, 'meeting', '2022-03-17 08:39:32', '2022-03-17 08:39:32'),
+(1796, 57, 1, 1, 'Slider 2', '2022-03-17 10:29:40', '2022-03-17 10:29:40'),
+(1797, 57, 2, 2, 'Know more about us', '2022-03-17 10:29:40', '2022-03-17 10:29:40'),
+(1798, 57, 3, 5, 'Section 5', '2022-03-17 10:29:40', '2022-03-17 10:29:40'),
+(1799, 57, 4, 9, 'logo-help', '2022-03-17 10:29:40', '2022-03-17 10:29:40'),
+(1804, 55, 1, 1, 'home-slider', '2022-03-17 10:31:54', '2022-03-17 10:31:54'),
+(1805, 55, 2, 2, 'Know more about us', '2022-03-17 10:31:54', '2022-03-17 10:31:54'),
+(1806, 55, 3, 5, 'Section 5', '2022-03-17 10:31:54', '2022-03-17 10:31:54'),
+(1807, 55, 4, 4, 'case study 1', '2022-03-17 10:31:54', '2022-03-17 10:31:54'),
+(1808, 39, 1, 1, 'slider 1', '2022-04-12 15:19:02', '2022-04-12 15:19:02'),
+(1809, 39, 2, 2, 'testing title', '2022-04-12 15:19:02', '2022-04-12 15:19:02'),
+(1826, 38, 1, 21, 'for home page', '2022-04-13 10:48:04', '2022-04-13 10:48:04'),
+(1827, 38, 2, 5, 'Section 5', '2022-04-13 10:48:04', '2022-04-13 10:48:04'),
+(1828, 38, 3, 9, 'custom-proposal', '2022-04-13 10:48:05', '2022-04-13 10:48:05'),
+(1829, 38, 4, 19, 'home-service-bottom-padding', '2022-04-13 10:48:05', '2022-04-13 10:48:05'),
+(1830, 38, 5, 4, 'case study 1', '2022-04-13 10:48:05', '2022-04-13 10:48:05'),
+(1831, 38, 6, 6, 'clients and partners', '2022-04-13 10:48:05', '2022-04-13 10:48:05'),
+(1832, 38, 7, 7, 'one', '2022-04-13 10:48:05', '2022-04-13 10:48:05'),
+(1833, 38, 8, 9, 'project-disc', '2022-04-13 10:48:05', '2022-04-13 10:48:05'),
+(1849, 41, 2, 4, 'case study 1', '2022-04-14 09:41:25', '2022-04-14 09:41:25'),
+(1850, 41, 3, 5, 'services-for-work-page', '2022-04-14 09:41:25', '2022-04-14 09:41:25'),
+(1851, 41, 4, 9, 'meeting', '2022-04-14 09:41:25', '2022-04-14 09:41:25'),
+(1852, 41, 5, 19, 'padding-y-50', '2022-04-14 09:41:25', '2022-04-14 09:41:25');
 
 -- --------------------------------------------------------
 
@@ -891,7 +1056,7 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 CREATE TABLE `page_section` (
   `id` int(11) NOT NULL,
   `name` varchar(250) DEFAULT NULL,
-  `detail` longtext DEFAULT NULL,
+  `detail` longtext,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -903,10 +1068,10 @@ CREATE TABLE `page_section` (
 INSERT INTO `page_section` (`id`, `name`, `detail`, `created_at`, `updated_at`) VALUES
 (1, 'Slider', '<section class=\"home-slider section-bg-black creative-banner\">\n                <!-- Images slider - Start -->\n                <div class=\"web-container\">\n                    <div class=\"row\">\n                        <div class=\"col-12\">\n                            <div id=\"carouselExampleIndicators\" class=\"position-relative scrollto-section carousel slide\" data-ride=\"carousel\">\n                                <a href=\"#section-2\" id=\"sectionTwo\" class=\"mouse\" aria-hidden=\"true\">\n                                <span class=\"mouse__wheel\"></span>\n                                <span class=\"mouse__text\">SCROLL TO EXPLORE</span>\n                                </a>\n                                <ol class=\"carousel-indicators\">\n                                    @php $num = 0; @endphp\n                                        @foreach($sliders as $row_slider)\n                                            <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"{{$num++}}\" class=\"{{$row_slider->status}}\"></li>\n                                        @endforeach\n                                </ol>\n                                <div class=\"carousel-inner\">\n\n                                    @foreach($sliders as $row_slider)\n                                        <div class=\"carousel-item {{$row_slider->status}}\" style=\"background: url(\'{{asset(\'slider/\'.$row_slider->image)}}\') no-repeat center right;\">\n                                            <div class=\"slider-flex-wrap\">\n                                                <div class=\"homepage-banner-content\">\n                                                    <p class=\"web-h5 text-white mb-0\">{{$row_slider->text1}}</p>\n                                                    <h2 class=\"web-h2 text-white mb-4\">{{$row_slider->text2}}</h2>\n                                                    <ul class=\"list-inline\">\n                                                        <li class=\"list-inline-item\"><a href=\"#\" class=\"btn web-btn web-btn-white\" data-toggle=\"modal\" data-target=\"#creativeModal\">Contact Now</a></li>\n                                                        <li class=\"list-inline-item\"><a href=\"#\" class=\"blue-link\">Learn more <i class=\"fas fa-chevron-right pl-1\"></i></a></li>\n                                                    </ul>\n                                                    \n                                                </div>\n                                                <div class=\"banner-img-mob\">\n                                                    <img class=\"img-fluid\" src=\"{{asset(\'slider/\'.$row_slider->image)}}\" alt=\"\">\n                                                </div>\n                                            </div>\n                                        </div>\n                                    @endforeach\n                    \n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <!-- Images slider - End -->\n            </section>', NULL, NULL),
 (2, 'Video', '<section class=\"section-bg-white section-padbottom-100 home-video-with-banner\">\n            <div class=\"web-container\">\n                <div class=\"row\">\n                    <div class=\"col-md-12\">\n                        <div style=\"margin-top:0px !important;\" class=\"home-video-content text-center\">\n                            <h3 class=\"web-h3 text-black text-left\">{{$row_video->video_title}}</h3>\n                            <iframe class=\"w-100 web-border-radius-5\" width=\"560\" height=\"315\" src=\"{{$row_video->video_link}}\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n                            <a href=\"#\" class=\"btn web-btn web-btn-white\" data-toggle=\"modal\" data-target=\"#creativeModal\">Contact Now</a>\n                        </div>\n                    </div>\n                </div>\n            </div>', NULL, NULL),
-(3, 'Team', '<section class=\"our-team section-bg-white section-padtop-@if(!$team_section->isEmpty()){{$team_section[0]->padding_top}}@endif section-padbottom-@if(!$team_section->isEmpty()){{$team_section[0]->padding_bottom}}@endif \">\n    <div class=\"web-container\">\n        @guest\n            \n        @else\n        \n        <div class=\"edit_delete_add_component\" style=\"float:right\">\n            <button type=\"button\" data-toggle=\"modal\" data-target=\"#lineheightModal{{$row_pages->id}}\">\n                <i class=\"fa fa-bars\"></i>\n            </button>\n             <!-- spacer Modal -->\n             <div class=\"modal fade\" id=\"lineheightModal{{$row_pages->id}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"lineheightModalLabel\" aria-hidden=\"true\">\n                <div class=\"modal-dialog modal-xl\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"lineheightModalLabel\">Add Space in this Section Component</h5>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                    </div>\n                    <div class=\"modal-body\">\n                    ...\n                    </div>\n                    <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                    <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n                    </div>\n                </div>\n                </div>\n            </div>\n            <button type=\"button\" data-toggle=\"modal\" data-target=\"#exampleModal{{$row_pages->id}}\">\n                <i class=\"fa fa-edit\"></i>\n              </button>\n              <!-- Modal -->\n                <div class=\"modal fade\" id=\"exampleModal{{$row_pages->id}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n                    <div class=\"modal-dialog modal-xl\" role=\"document\">\n                    <div class=\"modal-content\">\n                        <div class=\"modal-header\">\n                        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Edit Component</h5>\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                            <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                        </div>\n                        <div class=\"modal-body\">\n                        ...\n                        </div>\n                        <div class=\"modal-footer\">\n                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n                        </div>\n                    </div>\n                    </div>\n                </div>\n           <a  onclick=\'return confirm(\"Are you sure? You want to delete this Component\")\' href=\"{{url(\'delete_front_component/\'.$row_pages->id)}}\"  href=\"\"> <i class=\"fa fa-trash\"></i> </a>\n           <button type=\"button\" data-toggle=\"modal\" data-target=\"#add_component{{$row_pages->id}}\">\n            <i class=\"fa fa-plus\"></i>\n          </button>\n          <!-- Modal -->\n            <div class=\"modal fade\" id=\"add_component{{$row_pages->id}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n                <div class=\"modal-dialog modal-xl\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"exampleModalLabel\">Add New Component</h5>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                    </div>\n                    <div class=\"modal-body\">\n\n                        <div class=\"row\">\n                            <div class=\"col-md-3\">\n                                <div class=\"form-group\">\n                                    <div class=\"controls\">\n                                        <label for=\"account-username\">Select Page Section</label>\n                                            <select id=\"page_section_{{$row_pages->id}}\" onchange=\"select_page_section(this);\" name=\"page_section\" class=\"form-control\">\n                                                @php\n                                                    $page_section = DB::table(\'page_section\')->get();\n                                                @endphp\n                                                @foreach($page_section as $row_page_sections)\n                                                    <option value=\"{{$row_page_sections->id}}\">{{$row_page_sections->name}}</option>\n                                                @endforeach\n                                            </select>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3\">\n                                <label for=\"account-username\">Select Page Section Component</label>\n                                            <select id=\"page_section_component_{{$row_pages->id}}\" onchange=\"select_page_section_component(this);\" name=\"page_section_component\" class=\"page_section_component form-control\">\n                                                \n                                            </select>\n                            </div>\n                            <div class=\"col-md-6\">\n                                <div class=\"image_page_section\" id=\"image_page_section_{{$row_pages->id}}\"></div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                                <div class=\"col-md-12\">\n                                    <table class=\"table_page_section\" id=\"table_page_section_{{$row_pages->id}}\"></table>\n                                </div>\n                        </div>\n                    \n                    </div>\n                    <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                    <button type=\"button\" class=\"btn btn-primary\">Add New Component</button>\n                    </div>\n                </div>\n                </div>\n            </div>\n        </div>    \n          \n        @endguest\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <h2 class=\"web-h2 text-center mb-5\">Our Team & Leadership</h2>\n            </div>\n        </div>\n\n        <div class=\"row\">\n\n            @foreach($team_section as $row_team_section)\n\n            <div class=\"col-sm-6 col-md-6 col-lg-4\">\n                <div class=\"team-box\">\n                    <div class=\"img-block web-border-radius-10\">\n                        <img src=\"{{asset(\'public/team/\'.$row_team_section->image)}}\" alt=\"\" class=\"obj-cover\">\n                    </div>\n                    <div class=\"team-overlay web-border-radius-10\">\n                        <h5 class=\"web-h5 text-white mb-0 w-75\">{{$row_team_section->designation}}</h5>\n                    </div>\n                    <div class=\"team-hover\">\n                        <h2 class=\"web-h2 mb-0 text-white\">{{$row_team_section->name}}</h2>\n                    </div>\n                </div>\n            </div>\n\n            @endforeach\n        </div>\n    </div>\n   \n</section>', NULL, NULL),
-(4, 'Case Study', '<section class=\"section-bg-grey section-padtop-<?php  (!$case_study->isEmpty())<?php  echo $case_study[0]->padding_top?>?> section-padbottom-<?php  if(!$case_study->isEmpty())<?php  echo $case_study[0]->padding_bottom?>?> portfolio\">\n    <div class=\"web-container-fluid\">\n        @guest\n            \n        @else\n        \n        <div class=\"edit_delete_add_component\" style=\"float:right\">\n            <button type=\"button\" data-toggle=\"modal\" data-target=\"#lineheightModal<?php  echo $row_pages->id?>\">\n                <i class=\"fa fa-bars\"></i>\n            </button>\n             <!-- spacer Modal -->\n             <div class=\"modal fade\" id=\"lineheightModal<?php  echo $row_pages->id?>\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"lineheightModalLabel\" aria-hidden=\"true\">\n                <div class=\"modal-dialog modal-xl\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"lineheightModalLabel\">Add Space in this Section Component</h5>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                    </div>\n                    <div class=\"modal-body\">\n                    ...\n                    </div>\n                    <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                    <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n                    </div>\n                </div>\n                </div>\n            </div>\n            <button type=\"button\" data-toggle=\"modal\" data-target=\"#exampleModal<?php  echo $row_pages->id?>\">\n                <i class=\"fa fa-edit\"></i>\n              </button>\n              <!-- Modal -->\n                <div class=\"modal fade\" id=\"exampleModal<?php  echo $row_pages->id?>\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n                    <div class=\"modal-dialog modal-xl\" role=\"document\">\n                    <div class=\"modal-content\">\n                        <div class=\"modal-header\">\n                        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Edit Component</h5>\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                            <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                        </div>\n                        <div class=\"modal-body\">\n                        ...\n                        </div>\n                        <div class=\"modal-footer\">\n                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n                        </div>\n                    </div>\n                    </div>\n                </div>\n           <a  onclick=\'return confirm(\"Are you sure? You want to delete this Component\")\' href=\"{{url(\'delete_front_component/\'.$row_pages->id)?>\"  href=\"\"> <i class=\"fa fa-trash\"></i> </a>\n           <button type=\"button\" data-toggle=\"modal\" data-target=\"#add_component<?php  echo $row_pages->id?>\">\n            <i class=\"fa fa-plus\"></i>\n          </button>\n          <!-- Modal -->\n            <div class=\"modal fade\" id=\"add_component<?php  echo $row_pages->id?>\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n                <div class=\"modal-dialog modal-xl\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"exampleModalLabel\">Add New Component</h5>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                    </div>\n                    <div class=\"modal-body\">\n\n                        <div class=\"row\">\n                            <div class=\"col-md-3\">\n                                <div class=\"form-group\">\n                                    <div class=\"controls\">\n                                        <label for=\"account-username\">Select Page Section</label>\n                                            <select id=\"page_section_<?php  echo $row_pages->id?>\" onchange=\"select_page_section(this);\" name=\"page_section\" class=\"form-control\">\n                                                <?php  \n                                                    $page_section = DB::table(\'page_section\')->get();\n                                                ?>\n                                                <?php  foreach($page_section as $row_page_sections)\n                                                    <option value=\"<?php  echo $row_page_sections->id?>\"><?php  echo $row_page_sections->name?></option>\n                                                ?>\n                                            </select>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3\">\n                                <label for=\"account-username\">Select Page Section Component</label>\n                                            <select id=\"page_section_component_<?php  echo $row_pages->id?>\" onchange=\"select_page_section_component(this);\" name=\"page_section_component\" class=\"page_section_component form-control\">\n                                                \n                                            </select>\n                            </div>\n                            <div class=\"col-md-6\">\n                                <div class=\"image_page_section\" id=\"image_page_section_<?php  echo $row_pages->id?>\"></div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                                <div class=\"col-md-12\">\n                                    <table class=\"table_page_section\" id=\"table_page_section_<?php  echo $row_pages->id?>\"></table>\n                                </div>\n                        </div>\n                    \n                    </div>\n                    <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                    <button type=\"button\" class=\"btn btn-primary\">Add New Component</button>\n                    </div>\n                </div>\n                </div>\n            </div>\n        </div>    \n          \n        @endguest\n        <div class=\"row justify-content-center\">\n            <div class=\"text-center\">\n                <h4 class=\"web-h4\">Portfolio</h4>\n                <h2 class=\"web-h2 mb-0\">Case Studies</h2>\n\n\n                \n                <div class=\"portfolio-filters\">\n                <div class=\"portfolio-filters\">\n                    <div class=\"text-center my-3\">\n                        <ul class=\"case-study-dropdown-ul list-inline p-0 m-0\">\n                        <li class=\"list-inline-item\">\n                            <div class=\"dropdown case-study-dropdown\">\n                                    <button class=\"btn btn-secondary case-study-dropdown-btn dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                                    Service Categories \n                                    </button>\n                                    <div class=\"dropdown-menu case_study_page_sections\" aria-labelledby=\"dropdownMenuButton\">\n                                            <form>\n                                                    <?php  foreach($main_menu as $row_main_menu)\n                                                    <div class=\"custom-control custom-checkbox\">\n                                                        <input onclick=\"service_clicked(this);\" type=\"checkbox\" value=\"<?php  echo $row_main_menu->menu_link?>\" class=\"custom-control-input\" id=\"customCheck<?php  echo $row_main_menu->id?>\">\n                                                        <label class=\"custom-control-label\" for=\"customCheck<?php  echo $row_main_menu->id?>\"><?php  echo $row_main_menu->menu_name?></label>\n                                                    </div>\n                                                    ?>\n                                            </form>\n                                    </div>\n                            </div>\n                        </li>\n                        \n                        <li style=\"display:none;\" class=\"sub_category_new list-inline-item\">\n                            <div class=\"dropdown case-study-dropdown\">\n                                <button class=\"btn btn-secondary case-study-dropdown-btn dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Service Sub Categories \n                                </button>\n                                <div class=\"dropdown-menu case_study_page_sections_sub_service\" id=\"sub_service_dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n                                    <div class=\"sub_service_list\">\n\n                                    </div>\n                                </div>\n                            </div>\n                        </li>\n                        \n                        <li class=\"list-inline-item\">\n                        <div class=\"dropdown case-study-dropdown\">\n                        <button class=\"btn btn-secondary case-study-dropdown-btn dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        Industries \n                        </button>\n                        <div class=\"dropdown-menu case_study_page_sections_industry\" id=\"industry-dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n                            <form>\n                                <?php  \n                                $industries = DB::table(\'industries\')->get();\n                                ?>\n                                <?php  foreach($industries as $row_industries)\n                                <div class=\"custom-control custom-checkbox\">\n                                    <input onclick=\"industry_clicked(this);\" type=\"checkbox\" value=\"<?php  echo $row_industries->title?>\" class=\"custom-control-input\" id=\"customCheck_b<?php  echo $row_industries->id?>\">\n                                    <label class=\"custom-control-label\" for=\"customCheck_b<?php  echo $row_industries->id?>\"><?php  echo $row_industries->title?></label>\n                                </div>\n                                ?>\n                            </form>\n                        </div>\n                    </div>\n                        </li>\n                    </ul>\n                    </div>\n\n                </div>\n\n\n                </div>\n\n                <div class=\"portfolio-filters-tags\">\n\n                    <ul id=\"industries\" class=\"list-inline mt-4 mb-3 p-0\">\n\n                    </ul>\n                </div>\n            </div>\n        </div>\n        <div class=\"row justify-content-center case_study_container\">\n\n            <?php  foreach($case_study as $row_case_study)\n            <?php  \n            $services = DB::table(\'case_study_services\')->where(\'case_study_id\', \'=\', $row_case_study->id)->get();\n            $industries = DB::table(\'case_study_industries\')->where(\'case_study_id\', \'=\', $row_case_study->id)->get();\n            $industry = DB::table(\'industries\')->get();\n            ?>\n            <div class=\"<?php  foreach($services->unique(\'service_id\') as $row_services) <?php   $services_name = DB::table(\'menus\')->where(\'id\', \'=\', $row_services->service_id)->first(); ?> <?php  ($services_name->id == $row_services->service_id)<?php  echo $services_name->menu_link?> ?> ?> <?php  foreach($services->unique(\'sub_service_id\') as $row_services) <?php   $sub_services_name = DB::table(\'child_menus\')->where(\'id\', \'=\', $row_services->sub_service_id)->first(); ?> <?php  ($sub_services_name->id == $row_services->sub_service_id)<?php  echo $sub_services_name->item_link?> ?> ?> <?php  foreach($industries->unique(\'industry_id\') as $row_industries) <?php   $industry_name = DB::table(\'industries\')->where(\'id\', \'=\', $row_industries->industry_id)->first(); ?> <?php  ($row_industries->industry_id == $industry_name->id)<?php  echo $industry_name->slug?> ?> ?> col-6 col-md-4 col-lg-3 mt-5\">\n                <div class=\"single-portfolio\">\n                    <a href=\"{{url(\'case-study\',$row_case_study->slug)?>\">\n                        <div class=\"portfolio-img\">\n                            <div class=\"img-block web-border-radius-5\">\n                                <img src=\"{{asset(\'public/case_study/\'.$row_case_study->image)?>\" alt=\"\" class=\"obj-cover\">\n                            </div>\n                        </div>\n                    </a>\n                    <div class=\"web-border-bottom mt-4 mb-3\">\n                        <h5 class=\"web-h5\"><?php  echo $row_case_study->title?></h5>\n                        <p class=\"mb-0 p-14 pb-3\"><?php  echo $row_case_study->short_description?></p>\n                    </div>\n                    <?php  \n                    $industry_id = DB::table(\'case_study_industries\')->where(\'case_study_id\',\'=\',$row_case_study->id)->get();\n                    ?>\n                    <ul id=\"industries_list\" class=\"list-inline mt-4 mb-1 p-0\">\n                        \n                            <?php  foreach($industry_id as $row_industry_id)\n                                <?php  \n                                $industry_name = DB::table(\'industries\')->where(\'id\',\'=\',$row_industry_id->industry_id)->get();\n                                ?>\n                                <li class=\"industries_tag list-inline-item\">\n                                    <a target=\"_blank\" href=\"/work\" class=\"badge badge-light\"><?php  (!$industry_name->isEmpty()) <?php  echo $industry_name[0]->title?> ?>\n                                    </a>\n                                </li>\n                            ?>\n                    </ul>\n\n                    <ul id=\"industries_list\" class=\"list-inline mt-4 mb-1 p-0\">\n                        \n                        <?php  foreach($services->unique(\'service_id\') as $row_services) \n                            <?php   \n                                $services_name = DB::table(\'menus\')->where(\'id\', \'=\', $row_services->service_id)->first(); \n                            ?> \n                                <?php  ($services_name->id == $row_services->service_id)\n                            ?> \n                            <li  style=\"color:#000;\" class=\"badge badge-primary\"><?php  echo $services_name->menu_link?></li>\n                        ?> \n                            <?php  foreach($services->unique(\'sub_service_id\') as $row_services) \n                                <?php   $sub_services_name = DB::table(\'child_menus\')->where(\'id\', \'=\', $row_services->sub_service_id)->first(); ?> \n                                    <?php  ($sub_services_name->id == $row_services->sub_service_id)\n                                ?> \n                                <li style=\"color:#000;\" class=\"badge badge-success\"><?php  echo $sub_services_name->item_link?></li>\n                            ?>\n                </ul>\n\n\n                </div>\n            </div>\n            ?>\n\n            <div class=\"col-md-12\">\n                <ul class=\"list-inline mt-5 text-center\">\n                    <li class=\"list-inline-item\"><a href=\"#\" class=\"btn web-btn web-btn-blue\" data-toggle=\"modal\" data-target=\"#creativeModal\">Contact Now</a></li>\n                    <li class=\"list-inline-item\"><a href=\"/work\" class=\"blue-link web-h6\">View more <i class=\"fas fa-chevron-right pl-1\"></i></a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n    \n</section>', NULL, NULL),
-(5, 'Services', '<section id=\"section-2\" class=\"@if(!$services->isEmpty()) {{$services[0]->bootstra_class_name}} @endif section-padtop-@if(!$services->isEmpty()){{$services[0]->padding_top}}@endif section-padbottom-@if(!$services->isEmpty()){{$services[0]->padding_bottom}}@endif service-block\">\n    <div class=\"web-container\">\n        \n        @guest\n            \n        @else\n        \n        <div class=\"edit_delete_add_component\" style=\"float:right\">\n            <button type=\"button\" data-toggle=\"modal\" data-target=\"#lineheightModal{{$row_pages->id}}\">\n                <i class=\"fa fa-bars\"></i>\n            </button>\n             <!-- spacer Modal -->\n             <div class=\"modal fade\" id=\"lineheightModal{{$row_pages->id}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"lineheightModalLabel\" aria-hidden=\"true\">\n                <div class=\"modal-dialog modal-xl\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"lineheightModalLabel\">Add Space in this Section Component</h5>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                    </div>\n                    <div class=\"modal-body\">\n                    ...\n                    </div>\n                    <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                    <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n                    </div>\n                </div>\n                </div>\n            </div>\n            <button type=\"button\" data-toggle=\"modal\" data-target=\"#lineheightModal{{$row_pages->id}}\">\n                <i class=\"fa fa-bars\"></i>\n            </button>\n            <button type=\"button\" data-toggle=\"modal\" data-target=\"#exampleModal{{$row_pages->id}}\">\n                <i class=\"fa fa-edit\"></i>\n              </button>\n              <!-- Modal -->\n                <div class=\"modal fade\" id=\"exampleModal{{$row_pages->id}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n                    <div class=\"modal-dialog modal-xl\" role=\"document\">\n                    <div class=\"modal-content\">\n                        <div class=\"modal-header\">\n                        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Edit Component</h5>\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                            <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                        </div>\n                        <div class=\"modal-body\">\n                        ...\n                        </div>\n                        <div class=\"modal-footer\">\n                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n                        </div>\n                    </div>\n                    </div>\n                </div>\n           <a  onclick=\'return confirm(\"Are you sure? You want to delete this Component\")\' href=\"{{url(\'delete_front_component/\'.$row_pages->id)}}\"  href=\"\"> <i class=\"fa fa-trash\"></i> </a>\n           <button type=\"button\" data-toggle=\"modal\" data-target=\"#add_component{{$row_pages->id}}\">\n            <i class=\"fa fa-plus\"></i>\n          </button>\n          <!-- Modal -->\n            <div class=\"modal fade\" id=\"add_component{{$row_pages->id}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n                <div class=\"modal-dialog modal-xl\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"exampleModalLabel\">Add New Component</h5>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                    </div>\n                    <div class=\"modal-body\">\n\n                        <div class=\"row\">\n                            <div class=\"col-md-3\">\n                                <div class=\"form-group\">\n                                    <div class=\"controls\">\n                                        <label for=\"account-username\">Select Page Section</label>\n                                            <select id=\"page_section_{{$row_pages->id}}\" onchange=\"select_page_section(this);\" name=\"page_section\" class=\"form-control\">\n                                                @php\n                                                    $page_section = DB::table(\'page_section\')->get();\n                                                @endphp\n                                                @foreach($page_section as $row_page_sections)\n                                                    <option value=\"{{$row_page_sections->id}}\">{{$row_page_sections->name}}</option>\n                                                @endforeach\n                                            </select>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3\">\n                                <label for=\"account-username\">Select Page Section Component</label>\n                                            <select id=\"page_section_component_{{$row_pages->id}}\" onchange=\"select_page_section_component(this);\" name=\"page_section_component\" class=\"page_section_component form-control\">\n                                                \n                                            </select>\n                            </div>\n                            <div class=\"col-md-6\">\n                                <div class=\"image_page_section\" id=\"image_page_section_{{$row_pages->id}}\"></div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                                <div class=\"col-md-12\">\n                                    <table class=\"table_page_section\" id=\"table_page_section_{{$row_pages->id}}\"></table>\n                                </div>\n                        </div>\n                    \n                    </div>\n                    <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                    <button type=\"button\" class=\"btn btn-primary\">Add New Component</button>\n                    </div>\n                </div>\n                </div>\n            </div>\n        </div>    \n          \n        @endguest\n        <div class=\"row\">\n            \n            <div class=\"col-md-12\">\n                <h4 class=\"web-h4\">Services</h4>\n                <h2 class=\"web-h2 mb-0\">What We Do</h2>\n            </div>\n            @foreach($services->unique(\'main_service\') as $row)\n\n            <div class=\"col-6 col-md-6 col-lg-4\">\n                <div class=\"service-links mt-5\">\n                    <h6 class=\"web-h6 web-border-bottom pb-4 mb-0\">{{$row->first_level_menu_name}}</h6>\n                    <ul class=\"mt-3\">\n                        @php\n                                $sub_services = DB::table(\'services\')\n                                    ->join(\'menus\',\'menus.id\',\'=\',\'services.main_service\')\n                                    ->join(\'child_menus\',\'child_menus.id\',\'=\',\'services.sub_service\')\n                                    ->select(\'child_menus.item_name as second_level_menu_name\',\'child_menus.item_link as second_level_menu_link\',\'menus.menu_name as first_level_menu_name\', \'services.*\')\n                                    ->where(\'services.main_service\', \'=\', $row->main_service)\n                                    ->get();\n                        \n                        @endphp\n                        @foreach($sub_services as $row_sub_services)\n                        <li><a target=\"_blank\" href=\"{{url($row_sub_services->second_level_menu_link)}}\">{{$row_sub_services->second_level_menu_name}}</a></li>\n                        @endforeach\n                    </ul>\n                </div>\n            </div>\n            @endforeach\n\n        </div>\n    </div>\n    \n</section>', NULL, NULL),
-(6, 'Clients', '<section class=\"section-bg-white section-padtop-@if(!$client_and_partner->isEmpty()){{$client_and_partner[0]->padding_top}}@endif section-padbottom-@if(!$client_and_partner->isEmpty()){{$client_and_partner[0]->padding_bottom}}@endif  clients\">\n    <div class=\"web-container-fluid\">\n        @guest\n            \n        @else\n        \n        <div class=\"edit_delete_add_component\" style=\"float:right\">\n            <button type=\"button\" data-toggle=\"modal\" data-target=\"#lineheightModal{{$row_pages->id}}\">\n                <i class=\"fa fa-bars\"></i>\n            </button>\n             <!-- spacer Modal -->\n             <div class=\"modal fade\" id=\"lineheightModal{{$row_pages->id}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"lineheightModalLabel\" aria-hidden=\"true\">\n                <div class=\"modal-dialog modal-xl\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"lineheightModalLabel\">Add Space in this Section Component</h5>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                    </div>\n                    <div class=\"modal-body\">\n                    ...\n                    </div>\n                    <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                    <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n                    </div>\n                </div>\n                </div>\n            </div>\n            <button type=\"button\" data-toggle=\"modal\" data-target=\"#exampleModal{{$row_pages->id}}\">\n                <i class=\"fa fa-edit\"></i>\n              </button>\n              <!-- Modal -->\n                <div class=\"modal fade\" id=\"exampleModal{{$row_pages->id}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n                    <div class=\"modal-dialog modal-xl\" role=\"document\">\n                    <div class=\"modal-content\">\n                        <div class=\"modal-header\">\n                        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Edit Component</h5>\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                            <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                        </div>\n                        <div class=\"modal-body\">\n                        ...\n                        </div>\n                        <div class=\"modal-footer\">\n                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n                        </div>\n                    </div>\n                    </div>\n                </div>\n           <a  onclick=\'return confirm(\"Are you sure? You want to delete this Component\")\' href=\"{{url(\'delete_front_component/\'.$row_pages->id)}}\"  href=\"\"> <i class=\"fa fa-trash\"></i> </a>\n           <button type=\"button\" data-toggle=\"modal\" data-target=\"#add_component{{$row_pages->id}}\">\n            <i class=\"fa fa-plus\"></i>\n          </button>\n          <!-- Modal -->\n            <div class=\"modal fade\" id=\"add_component{{$row_pages->id}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n                <div class=\"modal-dialog modal-xl\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"exampleModalLabel\">Add New Component</h5>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                    </div>\n                    <div class=\"modal-body\">\n\n                        <div class=\"row\">\n                            <div class=\"col-md-3\">\n                                <div class=\"form-group\">\n                                    <div class=\"controls\">\n                                        <label for=\"account-username\">Select Page Section</label>\n                                            <select id=\"page_section_{{$row_pages->id}}\" onchange=\"select_page_section(this);\" name=\"page_section\" class=\"form-control\">\n                                                @php\n                                                    $page_section = DB::table(\'page_section\')->get();\n                                                @endphp\n                                                @foreach($page_section as $row_page_sections)\n                                                    <option value=\"{{$row_page_sections->id}}\">{{$row_page_sections->name}}</option>\n                                                @endforeach\n                                            </select>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3\">\n                                <label for=\"account-username\">Select Page Section Component</label>\n                                            <select id=\"page_section_component_{{$row_pages->id}}\" onchange=\"select_page_section_component(this);\" name=\"page_section_component\" class=\"page_section_component form-control\">\n                                                \n                                            </select>\n                            </div>\n                            <div class=\"col-md-6\">\n                                <div class=\"image_page_section\" id=\"image_page_section_{{$row_pages->id}}\"></div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                                <div class=\"col-md-12\">\n                                    <table class=\"table_page_section\" id=\"table_page_section_{{$row_pages->id}}\"></table>\n                                </div>\n                        </div>\n                    \n                    </div>\n                    <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                    <button type=\"button\" class=\"btn btn-primary\">Add New Component</button>\n                    </div>\n                </div>\n                </div>\n            </div>\n        </div>    \n          \n        @endguest\n\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <div class=\"text-center\">\n                    <h4 class=\"web-h4\">Featured</h4>\n                    <h2 class=\"web-h2 mb-0\">Clients & Partners</h2>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"row justify-content-center mt-5 no-gutters\">\n            @foreach($client_and_partner as $row_client_and_partner)\n            <div class=\"col-4 col-md-2\">\n                <div class=\"client-box\">\n                    <img src=\"{{asset(\'public/client_and_partner/\'.$row_client_and_partner->image)}}\" alt=\"\" class=\"w-75\">\n                </div>\n            </div>\n            @endforeach\n        </div>\n    </div>\n  \n</section>', NULL, NULL),
+(3, 'Team', NULL, NULL, NULL),
+(4, 'Case Study', NULL, NULL, NULL),
+(5, 'Services', NULL, NULL, NULL),
+(6, 'Clients', NULL, NULL, NULL),
 (7, 'Industries', NULL, NULL, NULL),
 (8, 'News and Opinions', NULL, NULL, NULL),
 (9, 'Meeting Sections', NULL, NULL, NULL),
@@ -933,16 +1098,16 @@ INSERT INTO `page_section` (`id`, `name`, `detail`, `created_at`, `updated_at`) 
 
 CREATE TABLE `para_style_1` (
   `id` int(11) NOT NULL,
-  `page_id` text DEFAULT NULL,
+  `page_id` text,
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
-  `title` text DEFAULT NULL,
-  `paragraph` text DEFAULT NULL,
+  `title` text,
+  `paragraph` text,
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -970,14 +1135,14 @@ CREATE TABLE `para_style_2` (
   `page_id` int(11) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) NOT NULL,
-  `title` text DEFAULT NULL,
-  `paragraph` text DEFAULT NULL,
+  `title` text,
+  `paragraph` text,
   `link` varchar(150) DEFAULT NULL,
   `flex_row_reverse` varchar(250) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1017,8 +1182,8 @@ CREATE TABLE `para_style_3` (
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1049,13 +1214,13 @@ CREATE TABLE `para_style_4` (
   `page_id` int(11) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
-  `title` text DEFAULT NULL,
-  `paragraph` text DEFAULT NULL,
+  `title` text,
+  `paragraph` text,
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1088,16 +1253,16 @@ CREATE TABLE `para_style_5` (
   `image` varchar(150) DEFAULT NULL,
   `title` varchar(150) DEFAULT NULL,
   `paragraph` varchar(150) DEFAULT NULL,
-  `para_left` text DEFAULT NULL,
+  `para_left` text,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `heading` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `heading` text,
   `heading_size` varchar(50) DEFAULT NULL,
-  `text_left` text DEFAULT NULL,
+  `text_left` text,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `text_right` text DEFAULT NULL
+  `text_right` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1105,10 +1270,10 @@ CREATE TABLE `para_style_5` (
 --
 
 INSERT INTO `para_style_5` (`id`, `page_id`, `name`, `style`, `image`, `title`, `paragraph`, `para_left`, `link`, `created_at`, `updated_at`, `heading`, `heading_size`, `text_left`, `padding_top`, `padding_bottom`, `text_right`) VALUES
-(11, NULL, 'For Agency page', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-08 02:44:10', '2022-01-08 02:44:10', 'We Design brands and re-engineer brand experiences for growth and positive social impact.', 'h4', 'as competition creates infinite choices, companies look for ways to connect emotionally with customers', 70, 70, 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace'),
-(12, NULL, 'packaging-design', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-04 04:58:38', '2022-02-04 04:58:38', NULL, 'h4', 'Design that motivates buyer to believe and buy your brand. We create successful packaging for brands in progress. We work with Brand vendor to craft a brand vision that improves awareness and presentation in the market.', 70, 70, 'Creative Drop solves branding issues for regional and global consumer goods brands in electronics, technology, healthcare, food, snack food, beverage, personal care and home care. We deliver concepts that break through the clutter to: Launch a new brand; Evolve your brand; Influence at shelf. <br><br>  We help you connect with and motivate shoppers at point-of-sale, with design that integrates the brand, the consumer’s personal life, and market trends.'),
-(14, NULL, 'testingtwo', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-04 07:53:20', '2022-02-04 07:53:20', NULL, 'h4', 'As competition creates infinite choices, companies look for ways to connect emotionally with customers.', 70, 70, 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace. People fall in love with brands, trust them, and believe in their superiority. How a brand is perceived affects its success, regardless of whether it’s a start-up, a nonprofit, or a product.'),
-(15, NULL, 'new', 'style2', NULL, NULL, NULL, NULL, NULL, '2022-03-17 05:29:32', '2022-03-17 05:29:32', 'testing paragraph', 'h4', 'Testing Pargraph left', 70, 70, 'Testing paragraph Right');
+(11, NULL, 'For Agency page', 'style1', NULL, NULL, NULL, NULL, NULL, '2022-01-08 02:44:10', '2022-01-08 02:44:10', 'We Design brands and re-engineer brand experiences for growth and positive social impact.', 'h4', 'as competition creates infinite choices, companies look for ways to connect emotionally with customers', 50, 50, 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace'),
+(12, NULL, 'packaging-design', 'style2', NULL, NULL, NULL, NULL, NULL, '2022-02-04 04:58:38', '2022-02-04 04:58:38', NULL, 'h4', 'Design that motivates buyer to believe and buy your brand. We create successful packaging for brands in progress. We work with Brand vendor to craft a brand vision that improves awareness and presentation in the market.', 50, 50, 'Creative Drop solves branding issues for regional and global consumer goods brands in electronics, technology, healthcare, food, snack food, beverage, personal care and home care. We deliver concepts that break through the clutter to: Launch a new brand; Evolve your brand; Influence at shelf. <br><br>  We help you connect with and motivate shoppers at point-of-sale, with design that integrates the brand, the consumer’s personal life, and market trends.'),
+(13, NULL, 'testing', 'style1', NULL, NULL, NULL, NULL, NULL, '2022-02-04 05:00:44', '2022-02-04 05:00:44', NULL, NULL, 'Design that motivates buyer to believe and buy your brand. We create successful packaging for brands in progress. We work with Brand vendor to craft a brand vision that improves awareness and presentation in the market.', 50, 50, 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace. People fall in love with brands, trust them, and believe in their superiority. How a brand is perceived affects its success, regardless of whether it’s a start-up, a nonprofit, or a product.'),
+(14, NULL, 'testingtwo', 'style2', NULL, NULL, NULL, NULL, NULL, '2022-02-04 07:53:20', '2022-02-04 07:53:20', NULL, NULL, 'As competition creates infinite choices, companies look for ways to connect emotionally with customers.', 50, 50, 'Become irreplaceable, and create lifelong relationships. A strong brand stands out in a densely crowded marketplace. People fall in love with brands, trust them, and believe in their superiority. How a brand is perceived affects its success, regardless of whether it’s a start-up, a nonprofit, or a product.');
 
 -- --------------------------------------------------------
 
@@ -1138,8 +1303,8 @@ CREATE TABLE `requests` (
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1147,30 +1312,21 @@ CREATE TABLE `requests` (
 --
 
 INSERT INTO `requests` (`id`, `name`, `style`, `page_id`, `title`, `btn_label`, `link`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
-(4, 'section 1', 'style4', NULL, 'asdfasdfasd', 'Contact us', NULL, 50, 50, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
-(5, 'section 1', '', 18, 'fasdfasd', NULL, NULL, 50, 50, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
-(6, 'section 1', '', 18, 'asdfasdfa', NULL, NULL, 50, 50, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
-(7, 'section 1', '', 18, 'sdfasdfasdfas', NULL, NULL, 50, 50, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
-(8, 'section 1', '', 18, 'dfadsfsdf', NULL, NULL, 50, 50, '2021-12-28 13:51:48', '2021-12-28 13:51:48'),
-(9, 'request group 8', '', NULL, 'asdfa sdfasdf', NULL, NULL, 50, 50, '2021-12-30 15:08:04', '2021-12-30 15:08:04'),
-(10, 'request group 8', '', NULL, 'safsaf', NULL, NULL, 50, 50, '2021-12-30 15:08:04', '2021-12-30 15:08:04'),
 (11, 'agency page', 'style1', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for Meeting', NULL, 50, 50, '2022-01-07 09:33:06', '2022-01-07 09:33:06'),
 (12, 'For agency page', 'style1', NULL, 'Meet our creative and expert team to assist you.', '#', NULL, 50, 50, '2022-01-08 03:01:58', '2022-01-08 03:01:58'),
-(13, 'custom-proposal', 'style1', NULL, 'Are you looking for a customize proposal?', 'Request for a meeting', NULL, 50, 50, '2022-01-18 07:16:06', '2022-01-18 07:16:06'),
+(13, 'custom-proposal', 'style1', NULL, 'Are you looking for a customize proposal?', 'Request for a meeting', NULL, 30, 30, '2022-01-18 07:16:06', '2022-01-18 07:16:06'),
 (14, 'logo-expertise', '', NULL, 'We are logo design agency in Dubai with special expertise in logo designing.', NULL, NULL, 50, 50, '2022-01-18 07:31:57', '2022-01-18 07:31:57'),
 (15, 'corporate-page', '', NULL, 'We have more than 10 years experience in designing corporate identity', NULL, NULL, 50, 50, '2022-01-18 11:50:17', '2022-01-18 11:50:17'),
 (16, 'uniform-branding', '', NULL, 'Meet our creative and expert team to assist you.', NULL, NULL, 50, 50, '2022-01-21 11:59:17', '2022-01-21 11:59:17'),
 (17, 'logo-design', 'style1', NULL, 'Meet our creative and expert team to assist you.', '#', NULL, 50, 50, '2022-01-21 12:27:35', '2022-01-21 12:27:35'),
 (18, 'meet', 'style2', NULL, 'Meet our creative and expert team to assist you.', '#', NULL, 50, 50, '2022-01-21 12:45:52', '2022-01-21 12:45:52'),
-(19, 'newone', 'style1', NULL, 'title new one', 'request a meet', NULL, 50, 50, '2022-02-04 07:19:35', '2022-02-04 07:19:35'),
 (20, 'logo-help', 'style4', NULL, 'Want help to decide the best style of logo?', 'Contact Now', NULL, 50, 50, '2022-02-04 09:27:10', '2022-02-04 09:27:10'),
 (21, 'meeting', 'style2', NULL, 'Meet our creative and expert team to assist you.', 'Let\'s meet now', NULL, 50, 50, '2022-02-04 09:40:17', '2022-02-04 09:40:17'),
 (22, 'project-disc', 'style3', NULL, 'Let\'s discuss your project', 'Get in touch', NULL, 50, 50, '2022-02-04 09:48:43', '2022-02-04 09:48:43'),
 (23, 'corporate-identity', 'style4', NULL, 'Connect with our team to get expert advise and custom quote', 'Get Started', NULL, 50, 50, '2022-02-05 10:38:30', '2022-02-05 10:38:30'),
 (24, 'vehicle-branding', 'style4', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for a meeting', NULL, 50, 50, '2022-02-05 11:46:54', '2022-02-05 11:46:54'),
 (25, 'uniform-branding', 'style4', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for a meeting', NULL, 50, 50, '2022-02-05 12:06:28', '2022-02-05 12:06:28'),
-(26, 'uniform-branding', 'style4', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for a meeting', NULL, 50, 50, '2022-02-05 12:10:32', '2022-02-05 12:10:32'),
-(27, 'padding', 'style1', NULL, 'title new one', 'request a meet', NULL, 50, 50, '2022-02-25 20:26:16', '2022-02-25 20:26:16');
+(26, 'uniform-branding', 'style4', NULL, 'We have more than 10 years experience in designing corporate identity', 'Request for a meeting', NULL, 50, 50, '2022-02-05 12:10:32', '2022-02-05 12:10:32');
 
 -- --------------------------------------------------------
 
@@ -1190,8 +1346,8 @@ CREATE TABLE `section_15` (
   `flex_row_reverse` varchar(160) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1223,14 +1379,14 @@ CREATE TABLE `section_16` (
   `page_id` int(11) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
-  `text` text DEFAULT NULL,
+  `text` text,
   `heading1` varchar(150) DEFAULT NULL,
   `heading2` varchar(150) DEFAULT NULL,
   `heading` varchar(250) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1262,12 +1418,12 @@ CREATE TABLE `section_17` (
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
   `title` varchar(150) DEFAULT NULL,
-  `paragraph` text DEFAULT NULL,
+  `paragraph` text,
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1298,8 +1454,8 @@ CREATE TABLE `section_18` (
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1335,8 +1491,8 @@ CREATE TABLE `section_19` (
   `title` varchar(150) DEFAULT NULL,
   `paragraph` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1349,7 +1505,8 @@ INSERT INTO `section_19` (`id`, `page_id`, `name`, `padding_bottom`, `padding_to
 (3, NULL, 'padding100', '100', '100', NULL, NULL, NULL, NULL, '2022-01-04 14:52:38', '2022-01-04 14:52:38'),
 (4, NULL, 'PaddingTOP70_Bottom50', '50', '70', NULL, NULL, NULL, NULL, '2022-01-04 14:57:26', '2022-01-04 14:57:26'),
 (5, NULL, 'padding-y-50', '50', '50', NULL, NULL, NULL, NULL, '2022-01-18 07:07:55', '2022-01-18 07:07:55'),
-(6, NULL, 'padding-bottom', '50', '0', NULL, NULL, NULL, NULL, '2022-02-05 12:24:03', '2022-02-05 12:24:03');
+(6, NULL, 'padding-bottom', '50', '0', NULL, NULL, NULL, NULL, '2022-02-05 12:24:03', '2022-02-05 12:24:03'),
+(7, NULL, 'home-service-bottom-padding', '70', '0', NULL, NULL, NULL, NULL, '2022-04-13 10:44:33', '2022-04-13 10:44:33');
 
 -- --------------------------------------------------------
 
@@ -1366,8 +1523,8 @@ CREATE TABLE `section_20` (
   `btn_class` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -1391,8 +1548,8 @@ CREATE TABLE `section_21` (
   `video_name` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -1423,8 +1580,8 @@ CREATE TABLE `section_22` (
   `text` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -1455,8 +1612,8 @@ CREATE TABLE `section_23` (
   `title` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1478,11 +1635,11 @@ CREATE TABLE `seo` (
   `id` int(11) NOT NULL,
   `meta_title` varchar(1000) DEFAULT NULL,
   `slug` varchar(120) DEFAULT NULL,
-  `meta_desc` text DEFAULT NULL,
-  `meta_keyword` text DEFAULT NULL,
-  `google_tag_manager` text DEFAULT NULL,
-  `facebook_pixel` text DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `meta_desc` text,
+  `meta_keyword` text,
+  `google_tag_manager` text,
+  `facebook_pixel` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1508,8 +1665,8 @@ CREATE TABLE `services` (
   `bootstra_class_name` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -1517,28 +1674,36 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `name`, `main_service`, `sub_service`, `sub_service_link`, `bootstra_class_name`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
-(46, 'Section 5', '1', '1', 'logo-design', 'section-bg-grey-grad', 70, 70, '2022-02-15 13:40:49', '2022-02-15 13:40:49'),
-(47, 'Section 5', '1', '2', 'graphic-design', 'section-bg-white', 70, 70, '2022-02-15 13:40:49', '2022-02-15 13:40:49'),
-(48, 'Section 5', '1', '3', 'brouchers', 'section-bg-white', 70, 70, '2022-02-15 13:40:49', '2022-02-15 13:40:49'),
-(49, 'Section 5', '1', '4', 'presentations', 'section-bg-white', 70, 70, '2022-02-15 13:40:49', '2022-02-15 13:40:49'),
-(50, 'testing service', '5', '19', '3D-2D-Animation', 'section-bg-white', 70, 70, '2022-02-26 07:17:33', '2022-02-26 07:17:33'),
-(51, 'testing 123', '1', '2', 'graphic-design', 'section-bg-white', 70, 70, '2022-02-26 09:01:27', '2022-02-26 09:01:27'),
-(52, 'testing 123', '2', '7', 'mobile-apps', 'section-bg-white', 70, 70, '2022-02-26 09:01:27', '2022-02-26 09:01:27'),
-(53, 'testing 123', '2', '6', 'websites', 'section-bg-white', 70, 70, '2022-02-26 09:01:27', '2022-02-26 09:01:27'),
-(54, 'Section 5', '2', '5', 'product-design', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(55, 'Section 5', '2', '6', 'websites', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(56, 'Section 5', '2', '7', 'mobile-apps', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(57, 'Section 5', '2', '8', 'support', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(58, 'Section 5', '3', '9', 'videography', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(59, 'Section 5', '3', '10', 'photography', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(60, 'Section 5', '3', '11', '3d-animation', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(61, 'Section 5', '3', '12', '2d-animation', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(62, 'Section 5', '4', '13', 'digital-marketing', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(63, 'Section 5', '4', '14', 'social-media-marketing', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(64, 'Section 5', '4', '15', 'consultancy', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(65, 'Section 5', '5', '16', 'design-services', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(66, 'Section 5', '5', '17', 'website-and-mobile-apps', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00'),
-(67, 'Section 5', '5', '19', '3D-2D-Animation', 'section-bg-grey-grad', 70, 70, '2022-03-17 06:51:00', '2022-03-17 06:51:00');
+(118, 'services-for-work-page', '4', '14', 'social-media-marketing', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(117, 'services-for-work-page', '4', '13', 'digital-marketing', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(119, 'services-for-work-page', '4', '15', 'consultancy', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(116, 'services-for-work-page', '3', '12', '2d-animation', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(115, 'services-for-work-page', '3', '11', '3d-animation', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(114, 'services-for-work-page', '3', '10', 'photography', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(113, 'services-for-work-page', '3', '9', 'videography', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(112, 'services-for-work-page', '2', '8', 'support', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(111, 'services-for-work-page', '2', '7', 'mobile-apps', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(110, 'services-for-work-page', '2', '6', 'websites', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(109, 'services-for-work-page', '2', '5', 'product-design', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(108, 'services-for-work-page', '1', '4', 'presentations', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(106, 'services-for-work-page', '1', '2', 'graphic-design', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(107, 'services-for-work-page', '1', '3', 'brouchers', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(105, 'services-for-work-page', '1', '1', 'branding-services', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(104, 'section 5', '4', '15', 'consultancy', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(103, 'section 5', '4', '14', 'social-media-marketing', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(102, 'section 5', '4', '13', 'digital-marketing', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(101, 'section 5', '3', '12', '2d-animation', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(100, 'section 5', '3', '11', '3d-animation', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(99, 'section 5', '3', '10', 'photography', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(98, 'section 5', '3', '9', 'videography', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(97, 'section 5', '2', '8', 'support', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(96, 'section 5', '2', '7', 'mobile-apps', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(95, 'section 5', '2', '6', 'websites', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(94, 'section 5', '2', '5', 'product-design', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(93, 'section 5', '1', '4', 'presentations', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(92, 'section 5', '1', '3', 'brouchers', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(91, 'section 5', '1', '2', 'graphic-design', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(90, 'section 5', '1', '1', 'branding-services', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02');
 
 -- --------------------------------------------------------
 
@@ -1551,7 +1716,7 @@ CREATE TABLE `settings` (
   `page_url` varchar(255) DEFAULT NULL,
   `page_name` varchar(255) DEFAULT NULL,
   `status` enum('Active','Inactive') DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1576,7 +1741,6 @@ INSERT INTO `settings` (`id`, `page_url`, `page_name`, `status`, `created_at`, `
 
 CREATE TABLE `sliders` (
   `id` int(11) NOT NULL,
-  `parent` int(11) DEFAULT NULL,
   `page_id` varchar(11) DEFAULT NULL,
   `name` varchar(120) DEFAULT NULL,
   `padingTop` int(11) DEFAULT NULL,
@@ -1590,30 +1754,30 @@ CREATE TABLE `sliders` (
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
   `style` varchar(200) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sliders`
 --
 
-INSERT INTO `sliders` (`id`, `parent`, `page_id`, `name`, `padingTop`, `paddingBottom`, `image`, `text1`, `text2`, `contact_button_link`, `link`, `status`, `padding_top`, `padding_bottom`, `style`, `created_at`, `updated_at`) VALUES
-(17, NULL, NULL, 'slider 1', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Designing', 'Designing, Branding and Marketing Services', 'test', NULL, 'active', NULL, NULL, NULL, '2021-12-27 04:06:40', '2021-12-27 04:06:40'),
-(23, NULL, NULL, 'slider 1', NULL, NULL, 'No-image-found.jpg', 'creative Agency', 'Web and Apps', 'asdfa', NULL, NULL, NULL, NULL, NULL, '2021-12-30 11:03:09', '2021-12-30 11:03:09'),
-(24, NULL, NULL, 'Slider 2', NULL, NULL, 'No-image-found.jpg', 'Corporate Branding', 'Designing, Branding and Marketing Services', NULL, NULL, 'active', NULL, NULL, NULL, '2022-01-07 10:34:18', '2022-01-07 10:34:18'),
-(26, NULL, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Designing, Branding & Marketing Services', '#', 'brochure-design', NULL, 50, 50, 'btn web-btn web-btn-blue', '2022-01-08 10:14:17', '2022-01-08 10:14:17'),
-(27, NULL, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency 123654', 'Web and Apps UI/UX Design Services 123654', '#', 'brochure-design', NULL, 70, 70, 'btn web-btn web-btn-blue', '2022-01-08 10:14:17', '2022-01-08 10:14:17'),
-(28, NULL, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Designing, Branding & Marketing Services', '#', 'brochure-design', 'active', 50, 50, 'btn web-btn web-btn-blue', '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
-(29, NULL, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Web and Apps UI/UX Design Services', '#', 'brochure-design', NULL, NULL, NULL, 'btn web-btn web-btn-blue', '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
-(30, NULL, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Videography, Photogrpahy, 2D & 3D Animations Services', '#', 'brochure-design', NULL, NULL, NULL, 'btn web-btn web-btn-blue', '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
-(31, NULL, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Digital & Social Media Marketing Services', '#', 'brochure-design', NULL, NULL, NULL, 'btn web-btn web-btn-blue', '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
-(34, NULL, NULL, 'testing999', NULL, NULL, 'cs-05.jpg', 'heading 1', 'heading 2', 'button link', 'brochure-design', 'active', NULL, NULL, NULL, '2022-02-22 09:33:15', '2022-02-22 09:33:15'),
-(35, NULL, NULL, 'testing999', NULL, NULL, 'image.jpg', 'testing123', 'heading 2', 'button link', 'brochure-design', NULL, NULL, NULL, NULL, '2022-02-22 09:33:15', '2022-02-22 09:33:15'),
-(37, NULL, NULL, 'SEction Testing 2', NULL, NULL, 'b.png', 'heading 1 37', 'heading 2 37', 'testing', 'brochure-design', 'active', 30, 30, NULL, '2022-02-26 05:11:32', '2022-02-26 05:11:32'),
-(38, NULL, NULL, 'testing 45', NULL, NULL, '7f31a9cc-ef90-4350-8a76-5640590da579.jpg', 'heading 1 38', 'heading 2 38', 'pre-qualification-design', 'brochure-design', 'active', 30, 30, NULL, '2022-02-26 05:30:02', '2022-02-26 05:30:02'),
-(39, NULL, NULL, 'new-slider', NULL, NULL, 'deal.jpg', 'heading 1', 'heading 2', '3D-Architecture-Videos', '3D-Architecture-Videos', 'active', 30, 30, 'btn web-btn web-btn-blue', '2022-03-01 06:28:48', '2022-03-01 06:28:48'),
-(40, NULL, NULL, 'new-slider', NULL, NULL, '1571567292logo.png', 'testing', 'testing4', 'brochure-design', 'brochure-design', NULL, 30, 30, 'btn web-btn web-btn-blue', '2022-03-01 06:30:51', '2022-03-01 06:30:51');
+INSERT INTO `sliders` (`id`, `page_id`, `name`, `padingTop`, `paddingBottom`, `image`, `text1`, `text2`, `contact_button_link`, `link`, `status`, `padding_top`, `padding_bottom`, `style`, `created_at`, `updated_at`) VALUES
+(17, NULL, 'slider 1', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Designing', 'Designing, Branding and Marketing Services', 'test', NULL, 'active', 70, 70, NULL, '2021-12-27 04:06:40', '2021-12-27 04:06:40'),
+(23, NULL, 'slider 1', NULL, NULL, 'No-image-found.jpg', 'creative Agency', 'Web and Apps', 'asdfa', NULL, NULL, 70, 70, NULL, '2021-12-30 11:03:09', '2021-12-30 11:03:09'),
+(24, NULL, 'Slider 2', NULL, NULL, 'No-image-found.jpg', 'Corporate Branding', 'Designing, Branding and Marketing Services', NULL, NULL, 'active', 70, 70, NULL, '2022-01-07 10:34:18', '2022-01-07 10:34:18'),
+(26, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Designing, Branding & Marketing Services', '#', 'brochure-design', NULL, 70, 70, 'btn web-btn web-btn-blue', '2022-01-08 10:14:17', '2022-01-08 10:14:17'),
+(27, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency 123654', 'Web and Apps UI/UX Design Services 123654', '#', 'brochure-design', NULL, 70, 70, 'btn web-btn web-btn-blue', '2022-01-08 10:14:17', '2022-01-08 10:14:17'),
+(28, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Designing, Branding & Marketing Services', '#', 'brochure-design', 'active', 70, 70, 'btn web-btn web-btn-blue', '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
+(29, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Web and Apps UI/UX Design Services', '#', 'brochure-design', NULL, 70, 70, 'btn web-btn web-btn-blue', '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
+(30, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Videography, Photogrpahy, 2D & 3D Animations Services', '#', 'brochure-design', NULL, 70, 70, 'btn web-btn web-btn-blue', '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
+(31, NULL, 'home-slider', NULL, NULL, 'homepage-banner-image.jpg', 'Creative Agency', 'Digital & Social Media Marketing Services', '#', 'brochure-design', NULL, 70, 70, 'btn web-btn web-btn-blue', '2022-01-08 10:14:38', '2022-01-08 10:14:38'),
+(34, NULL, 'testing999', NULL, NULL, 'cs-05.jpg', 'heading 1', 'heading 2', 'button link', 'brochure-design', 'active', 70, 70, NULL, '2022-02-22 09:33:15', '2022-02-22 09:33:15'),
+(35, NULL, 'testing999', NULL, NULL, 'image.jpg', 'testing123', 'heading 2', 'button link', 'brochure-design', NULL, 70, 70, NULL, '2022-02-22 09:33:15', '2022-02-22 09:33:15'),
+(37, NULL, 'SEction Testing 2', NULL, NULL, 'b.png', 'heading 1 37', 'heading 2 37', 'testing', 'brochure-design', 'active', 70, 70, NULL, '2022-02-26 05:11:32', '2022-02-26 05:11:32'),
+(38, NULL, 'testing 45', NULL, NULL, '7f31a9cc-ef90-4350-8a76-5640590da579.jpg', 'heading 1 38', 'heading 2 38', 'pre-qualification-design', 'brochure-design', 'active', 70, 70, NULL, '2022-02-26 05:30:02', '2022-02-26 05:30:02'),
+(39, NULL, 'new-slider', NULL, NULL, 'deal.jpg', 'heading 1', 'heading 2', '3D-Architecture-Videos', '3D-Architecture-Videos', 'active', 70, 70, 'btn web-btn web-btn-blue', '2022-03-01 06:28:48', '2022-03-01 06:28:48'),
+(40, NULL, 'new-slider', NULL, NULL, '1571567292logo.png', 'testing', 'testing4', 'brochure-design', 'brochure-design', NULL, 70, 70, 'btn web-btn web-btn-blue', '2022-03-01 06:30:51', '2022-03-01 06:30:51');
 
 -- --------------------------------------------------------
 
@@ -1623,13 +1787,13 @@ INSERT INTO `sliders` (`id`, `parent`, `page_id`, `name`, `padingTop`, `paddingB
 
 CREATE TABLE `social` (
   `id` int(11) NOT NULL,
-  `fb` text DEFAULT NULL,
-  `insta` text DEFAULT NULL,
-  `linedin` text DEFAULT NULL,
-  `twitter` text DEFAULT NULL,
+  `fb` text,
+  `insta` text,
+  `linedin` text,
+  `twitter` text,
   `title` varchar(255) DEFAULT NULL,
-  `body` text DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `body` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1651,8 +1815,8 @@ CREATE TABLE `social_media` (
   `icon` varchar(150) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1672,12 +1836,12 @@ INSERT INTO `social_media` (`id`, `icon`, `name`, `link`, `created_at`, `updated
 
 CREATE TABLE `stmp` (
   `id` int(11) NOT NULL,
-  `host` text DEFAULT NULL,
+  `host` text,
   `username` varchar(1000) DEFAULT NULL,
   `password` varchar(1000) DEFAULT NULL,
   `port` varchar(255) DEFAULT NULL,
   `encpt` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1701,7 +1865,7 @@ CREATE TABLE `sub_child_menus` (
   `item_name` varchar(255) DEFAULT NULL,
   `item_link` varchar(255) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1746,7 +1910,7 @@ INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `i
 (34, NULL, 5, 'QA', NULL, NULL, '2021-07-24 14:30:02', '2021-07-24 14:30:02'),
 (35, NULL, 6, 'Corporate Website', NULL, NULL, '2021-07-24 14:30:16', '2021-07-24 14:30:16'),
 (36, NULL, 6, 'Product Website', NULL, NULL, '2021-07-24 14:30:26', '2021-07-24 14:30:26'),
-(37, NULL, 6, 'Promot Website', NULL, NULL, '2021-07-24 14:30:36', '2021-07-24 14:30:36'),
+(37, NULL, 6, 'Promote Website', 'promote-website', 0, '2021-07-24 14:30:36', '2021-07-24 14:30:36'),
 (38, NULL, 6, 'Landing Pages', NULL, NULL, '2021-07-24 14:30:45', '2021-07-24 14:30:45'),
 (39, NULL, 6, 'eCommerce Website', NULL, NULL, '2021-07-24 14:30:55', '2021-07-24 14:30:55'),
 (40, NULL, 6, 'eCommerce Marketplace', NULL, NULL, '2021-07-24 14:31:04', '2021-07-24 14:31:04'),
@@ -1796,9 +1960,9 @@ INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `i
 (84, NULL, 14, 'Social Media Management', '#', 1, '2021-07-24 14:42:02', '2021-07-24 14:42:02'),
 (85, NULL, 14, 'Video Marketing', '#', 2, '2021-07-24 14:42:12', '2021-07-24 14:42:12'),
 (86, NULL, 14, 'Pay-Per-Click Advertising (PPC)', '#', 3, '2021-07-24 14:42:22', '2021-07-24 14:42:22'),
-(87, NULL, 14, 'YouTube Marketing', '#', 6, '2021-07-24 14:42:32', '2021-07-24 14:42:32'),
+(87, NULL, 14, 'YouTube Marketing', '#', 4, '2021-07-24 14:42:32', '2021-07-24 14:42:32'),
 (88, NULL, 14, 'Personal Promotion', '#', 5, '2021-07-24 14:42:40', '2021-07-24 14:42:40'),
-(89, NULL, 14, 'F&B Marketing', '#', 4, '2021-07-24 14:42:49', '2021-07-24 14:42:49'),
+(89, NULL, 14, 'F&B Marketing', '#', 6, '2021-07-24 14:42:49', '2021-07-24 14:42:49'),
 (90, NULL, 15, 'Marketing Plans & Strategy', NULL, NULL, '2021-07-24 14:43:04', '2021-07-24 14:43:04'),
 (91, NULL, 15, 'Digital Marketing Strategy', NULL, NULL, '2021-07-24 14:43:15', '2021-07-24 14:43:15'),
 (92, NULL, 15, 'eCommerce Consultancy', NULL, NULL, '2021-07-24 14:43:24', '2021-07-24 14:43:24'),
@@ -1852,8 +2016,7 @@ INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `i
 (140, NULL, 24, 'Aviation', NULL, NULL, '2021-07-24 15:02:38', '2021-07-24 15:02:38'),
 (141, NULL, 24, 'Finance', NULL, NULL, '2021-07-24 15:02:44', '2021-07-24 15:02:44'),
 (142, NULL, 24, 'Trading', NULL, NULL, '2021-07-24 15:02:49', '2021-07-24 15:02:49'),
-(146, 5, 23, 'services1', 'services1', NULL, '2021-12-11 12:10:58', NULL),
-(150, 3, 9, 'video graphy', 'video-graphy', 0, '2022-02-24 08:36:52', NULL);
+(146, 5, 23, 'services1', 'services1', NULL, '2021-12-11 12:10:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -1870,8 +2033,8 @@ CREATE TABLE `teams` (
   `name` varchar(250) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1931,7 +2094,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@admin.com', 1, NULL, '$2y$10$8402KuhO7M6BSeJK0OqZTOsEvC.79esCLaHr2Uo582XWVUyS.26MO', 'vhvVNWwkpZDJbEAUiwn5RTj9hVEK01SBm040GzP39cNX8HbKFfJ5XFeeagcd', '2021-12-08 11:38:44', '2021-12-08 11:38:44'),
+(1, 'Admin', 'admin@admin.com', 1, NULL, '$2y$10$1UgviazvFbYcjACs95sp4eclz3JuXwTZbuqaR5pRZOOyV1.aAg76W', 'FMzKFdUhC6pHrZ1TlRAP0FvjD3fsUINUyxvuJjtNoF1T83PwUcWKdRFeymsh', '2021-12-08 11:38:44', '2021-12-08 11:38:44'),
 (2, 'testing', 'testing@test.com', 1, NULL, '$2y$10$iRR8Juuu5BGvgxLl5o/GQ.sCme7plQd4Hd3ZLvyia.dBnUNB2CXl6', NULL, '2021-12-09 00:36:40', '2021-12-09 00:36:40'),
 (6, 'Faiz', 'faiz@faiz.com', 3, NULL, '$2y$10$QpU5GDUVv9b9AOxWiB.eXuzXVXkoOxjxd7BZcBTuUcH7DEMJh758a', NULL, NULL, NULL);
 
@@ -1975,8 +2138,8 @@ CREATE TABLE `videos` (
   `button_label` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -2319,25 +2482,25 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `case_study`
 --
 ALTER TABLE `case_study`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `case_study_content`
 --
 ALTER TABLE `case_study_content`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `case_study_industries`
 --
 ALTER TABLE `case_study_industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `case_study_services`
 --
 ALTER TABLE `case_study_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `child_menus`
@@ -2361,7 +2524,7 @@ ALTER TABLE `components`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -2397,7 +2560,7 @@ ALTER TABLE `header_menu`
 -- AUTO_INCREMENT for table `industries`
 --
 ALTER TABLE `industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `industry_services`
@@ -2445,13 +2608,13 @@ ALTER TABLE `news_and_opinions`
 -- AUTO_INCREMENT for table `page`
 --
 ALTER TABLE `page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `page_detail`
 --
 ALTER TABLE `page_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1815;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1853;
 
 --
 -- AUTO_INCREMENT for table `page_section`
@@ -2487,7 +2650,7 @@ ALTER TABLE `para_style_4`
 -- AUTO_INCREMENT for table `para_style_5`
 --
 ALTER TABLE `para_style_5`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `requests`
@@ -2523,7 +2686,7 @@ ALTER TABLE `section_18`
 -- AUTO_INCREMENT for table `section_19`
 --
 ALTER TABLE `section_19`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `section_20`
@@ -2559,7 +2722,7 @@ ALTER TABLE `seo`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `settings`
