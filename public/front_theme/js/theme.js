@@ -47,12 +47,15 @@ $(document).ready(function() {
 
 // ===== Creative Slider ====
 var swiper = new Swiper('.creative-slider-block', {
-    slidesPerView: 6,
+    slidesPerView: 'auto',
     spaceBetween: 20,
     slidesPerGroup: 1,
-    loop: false,
+    speed: 1000,
+    loop: true,
     loopFillGroupWithBlank: true,
-    autoplay: false,
+    autoplay: true,
+    mousewheel: true,
+    grabCursor: true,
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -60,24 +63,24 @@ var swiper = new Swiper('.creative-slider-block', {
     breakpoints: {
         320: {
             slidesPerView: 2,
-            spaceBetween: 10,
+            spaceBetween: 20,
         },
         // when window width is >= 480px
         480: {
             slidesPerView: 3,
-            spaceBetween: 10,
+            spaceBetween: 20,
         },
         640: {
             slidesPerView: 3,
-            spaceBetween: 10,
+            spaceBetween: 20,
         },
         768: {
             slidesPerView: 4,
-            spaceBetween: 10,
+            spaceBetween: 20,
         },
         1024: {
             slidesPerView: 4,
-            spaceBetween: 10,
+            spaceBetween: 20,
         },
         1200: {
             slidesPerView: 6,
@@ -91,6 +94,17 @@ var swiper = new Swiper(".mySwiper", {
     spaceBetween: 5,
     freeMode: true,
 });
+
+
+
+const instance_swiper = new Swiper(".swiper-slide-active", {
+    on: {
+      slideChange: function () {
+            //
+        alert('Testing');
+      },
+    },
+  });
 
 
 
@@ -1243,3 +1257,7 @@ $(document).ready(function() {
         function frontend_editor() {
             $('.edit_delete_add_component').show();
         }
+
+
+        
+        

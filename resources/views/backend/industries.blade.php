@@ -103,6 +103,13 @@
                                                                     </div>
                                                                 </div>
 
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="account-username">Industry Background Image</label>
+                                                                        <input type="file" name="industry_background_image" class="form-control" />
+                                                                    </div>
+                                                                </div>
+
                                                                 <div class="col-12">
                                                                     <div class="row">
                                                                         @include('padding_top_and_bottom')
@@ -175,7 +182,7 @@
                                                                                     </div>
 
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-6">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username"> Section Name</label>
@@ -183,7 +190,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-6">
                                                                                         <div class="row">
                                                                                             <div class="col-6">
                                                                                                 <div class="form-group">
@@ -218,7 +225,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-6">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username"> Industry Name</label>
@@ -227,7 +234,7 @@
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12">
+                                                                                    <div class="col-6">
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username"> Link</label>
@@ -249,6 +256,21 @@
                                                                                     <div class="col-4">
                                                                                         <img style="width:100px" src="{{asset('public/industries/'.$row_industries->image)}}" />
                                                                                     </div>
+
+                                                                                    <div class="col-8">
+
+                                                                                        <div class="form-group">
+                                                                                            <div class="controls">
+                                                                                                <label for="account-username">Industry Background Image</label>
+                                                                                                <input type="file" name="industry_background_image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                    <div class="col-4">
+                                                                                        <img style="width:100px" src="{{asset('public/industries/'.$row_industries->background_image)}}" />
+                                                                                    </div>
+
 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Industry</button>

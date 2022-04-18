@@ -665,25 +665,6 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                             @endforeach
                     </ul>
 
-                    <ul id="industries_list" class="list-inline mt-4 mb-1 p-0">
-                        
-                        @foreach($services->unique('service_id') as $row_services) 
-                            @php 
-                                $services_name = DB::table('menus')->where('id', '=', $row_services->service_id)->first(); 
-                            @endphp 
-                                @if($services_name->id == $row_services->service_id)
-                            @endif 
-                            <li  style="color:#000;" class="badge badge-primary">{{$services_name->menu_link}}</li>
-                        @endforeach 
-                            @foreach($services->unique('sub_service_id') as $row_services) 
-                                @php $sub_services_name = DB::table('child_menus')->where('id', '=', $row_services->sub_service_id)->first(); @endphp 
-                                    @if($sub_services_name->id == $row_services->sub_service_id)
-                                @endif 
-                                <li style="color:#000;" class="badge badge-success">{{$sub_services_name->item_link}}</li>
-                            @endforeach
-                </ul>
-
-
                 </div>
             </div>
             @endforeach
@@ -842,6 +823,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                                     ->join('child_menus','child_menus.id','=','services.sub_service')
                                     ->select('child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','menus.menu_name as first_level_menu_name', 'services.*')
                                     ->where('services.main_service', '=', $row->main_service)
+                                    ->where('services.name', '=', $row_pages->section_type)
                                     ->get();
                         
                         @endphp
@@ -1003,12 +985,19 @@ $client_and_partner = DB::table('clientandparterimage')->where('name', '=', $row
 $industries = DB::table('industries')->where('name', '=', $row_pages->section_type)->get();
 @endphp
 
-<section class="section-bg-black section-padtop-@if(!$industries->isEmpty()){{$industries[0]->padding_top}}@endif section-padbottom-@if(!$industries->isEmpty()){{$industries[0]->padding_bottom}}@endif creative-slider">
+<section class="section-bg-black section-padtop-@if(!$industries->isEmpty()){{$industries[0]->padding_top}}@endif section-padbottom-@if(!$industries->isEmpty()){{$industries[0]->padding_bottom}}@endif creative-slider" style="background: url('http://localhost/creativedrop/public/industries/land-agriculture.jpeg') no-repeat center center;">
+    <div class="creative-slider-blur"></div>
     <div class="slide-container">
         <div class="row">
-            <div class="col-10 col-md-12">
+            <div class="col-8 col-md-9 align-self-center">
                 <p class="web-h5 text-white mb-0">Industries</p>
                 <h3 class="web-h3 text-white mb-0">Our experience spans every industry</h3>
+            </div>
+            <div class="col-4 col-md-3 align-self-center text-right">
+                <div class="swiper-nav-industries">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
         </div>
         
@@ -1026,14 +1015,13 @@ $industries = DB::table('industries')->where('name', '=', $row_pages->section_ty
             
                 @endforeach
             </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+            
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <ul class="list-inline">
                         <li class="list-inline-item"><a href="#" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
-                        <li class="list-inline-item"><a href="#" class="blue-link">Learn more <i class="fas fa-chevron-right pl-1"></i></a></li>
+                        {{-- <li class="list-inline-item"><a href="#" class="blue-link">Learn more <i class="fas fa-chevron-right pl-1"></i></a></li> --}}
                     </ul>
                 </div>
             </div>
