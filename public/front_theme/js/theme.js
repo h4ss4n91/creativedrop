@@ -46,65 +46,152 @@ $(document).ready(function() {
 });
 
 // ===== Creative Slider ====
-var swiper = new Swiper('.creative-slider-block', {
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-    slidesPerGroup: 1,
-    speed: 1000,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    autoplay: true,
-    mousewheel: true,
-    grabCursor: true,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        320: {
-            slidesPerView: 2,
+
+// var swiper = new Swiper('.creative-slider-block', {
+//     slidesPerView: 'auto',
+//     spaceBetween: 20,
+//     slidesPerGroup: 1,
+//     speed: 1000,
+//     loop: true,
+   
+//     loopFillGroupWithBlank: true,
+//     autoplay: true,
+//     mousewheel: true,
+//     grabCursor: true,
+//     navigation: {
+//         nextEl: '.swiper-button-next',
+//         prevEl: '.swiper-button-prev',
+//     },
+//     breakpoints: {
+//         320: {
+//             slidesPerView: 2,
+//             spaceBetween: 20,
+//         },
+//         // when window width is >= 480px
+//         480: {
+//             slidesPerView: 3,
+//             spaceBetween: 20,
+//         },
+//         640: {
+//             slidesPerView: 3,
+//             spaceBetween: 20,
+//         },
+//         768: {
+//             slidesPerView: 4,
+//             spaceBetween: 20,
+//         },
+//         1024: {
+//             slidesPerView: 4,
+//             spaceBetween: 20,
+//         },
+//         1200: {
+//             slidesPerView: 6,
+//             spaceBetween: 20,
+//         },
+//     },
+// });
+var BgImageUrl = $('.swiper-slide-active img',).attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+
+var swiper = new Swiper('.swiper-container',{
+            slidesPerView: 'auto',
             spaceBetween: 20,
-        },
-        // when window width is >= 480px
-        480: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-        },
-        640: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-        },
-        768: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
-        1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
-        1200: {
-            slidesPerView: 6,
-            spaceBetween: 20,
-        },
-    }
+            slidesPerGroup: 1,
+            speed: 1000,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            autoplay: true,
+            mousewheel: true,
+            grabCursor: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                        320: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        // when window width is >= 480px
+                        480: {
+                            slidesPerView: 3,
+                            spaceBetween: 20,
+                        },
+                        640: {
+                            slidesPerView: 3,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 4,
+                            spaceBetween: 20,
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                            spaceBetween: 20,
+                        },
+                        1200: {
+                            slidesPerView: 6,
+                            spaceBetween: 20,
+                        },
+                    },
 });
-
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: "auto",
-    spaceBetween: 5,
-    freeMode: true,
+swiper.on('slideChange', function () {
+  if(this.activeIndex === 0) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 1) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 2) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 3) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 4) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 5) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 6) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 7) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 8) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 9) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 10) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 11) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 12) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 13) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 14) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 15) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }else if(this.activeIndex === 16) {
+    var BgImageUrl = $('.swiper-slide-active img').attr('src')
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+  }
 });
+    
 
 
-
-const instance_swiper = new Swiper(".swiper-slide-active", {
-    on: {
-      slideChange: function () {
-            //
-        alert('Testing');
-      },
-    },
-  });
 
 
 
