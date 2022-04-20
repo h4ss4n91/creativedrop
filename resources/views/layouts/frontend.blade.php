@@ -533,6 +533,15 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
       </div>
     </div>
   </div>
+            @php
+              $industries = DB::table('industries')->select('background_image')->get();
+              $industries_json = json_encode($industries);
+            @endphp
+
+            <script>
+                var industries_js_var = '<?php echo $industries_json; ?>';
+            </script>
+
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

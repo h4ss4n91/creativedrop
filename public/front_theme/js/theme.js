@@ -47,51 +47,6 @@ $(document).ready(function() {
 
 // ===== Creative Slider ====
 
-// var swiper = new Swiper('.creative-slider-block', {
-//     slidesPerView: 'auto',
-//     spaceBetween: 20,
-//     slidesPerGroup: 1,
-//     speed: 1000,
-//     loop: true,
-   
-//     loopFillGroupWithBlank: true,
-//     autoplay: true,
-//     mousewheel: true,
-//     grabCursor: true,
-//     navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//     },
-//     breakpoints: {
-//         320: {
-//             slidesPerView: 2,
-//             spaceBetween: 20,
-//         },
-//         // when window width is >= 480px
-//         480: {
-//             slidesPerView: 3,
-//             spaceBetween: 20,
-//         },
-//         640: {
-//             slidesPerView: 3,
-//             spaceBetween: 20,
-//         },
-//         768: {
-//             slidesPerView: 4,
-//             spaceBetween: 20,
-//         },
-//         1024: {
-//             slidesPerView: 4,
-//             spaceBetween: 20,
-//         },
-//         1200: {
-//             slidesPerView: 6,
-//             spaceBetween: 20,
-//         },
-//     },
-// });
-var BgImageUrl = $('.swiper-slide-active img',).attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
 
 var swiper = new Swiper('.swiper-container',{
             slidesPerView: 'auto',
@@ -135,59 +90,109 @@ var swiper = new Swiper('.swiper-container',{
                         },
                     },
 });
-swiper.on('slideChange', function () {
-  if(this.activeIndex === 0) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 1) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 2) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 3) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 4) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 5) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 6) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 7) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 8) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 9) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 10) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 11) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 12) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 13) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 14) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 15) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }else if(this.activeIndex === 16) {
-    var BgImageUrl = $('.swiper-slide-active img').attr('src')
-    $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-  }
+
+    //console.log(industries_js_var);
+
+    // $.each(JSON.parse(industries_js_var), function(key, value) {
+    //     if(this.activeIndex === key) {
+    //         var BgImageUrl = value.background_image
+    //         $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+            
+    //       }
+    //   });
+
+    $.each(JSON.parse(industries_js_var), function(key, value) {
+        swiper.on('slideChange', function () {
+        // console.log(value);
+        // console.log(key);
+        if(this.activeIndex === 0) {
+            if(key == 0){
+                console.log(value);
+            }
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+            
+          }else if(this.activeIndex === 1) {
+            if(key == 1){
+                console.log(value);
+            }
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+            
+          }else if(this.activeIndex === 2) {
+            if(key == 2){
+                console.log(value);
+            }
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+            
+          }else if(this.activeIndex === 3) {
+            if(key == 3){
+                console.log(value);
+            }
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 4) {
+            if(key == 4){
+                console.log(value);
+            }
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 5) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 6) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 7) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 8) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 9) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 10) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 11) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 12) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 13) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 14) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 15) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }else if(this.activeIndex === 16) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+        }else if(this.activeIndex === 17) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+        }else if(this.activeIndex === 18) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+        }else if(this.activeIndex === 19) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+        }else if(this.activeIndex === 20) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+        }else if(this.activeIndex === 21) {
+            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+          }
+      });
+    
+  
 });
     
 

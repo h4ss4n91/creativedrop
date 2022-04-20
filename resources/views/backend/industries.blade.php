@@ -136,8 +136,8 @@
                                                         <th>Section Name</th>
                                                         <th>Industry Name</th>
                                                         <th>Industry Image</th>
+                                                        <th>Industry Background Image</th>
                                                         <th>Padding</th>
-                                                        
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -153,6 +153,9 @@
                                                         </td>
                                                         <td>
                                                             <img style="width:100px;" src="{{asset('public/industries/'.$row_industries->image)}}" />
+                                                        </td>
+                                                        <td>
+                                                            <img style="width:100px;" src="{{asset('public/background_industries/'.$row_industries->background_image)}}" />
                                                         </td>
                                                         
                                                         <td>Top: {{$row_industries->padding_top}} <br/>

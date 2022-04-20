@@ -28,6 +28,30 @@ class WelcomeController extends Controller
         $variable = "";
         return view('insight', Compact('variable'));
     }
+
+    public function work($id){
+        
+        $industries = DB::table('industries')->where('slug', '=', $id)->first();
+        $case_study = DB::table('case_study')
+            ->join('case_study_industries', 'case_study.id', '=', 'case_study_industries.case_study_id')
+            ->where('case_study_industries.industry_id', '=', $industries->id)
+            ->get();
+        
+        $main_menu = DB::table('menus')->where('menu_link','!=','#')->get();
+        return view('work', Compact('industries', 'main_menu','case_study'));
+    }
+    public function test(){
+      
+        $industries = DB::table('industries')->select('background_image')->get();
+        $Array = [];
+            foreach($industries as $row){
+                $Array[] = $row->background_image;
+            }
+            $final_Result = $Array;
+            // return response()->json(["sliders" => $final_Result]);
+            return $final_Result;
+      
+    }
     public function send_email(){
         
          $data = array('name'=>"Testing from Creative Drop");

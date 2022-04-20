@@ -670,7 +670,7 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['name' => $request->name, 'title' => $request->title, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
+                    ['name' => $request->name, 'slug' => Str::slug($request->title, '-'), 'title' => $request->title, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
             );
             
         } else {
@@ -681,7 +681,7 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->name, 'page_id' => $request->page_id]
+                    ['image' => $file_name, 'slug' => Str::slug($request->title, '-'), 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->name, 'page_id' => $request->page_id]
             );
             
         }
@@ -690,7 +690,7 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['name' => $request->name, 'title' => $request->title, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
+                    ['name' => $request->name, 'slug' => Str::slug($request->title, '-'),  'title' => $request->title, 'link' => $request->link, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'slug' => Str::slug($request->name, '-'), 'page_id' => $request->page_id]
             );
             
         } else {
@@ -701,7 +701,7 @@ class BackendController extends Controller {
             $affected = DB::table('industries')
                     ->where('id', $request->id)
                     ->update(
-                    ['background_image' => $background_file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->name, 'page_id' => $request->page_id]
+                    ['background_image' => $background_file_name, 'slug' => Str::slug($request->title, '-'), 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->name, 'page_id' => $request->page_id]
             );
             
         }

@@ -985,7 +985,7 @@ $client_and_partner = DB::table('clientandparterimage')->where('name', '=', $row
 $industries = DB::table('industries')->where('name', '=', $row_pages->section_type)->get();
 @endphp
 
-<section class="section-bg-black section-padtop-@if(!$industries->isEmpty()){{$industries[0]->padding_top}}@endif section-padbottom-@if(!$industries->isEmpty()){{$industries[0]->padding_bottom}}@endif creative-slider" style="background: url('http://localhost/creativedrop/public/industries/land-agriculture.jpeg') no-repeat center center;">
+<section class="section-bg-black section-padtop-@if(!$industries->isEmpty()){{$industries[0]->padding_top}}@endif section-padbottom-@if(!$industries->isEmpty()){{$industries[0]->padding_bottom}}@endif creative-slider" style="background: url('http://localhost/cd/creativedrop/public/industries/FMCG3.jpg') no-repeat center center;">
     <div class="creative-slider-blur"></div>
     <div class="slide-container">
         <div class="row">
@@ -1008,7 +1008,7 @@ $industries = DB::table('industries')->where('name', '=', $row_pages->section_ty
                     <div class="creative-box web-border-radius-10">
                         <img src="{{asset('public/industries/'.$row_industries->image)}}" alt="" class="obj-cover web-border-radius-10">
                         <div class="creative-overlay web-border-radius-5 text-white">
-                            <a href="{{$row_industries->link}}#{{$row_industries->slug}}" class="p-14 mb-0 text-white">{{$row_industries->title}}<i class="p-14 fas fa-chevron-right"></i></a>
+                            <a href="{{$row_industries->link}}/{{$row_industries->slug}}" class="p-14 mb-0 text-white">{{$row_industries->title}}<i class="p-14 fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
