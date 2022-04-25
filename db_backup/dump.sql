@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 18, 2022 at 09:38 AM
--- Server version: 5.7.26
+-- Host: 127.0.0.1
+-- Generation Time: Apr 25, 2022 at 08:00 AM
+-- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dropdrop_stage`
+-- Database: `cd_web`
 --
 
 -- --------------------------------------------------------
@@ -35,15 +34,15 @@ CREATE TABLE `case_study` (
   `page_id` int(11) DEFAULT NULL,
   `image` varchar(350) DEFAULT NULL,
   `title` varchar(350) DEFAULT NULL,
-  `short_description` text,
+  `short_description` text DEFAULT NULL,
   `link` varchar(350) DEFAULT NULL,
   `service` varchar(150) DEFAULT NULL,
   `sub_category` varchar(150) DEFAULT NULL,
   `industry` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -82,8 +81,8 @@ CREATE TABLE `case_study_content` (
   `video_style` varchar(150) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
   `video_background` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -201,8 +200,8 @@ CREATE TABLE `case_study_industries` (
   `id` int(11) NOT NULL,
   `case_study_id` int(11) NOT NULL,
   `industry_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -253,8 +252,8 @@ CREATE TABLE `case_study_services` (
   `case_study_id` int(11) DEFAULT NULL,
   `service_id` int(11) DEFAULT NULL,
   `sub_service_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -330,8 +329,8 @@ CREATE TABLE `child_menus` (
   `item_link` varchar(255) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
   `featured_service` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -361,7 +360,7 @@ INSERT INTO `child_menus` (`id`, `menu_id`, `item_name`, `item_link`, `sorting`,
 (20, '5', 'Consultancy Services', 'consultancy-services', 5, NULL, '2021-07-24 16:24:15', '2021-07-24 16:24:15'),
 (21, '5', 'Digital Marketing\r\n', 'digital-marketing', 6, NULL, '2021-07-24 16:24:23', '2021-07-24 16:24:23'),
 (22, '6', 'Agency', NULL, NULL, NULL, '2021-07-24 16:24:51', '2021-07-24 16:24:51'),
-(23, '6', 'Services', NULL, NULL, NULL, '2021-07-24 16:24:57', '2021-07-24 16:24:57'),
+(23, '1', 'Services', NULL, NULL, NULL, '2021-07-24 16:24:57', '2021-07-24 16:24:57'),
 (24, '6', 'Industries', NULL, NULL, NULL, '2021-07-24 16:25:09', '2021-07-24 16:25:09');
 
 -- --------------------------------------------------------
@@ -377,8 +376,8 @@ CREATE TABLE `clientandparterimage` (
   `image` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -415,15 +414,15 @@ CREATE TABLE `components` (
   `id` int(11) NOT NULL,
   `component_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `body` text,
-  `link` text,
-  `image1` text,
-  `image2` text,
-  `image3` text,
+  `body` text DEFAULT NULL,
+  `link` text DEFAULT NULL,
+  `image1` text DEFAULT NULL,
+  `image2` text DEFAULT NULL,
+  `image3` text DEFAULT NULL,
   `button_text` varchar(255) DEFAULT NULL,
   `button_link` varchar(255) DEFAULT NULL,
-  `video` text,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `video` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -469,8 +468,8 @@ CREATE TABLE `contacts` (
   `phone` varchar(150) DEFAULT NULL,
   `subject` varchar(150) DEFAULT NULL,
   `message` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -508,7 +507,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -524,7 +523,7 @@ CREATE TABLE `failed_jobsold` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -538,8 +537,8 @@ CREATE TABLE `footer_bottoms` (
   `city` varchar(150) DEFAULT NULL,
   `address` varchar(150) DEFAULT NULL,
   `copyright` varchar(260) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -561,8 +560,8 @@ CREATE TABLE `footer_sections` (
   `name` varchar(150) DEFAULT NULL,
   `menu` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -598,8 +597,8 @@ CREATE TABLE `header_menu` (
   `id` int(11) NOT NULL,
   `item_name` varchar(255) DEFAULT NULL,
   `item_link` enum('Active','Inactive') DEFAULT 'Active',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -632,34 +631,35 @@ CREATE TABLE `industries` (
   `title` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
+  `background_image` varchar(250) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `industries`
 --
 
-INSERT INTO `industries` (`id`, `page_id`, `slug`, `service_id`, `sub_category_id`, `name`, `title`, `link`, `image`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
-(6, NULL, 'one', NULL, NULL, 'one', 'FMCG', 'work', 'FMCG3.jpg', 70, 70, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(7, NULL, 'one', NULL, NULL, 'one', 'Construction & Infrastructure', 'work', 'Construction-_-Architectural.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(8, NULL, 'one', NULL, NULL, 'one', 'Automobiles', 'work', 'Automobiles2.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(9, NULL, 'one', NULL, NULL, 'one', 'Property & Real Estate', 'work', 'Property-_-Real-Estate.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(37, NULL, 'one', NULL, NULL, 'one', 'Education', 'work', 'Education.jpg', 0, 0, '2022-02-12 12:56:10', '2022-02-12 12:56:10'),
-(44, NULL, 'one', NULL, NULL, 'one', 'Cosmetics & Beauty', 'work', 'Cosmetics-_-Beauty.jpg', 0, 0, '2022-04-05 09:17:05', '2022-04-05 09:17:05'),
-(45, NULL, 'one', NULL, NULL, 'one', 'Fashion & Entertainment', 'work', 'Fashion-_-Entertainment.jpg', 0, 0, '2022-04-05 09:22:00', '2022-04-05 09:22:00'),
-(46, NULL, 'one', NULL, NULL, 'one', 'Technology & Artificial Intelligence', 'work', 'Technology---Artificial----Intelligence.jpg', 0, 0, '2022-04-05 09:24:42', '2022-04-05 09:24:42'),
-(47, NULL, 'one', NULL, NULL, 'one', 'Healthcare & Aesthetics', 'work', 'Healthcare2.jpg', 0, 0, '2022-04-05 09:47:11', '2022-04-05 09:47:11'),
-(48, NULL, 'oil-gas', NULL, NULL, 'one', 'Oil & Gas', 'work', 'Oil-_-Gas.jpg', 0, 0, '2022-04-05 10:12:52', '2022-04-05 10:12:52'),
-(49, NULL, 'aviation', NULL, NULL, 'one', 'Aviation', 'work', 'Aviation.jpg', 0, 0, '2022-04-05 10:15:40', '2022-04-05 10:15:40'),
-(50, NULL, 'land-agriculture', NULL, NULL, 'one', 'Land & Agriculture', 'work', 'Land-_-Agriculture.jpg', 0, 0, '2022-04-05 10:20:44', '2022-04-05 10:20:44'),
-(51, NULL, 'travels-tourism', NULL, NULL, 'one', 'Travels & Tourism', 'work', 'Travels-_-Tourism2.jpg', 0, 0, '2022-04-05 10:23:29', '2022-04-05 10:23:29'),
-(53, NULL, 'gold-trading', NULL, NULL, 'one', 'Gold Trading', 'work', 'gold trading.jpg', 0, 0, '2022-04-06 07:13:06', '2022-04-06 07:13:06'),
-(54, NULL, 'food-beverages', NULL, NULL, 'one', 'Food & Beverages', 'work', 'Food-_-Beverages.jpg', 0, 0, '2022-04-09 10:19:02', '2022-04-09 10:19:02'),
-(55, NULL, 'finance-corporate', NULL, NULL, 'one', 'Finance & Corporate', 'work', 'Finance-_-Corporate.jpg', 0, 0, '2022-04-09 10:56:27', '2022-04-09 10:56:27'),
-(56, NULL, 'trading-logistics', NULL, NULL, 'one', 'Trading & Logistics', 'work', 'Trading-_-Logistics.jpg', 0, 0, '2022-04-09 10:57:48', '2022-04-09 10:57:48');
+INSERT INTO `industries` (`id`, `page_id`, `slug`, `service_id`, `sub_category_id`, `name`, `title`, `link`, `image`, `background_image`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(6, NULL, 'fmcg', NULL, NULL, 'one', 'FMCG', 'work', 'FMCG3.jpg', 'FMCG3.jpg', 70, 70, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(7, NULL, 'construction-infrastructure', NULL, NULL, 'one', 'Construction & Infrastructure', 'work', 'Construction-_-Architectural.jpg', 'Construction _ Infrastructure.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(8, NULL, 'automobiles', NULL, NULL, 'one', 'Automobiles', 'work', 'Automobiles2.jpg', 'Automobiles.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(9, NULL, 'property-real-estate', NULL, NULL, 'one', 'Property & Real Estate', 'work', 'Property-_-Real-Estate.jpg', 'Property _ Real Estate.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(37, NULL, 'education', NULL, NULL, 'one', 'Education', 'work', 'Education.jpg', 'Education.jpg', 0, 0, '2022-02-12 12:56:10', '2022-02-12 12:56:10'),
+(44, NULL, 'cosmetics-beauty', NULL, NULL, 'one', 'Cosmetics & Beauty', 'work', 'Cosmetics-_-Beauty.jpg', 'Cosmetics-_-Beauty.jpg', 0, 0, '2022-04-05 09:17:05', '2022-04-05 09:17:05'),
+(45, NULL, 'fashion-entertainment', NULL, NULL, 'one', 'Fashion & Entertainment', 'work', 'Fashion-_-Entertainment.jpg', 'Fashion _ Entertainment.jpg', 0, 0, '2022-04-05 09:22:00', '2022-04-05 09:22:00'),
+(46, NULL, 'technology-artificial-intelligence', NULL, NULL, 'one', 'Technology & Artificial Intelligence', 'work', 'Technology---Artificial----Intelligence.jpg', 'Technology _ Artificial Intelligence.png', 0, 0, '2022-04-05 09:24:42', '2022-04-05 09:24:42'),
+(47, NULL, 'healthcare-aesthetics', NULL, NULL, 'one', 'Healthcare & Aesthetics', 'work', 'Healthcare2.jpg', 'Healthcare2.jpg', 0, 0, '2022-04-05 09:47:11', '2022-04-05 09:47:11'),
+(48, NULL, 'oil-gas', NULL, NULL, 'one', 'Oil & Gas', 'work', 'Oil-_-Gas.jpg', 'Oil and Gas.jpg', 0, 0, '2022-04-05 10:12:52', '2022-04-05 10:12:52'),
+(49, NULL, 'aviation', NULL, NULL, 'one', 'Aviation', 'work', 'Aviation.jpg', 'Aviation.jpg', 0, 0, '2022-04-05 10:15:40', '2022-04-05 10:15:40'),
+(50, NULL, 'land-agriculture', NULL, NULL, 'one', 'Land & Agriculture', 'work', 'Land-_-Agriculture.jpg', 'Land _ Agriculture.jpeg', 0, 0, '2022-04-05 10:20:44', '2022-04-05 10:20:44'),
+(51, NULL, 'travels-tourism', NULL, NULL, 'one', 'Travels & Tourism', 'work', 'Travels-_-Tourism2.jpg', 'Travels _ Tourism.webp', 0, 0, '2022-04-05 10:23:29', '2022-04-05 10:23:29'),
+(53, NULL, 'gold-trading', NULL, NULL, 'one', 'Gold Trading', 'work', 'gold trading.jpg', 'Gold Trading.jpg', 0, 0, '2022-04-06 07:13:06', '2022-04-06 07:13:06'),
+(54, NULL, 'food-beverages', NULL, NULL, 'one', 'Food & Beverages', 'work', 'Food-_-Beverages.jpg', 'Food-_-Beverages.jpg', 0, 0, '2022-04-09 10:19:02', '2022-04-09 10:19:02'),
+(55, NULL, 'finance-corporate', NULL, NULL, 'one', 'Finance & Corporate', 'work', 'Finance-_-Corporate.jpg', 'Finance-_-Corporate.jpg', 0, 0, '2022-04-09 10:56:27', '2022-04-09 10:56:27'),
+(56, NULL, 'trading-logistics', NULL, NULL, 'one', 'Trading & Logistics', 'work', 'Trading-_-Logistics.jpg', 'Trading-_-Logistics.jpg', 0, 0, '2022-04-09 10:57:48', '2022-04-09 10:57:48');
 
 -- --------------------------------------------------------
 
@@ -672,8 +672,8 @@ CREATE TABLE `industry_services` (
   `industry_id` int(11) DEFAULT NULL,
   `service_id` int(11) DEFAULT NULL,
   `sub_service_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -700,8 +700,8 @@ INSERT INTO `industry_services` (`id`, `industry_id`, `service_id`, `sub_service
 CREATE TABLE `logo` (
   `id` int(11) NOT NULL,
   `logo` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -720,7 +720,7 @@ INSERT INTO `logo` (`id`, `logo`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `master_component` (
   `id` int(11) NOT NULL,
   `component_name` varchar(1000) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -757,9 +757,9 @@ CREATE TABLE `menus` (
   `menu_name` varchar(255) DEFAULT NULL,
   `menu_link` varchar(255) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
-  `body` text,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `body` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -830,8 +830,8 @@ CREATE TABLE `news_and_opinions` (
   `link` varchar(250) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -858,16 +858,16 @@ CREATE TABLE `page` (
   `sub_menu_id` varchar(100) DEFAULT NULL,
   `child_menu_id` varchar(100) DEFAULT NULL,
   `title` varchar(500) DEFAULT NULL,
-  `body` text,
-  `image` text,
+  `body` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
   `slug` varchar(1000) DEFAULT NULL,
   `status` enum('Published','Unpublished','Deleted') DEFAULT 'Unpublished',
-  `meta_keyword` text,
-  `meta_desc` text,
+  `meta_keyword` text DEFAULT NULL,
+  `meta_desc` text DEFAULT NULL,
   `design_menu` enum('N','Y') DEFAULT 'N',
   `user_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -905,8 +905,8 @@ CREATE TABLE `page_detail` (
   `section_no` int(11) DEFAULT NULL,
   `section` int(11) DEFAULT NULL,
   `section_type` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1056,7 +1056,7 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 CREATE TABLE `page_section` (
   `id` int(11) NOT NULL,
   `name` varchar(250) DEFAULT NULL,
-  `detail` longtext,
+  `detail` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1098,16 +1098,16 @@ INSERT INTO `page_section` (`id`, `name`, `detail`, `created_at`, `updated_at`) 
 
 CREATE TABLE `para_style_1` (
   `id` int(11) NOT NULL,
-  `page_id` text,
+  `page_id` text DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
-  `title` text,
-  `paragraph` text,
+  `title` text DEFAULT NULL,
+  `paragraph` text DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1135,14 +1135,14 @@ CREATE TABLE `para_style_2` (
   `page_id` int(11) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) NOT NULL,
-  `title` text,
-  `paragraph` text,
+  `title` text DEFAULT NULL,
+  `paragraph` text DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
   `flex_row_reverse` varchar(250) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1182,8 +1182,8 @@ CREATE TABLE `para_style_3` (
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1214,13 +1214,13 @@ CREATE TABLE `para_style_4` (
   `page_id` int(11) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
-  `title` text,
-  `paragraph` text,
+  `title` text DEFAULT NULL,
+  `paragraph` text DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1253,16 +1253,16 @@ CREATE TABLE `para_style_5` (
   `image` varchar(150) DEFAULT NULL,
   `title` varchar(150) DEFAULT NULL,
   `paragraph` varchar(150) DEFAULT NULL,
-  `para_left` text,
+  `para_left` text DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `heading` text,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `heading` text DEFAULT NULL,
   `heading_size` varchar(50) DEFAULT NULL,
-  `text_left` text,
+  `text_left` text DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `text_right` text
+  `text_right` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1303,8 +1303,8 @@ CREATE TABLE `requests` (
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1346,8 +1346,8 @@ CREATE TABLE `section_15` (
   `flex_row_reverse` varchar(160) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1379,14 +1379,14 @@ CREATE TABLE `section_16` (
   `page_id` int(11) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
-  `text` text,
+  `text` text DEFAULT NULL,
   `heading1` varchar(150) DEFAULT NULL,
   `heading2` varchar(150) DEFAULT NULL,
   `heading` varchar(250) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1418,12 +1418,12 @@ CREATE TABLE `section_17` (
   `name` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
   `title` varchar(150) DEFAULT NULL,
-  `paragraph` text,
+  `paragraph` text DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1454,8 +1454,8 @@ CREATE TABLE `section_18` (
   `link` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1491,8 +1491,8 @@ CREATE TABLE `section_19` (
   `title` varchar(150) DEFAULT NULL,
   `paragraph` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1523,8 +1523,8 @@ CREATE TABLE `section_20` (
   `btn_class` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -1548,8 +1548,8 @@ CREATE TABLE `section_21` (
   `video_name` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -1580,8 +1580,8 @@ CREATE TABLE `section_22` (
   `text` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -1612,8 +1612,8 @@ CREATE TABLE `section_23` (
   `title` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1635,11 +1635,11 @@ CREATE TABLE `seo` (
   `id` int(11) NOT NULL,
   `meta_title` varchar(1000) DEFAULT NULL,
   `slug` varchar(120) DEFAULT NULL,
-  `meta_desc` text,
-  `meta_keyword` text,
-  `google_tag_manager` text,
-  `facebook_pixel` text,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `meta_desc` text DEFAULT NULL,
+  `meta_keyword` text DEFAULT NULL,
+  `google_tag_manager` text DEFAULT NULL,
+  `facebook_pixel` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1665,8 +1665,8 @@ CREATE TABLE `services` (
   `bootstra_class_name` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -1716,7 +1716,7 @@ CREATE TABLE `settings` (
   `page_url` varchar(255) DEFAULT NULL,
   `page_name` varchar(255) DEFAULT NULL,
   `status` enum('Active','Inactive') DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1754,8 +1754,8 @@ CREATE TABLE `sliders` (
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
   `style` varchar(200) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1787,13 +1787,13 @@ INSERT INTO `sliders` (`id`, `page_id`, `name`, `padingTop`, `paddingBottom`, `i
 
 CREATE TABLE `social` (
   `id` int(11) NOT NULL,
-  `fb` text,
-  `insta` text,
-  `linedin` text,
-  `twitter` text,
+  `fb` text DEFAULT NULL,
+  `insta` text DEFAULT NULL,
+  `linedin` text DEFAULT NULL,
+  `twitter` text DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `body` text,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `body` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1815,8 +1815,8 @@ CREATE TABLE `social_media` (
   `icon` varchar(150) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `link` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1836,12 +1836,12 @@ INSERT INTO `social_media` (`id`, `icon`, `name`, `link`, `created_at`, `updated
 
 CREATE TABLE `stmp` (
   `id` int(11) NOT NULL,
-  `host` text,
+  `host` text DEFAULT NULL,
   `username` varchar(1000) DEFAULT NULL,
   `password` varchar(1000) DEFAULT NULL,
   `port` varchar(255) DEFAULT NULL,
   `encpt` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1865,7 +1865,7 @@ CREATE TABLE `sub_child_menus` (
   `item_name` varchar(255) DEFAULT NULL,
   `item_link` varchar(255) DEFAULT NULL,
   `sorting` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -2033,8 +2033,8 @@ CREATE TABLE `teams` (
   `name` varchar(250) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -2138,8 +2138,8 @@ CREATE TABLE `videos` (
   `button_label` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
