@@ -158,22 +158,7 @@ var swiper = new Swiper('.swiper-container',{
           }else if(this.activeIndex === 16) {
             var BgImageUrl_16 = app_url+'/public/background_industries/'+bg_img['background_16']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl_16 + ")");
-        }else if(this.activeIndex === 17) {
-            var BgImageUrl_17 = app_url+'/public/background_industries/'+bg_img['background_17']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_17 + ")");
-        }else if(this.activeIndex === 18) {
-            var BgImageUrl_18 = app_url+'/public/background_industries/'+bg_img['background_18']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_18 + ")");
-        }else if(this.activeIndex === 19) {
-            var BgImageUrl_19 = app_url+'/public/background_industries/'+bg_img['background_19']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_19 + ")");
-        }else if(this.activeIndex === 20) {
-            var BgImageUrl_20 = app_url+'/public/background_industries/'+bg_img['background_20']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_20 + ")");
-        }else if(this.activeIndex === 21) {
-            var BgImageUrl_21 = app_url+'/public/background_industries/'+bg_img['background_21']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_21 + ")");
-          }
+        }
       });
     
   

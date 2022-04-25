@@ -553,11 +553,7 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
                       $Array['background_14'] = $industries[14]->background_image;
                       $Array['background_15'] = $industries[15]->background_image;
                       $Array['background_16'] = $industries[16]->background_image;
-                      $Array['background_17'] = $industries[17]->background_image;
-                      $Array['background_18'] = $industries[18]->background_image;
-                      $Array['background_19'] = $industries[19]->background_image;
-                      $Array['background_20'] = $industries[20]->background_image;
-                      $Array['background_21'] = $industries[21]->background_image;
+                      
 
               $final_Result = $Array;
               $industries_json = json_encode($final_Result);
