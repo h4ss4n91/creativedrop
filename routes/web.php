@@ -36,7 +36,6 @@ Route::get('/admin/system', 'BackendController@system');
 Route::get('/c/contact', 'WelcomeController@contact');
 Route::get('/work/{id}', 'WelcomeController@work');
 
-
 Route::get('/admin/page_section_id/{id}', 'BackendController@page_section_id')->name('admin.page_section_id');
 Route::get('/admin/page_section_id_for_component/{id}/{value}', 'BackendController@page_section_id_for_component')->name('admin.page_section_id_for_component');
 

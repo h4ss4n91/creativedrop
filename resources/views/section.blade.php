@@ -985,7 +985,7 @@ $client_and_partner = DB::table('clientandparterimage')->where('name', '=', $row
 $industries = DB::table('industries')->where('name', '=', $row_pages->section_type)->get();
 @endphp
 
-<section class="section-bg-black section-padtop-@if(!$industries->isEmpty()){{$industries[0]->padding_top}}@endif section-padbottom-@if(!$industries->isEmpty()){{$industries[0]->padding_bottom}}@endif creative-slider" style="background: url('http://localhost/cd/creativedrop/public/industries/FMCG3.jpg') no-repeat center center;">
+<section class="section-bg-black section-padtop-@if(!$industries->isEmpty()){{$industries[0]->padding_top}}@endif section-padbottom-@if(!$industries->isEmpty()){{$industries[0]->padding_bottom}}@endif creative-slider" style="background: url('{{env('APP_URL')}}/public/industries/FMCG3.jpg') no-repeat center center;">
     <div class="creative-slider-blur"></div>
     <div class="slide-container">
         <div class="row">
