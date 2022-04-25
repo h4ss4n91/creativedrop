@@ -170,7 +170,7 @@
                                                                                                         <div class="form-group">
                                                                                                             <div class="controls">
                                                                                                                 <label for="account-username">Menu Link / Page Link</label>
-                                                                                                                <input type="text" value="{{$row_main_menu->menu_link}}" name="menu_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                <input type="text" value="{{$row_main_menu->menu_link}}" name="menu_link" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
@@ -178,7 +178,7 @@
                                                                                                         <div class="form-group">
                                                                                                             <div class="controls">
                                                                                                                 <label for="account-username">Sorting</label>
-                                                                                                                <input type="text" name="sorting" value="{{$row_main_menu->sorting}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                <input type="text" name="sorting" value="{{$row_main_menu->sorting}}" class="form-control" id="account-username" data-validation-required-message="This username field is required">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
@@ -358,7 +358,7 @@
                                                                                                     <div class="form-group">
                                                                                                         <div class="controls">
                                                                                                             <label for="account-username">Menu Link / Page Link</label>
-                                                                                                            <input type="text" value="{{$row_child_menus->item_link}}" name="item_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                            <input type="text" value="{{$row_child_menus->item_link}}" name="item_link" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -555,7 +555,7 @@
                                                                                                             <div class="form-group">
                                                                                                                 <div class="controls">
                                                                                                                     <label for="account-username">3rd Level Menu Link / Page Link</label>
-                                                                                                                    <input type="text" value="{{$row_sub_child_menus->item_link}}" name="edit_sub_child_item_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                    <input type="text" value="{{$row_sub_child_menus->item_link}}" name="edit_sub_child_item_link" class="form-control" id="account-username"  data-validation-required-message="This username field is required">
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>
@@ -564,7 +564,7 @@
                                                                                                             <div class="form-group">
                                                                                                                 <div class="controls">
                                                                                                                     <label for="account-username">Sorting</label>
-                                                                                                                    <input type="text" value="{{$row_sub_child_menus->sorting}}" name="sorting" class="form-control" required data-validation-required-message="This username field is required">
+                                                                                                                    <input type="text" value="{{$row_sub_child_menus->sorting}}" name="sorting" class="form-control"  data-validation-required-message="This username field is required">
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>

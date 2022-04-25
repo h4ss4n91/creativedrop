@@ -533,6 +533,38 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
       </div>
     </div>
   </div>
+              @php
+              $industries = DB::table('industries')->select('background_image')->get();
+              $Array = [];
+                      $Array['background_0'] = $industries[0]->background_image;
+                      $Array['background_1'] = $industries[1]->background_image;
+                      $Array['background_2'] = $industries[2]->background_image;
+                      $Array['background_3'] = $industries[3]->background_image;
+                      $Array['background_4'] = $industries[4]->background_image;
+                      $Array['background_5'] = $industries[5]->background_image;
+                      $Array['background_6'] = $industries[6]->background_image;
+                      $Array['background_7'] = $industries[7]->background_image;
+                      $Array['background_8'] = $industries[8]->background_image;
+                      $Array['background_9'] = $industries[9]->background_image;
+                      $Array['background_10'] = $industries[10]->background_image;
+                      $Array['background_11'] = $industries[11]->background_image;
+                      $Array['background_12'] = $industries[12]->background_image;
+                      $Array['background_13'] = $industries[13]->background_image;
+                      $Array['background_14'] = $industries[14]->background_image;
+                      $Array['background_15'] = $industries[15]->background_image;
+                      $Array['background_16'] = $industries[16]->background_image;
+                      
+
+              $final_Result = $Array;
+              $industries_json = json_encode($final_Result);
+              $url = env('APP_URL');
+            @endphp
+
+            <script>
+                var industries_js_var = '<?php echo $industries_json; ?>';
+                var app_url = '<?php echo $url; ?>';
+            </script>
+
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
