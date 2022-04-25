@@ -100,101 +100,87 @@ var swiper = new Swiper('.swiper-container',{
             
     //       }
     //   });
-
-    $.each(JSON.parse(industries_js_var), function(key, value) {
+    var bg_img = JSON.parse(industries_js_var)
+    console.log(bg_img);
+    // var img = 'http://localhost/cd/creativedrop/public/background_industries/Cosmetics-_-Beauty.jpg';
+  
         swiper.on('slideChange', function () {
         // console.log(value);
         // console.log(key);
         if(this.activeIndex === 0) {
-            if(key == 0){
-                console.log(value);
-            }
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+             var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_0']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
             
           }else if(this.activeIndex === 1) {
-            if(key == 1){
-                console.log(value);
-            }
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_1']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
             
           }else if(this.activeIndex === 2) {
-            if(key == 2){
-                console.log(value);
-            }
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_2']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
             
           }else if(this.activeIndex === 3) {
-            if(key == 3){
-                console.log(value);
-            }
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_3']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 4) {
-            if(key == 4){
-                console.log(value);
-            }
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_4']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 5) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_5']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 6) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_6']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 7) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_7']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 8) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_8']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 9) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_9']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 10) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_10']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 11) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_11']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 12) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_12']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 13) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_13']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 14) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_14']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 15) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_15']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }else if(this.activeIndex === 16) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_16']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
         }else if(this.activeIndex === 17) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_17']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
         }else if(this.activeIndex === 18) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            //var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_18']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
         }else if(this.activeIndex === 19) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_19']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
         }else if(this.activeIndex === 20) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_20']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
         }else if(this.activeIndex === 21) {
-            var BgImageUrl = $('.swiper-slide-next img').attr('src')
+            var BgImageUrl = 'http://localhost/cd/creativedrop/public/background_industries/'+bg_img['background_21']
             $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
           }
       });
     
   
-});
-    
 
 
 

@@ -271,7 +271,7 @@
 
                                                                                     </div>
                                                                                     <div class="col-4">
-                                                                                        <img style="width:100px" src="{{asset('public/industries/'.$row_industries->background_image)}}" />
+                                                                                        <img style="width:100px" src="{{asset('public/background_industries/'.$row_industries->background_image)}}" />
                                                                                     </div>
 
 
