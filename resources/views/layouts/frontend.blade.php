@@ -533,6 +533,41 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
       </div>
     </div>
   </div>
+              @php
+              $industries = DB::table('industries')->select('background_image')->get();
+              $Array = [];
+                      $Array['background_0'] = $industries[0]->background_image;
+                      $Array['background_1'] = $industries[1]->background_image;
+                      $Array['background_2'] = $industries[2]->background_image;
+                      $Array['background_3'] = $industries[3]->background_image;
+                      $Array['background_4'] = $industries[4]->background_image;
+                      $Array['background_5'] = $industries[4]->background_image;
+                      $Array['background_6'] = $industries[4]->background_image;
+                      $Array['background_7'] = $industries[4]->background_image;
+                      $Array['background_8'] = $industries[4]->background_image;
+                      $Array['background_9'] = $industries[4]->background_image;
+                      $Array['background_10'] = $industries[4]->background_image;
+                      $Array['background_11'] = $industries[4]->background_image;
+                      $Array['background_12'] = $industries[4]->background_image;
+                      $Array['background_13'] = $industries[4]->background_image;
+                      $Array['background_14'] = $industries[4]->background_image;
+                      $Array['background_15'] = $industries[4]->background_image;
+                      $Array['background_16'] = $industries[4]->background_image;
+                      $Array['background_17'] = $industries[4]->background_image;
+                      $Array['background_18'] = $industries[4]->background_image;
+                      $Array['background_19'] = $industries[4]->background_image;
+                      $Array['background_20'] = $industries[4]->background_image;
+                      $Array['background_21'] = $industries[4]->background_image;
+
+              $final_Result = $Array;
+              $industries_json = json_encode($final_Result);
+            @endphp
+
+            <script>
+                var industries_js_var = '<?php echo $industries_json; ?>';
+                
+            </script>
+
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
