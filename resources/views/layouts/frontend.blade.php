@@ -561,11 +561,12 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
 
               $final_Result = $Array;
               $industries_json = json_encode($final_Result);
+              $url = env('APP_URL');
             @endphp
 
             <script>
                 var industries_js_var = '<?php echo $industries_json; ?>';
-                
+                var app_url = '<?php echo $url; ?>';
             </script>
 
 
