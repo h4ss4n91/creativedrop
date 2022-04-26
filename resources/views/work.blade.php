@@ -23,7 +23,7 @@
                                             <form>
                                                     @foreach($main_menu as $row_main_menu)
                                                     <div class="custom-control custom-checkbox">
-                                                        <input onclick="two_service_clicked(this);" type="checkbox" value="{{$row_main_menu->menu_link}}" class="custom-control-input" id="customCheck{{$row_main_menu->id}}">
+                                                        <input onclick="service_clicked(this);" type="checkbox" value="{{$row_main_menu->menu_link}}" class="custom-control-input" id="customCheck{{$row_main_menu->id}}">
                                                         <label class="custom-control-label" for="customCheck{{$row_main_menu->id}}">{{$row_main_menu->menu_name}}</label>
                                                     </div>
                                                     @endforeach

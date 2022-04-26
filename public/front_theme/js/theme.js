@@ -50,6 +50,8 @@ $(document).ready(function() {
 
 var swiper = new Swiper('.swiper-container',{
             slidesPerView: 'auto',
+            spaceBetween: 20,
+            slidesPerGroup: 1,
             speed: 1000,
             loop: true,
             loopFillGroupWithBlank: true,
@@ -65,6 +67,7 @@ var swiper = new Swiper('.swiper-container',{
                             slidesPerView: 2,
                             spaceBetween: 20,
                         },
+                        // when window width is >= 480px
                         480: {
                             slidesPerView: 3,
                             spaceBetween: 20,
@@ -337,7 +340,7 @@ $(document).ready(function() {
                 if (main_service_values_id.length > 0) {
                     // some values selected
                     $.ajax({
-                        url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                        url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                         method: "GET",
                         beforeSend: function() {
                             $("#loading-image").show();
@@ -382,7 +385,7 @@ $(document).ready(function() {
                 } else {
                     $('.main_service_tag').remove();
                     $.ajax({
-                        url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                        url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                         method: "GET",
                         beforeSend: function() {
                             $("#loading-image").show();
@@ -439,7 +442,7 @@ $(document).ready(function() {
 
                 if (main_service_values_id.length > 0) {
                     $.ajax({
-                        url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                        url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                         method: "GET",
                         beforeSend: function() {
                             $("#loading-image").show();
@@ -480,7 +483,7 @@ $(document).ready(function() {
                 } else {
                     $('.sub_service_tag').remove();
                     $.ajax({
-                        url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                        url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                         method: "GET",
                         beforeSend: function() {
                             $("#loading-image").show();
@@ -534,7 +537,7 @@ $(document).ready(function() {
 
                 if (main_service_values_id.length > 0) {
                     $.ajax({
-                        url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                        url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                         method: "GET",
                         beforeSend: function() {
                             $("#loading-image").show();
@@ -576,7 +579,7 @@ $(document).ready(function() {
                 } else {
 
                     $.ajax({
-                        url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                        url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                         method: "GET",
                         beforeSend: function() {
                             $("#loading-image").show();
@@ -631,7 +634,7 @@ $(document).ready(function() {
             if (main_service_values.length > 0) {
                 $('.sub_category_new').show();
                 $.ajax({
-                    url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                    url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                     method: "GET",
                     beforeSend: function() {
                             $("#loading-image").show();
@@ -679,7 +682,7 @@ $(document).ready(function() {
             } else {
                 $('.sub_category_new').hide();
                 $.ajax({
-                    url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                    url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                     method: "GET",
                     beforeSend: function() {
                             $("#loading-image").show();
@@ -735,7 +738,7 @@ $(document).ready(function() {
             if (sub_service_values.length > 0) {
 
                 $.ajax({
-                    url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                    url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                     method: "GET",
                     beforeSend: function() {
                             $("#loading-image").show();
@@ -780,7 +783,7 @@ $(document).ready(function() {
                 $('.sub_service_tag').remove();
 
                 $.ajax({
-                    url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                    url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                     method: "GET",
                     beforeSend: function() {
                             $("#loading-image").show();
@@ -834,7 +837,7 @@ $(document).ready(function() {
             if (industry_values.length > 0) {
 
                 $.ajax({
-                    url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                    url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                     method: "GET",
                     beforeSend: function() {
                             $("#loading-image").show();
@@ -878,7 +881,7 @@ $(document).ready(function() {
             } else {
                 $('.main_service_tag').remove();
                 $.ajax({
-                    url: app_url+"/ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
+                    url: "ajax_call/" + calculateID(dropdown_1st_results_id) + '/' + calculateID(dropdown_2nd_results_id) + '/' + calculateID(dropdown_3rd_results_id),
                     method: "GET",
                     beforeSend: function() {
                             $("#loading-image").show();
