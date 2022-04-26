@@ -148,12 +148,26 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
           <ul class="navbar-nav navbar-light mr-auto">
             <a class="navbar-brand" href="{{url('/')}}"><img src="{{asset('public/front_theme/images/logo.png')}}" alt="Creative Drop" class="img-fluid"></a>
 
-
-            <li class="nav-item active"><a class="nav-link" href="{{url('work')}}">Work</a></li>
+            @php
+              $segment = \Request::segment(1);
+              
+              $menu_name = DB::table('sub_child_menus')
+                  ->join('child_menus', 'child_menus.id', '=', 'sub_child_menus.child_menu_id')
+                  ->join('menus', 'menus.id', '=', 'child_menus.menu_id')
+                  ->where('sub_child_menus.item_link','=',$segment)
+                  ->get();
+                
+            @endphp
+                @foreach($menu_name as $row)
+                @php
+                  $segment_two = $row->menu_name;
+                @endphp
+                @endforeach
+            <li class="nav-item @if($segment == 'work') active @endif"><a class="nav-link" href="{{url('work')}}">Work</a></li>
 
             @foreach($main_menu as $row_main_menu)
 
-            <li class="nav-item dropdown megamenu-li dmenu">
+            <li class="nav-item @if(isset($segment_two)) @if($segment_two == $row_main_menu->menu_name) active @endif @endif  dropdown megamenu-li dmenu">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown01" aria-haspopup="true" aria-expanded="false">{{$row_main_menu->menu_name}}</a>
               <div class="dropdown-menu megamenu sm-menu border-top" aria-labelledby="dropdown01" style="display: none;">
                 <section class="design-menu section-padtop-50 section-padbottom-50">
@@ -168,7 +182,7 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
 
                       <div class="col-md">
                         <div class="sub-links">
-                          <h6 class="web-h6 web-border-bottom pb-4 mb-0"><a href="#" class="web-bold">{{$row_sub_menu->item_name}}</a></h6>
+                          <h6 class="web-h6 web-border-bottom pb-4 mb-0"><a href="{{URL::to($row_sub_menu->item_link)}}" class="web-bold">{{$row_sub_menu->item_name}}</a></h6>
                           <ul class="mt-3">
                             @php
                             $sub_child_menu = DB::table('sub_child_menus')->where('child_menu_id','=',$row_sub_menu->id)->orderBy('sorting','ASC')->get();
@@ -205,8 +219,8 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
             @endforeach
 
             <!--====-->
-            <li class="nav-item"><a class="nav-link" href="{{url('agency')}}">Agency</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{url('/c/contact')}}">Contact us</a></li>
+            <li class="nav-item @if($segment == 'work') Agency @endif"><a class="nav-link" href="{{url('agency')}}">Agency</a></li>
+            <li class="nav-item @if($segment == 'work') Contact us @endif"><a class="nav-link" href="{{url('/c/contact')}}">Contact us</a></li>
             <form class="form-inline my-2 my-lg-0 ml-auto">
 
               <a href="mailto:info@creativedrop.com" class="btn web-btn web-btn-white">Email</a>
