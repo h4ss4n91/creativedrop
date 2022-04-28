@@ -32,13 +32,14 @@ class WelcomeController extends Controller
     public function work($id){
         
         $industries = DB::table('industries')->where('slug', '=', $id)->first();
+        $industry_name = $industries->slug;
+        $industry_id = $industries->id;
         $case_study = DB::table('case_study')
             ->join('case_study_industries', 'case_study.id', '=', 'case_study_industries.case_study_id')
             ->where('case_study_industries.industry_id', '=', $industries->id)
             ->get();
-        
         $main_menu = DB::table('menus')->where('menu_link','!=','#')->get();
-        return view('work', Compact('industries', 'main_menu','case_study'));
+        return view('work', Compact('industry_name','industry_id','industries', 'main_menu','case_study'));
     }
     public function test(){
       

@@ -57,7 +57,7 @@
                                 @endphp
                                 @foreach($industries as $row_industries)
                                 <div class="custom-control custom-checkbox">
-                                    <input onclick="industry_clicked(this);" type="checkbox" value="{{$row_industries->title}}" class="custom-control-input" id="customCheck_b{{$row_industries->id}}">
+                                    <input onclick="industry_clicked(this);" type="checkbox" value="{{$row_industries->title}}" @if($row_industries->id == $industry_id)checked @endif class="custom-control-input" id="customCheck_b{{$row_industries->id}}">
                                     <label class="custom-control-label" for="customCheck_b{{$row_industries->id}}">{{$row_industries->title}}</label>
                                 </div>
                                 @endforeach
@@ -76,7 +76,7 @@
                 <div class="portfolio-filters-tags">
 
                     <ul id="industries" class="list-inline mt-4 mb-3 p-0">
-
+                        <li class="main_service_tag list-inline-item">{{$industry_name}}<span><i id="customCheck_b{{$industry_id}}" onclick="remove_this_tag(this);" class="fas fa-times"></i></span></li>
                     </ul>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                         <p class="mb-0 p-14 pb-3">{{$row_case_study->short_description}}</p>
                     </div>
                     @php
-                    $industry_id = DB::table('case_study_industries')->where('case_study_id','=',$row_case_study->id)->get();
+                        $industry_id = DB::table('case_study_industries')->where('case_study_id','=',$row_case_study->id)->get();
                     @endphp
                     <ul id="industries_list" class="list-inline mt-4 mb-1 p-0">
                         
