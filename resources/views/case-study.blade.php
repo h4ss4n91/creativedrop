@@ -4,9 +4,9 @@
 @section('meta_keywords')@if(!$pages->isEmpty()){{$pages[0]->meta_keyword}}@endif @endsection
 
 
-<section class="section-padtop-100">
+<section class="section-padtop-50">
 </section>
-<section>
+<section class="mb-5">
     <div class="web-container-fluid cs-img">
         <section>
             <div class="design-banner-content w-100">
