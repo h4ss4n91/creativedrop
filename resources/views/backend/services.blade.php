@@ -64,10 +64,10 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <img style="width:70%" src="{{asset('public/page_sections/services.png')}}" />
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-8">
                                                     <form method="POST" action="{{url('admin/store_service')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
@@ -121,9 +121,9 @@
                                                                         <table class="table table-bordered">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th class="text-center">Service Name</th>
-                                                                                    <th class="text-center">Sub Service</th>
-                                                                                    <th class="text-center">Link</th>
+                                                                                    <th class="text-center">Main Service</th>
+                                                                                    <th class="text-center">2nd Level Service</th>
+                                                                                    <th class="text-center">3rd Level Service</th>
                                                                                     <th class="text-center"></th>
                                                                                 </tr>
                                                                             </thead>
@@ -152,8 +152,10 @@
                                                             <th>Section Name</th>
                                                             <th>CSS Class Name</th>
                                                             <th>Main Service</th>
-                                                            <th>Sub Service</th>
-                                                            <th>Sub Service Link</th>
+                                                            <th>2nd Level Service</th>
+                                                            <th>2nd Level Service Link</th>
+                                                            <th>3rd Level Service</th>
+                                                            <th>3rd Level Service Link</th>
                                                             <th>Padding</th>
                                                             <th>Action</th>
                                                         </tr>
@@ -164,6 +166,8 @@
                                                             <td>{{$row_services->name}}</td>
                                                             <td>{{$row_services->bootstra_class_name}}</td>
                                                             <td>{{$row_services->first_level_menu_name}}</td>
+                                                            <td>{{$row_services->second_level_menu_name}}</td>
+                                                            <td>{{$row_services->second_level_menu_link}}</td>
                                                             <td>{{$row_services->second_level_menu_name}}</td>
                                                             <td>{{$row_services->second_level_menu_link}}</td>
                                                             <td>Top: {{$row_services->padding_top}} <br/>

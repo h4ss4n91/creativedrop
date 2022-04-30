@@ -353,10 +353,12 @@
             @php
             $service = DB::table('menus')->get();
             $service_json = json_encode($service);
+            $url = env('APP_URL');
             @endphp
 
             <script>
                 var services_js_var = '<?php echo $service_json; ?>';
+                var app_url = '<?php echo $url; ?>';
             </script>
 
 
