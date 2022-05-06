@@ -1930,7 +1930,9 @@ class BackendController extends Controller {
                         'main_service' => $data['service'][$i],
                         'bootstra_class_name' => $data['class_name'],
                         'sub_service' => $data['sub_category'][$i],
-                        'sub_service_link' => $data['sub_service_link'][$i]
+                        'sub_service_link' => $data['sub_service_link'][$i],
+                        'third_service' => $data['third_category'][$i],
+                        'third_service_link' => $data['third_service_link'][$i]
                     ]
             );
         }

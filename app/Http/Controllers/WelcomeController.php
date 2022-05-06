@@ -211,11 +211,20 @@ class WelcomeController extends Controller
         $exp = explode(",",$id);
         
         $sub_category_id = DB::table('child_menus')->whereIn('id', $exp)->get();
+        $third_level_category_id = DB::table('sub_child_menus')->whereIn('child_menu_id', $exp)->get();
         
         $sub_category_id_array = [];
+        $third_level_category_id_array = [];
         $sub_category_menu_id_array = [];
         $main_category_id_array = [];
-        
+
+        foreach($third_level_category_id as $row_third_level_category){
+
+            $third_level_category_id_array[] = '<option value="'.$row_third_level_category->id.'">'.$row_third_level_category->item_name.'</option>';
+            
+            
+        }
+
 
         foreach($sub_category_id as $row_sub_category){
 
@@ -239,10 +248,17 @@ class WelcomeController extends Controller
         $final_mainCat = $main_category_id_array;
 
         $final_sub_category_id_array = $sub_category_id_array;
+        $final_third_level_category_id_array = $third_level_category_id_array;
         $final_class_nameArray = $class_nameArray;
 
         
-        return response()->json(["mainServices"=>$final_mainCat,"main_service_class"=>$final_mainCat_class, "subServices"=>$final_sub_category_id_array, "sub_category_link"=>$final_sub_category_id_array, "class_name"=>$final_class_nameArray]);
+        return response()->json(["mainServices"=>$final_mainCat,"main_service_class"=>$final_mainCat_class, "third_level_category"=>$final_third_level_category_id_array, "subServices"=>$final_sub_category_id_array, "sub_category_link"=>$final_sub_category_id_array, "class_name"=>$final_class_nameArray]);
+    }
+
+    public function third_services_by_id($id){
+        $third_level_cat_id = DB::table('sub_child_menus')->where('id', $id)->first();
+        $name =  $third_level_cat_id->item_link;
+        return response()->json(["name"=>$name]);
     }
 
     public function ajax_call($param1, $param2, $param3){

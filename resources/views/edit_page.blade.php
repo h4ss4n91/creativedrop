@@ -89,7 +89,7 @@
                                                 <div class="form-group">
                                                     <div class="controls">
                                                                 <label  style="font-weight:bold" for="account-username">Main Menu</label>
-                                                                <select id="edit_page_sections" class="form-control" name="main_menu_id">
+                                                                <select id="edit_page_section" class="form-control" name="main_menu_id">
                                                                 @php    
                                                                         $menus = DB::table('menus')->where('id', '=', $page[0]->menu_id)->get();
                                                                 @endphp

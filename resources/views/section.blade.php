@@ -813,7 +813,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
             </div>
             @foreach($services->unique('main_service') as $row)
 
-            <div class="col-6 col-md-6 col-lg-4">
+            <div class="col-6 col-md-6 col-lg-3">
                 <div class="service-links mt-5">
                     <h6 class="web-h6 web-border-bottom pb-4 mb-0">{{$row->first_level_menu_name}}</h6>
                     <ul class="mt-3">

@@ -42,6 +42,8 @@ Route::get('/admin/page_section_id_for_component/{id}/{value}', 'BackendControll
 Route::get('/services_by_id/{id}', 'WelcomeController@services_by_id')->name('services_by_id');
 Route::get('/sub_services_by_id/{id}', 'WelcomeController@sub_services_by_id')->name('sub_services_by_id');
 Route::get('/admin/sub_services_by_id/{id}', 'WelcomeController@sub_services_by_id')->name('sub_services_by_id');
+Route::get('/admin/third_services_by_id/{id}', 'WelcomeController@third_services_by_id')->name('third_services_by_id');
+
 Route::get('/industry_by_id/{id}', 'WelcomeController@industry_by_id')->name('industry_by_id');
 
 Route::get('/services_by_id_with_services/{id}', 'WelcomeController@services_by_id_with_services')->name('services_by_id_with_services');
