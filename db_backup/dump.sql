@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2022 at 08:00 AM
+-- Generation Time: May 03, 2022 at 03:51 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -643,20 +643,20 @@ CREATE TABLE `industries` (
 --
 
 INSERT INTO `industries` (`id`, `page_id`, `slug`, `service_id`, `sub_category_id`, `name`, `title`, `link`, `image`, `background_image`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
-(6, NULL, 'fmcg', NULL, NULL, 'one', 'FMCG', 'work', 'FMCG3.jpg', 'FMCG3.jpg', 70, 70, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(7, NULL, 'construction-infrastructure', NULL, NULL, 'one', 'Construction & Infrastructure', 'work', 'Construction-_-Architectural.jpg', 'Construction _ Infrastructure.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(6, NULL, 'fmcg', NULL, NULL, 'one', 'FMCG', 'work', 'FMCG3.jpg', 'FMCG.jpg', 70, 70, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(7, NULL, 'construction-infrastructure', NULL, NULL, 'one', 'Construction & Infrastructure', 'work', 'Construction-_-Architectural.jpg', 'Construction_Infrastructure.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
 (8, NULL, 'automobiles', NULL, NULL, 'one', 'Automobiles', 'work', 'Automobiles2.jpg', 'Automobiles.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
-(9, NULL, 'property-real-estate', NULL, NULL, 'one', 'Property & Real Estate', 'work', 'Property-_-Real-Estate.jpg', 'Property _ Real Estate.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
+(9, NULL, 'property-real-estate', NULL, NULL, 'one', 'Property & Real Estate', 'work', 'Property-_-Real-Estate.jpg', 'Property_RealEstate.jpg', 0, 0, '2022-01-08 09:53:45', '2022-01-08 09:53:45'),
 (37, NULL, 'education', NULL, NULL, 'one', 'Education', 'work', 'Education.jpg', 'Education.jpg', 0, 0, '2022-02-12 12:56:10', '2022-02-12 12:56:10'),
 (44, NULL, 'cosmetics-beauty', NULL, NULL, 'one', 'Cosmetics & Beauty', 'work', 'Cosmetics-_-Beauty.jpg', 'Cosmetics-_-Beauty.jpg', 0, 0, '2022-04-05 09:17:05', '2022-04-05 09:17:05'),
-(45, NULL, 'fashion-entertainment', NULL, NULL, 'one', 'Fashion & Entertainment', 'work', 'Fashion-_-Entertainment.jpg', 'Fashion _ Entertainment.jpg', 0, 0, '2022-04-05 09:22:00', '2022-04-05 09:22:00'),
-(46, NULL, 'technology-artificial-intelligence', NULL, NULL, 'one', 'Technology & Artificial Intelligence', 'work', 'Technology---Artificial----Intelligence.jpg', 'Technology _ Artificial Intelligence.png', 0, 0, '2022-04-05 09:24:42', '2022-04-05 09:24:42'),
+(45, NULL, 'fashion-entertainment', NULL, NULL, 'one', 'Fashion & Entertainment', 'work', 'Fashion-_-Entertainment.jpg', 'Fashion_Entertainment.jpg', 0, 0, '2022-04-05 09:22:00', '2022-04-05 09:22:00'),
+(46, NULL, 'technology-artificial-intelligence', NULL, NULL, 'one', 'Technology & Artificial Intelligence', 'work', 'Technology---Artificial----Intelligence.jpg', 'Technology_ArtificialIntelligence.png', 0, 0, '2022-04-05 09:24:42', '2022-04-05 09:24:42'),
 (47, NULL, 'healthcare-aesthetics', NULL, NULL, 'one', 'Healthcare & Aesthetics', 'work', 'Healthcare2.jpg', 'Healthcare2.jpg', 0, 0, '2022-04-05 09:47:11', '2022-04-05 09:47:11'),
-(48, NULL, 'oil-gas', NULL, NULL, 'one', 'Oil & Gas', 'work', 'Oil-_-Gas.jpg', 'Oil and Gas.jpg', 0, 0, '2022-04-05 10:12:52', '2022-04-05 10:12:52'),
+(48, NULL, 'oil-gas', NULL, NULL, 'one', 'Oil & Gas', 'work', 'Oil-_-Gas.jpg', 'OilandGas.jpg', 0, 0, '2022-04-05 10:12:52', '2022-04-05 10:12:52'),
 (49, NULL, 'aviation', NULL, NULL, 'one', 'Aviation', 'work', 'Aviation.jpg', 'Aviation.jpg', 0, 0, '2022-04-05 10:15:40', '2022-04-05 10:15:40'),
-(50, NULL, 'land-agriculture', NULL, NULL, 'one', 'Land & Agriculture', 'work', 'Land-_-Agriculture.jpg', 'Land _ Agriculture.jpeg', 0, 0, '2022-04-05 10:20:44', '2022-04-05 10:20:44'),
-(51, NULL, 'travels-tourism', NULL, NULL, 'one', 'Travels & Tourism', 'work', 'Travels-_-Tourism2.jpg', 'Travels _ Tourism.webp', 0, 0, '2022-04-05 10:23:29', '2022-04-05 10:23:29'),
-(53, NULL, 'gold-trading', NULL, NULL, 'one', 'Gold Trading', 'work', 'gold trading.jpg', 'Gold Trading.jpg', 0, 0, '2022-04-06 07:13:06', '2022-04-06 07:13:06'),
+(50, NULL, 'land-agriculture', NULL, NULL, 'one', 'Land & Agriculture', 'work', 'Land-_-Agriculture.jpg', 'Land_Agriculture.jpeg', 0, 0, '2022-04-05 10:20:44', '2022-04-05 10:20:44'),
+(51, NULL, 'travels-tourism', NULL, NULL, 'one', 'Travels & Tourism', 'work', 'Travels-_-Tourism2.jpg', 'Travels_Tourism.webp', 0, 0, '2022-04-05 10:23:29', '2022-04-05 10:23:29'),
+(53, NULL, 'gold-trading', NULL, NULL, 'one', 'Gold Trading', 'work', 'gold trading.jpg', 'GoldTrading.jpg', 0, 0, '2022-04-06 07:13:06', '2022-04-06 07:13:06'),
 (54, NULL, 'food-beverages', NULL, NULL, 'one', 'Food & Beverages', 'work', 'Food-_-Beverages.jpg', 'Food-_-Beverages.jpg', 0, 0, '2022-04-09 10:19:02', '2022-04-09 10:19:02'),
 (55, NULL, 'finance-corporate', NULL, NULL, 'one', 'Finance & Corporate', 'work', 'Finance-_-Corporate.jpg', 'Finance-_-Corporate.jpg', 0, 0, '2022-04-09 10:56:27', '2022-04-09 10:56:27'),
 (56, NULL, 'trading-logistics', NULL, NULL, 'one', 'Trading & Logistics', 'work', 'Trading-_-Logistics.jpg', 'Trading-_-Logistics.jpg', 0, 0, '2022-04-09 10:57:48', '2022-04-09 10:57:48');
@@ -891,7 +891,8 @@ INSERT INTO `page` (`id`, `menu_id`, `sub_menu_id`, `child_menu_id`, `title`, `b
 (53, '2', '5', '31', 'UI and UX Design', NULL, NULL, 'ui-and-ux-design', NULL, NULL, 'agency', 'N', NULL, '2022-02-24 12:08:36', '2022-02-24 12:08:36'),
 (54, '1', '3', '20', 'Pre-Qualification Design', NULL, NULL, 'pre-qualification-design', NULL, NULL, 'agency meta description', 'N', NULL, '2022-02-24 12:11:04', '2022-02-24 12:11:04'),
 (55, '1', '2', '7', 'Creative Ads Design', NULL, NULL, 'creative-ads-design', NULL, 'meta keywords', 'meta description for work', 'N', NULL, '2022-02-24 12:13:31', '2022-02-24 12:13:31'),
-(56, '1', '3', '17', 'Brochure Design', NULL, NULL, 'brochure-design', 'Published', 'meta keywords', 'agency', 'N', NULL, '2022-02-24 12:18:39', '2022-02-24 12:18:39');
+(56, '1', '3', '17', 'Brochure Design', NULL, NULL, 'brochure-design', 'Published', 'meta keywords', 'agency', 'N', NULL, '2022-02-24 12:18:39', '2022-02-24 12:18:39'),
+(58, '1', '1', '1', 'graphic-design', NULL, NULL, 'graphic-design', NULL, NULL, 'Graphic Design', 'N', NULL, '2022-04-29 23:41:45', '2022-04-29 23:41:45');
 
 -- --------------------------------------------------------
 
@@ -1045,7 +1046,8 @@ INSERT INTO `page_detail` (`id`, `page_id`, `section_no`, `section`, `section_ty
 (1849, 41, 2, 4, 'case study 1', '2022-04-14 09:41:25', '2022-04-14 09:41:25'),
 (1850, 41, 3, 5, 'services-for-work-page', '2022-04-14 09:41:25', '2022-04-14 09:41:25'),
 (1851, 41, 4, 9, 'meeting', '2022-04-14 09:41:25', '2022-04-14 09:41:25'),
-(1852, 41, 5, 19, 'padding-y-50', '2022-04-14 09:41:25', '2022-04-14 09:41:25');
+(1852, 41, 5, 19, 'padding-y-50', '2022-04-14 09:41:25', '2022-04-14 09:41:25'),
+(1853, 58, 1, 1, 'home-slider', '2022-04-29 23:41:45', '2022-04-29 23:41:45');
 
 -- --------------------------------------------------------
 
@@ -1662,6 +1664,8 @@ CREATE TABLE `services` (
   `main_service` varchar(150) DEFAULT NULL,
   `sub_service` varchar(150) DEFAULT NULL,
   `sub_service_link` varchar(160) DEFAULT NULL,
+  `third_service` varchar(150) DEFAULT NULL,
+  `third_service_link` varchar(150) DEFAULT NULL,
   `bootstra_class_name` varchar(150) DEFAULT NULL,
   `padding_top` int(11) DEFAULT NULL,
   `padding_bottom` int(11) DEFAULT NULL,
@@ -1673,37 +1677,43 @@ CREATE TABLE `services` (
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`id`, `name`, `main_service`, `sub_service`, `sub_service_link`, `bootstra_class_name`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
-(118, 'services-for-work-page', '4', '14', 'social-media-marketing', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(117, 'services-for-work-page', '4', '13', 'digital-marketing', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(119, 'services-for-work-page', '4', '15', 'consultancy', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(116, 'services-for-work-page', '3', '12', '2d-animation', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(115, 'services-for-work-page', '3', '11', '3d-animation', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(114, 'services-for-work-page', '3', '10', 'photography', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(113, 'services-for-work-page', '3', '9', 'videography', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(112, 'services-for-work-page', '2', '8', 'support', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(111, 'services-for-work-page', '2', '7', 'mobile-apps', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(110, 'services-for-work-page', '2', '6', 'websites', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(109, 'services-for-work-page', '2', '5', 'product-design', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(108, 'services-for-work-page', '1', '4', 'presentations', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(106, 'services-for-work-page', '1', '2', 'graphic-design', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(107, 'services-for-work-page', '1', '3', 'brouchers', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(105, 'services-for-work-page', '1', '1', 'branding-services', 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
-(104, 'section 5', '4', '15', 'consultancy', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(103, 'section 5', '4', '14', 'social-media-marketing', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(102, 'section 5', '4', '13', 'digital-marketing', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(101, 'section 5', '3', '12', '2d-animation', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(100, 'section 5', '3', '11', '3d-animation', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(99, 'section 5', '3', '10', 'photography', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(98, 'section 5', '3', '9', 'videography', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(97, 'section 5', '2', '8', 'support', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(96, 'section 5', '2', '7', 'mobile-apps', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(95, 'section 5', '2', '6', 'websites', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(94, 'section 5', '2', '5', 'product-design', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(93, 'section 5', '1', '4', 'presentations', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(92, 'section 5', '1', '3', 'brouchers', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(91, 'section 5', '1', '2', 'graphic-design', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
-(90, 'section 5', '1', '1', 'branding-services', 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02');
+INSERT INTO `services` (`id`, `name`, `main_service`, `sub_service`, `sub_service_link`, `third_service`, `third_service_link`, `bootstra_class_name`, `padding_top`, `padding_bottom`, `created_at`, `updated_at`) VALUES
+(118, 'services-for-work-page', '4', '14', 'social-media-marketing', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(117, 'services-for-work-page', '4', '13', 'digital-marketing', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(119, 'services-for-work-page', '4', '15', 'consultancy', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(116, 'services-for-work-page', '3', '12', '2d-animation', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(115, 'services-for-work-page', '3', '11', '3d-animation', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(114, 'services-for-work-page', '3', '10', 'photography', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(113, 'services-for-work-page', '3', '9', 'videography', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(112, 'services-for-work-page', '2', '8', 'support', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(111, 'services-for-work-page', '2', '7', 'mobile-apps', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(110, 'services-for-work-page', '2', '6', 'websites', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(109, 'services-for-work-page', '2', '5', 'product-design', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(108, 'services-for-work-page', '1', '4', 'presentations', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(106, 'services-for-work-page', '1', '2', 'graphic-design', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(107, 'services-for-work-page', '1', '3', 'brouchers', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(105, 'services-for-work-page', '1', '1', 'branding-services', NULL, NULL, 'section-bg-white', 70, 70, '2022-04-15 06:36:30', '2022-04-15 06:36:30'),
+(104, 'section 5', '4', '15', 'consultancy', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(103, 'section 5', '4', '14', 'social-media-marketing', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(102, 'section 5', '4', '13', 'digital-marketing', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(101, 'section 5', '3', '12', '2d-animation', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(100, 'section 5', '3', '11', '3d-animation', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(99, 'section 5', '3', '10', 'photography', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(98, 'section 5', '3', '9', 'videography', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(97, 'section 5', '2', '8', 'support', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(96, 'section 5', '2', '7', 'mobile-apps', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(95, 'section 5', '2', '6', 'websites', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(94, 'section 5', '2', '5', 'product-design', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(93, 'section 5', '1', '4', 'presentations', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(92, 'section 5', '1', '3', 'brouchers', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(91, 'section 5', '1', '2', 'graphic-design', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(90, 'section 5', '1', '1', 'branding-services', NULL, NULL, 'section-bg-grey-grad', 70, 70, '2022-04-15 06:34:02', '2022-04-15 06:34:02'),
+(120, 'one', '1', '1', 'branding-services', '1', 'graphic-design', 'section-bg-grey-grad', 70, 70, '2022-04-30 01:56:01', '2022-04-30 01:56:01'),
+(121, 'one', '1', '1', 'branding-services', '2', 'corporate-branding', 'section-bg-grey-grad', 70, 70, '2022-04-30 01:58:00', '2022-04-30 01:58:00'),
+(122, 'one', '1', '1', 'branding-services', '3', 'brand-guildeline-book', 'section-bg-grey-grad', 70, 70, '2022-04-30 01:58:00', '2022-04-30 01:58:00'),
+(123, 'one', '1', '1', 'branding-services', '4', 'packaging-design', 'section-bg-grey-grad', 70, 70, '2022-04-30 01:58:00', '2022-04-30 01:58:00'),
+(124, 'one', '1', '1', 'branding-services', '5', 'uniform-branding', 'section-bg-grey-grad', 70, 70, '2022-04-30 01:58:00', '2022-04-30 01:58:00'),
+(126, 'one', '1', '1', 'branding-services', '6', 'vehicle-branding', 'section-bg-grey-grad', 70, 70, '2022-04-30 01:58:00', '2022-04-30 01:58:00');
 
 -- --------------------------------------------------------
 
@@ -1874,7 +1884,7 @@ CREATE TABLE `sub_child_menus` (
 --
 
 INSERT INTO `sub_child_menus` (`id`, `menu_id`, `child_menu_id`, `item_name`, `item_link`, `sorting`, `created_at`, `updated_at`) VALUES
-(1, NULL, 1, 'Logo Design', 'logo-design', NULL, '2021-07-24 12:07:43', '2021-07-24 12:07:43'),
+(1, NULL, 1, 'Logo Design', 'graphic-design', NULL, '2021-07-24 12:07:43', '2021-07-24 12:07:43'),
 (2, NULL, 1, 'Corporate Branding', 'corporate-branding', NULL, '2021-07-24 12:08:29', '2021-07-24 12:08:29'),
 (3, NULL, 1, 'Brand Guideline Book', 'brand-guildeline-book', NULL, '2021-07-24 12:08:38', '2021-07-24 12:08:38'),
 (4, NULL, 1, 'Brand Packaging Design', 'packaging-design', NULL, '2021-07-24 12:08:56', '2021-07-24 12:08:56'),
@@ -2608,13 +2618,13 @@ ALTER TABLE `news_and_opinions`
 -- AUTO_INCREMENT for table `page`
 --
 ALTER TABLE `page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `page_detail`
 --
 ALTER TABLE `page_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1853;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1854;
 
 --
 -- AUTO_INCREMENT for table `page_section`
@@ -2722,7 +2732,7 @@ ALTER TABLE `seo`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT for table `settings`

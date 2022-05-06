@@ -8,11 +8,19 @@ $(document).ready(function() {
     // jQuery button click event to add a row
     $('#ServiceaddBtn').on('click', function() {
         // Adding a row inside the tbody.
-        
+
         $('#Servicetbody').append(`<tr id="R${++ServicerowIdx}">
             <td class="row-index text-center"><select onchange="services(this);" id="service${ServicerowIdx}" name="service[]" class="form-control service${ServicerowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
-            <td class="row-index text-center"><select  onchange="sub_services_two(this);" id="sub_service${ServicerowIdx}" name="sub_category[]" class="sub_service${ServicerowIdx} form-control"><option>--Select Sub Category--</option></select></td>
-            <td class="row-index text-center"><input onchange="third_level_services(this);" id="sub_service_link${ServicerowIdx}" name="sub_service_link[]" class="form-control sub_service_link${ServicerowIdx}" type="text"/></td>
+            <td class="row-index text-center"><select  onchange="sub_services_two(this);" id="sub_service${ServicerowIdx}" name="sub_category[]" class="sub_service${ServicerowIdx} form-control"><option>--Select Sub Category--</option></select>
+            <br/>
+            <label style="float:left"> Sub Service Link </label>
+            <input onchange="third_level_services(this);" id="sub_service_link${ServicerowIdx}" name="sub_service_link[]" class="form-control sub_service_link${ServicerowIdx}" type="text"/>
+            </td>
+            <td class="row-index text-center"><select  onchange="third_services_two(this);" id="third_service${ServicerowIdx}" name="third_category[]" class="third_service${ServicerowIdx} form-control"><option>--Select Third Category--</option></select>
+            <br/>
+            <label style="float:left"> 3rd Level Service Link </label>
+            <input onchange="fourth_level_services(this);" id="third_service_link${ServicerowIdx}" name="third_service_link[]" class="form-control third_service_link${ServicerowIdx}" type="text"/>
+            </td>
             <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
             </tr>`);
 
