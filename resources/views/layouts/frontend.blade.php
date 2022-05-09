@@ -397,7 +397,7 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
               <h5 class="web-h5 web-border-bottom pb-3 mb-0">{{$footer_section_1[0]->name}}</h5>
               <ul class="mt-2">
                 @foreach($footer_section_1 as $row_fs_1)
-                <li><a href="{{$row_fs_1->link}}">{{$row_fs_1->menu}}</a></li>
+                <li><a href="{{URL::to($row_fs_1->link)}}">{{$row_fs_1->menu}}</a></li>
                 @endforeach
               </ul>
             </div>
@@ -410,7 +410,7 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
               <h5 class="web-h5 web-border-bottom pb-3 mb-0">{{$footer_section_2[0]->name}}</h5>
               <ul class="mt-2">
                 @foreach($footer_section_2 as $row_fs_2)
-                <li><a href="{{$row_fs_2->link}}">{{$row_fs_2->menu}}</a></li>
+                <li><a href="{{URL::to($row_fs_2->link)}}">{{$row_fs_2->menu}}</a></li>
                 @endforeach
               </ul>
             </div>
@@ -425,7 +425,7 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
               <h5 class="web-h5 web-border-bottom pb-3 mb-0">{{$footer_section_3[0]->name}}</h5>
               <ul class="mt-2">
                 @foreach($footer_section_3 as $row_fs_3)
-                <li><a href="{{$row_fs_3->link}}">{{$row_fs_3->menu}}</a></li>
+                <li><a href="{{URL::to($row_fs_3->link)}}">{{$row_fs_3->menu}}</a></li>
                 @endforeach
               </ul>
             </div>

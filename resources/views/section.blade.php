@@ -683,153 +683,29 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
 @elseif( $row_pages->section== '5' )
 @php
     $services = DB::table('services')
-        ->join('menus','menus.id','=','services.main_service')
         ->join('child_menus','child_menus.id','=','services.sub_service')
-        ->select('child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','menus.menu_name as first_level_menu_name', 'services.*')
+        ->select('child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','services.*')
         ->where('services.name', '=', $row_pages->section_type)
         ->get();
 @endphp
 <section id="section-2" class="@if(!$services->isEmpty()) {{$services[0]->bootstra_class_name}} @endif section-padtop-@if(!$services->isEmpty()){{$services[0]->padding_top}}@endif section-padbottom-@if(!$services->isEmpty()){{$services[0]->padding_bottom}}@endif service-block">
     <div class="web-container">
         
-        @guest
-            
-        @else
-        
-        <div class="edit_delete_add_component" style="float:right">
-            <button type="button" data-toggle="modal" data-target="#lineheightModal{{$row_pages->id}}">
-                <i class="fa fa-bars"></i>
-            </button>
-             <!-- spacer Modal -->
-             <div class="modal fade" id="lineheightModal{{$row_pages->id}}" tabindex="-1" role="dialog" aria-labelledby="lineheightModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="lineheightModalLabel">Add Space in this Section Component</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                    ...
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <button type="button" data-toggle="modal" data-target="#lineheightModal{{$row_pages->id}}">
-                <i class="fa fa-bars"></i>
-            </button>
-            <button type="button" data-toggle="modal" data-target="#exampleModal{{$row_pages->id}}">
-                <i class="fa fa-edit"></i>
-              </button>
-              <!-- Modal -->
-                <div class="modal fade" id="exampleModal{{$row_pages->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Component</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                        ...
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-           <a  onclick='return confirm("Are you sure? You want to delete this Component")' href="{{url('delete_front_component/'.$row_pages->id)}}"  href=""> <i class="fa fa-trash"></i> </a>
-           <button type="button" data-toggle="modal" data-target="#add_component{{$row_pages->id}}">
-            <i class="fa fa-plus"></i>
-          </button>
-          <!-- Modal -->
-            <div class="modal fade" id="add_component{{$row_pages->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add New Component</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <div class="controls">
-                                        <label for="account-username">Select Page Section</label>
-                                            <select id="page_section_{{$row_pages->id}}" onchange="select_page_section(this);" name="page_section" class="form-control">
-                                                @php
-                                                    $page_section = DB::table('page_section')->get();
-                                                @endphp
-                                                @foreach($page_section as $row_page_sections)
-                                                    <option value="{{$row_page_sections->id}}">{{$row_page_sections->name}}</option>
-                                                @endforeach
-                                            </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="account-username">Select Page Section Component</label>
-                                            <select id="page_section_component_{{$row_pages->id}}" onchange="select_page_section_component(this);" name="page_section_component" class="page_section_component form-control">
-                                                
-                                            </select>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="image_page_section" id="image_page_section_{{$row_pages->id}}"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-md-12">
-                                    <table class="table_page_section" id="table_page_section_{{$row_pages->id}}"></table>
-                                </div>
-                        </div>
-                    
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>    
-          
-        @endguest
         <div class="row">
             
             <div class="col-md-12">
                 <h4 class="web-h4">Services</h4>
                 <h2 class="web-h2 mb-0">What We Do</h2>
             </div>
-            @foreach($services->unique('main_service') as $row)
+            @foreach($services->unique('sub_service') as $row)
 
             <div class="col-6 col-md-6 col-lg-3">
                 <div class="service-links mt-5">
-                    <h6 class="web-h6 web-border-bottom pb-4 mb-0">{{$row->first_level_menu_name}}</h6>
+                    <h6 class="web-h6 web-border-bottom pb-4 mb-0">{{$row->second_level_menu_name}}</h6>
                     <ul class="mt-3">
-                        @php
-                                $sub_services = DB::table('services')
-                                    ->join('menus','menus.id','=','services.main_service')
-                                    ->join('child_menus','child_menus.id','=','services.sub_service')
-                                    ->select('child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','menus.menu_name as first_level_menu_name', 'services.*')
-                                    ->where('services.main_service', '=', $row->main_service)
-                                    ->where('services.name', '=', $row_pages->section_type)
-                                    ->get();
                         
-                        @endphp
-                        @foreach($sub_services as $row_sub_services)
-                        <li><a target="_blank" href="{{url($row_sub_services->second_level_menu_link)}}">{{$row_sub_services->second_level_menu_name}}</a></li>
-                        @endforeach
+                        <li><a target="_blank" href="">{{$row->second_level_menu_name}}</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -3836,125 +3712,166 @@ $section_22 = DB::table('section_22')->where('name', '=', $row_pages->section_ty
 $section_23 = DB::table('section_23')->where('name', '=', $row_pages->section_type)->get();
 @endphp
 <section class="section-bg-white section-padtop-@if(!$section_23->isEmpty()){{$section_23[0]->padding_top}}@endif section-padbottom-@if(!$section_23->isEmpty()){{$section_23[0]->padding_bottom}}@endif  samples-heading">
-    <div class="web-container">
-        @guest
-            
-        @else
-        
-        <div class="edit_delete_add_component" style="float:right">
-            <button type="button" data-toggle="modal" data-target="#lineheightModal{{$row_pages->id}}">
-                <i class="fa fa-bars"></i>
-            </button>
-            <!-- spacer Modal -->
-            <div class="modal fade" id="lineheightModal{{$row_pages->id}}" tabindex="-1" role="dialog" aria-labelledby="lineheightModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="lineheightModalLabel">Add Space in this Section Component</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                    ...
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <button type="button" data-toggle="modal" data-target="#exampleModal{{$row_pages->id}}">
-                <i class="fa fa-edit"></i>
-              </button>
-              <!-- Modal -->
-                <div class="modal fade" id="exampleModal{{$row_pages->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Component</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                        ...
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-           <a  onclick='return confirm("Are you sure? You want to delete this Component")' href="{{url('delete_front_component/'.$row_pages->id)}}"  href=""> <i class="fa fa-trash"></i> </a>
-           <button type="button" data-toggle="modal" data-target="#add_component{{$row_pages->id}}">
-            <i class="fa fa-plus"></i>
-          </button>
-          <!-- Modal -->
-            <div class="modal fade" id="add_component{{$row_pages->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add New Component</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <div class="controls">
-                                        <label for="account-username">Select Page Section</label>
-                                            <select id="page_section_{{$row_pages->id}}" onchange="select_page_section(this);" name="page_section" class="form-control">
-                                                @php
-                                                    $page_section = DB::table('page_section')->get();
-                                                @endphp
-                                                @foreach($page_section as $row_page_sections)
-                                                    <option value="{{$row_page_sections->id}}">{{$row_page_sections->name}}</option>
-                                                @endforeach
-                                            </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="account-username">Select Page Section Component</label>
-                                            <select id="page_section_component_{{$row_pages->id}}" onchange="select_page_section_component(this);" name="page_section_component" class="page_section_component form-control">
-                                                
-                                            </select>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="image_page_section" id="image_page_section_{{$row_pages->id}}"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-md-12">
-                                    <table class="table_page_section" id="table_page_section_{{$row_pages->id}}"></table>
-                                </div>
-                        </div>
-                    
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>    
-          
-        @endguest
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <{{$section_23[0]->heading}} class="web-{{$section_23[0]->heading}} mb-0">{{$section_23[0]->title}}</{{$section_23[0]->heading}}>
-            </div>
-        </div>
-    </div>
-
-
     
+ <br/><br/><br/><br/>
+	<div class="web-container">
+		<div class="row">
+			<div class="col-md-7 align-self-center">
+				<div class="homepage-banner-content w-100">
+                @if(!empty($section_23[0]->heading_1))
+                    <h1 class="web-h1 mb-4">{{$section_23[0]->heading_1}}</h1>
+                @endif
+                @if(!empty($section_23[0]->text))
+					<h5 class="web-h5 mb-5 w-75">{{$section_23[0]->text}}</h5>
+                @endif
+					<ul class="list-inline">
+						<li class="list-inline-item"><a href="#" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
+						<!-- <li class="list-inline-item"><a href="#" class="blue-link video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/IP7uGKgJL8U" data-target="#videoModal">Watch <i class="far fa-play-circle fa-lg pl-1"></i></a></li> -->
+						<li class="list-inline-item"><a href="#" class="blue-link video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/IP7uGKgJL8U" data-target="#videoModal{{$section_23[0]->id}}">Watch 
+						<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12.0005 20.625V21.625L12.8005 21.025L20.3005 15.4L20.8338 15L20.3005 14.6L12.8005 8.975L12.0005 8.375V9.375V20.625ZM3.00049 15C3.00049 8.37614 8.37663 3 15.0005 3C21.6243 3 27.0005 8.37614 27.0005 15C27.0005 21.6239 21.6243 27 15.0005 27C8.37663 27 3.00049 21.6239 3.00049 15Z" stroke="#0F69C9"></path>
+						</svg>
+						</a></li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-5 align-self-center">
+				<div class="">
+                <img class="img-fluid" src="{{asset('public/section_23/'.$section_23[0]->image)}}" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
+                            <div class="modal fade" id="videoModal{{$section_23[0]->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog modalCenter" role="document">
+                                        <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>        
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        @if(!empty($section_23[0]->video))
+                                                        <iframe class="embed-responsive-item" src="{{$section_23[0]->video}}" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                        </div>
+                                </div>
+                            </div>
+<section class="section-bg-black section-padtop-30 section-padbottom-30 web-border-radius-5">
+	<div class="web-container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="center-content text-center">
+					<h4 class="web-h4 text-white">Meet our creative and expert team to assist you.</h4>
+					<a href="#" class="btn web-btn web-btn-blue mt-3" data-toggle="modal" data-target="#creativeModal">Let's meet now</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section-bg-white section-padtop-50 section-padbottom-100">
+	<div class="web-container">
+		<div class="row web-border-bottom section-padtop-50 section-padbottom-50">
+			<div class="web-container-fluid">
+				<div class="row">
+					<div class="col-md-8 align-self-center">
+						<div class="heading-link">
+							<h2 class="web-h2 mb-0">Logo Design</h2>
+						</div>
+					</div>
+					<div class="col-md-4 align-self-center">
+						<div class="heading-link float-right">
+							<a href="logo-design.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row web-border-bottom section-padtop-50 section-padbottom-50">
+			<div class="web-container-fluid">
+				<div class="row">
+					<div class="col-md-8 align-self-center">
+						<div class="heading-link">
+							<h2 class="web-h2 mb-0">Corporate Branding</h2>
+						</div>
+					</div>
+					<div class="col-md-4 align-self-center">
+						<div class="heading-link float-right">
+							<a href="corporate-identity.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row web-border-bottom section-padtop-50 section-padbottom-50">
+			<div class="web-container-fluid">
+				<div class="row">
+					<div class="col-md-8 align-self-center">
+						<div class="heading-link">
+							<h2 class="web-h2 mb-0">Brand Guideline Book</h2>
+						</div>
+					</div>
+					<div class="col-md-4 align-self-center">
+						<div class="heading-link float-right">
+							<a href="brand-guildeline-book.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row web-border-bottom section-padtop-50 section-padbottom-50">
+			<div class="web-container-fluid">
+				<div class="row">
+					<div class="col-md-8 align-self-center">
+						<div class="heading-link">
+							<h2 class="web-h2 mb-0">Brand Packaging Design</h2>
+						</div>
+					</div>
+					<div class="col-md-4 align-self-center">
+						<div class="heading-link float-right">
+							<a href="packaging-design.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row web-border-bottom section-padtop-50 section-padbottom-50">
+			<div class="web-container-fluid">
+				<div class="row">
+					<div class="col-md-8 align-self-center">
+						<div class="heading-link">
+							<h2 class="web-h2 mb-0">Uniform Branding</h2>
+						</div>
+					</div>
+					<div class="col-md-4 align-self-center">
+						<div class="heading-link float-right">
+							<a href="uniform-branding.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row section-padtop-50 section-padbottom-50">
+			<div class="web-container-fluid">
+				<div class="row">
+					<div class="col-md-8 align-self-center">
+						<div class="heading-link">
+							<h2 class="web-h2 mb-0">Vehicle Branding</h2>
+						</div>
+					</div>
+					<div class="col-md-4 align-self-center">
+						<div class="heading-link float-right">
+							<a href="vehicle-branding.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 @endif
