@@ -113,19 +113,21 @@
                         <p class="mb-0 p-14 pb-3">{{$row_case_study->short_description}}</p>
                     </div>
                     @php
-                        $industry_id = DB::table('case_study_industries')->where('case_study_id','=',$row_case_study->id)->get();
+                    
+                        $industry_id = DB::table('case_study_industries')->where('id','=',$row_case_study->industry_id)->first();
+                        
                     @endphp
                     <ul id="industries_list" class="list-inline mt-4 mb-1 p-0">
                         
-                            @foreach($industry_id as $row_industry_id)
+                            
                                 @php
-                                $industry_name = DB::table('industries')->where('id','=',$row_industry_id->industry_id)->get();
+                                $industry_name = DB::table('industries')->where('id','=',$industry_id->id)->get();
                                 @endphp
                                 <li class="industries_tag list-inline-item">
-                                    <a target="_blank" href="/work" class="badge badge-light">@if(!$industry_name->isEmpty()) {{$industry_name[0]->title}} @endif
+                                    <a target="_blank" href="{{URL::to('work/',$industry_name[0]->slug)}}" class="badge badge-light">@if(!$industry_name->isEmpty()) {{$industry_name[0]->title}} @endif
                                     </a>
                                 </li>
-                            @endforeach
+                            
                     </ul>
 
                 </div>

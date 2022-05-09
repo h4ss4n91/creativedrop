@@ -1972,14 +1972,23 @@ class BackendController extends Controller {
     public function store_section_23(Request $request) {
         $data = $request->all();
 
+        if (!empty($request->file('image'))) {
+            $file = $request->file('image'); // will get all files
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('section_23'), $file_name); // move files to destination folder
+        } else {
+            $file_name = "";
+        }
+
         DB::table('section_23')->insert(
                 [
                     'name' => $request->name,
                     'padding_bottom' => $request->padding_bottom,
                     'padding_top' => $request->padding_top, 
-                    'heading' => $request->heading,
-                    'title' => $request->title
-                    
+                    'heading_1' => $data['heading_1'],
+                    'image' => $file_name,
+                    'video' => $data['video'],
+                    'text' => $data['text']
                 ]
         );
 
