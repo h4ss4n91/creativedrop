@@ -24,7 +24,8 @@ class ServicesController extends Controller
         $services = DB::table('services')
         ->join('menus','menus.id','=','services.main_service')
         ->join('child_menus','child_menus.id','=','services.sub_service')
-        ->select('child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','menus.menu_name as first_level_menu_name', 'services.*')
+        ->join('sub_child_menus','sub_child_menus.id','=','services.third_service')
+        ->select('sub_child_menus.item_name as third_level_menu_name','child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','sub_child_menus.item_link as third_level_menu_link','menus.menu_name as first_level_menu_name', 'services.*')
         ->get();
 
         

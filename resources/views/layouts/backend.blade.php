@@ -389,8 +389,12 @@
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('public/theme/app-assets/vendors/js/vendors.min.js') }}"></script>
     <!-- BEGIN Vendor JS-->
+    @php
+        $url = env('APP_URL');
+    @endphp
         <script>
-            var path = '<?php echo "http://localhost/creativedrop/"; ?>';
+            //var path = '<?php //echo "http://localhost/creativedrop/"; ?>';
+            var path = '<?php echo $url; ?>';
         </script>
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{ asset('public/theme/app-assets/vendors/js/ui/jquery.sticky.js') }}"></script>

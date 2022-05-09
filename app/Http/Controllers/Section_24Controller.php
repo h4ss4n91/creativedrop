@@ -17,6 +17,13 @@ class Section_24Controller extends Controller
     public function index()
     {
         //
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
+        $section_24 = DB::table('section_23')->get();
+        $pages = DB::table('page')->get();
+        return view('backend.section_24',Compact('section_24'));
     }
 
     /**

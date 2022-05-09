@@ -168,8 +168,8 @@
                                                             <td>{{$row_services->first_level_menu_name}}</td>
                                                             <td>{{$row_services->second_level_menu_name}}</td>
                                                             <td>{{$row_services->second_level_menu_link}}</td>
-                                                            <td>{{$row_services->second_level_menu_name}}</td>
-                                                            <td>{{$row_services->second_level_menu_link}}</td>
+                                                            <td>{{$row_services->third_level_menu_name}}</td>
+                                                            <td>{{$row_services->third_level_menu_link}}</td>
                                                             <td>Top: {{$row_services->padding_top}} <br/>
                                                                 Bottom: {{$row_services->padding_bottom}} <br/>
                                                             </td>
@@ -317,9 +317,14 @@
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                            <th>Case Study Image</th>
-                                                            <th>Case Study Title</th>
-                                                            <th>Case Study Short Description</th>
+                                                        <th>Section Name</th>
+                                                            <th>CSS Class Name</th>
+                                                            <th>Main Service</th>
+                                                            <th>2nd Level Service</th>
+                                                            <th>2nd Level Service Link</th>
+                                                            <th>3rd Level Service</th>
+                                                            <th>3rd Level Service Link</th>
+                                                            <th>Padding</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </tfoot>

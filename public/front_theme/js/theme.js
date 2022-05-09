@@ -73,102 +73,102 @@ var swiper = new Swiper('.swiper-container',{
                 prevEl: '.swiper-button-prev',
             },
             breakpoints: {
-                        320: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        480: {
-                            slidesPerView: 3,
-                            spaceBetween: 20,
-                        },
-                        640: {
-                            slidesPerView: 3,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 4,
-                            spaceBetween: 20,
-                        },
-                        1024: {
-                            slidesPerView: 4,
-                            spaceBetween: 20,
-                        },
-                        1200: {
-                            slidesPerView: 6,
-                            spaceBetween: 20,
-                        },
-                    },
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                480: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                640: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                1200: {
+                    slidesPerView: 6,
+                    spaceBetween: 20,
+                },
+            },
 });
 
-    //console.log(industries_js_var);
+console.log(industries_js_var);
 
-    // $.each(JSON.parse(industries_js_var), function(key, value) {
-    //     if(this.activeIndex === key) {
-    //         var BgImageUrl = value.background_image
-    //         $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
-            
-    //       }
-    //   });
-        var bg_img = JSON.parse(industries_js_var)
-        //console.log(bg_img);
-        swiper.on('slideChange', function () {
-        
-        if(this.activeIndex == 0) {
-             var BgImageUrl_0 = app_url+'/public/background_industries/'+bg_img['background_0']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_0 + ")");
-            
-          }else if(this.activeIndex == 1) {
-            var BgImageUrl_1 = app_url+'/public/background_industries/'+bg_img['background_1']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_1 + ")");
-            
-          }else if(this.activeIndex == 2) {
-            var BgImageUrl_2 = app_url+'/public/background_industries/'+bg_img['background_2']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_2 + ")");
-            
-          }else if(this.activeIndex == 3) {
-            var BgImageUrl_3 = app_url+'/public/background_industries/'+bg_img['background_3']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_3 + ")");
-          }else if(this.activeIndex == 4) {
-            var BgImageUrl_4 = app_url+'/public/background_industries/'+bg_img['background_4']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_4 + ")");
-          }else if(this.activeIndex == 5) {
-            var BgImageUrl_5 = app_url+'/public/background_industries/'+bg_img['background_5']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_5 + ")");
-          }else if(this.activeIndex == 6) {
-            var BgImageUrl_6 = app_url+'/public/background_industries/'+bg_img['background_6']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_6 + ")");
-          }else if(this.activeIndex == 7) {
-            var BgImageUrl_7 = app_url+'/public/background_industries/'+bg_img['background_7']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_7 + ")");
-          }else if(this.activeIndex == 8) {
-            var BgImageUrl_8 = app_url+'/public/background_industries/'+bg_img['background_8']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_8 + ")");
-          }else if(this.activeIndex == 9) {
-            var BgImageUrl_9 = app_url+'/public/background_industries/'+bg_img['background_9']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_9 + ")");
-          }else if(this.activeIndex == 10) {
-            var BgImageUrl_10 = app_url+'/public/background_industries/'+bg_img['background_10']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_10 + ")");
-          }else if(this.activeIndex == 11) {
-            var BgImageUrl_11 = app_url+'/public/background_industries/'+bg_img['background_11']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_11 + ")");
-          }else if(this.activeIndex == 12) {
-            var BgImageUrl_12 = app_url+'/public/background_industries/'+bg_img['background_12']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_12 + ")");
-          }else if(this.activeIndex == 13) {
-            var BgImageUrl_13 = app_url+'/public/background_industries/'+bg_img['background_13']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_13 + ")");
-          }else if(this.activeIndex == 14) {
-            var BgImageUrl_14 = app_url+'/public/background_industries/'+bg_img['background_14']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_14 + ")");
-          }else if(this.activeIndex == 15) {
-            var BgImageUrl_15 = app_url+'/public/background_industries/'+bg_img['background_15']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_15 + ")");
-          }else if(this.activeIndex == 16) {
-            var BgImageUrl_16 = app_url+'/public/background_industries/'+bg_img['background_16']
-            $(".creative-slider").css("background-image", "url(" + BgImageUrl_16 + ")");
-        }
-      });
+// $.each(JSON.parse(industries_js_var), function(key, value) {
+//     if(this.activeIndex === key) {
+//         var BgImageUrl = value.background_image
+//         $(".creative-slider").css("background-image", "url(" + BgImageUrl + ")");
+    
+//       }
+//   });
+var bg_img = JSON.parse(industries_js_var)
+
+swiper.on('slideChange', function () {
+
+if(this.activeIndex === 0) {
+     var BgImageUrl_0 = app_url+'/public/background_industries/'+bg_img['background_11']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_0 + ")");
+  }else if(this.activeIndex === 1) {
+    var BgImageUrl_1 = app_url+'/public/background_industries/'+bg_img['background_12']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_1 + ")");
+  }else if(this.activeIndex === 2) {
+    var BgImageUrl_2 = app_url+'/public/background_industries/'+bg_img['background_13']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_2 + ")");
+  }else if(this.activeIndex === 3) {
+    var BgImageUrl_3 = app_url+'/public/background_industries/'+bg_img['background_14']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_3 + ")");
+  }else if(this.activeIndex === 4) {
+    var BgImageUrl_4 = app_url+'/public/background_industries/'+bg_img['background_15']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_4 + ")");
+  }else if(this.activeIndex === 5) {
+    var BgImageUrl_5 = app_url+'/public/background_industries/'+bg_img['background_16']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_5 + ")");
+  }else if(this.activeIndex === 6) {
+    var BgImageUrl_6 = app_url+'/public/background_industries/'+bg_img['background_0']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_6 + ")");
+  }else if(this.activeIndex === 7) {
+    var BgImageUrl_7 = app_url+'/public/background_industries/'+bg_img['background_1']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_7 + ")");
+  }else if(this.activeIndex === 8) {
+    var BgImageUrl_8 = app_url+'/public/background_industries/'+bg_img['background_2']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_8 + ")");
+  }else if(this.activeIndex === 9) {
+    var BgImageUrl_9 = app_url+'/public/background_industries/'+bg_img['background_3']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_9 + ")");
+  }else if(this.activeIndex === 10) {
+    var BgImageUrl_10 = app_url+'/public/background_industries/'+bg_img['background_4']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_10 + ")");
+  }else if(this.activeIndex === 11) {
+    var BgImageUrl_11 = app_url+'/public/background_industries/'+bg_img['background_5']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_11 + ")");
+  }else if(this.activeIndex === 12) {
+    var BgImageUrl_12 = app_url+'/public/background_industries/'+bg_img['background_6']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_12 + ")");
+  }else if(this.activeIndex === 13) {
+    var BgImageUrl_13 = app_url+'/public/background_industries/'+bg_img['background_7']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_13 + ")");
+  }else if(this.activeIndex === 14) {
+    var BgImageUrl_14 = app_url+'/public/background_industries/'+bg_img['background_8']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_14 + ")");
+  }else if(this.activeIndex === 15) {
+    var BgImageUrl_15 = app_url+'/public/background_industries/'+bg_img['background_9']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_15 + ")");
+  }else if(this.activeIndex === 16) {
+    var BgImageUrl_16 = app_url+'/public/background_industries/'+bg_img['background_10']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_16 + ")");
+}else if(this.activeIndex === 17) {
+    var BgImageUrl_17 = app_url+'/public/background_industries/'+bg_img['background_17']
+    $(".creative-slider").css("background-image", "url(" + BgImageUrl_17 + ")");
+}
+});
     
   
 
