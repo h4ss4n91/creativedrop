@@ -165,9 +165,27 @@ if(this.activeIndex === 0) {
     var BgImageUrl_16 = app_url+'/public/background_industries/'+bg_img['background_10']
     $(".creative-slider").css("background-image", "url(" + BgImageUrl_16 + ")");
 }else if(this.activeIndex === 17) {
-    var BgImageUrl_17 = app_url+'/public/background_industries/'+bg_img['background_17']
+    var BgImageUrl_17 = app_url+'/public/background_industries/'+bg_img['background_11']
     $(".creative-slider").css("background-image", "url(" + BgImageUrl_17 + ")");
-}
+}else if(this.activeIndex === 18) {
+    var BgImageUrl_0 = app_url+'/public/background_industries/'+bg_img['background_12']
+   $(".creative-slider").css("background-image", "url(" + BgImageUrl_0 + ")");
+ }else if(this.activeIndex === 19) {
+   var BgImageUrl_1 = app_url+'/public/background_industries/'+bg_img['background_13']
+   $(".creative-slider").css("background-image", "url(" + BgImageUrl_1 + ")");
+ }else if(this.activeIndex === 20) {
+   var BgImageUrl_2 = app_url+'/public/background_industries/'+bg_img['background_14']
+   $(".creative-slider").css("background-image", "url(" + BgImageUrl_2 + ")");
+ }else if(this.activeIndex === 21) {
+   var BgImageUrl_3 = app_url+'/public/background_industries/'+bg_img['background_15']
+   $(".creative-slider").css("background-image", "url(" + BgImageUrl_3 + ")");
+ }else if(this.activeIndex === 22) {
+   var BgImageUrl_4 = app_url+'/public/background_industries/'+bg_img['background_16']
+   $(".creative-slider").css("background-image", "url(" + BgImageUrl_4 + ")");
+ }else if(this.activeIndex === 23) {
+   var BgImageUrl_5 = app_url+'/public/background_industries/'+bg_img['background_17']
+   $(".creative-slider").css("background-image", "url(" + BgImageUrl_5 + ")");
+ }
 });
     
   
