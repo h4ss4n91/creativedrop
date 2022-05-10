@@ -387,8 +387,8 @@
                                                     <tr>
                                                         <td>{{$row_section_23->name}}</td>
 
-                                                        <td>{{$row_section_23->heading}}</td>
-                                                        <td>{{$row_section_23->title}}</td>
+                                                        <td>{{$row_section_23->heading_1}}</td>
+                                                        <td>{{$row_section_23->text}}</td>
 
                                                         <td>
 
@@ -400,7 +400,7 @@
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                            <h5 class="modal-title" id="section_22_ModalLongTitle">{{$row_section_23->title}}</h5>
+                                                                            <h5 class="modal-title" id="section_22_ModalLongTitle">{{$row_section_23->text}}</h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
@@ -449,7 +449,7 @@
                                                                                         <div class="form-group">
                                                                                             <div class="controls">
                                                                                                 <label for="account-username">Title </label>
-                                                                                                <input type="text" name="title" class="form-control" id="account-username" value="{{$row_section_23->title}}" data-validation-required-message="This username field is required">
+                                                                                                <input type="text" name="title" class="form-control" id="account-username" value="{{$row_section_23->text}}" data-validation-required-message="This username field is required">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

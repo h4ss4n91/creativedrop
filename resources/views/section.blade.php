@@ -659,7 +659,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                                 $industry_name = DB::table('industries')->where('id','=',$row_industry_id->industry_id)->get();
                                 @endphp
                                 <li class="industries_tag list-inline-item">
-                                    <a target="_blank" href="/work" class="badge badge-light">@if(!$industry_name->isEmpty()) {{$industry_name[0]->title}} @endif
+                                    <a target="_blank" href="{{url('work',$industry_name[0]->slug)}}" class="badge badge-light">@if(!$industry_name->isEmpty()) {{$industry_name[0]->title}} @endif
                                     </a>
                                 </li>
                             @endforeach
@@ -672,7 +672,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
             <div class="col-md-12">
                 <ul class="list-inline mt-5 text-center">
                     <li class="list-inline-item"><a href="#" class="btn web-btn web-btn-blue" data-toggle="modal" data-target="#creativeModal">Contact Now</a></li>
-                    <li class="list-inline-item"><a href="/work" class="blue-link web-h6">View more <i class="fas fa-chevron-right pl-1"></i></a></li>
+                    <li class="list-inline-item"><a href="{{url('work')}}" class="blue-link web-h6">View more <i class="fas fa-chevron-right pl-1"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -684,7 +684,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
 @php
     $services = DB::table('services')
         ->join('child_menus','child_menus.id','=','services.sub_service')
-        ->select('child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','services.*')
+        ->select('child_menus.id as second_level_menu_id','child_menus.item_name as second_level_menu_name','child_menus.item_link as second_level_menu_link','services.*')
         ->where('services.name', '=', $row_pages->section_type)
         ->get();
 @endphp
@@ -703,8 +703,21 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                 <div class="service-links mt-5">
                     <h6 class="web-h6 web-border-bottom pb-4 mb-0">{{$row->second_level_menu_name}}</h6>
                     <ul class="mt-3">
-                        
-                        <li><a target="_blank" href="">{{$row->second_level_menu_name}}</a></li>
+                        @php
+                                $third_level_services = DB::table('services')
+                                    ->where('name', '=', $row_pages->section_type)
+                                    ->where('sub_service', '=', $row->second_level_menu_id)
+                                    ->get();
+
+                        @endphp
+                        @foreach($third_level_services as $third_row)
+                            @php
+                                $sub_child_menu = DB::table('sub_child_menus')
+                                    ->where('id', '=', $third_row->third_service)
+                                    ->get();
+                            @endphp
+                            <li><a href="{{url($third_row->third_service_link)}}">{{$sub_child_menu[0]->item_name}}</a></li>
+                        @endforeach
                         
                     </ul>
                 </div>
