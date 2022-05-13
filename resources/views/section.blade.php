@@ -3788,102 +3788,33 @@ $section_23 = DB::table('section_23')->where('name', '=', $row_pages->section_ty
 
 <section class="section-bg-white section-padtop-50 section-padbottom-100">
 	<div class="web-container">
-		<div class="row web-border-bottom section-padtop-50 section-padbottom-50">
+        @php
+            $slug =  request()->segment(1);
+            $child_menus = DB::table('child_menus')->where('item_link', '=', $slug)->first();
+            $sub_child_menus = DB::table('sub_child_menus')->where('child_menu_id', '=', $child_menus->id)->get();
+        @endphp
+        @foreach($sub_child_menus as $row_sub_child_menus)
+
+        <div class="row web-border-bottom section-padtop-50 section-padbottom-50">
 			<div class="web-container-fluid">
 				<div class="row">
 					<div class="col-md-8 align-self-center">
 						<div class="heading-link">
-							<h2 class="web-h2 mb-0">Logo Design</h2>
+							<h2 class="web-h2 mb-0">{{$row_sub_child_menus->item_name}}</h2>
 						</div>
 					</div>
 					<div class="col-md-4 align-self-center">
 						<div class="heading-link float-right">
-							<a href="logo-design.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
+							<a href="{{ URL::to($row_sub_child_menus->item_link) }}" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row web-border-bottom section-padtop-50 section-padbottom-50">
-			<div class="web-container-fluid">
-				<div class="row">
-					<div class="col-md-8 align-self-center">
-						<div class="heading-link">
-							<h2 class="web-h2 mb-0">Corporate Branding</h2>
-						</div>
-					</div>
-					<div class="col-md-4 align-self-center">
-						<div class="heading-link float-right">
-							<a href="corporate-identity.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row web-border-bottom section-padtop-50 section-padbottom-50">
-			<div class="web-container-fluid">
-				<div class="row">
-					<div class="col-md-8 align-self-center">
-						<div class="heading-link">
-							<h2 class="web-h2 mb-0">Brand Guideline Book</h2>
-						</div>
-					</div>
-					<div class="col-md-4 align-self-center">
-						<div class="heading-link float-right">
-							<a href="brand-guildeline-book.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row web-border-bottom section-padtop-50 section-padbottom-50">
-			<div class="web-container-fluid">
-				<div class="row">
-					<div class="col-md-8 align-self-center">
-						<div class="heading-link">
-							<h2 class="web-h2 mb-0">Brand Packaging Design</h2>
-						</div>
-					</div>
-					<div class="col-md-4 align-self-center">
-						<div class="heading-link float-right">
-							<a href="packaging-design.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row web-border-bottom section-padtop-50 section-padbottom-50">
-			<div class="web-container-fluid">
-				<div class="row">
-					<div class="col-md-8 align-self-center">
-						<div class="heading-link">
-							<h2 class="web-h2 mb-0">Uniform Branding</h2>
-						</div>
-					</div>
-					<div class="col-md-4 align-self-center">
-						<div class="heading-link float-right">
-							<a href="uniform-branding.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row section-padtop-50 section-padbottom-50">
-			<div class="web-container-fluid">
-				<div class="row">
-					<div class="col-md-8 align-self-center">
-						<div class="heading-link">
-							<h2 class="web-h2 mb-0">Vehicle Branding</h2>
-						</div>
-					</div>
-					<div class="col-md-4 align-self-center">
-						<div class="heading-link float-right">
-							<a href="vehicle-branding.php" target="_blank" class="blue-link web-h6">Learn more <i class="fas fa-chevron-right pl-1"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+
+        @endforeach
+		
+		
 	</div>
 </section>
 
