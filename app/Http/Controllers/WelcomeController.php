@@ -652,9 +652,7 @@ class WelcomeController extends Controller
         return Response()->json($arr);
         
      }
-     public function contact(){
-         return view('contact');
-     }
+    
 
      public function delete_front_component($detail_page_id){
         echo $detail_page_id;
