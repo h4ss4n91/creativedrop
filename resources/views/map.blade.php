@@ -1,46 +1,4 @@
-@extends('layouts.frontend')
-@section('content')
-
-<section class="contact-banner section-padtop-100 section-bg-black">
-	<div class="web-container">
-		<div class="row justify-content-between">
-			<div class="col-md-6">
-				<p class="web-h3 text-white mb-0">Contact us</p>
-				<h2 class="web-h2 text-white mb-5">Want to discuss a project?</h2>
-				<p class="text-white mb-5 web-h5">If you would like to get in touch with Creative Drop, please complete the form below, and we’ll get back to you as soon as we can.</p>
-				<ul>
-					<li class="pb-3 mb-3 w-75"><a href="tel:00971503119300" class="text-white"><i class="fas fa-phone-alt web-blue pr-3"></i> +971 50 3119300</a></li>
-					<li class="pb-3 mb-3 w-75"><a href="mailto:info@creativedrop.com" class="text-white"><i class="fas fa-envelope web-blue pr-3"></i> info@creativedrop.com</a></li>
-					<li class="pb-3 mb-3 w-75"><a href="https://www.google.com/maps/place/Creative+Drop/@25.0687866,55.1365733,17z/data=!3m1!4b1!4m5!3m4!1s0x3e5f6d537d73810d:0x2f2c1b581013609f!8m2!3d25.0687818!4d55.138762" target="_blank" class="text-white"><i class="fas fa-map-marker-alt web-blue pr-3"></i> Cluster R, JLT, Dubai - UAE</a></li>
-				</ul>
-			</div>
-			<div class="col-md-5">
-				<form action="{{url('submit_contact')}}" method="POST">
-				    <input type="text" class="form-control top-radius" placeholder="Full Name" required="">
-				  
-				    <input type="email" class="form-control" placeholder="Work Email" required="">
-				  
-				    <input type="tel" class="form-control" placeholder="Phone Number" required="">
-				  
-				    <textarea class="form-control bottom-radius" placeholder="Message"></textarea>
-				
-				<div class="text-center">
-					<a href="javascript:void(0)" class="btn web-btn web-btn-blue mt-4">Submit</a>
-					<p class="p-14 web-grey mt-4">By submitting the form you agree to Creative Drop DMCC Privacy Policy, and you consent to receive marketing communications, including automated text messages, from Creative Drop DMCC.</p>
-				</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="our-map section-bg-black section-padtop-50 section-padbottom-100 section-margbottom-50">
-	<div class="web-container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<h2 class="web-h2 text-white text-center mb-4">Our Global Presence</h2>
-				
-				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 					 viewBox="0 0 1403 704" style="enable-background:new 0 0 1403 704;" xml:space="preserve">
 				<style type="text/css">
 					.st0{clip-path:url(#SVGID_00000159448582035747041370000014000778675824203404_);fill:#757575;}
@@ -15398,24 +15356,3 @@
 					</g>
 				</g>
 				</svg>
-				
-			</div>
-		</div>
-	</div>
-</section>
-
-
-
-@endsection
-
-
-
-
-    
-       
-    
-        
-        
-    
-
-
