@@ -219,7 +219,7 @@
                                                                 @endforeach
                                                                 </span>
                                                             </label>
-                                                            <select onchange="one_edit_page_section(this);" id="page_sections_{{$row_pages->section_no}}" class="form-control" name="section[]">
+                                                            <select onchange="page_section(this);" id="page_sections_{{$row_pages->section_no}}" class="form-control" name="section[]">
                                                                 @foreach($page_section as $row_page_section)
                                                                     @if($row_page_section->id == $row_pages->section)
                                                                         <option value="{{$row_pages->section}}">  {{$row_page_section->name}} </option>
@@ -240,7 +240,7 @@
                                                         <label style="font-weight:bold;"for="account-username">Type Section {{$row_pages->section_no}} ::: <span class="badge badge-pill badge-info" style="font-weight:bold; font-size:21px;">
                                                             {{$row_pages->section_type}}
                                                         </label>
-                                                            <select id="edit_page_section_two_{{$row_pages->section_no}}" class="form-control" name="section_type[]">
+                                                            <select id="page_section_two_{{$row_pages->section_no}}" class="form-control" name="section_type[]">
                                                                 <option value="{{$row_pages->section_type}}"> {{$row_pages->section_type}} </option>
                                                             </select>
                                                     </div>
@@ -280,7 +280,7 @@
                                                     // Adding a row inside the tbody.
                                                     $('#caseStudytbody_for_editpage').append(`<tr id="R${++caseStudyrowIdx}">
                                                         <td class="row-index text-center">
-                                                            <select onchange="edit_page_section(this);" id="page_sections_${+caseStudyrowIdx}" class="form-control" name="section[]">
+                                                            <select onchange="page_section(this);" id="page_sections_${+caseStudyrowIdx}" class="form-control" name="section[]">
                                                             <option value="">  --- Select Section --- </option>
                                                             @foreach($page_section as $row_page_section)
                                                                 <option value="{{$row_page_section->id}}"> {{$row_page_section->name}} </option>

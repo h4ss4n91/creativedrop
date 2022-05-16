@@ -100,7 +100,7 @@ var swiper = new Swiper('.swiper-container',{
             },
 });
 
-console.log(industries_js_var);
+//console.log(industries_js_var);
 
 // $.each(JSON.parse(industries_js_var), function(key, value) {
 //     if(this.activeIndex === key) {
@@ -363,7 +363,7 @@ $(document).ready(function() {
                 let inputDom = document.querySelectorAll(".dropdown-menu.case_study_page_sections input")
                 let main_service_values = Array.from(inputDom).filter(input => input.checked).map(input => input.value)
                 let main_service_values_id = Array.from(inputDom).filter(input => input.checked).map(input => input.id.replace('customCheck', ''))
-                console.log(main_service_values_id);
+                //console.log(main_service_values_id);
                 if (main_service_values_id.length > 0) {
                     // some values selected
                     $.ajax({
@@ -656,7 +656,7 @@ $(document).ready(function() {
             let inputDom = document.querySelectorAll(".dropdown-menu.case_study_page_sections input")
             let main_service_values = Array.from(inputDom).filter(input => input.checked).map(input => input.value)
             let main_services_id = Array.from(inputDom).filter(input => input.checked).map(input => input.id.replace('customCheck', ''))
-            console.log(main_services_id);
+            //console.log(main_services_id);
             dropdown_1st_results_id = main_services_id;
             if (main_service_values.length > 0) {
                 $('.sub_category_new').show();
@@ -1031,7 +1031,7 @@ $(document).ready(function() {
             var option_id = $(ele).attr('id');
             let removed_item = document.querySelector(`.dropdown-menu.case_study_page_sections input[id='${option_id}']`).id
             let removed_item_id = removed_item.replace('customCheck', '');
-            console.log(dropdown_1st_results_id);
+            //console.log(dropdown_1st_results_id);
             const array = dropdown_1st_results_id;
             const index = array.indexOf(removed_item_id);
             if (index > -1) {
@@ -1044,7 +1044,7 @@ $(document).ready(function() {
             let dropdown_dom = document.querySelectorAll(`.dropdown-menu.case_study_page_sections input`)
             let still_checked = Array.from(dropdown_dom).filter(inputDom => inputDom.checked).map(inputDom => inputDom.value)
             let still_checked_id = Array.from(dropdown_dom).filter(inputDom => inputDom.checked).map(inputDom => inputDom.id.replace('customCheck', ''))
-            console.log(still_checked_id);
+            //console.log(still_checked_id);
             if (still_checked.length > 0) {
 
                 $.ajax({
@@ -1137,7 +1137,7 @@ $(document).ready(function() {
                 })
 
             } else {
-                console.log('line# 816');
+                console.log('line# 1140');
             }
 
             $(ele).parent().parent().remove();
@@ -1154,7 +1154,7 @@ $(document).ready(function() {
                     url: "services_by_id_with_services/" + main_service_value,
                     method: "GET",
                     success: function(result) {
-                        console.log(result.class_name);
+                        //console.log(result.class_name);
                         dropdown_1st_results = result.class_name
                         $('.case_study_container').children().each(function() {
                             var flag = true;
@@ -1194,7 +1194,7 @@ $(document).ready(function() {
                     method: "GET",
                     success: function(result) {
                         // 
-                        console.log(result.class_name);
+                        //console.log(result.class_name);
                         dropdown_2nd_results = result.class_name
                         $('.case_study_container').children().each(function() {
                             var flag = true;
@@ -1237,7 +1237,7 @@ $(document).ready(function() {
                         dropdown_3rd_results = result.class_name
 
                         $('.case_study_container').children().each(function() {
-                            console.log(result.class_name);
+                            //console.log(result.class_name);
                             if ($(this).hasClass(dropdown_1st_results) && $(this).hasClass(dropdown_2nd_results) && $(this).hasClass(dropdown_3rd_results)) {
                                 $(this).show();
                             } else {
@@ -1264,7 +1264,7 @@ $(document).ready(function() {
         function select_page_section(ele) {
             var id = $(ele).val();
             var get_id = $(ele).attr('id');
-            console.log(get_id);
+            //console.log(get_id);
             if (id == 1) {
                 $(`#image_page_section`).html("<img style='width:100%' src='public/page_sections/slider.png'/>");
             } else if (id == 2) {
@@ -1330,7 +1330,7 @@ $(document).ready(function() {
         function select_page_section_component(ele) {
             var get_value = $(ele).val();
             var get_id = $(ele).attr('id');
-            console.log(get_value);
+            //console.log(get_value);
             $.ajax({
                 url: "admin/page_section_id_for_component/" + get_id + "/" + get_value,
                 method: "GET",
