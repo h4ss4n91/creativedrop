@@ -1,9 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
 
-    
-
-
 <section class="contact-banner section-padtop-100 section-bg-black">
 	<div class="web-container">
 		<div class="row justify-content-between">
@@ -43,8 +40,6 @@
 			<div class="col-md-12">
 				<h2 class="web-h2 text-white text-center mb-4">Our Global Presence</h2>
 				
-				<?php echo '<?xml version="1.0" encoding="utf-8"?>'; ?>
-				<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 					 viewBox="0 0 1403 704" style="enable-background:new 0 0 1403 704;" xml:space="preserve">
 				<style type="text/css">
