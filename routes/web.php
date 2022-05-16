@@ -33,7 +33,7 @@ Route::get('/admin/home', 'HomeController@index');
 
 Route::get('/admin/system', 'BackendController@system');
 
-Route::get('/c/contact', 'WelcomeController@contact');
+
 Route::get('/work/{id}', 'WelcomeController@work');
 
 Route::get('/admin/page_section_id/{id}', 'BackendController@page_section_id')->name('admin.page_section_id');
