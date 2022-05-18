@@ -219,7 +219,7 @@
                                                                 @endforeach
                                                                 </span>
                                                             </label>
-                                                            <select onchange="page_section(this);" id="page_sections_{{$row_pages->section_no}}" class="form-control" name="section[]">
+                                                            <select onchange="page_section(this);" id="page_section_two_{{$row_pages->section_no}}" class="form-control" name="section[]">
                                                                 @foreach($page_section as $row_page_section)
                                                                     @if($row_page_section->id == $row_pages->section)
                                                                         <option value="{{$row_pages->section}}">  {{$row_page_section->name}} </option>
@@ -288,7 +288,7 @@
                                                         </select>
                                                             </td>
                                                         <td class="row-index text-center">
-                                                            <select id="edit_page_section_two_${+caseStudyrowIdx}" class="form-control" name="section_type[]">
+                                                            <select id="page_section_two_${+caseStudyrowIdx}" class="form-control" name="section_type[]">
                                                                 <option></option>
                                                             </select>
                                                             </td>
