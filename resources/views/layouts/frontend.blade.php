@@ -219,8 +219,8 @@ url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
             @endforeach
 
             <!--====-->
-            <li class="nav-item @if($segment == 'work') Agency @endif"><a class="nav-link" href="{{url('agency')}}">Agency</a></li>
-            <li class="nav-item @if($segment == 'work') Contact us @endif"><a class="nav-link" href="{{url('/c/contact')}}">Contact us</a></li>
+            <li class="nav-item @if($segment == 'agency') Agency @endif"><a class="nav-link" href="{{url('agency')}}">Agency</a></li>
+            <li class="nav-item @if($segment == 'contact') Contact us @endif"><a class="nav-link" href="{{url('/contact')}}">Contact us</a></li>
             <form class="form-inline my-2 my-lg-0 ml-auto">
 
               <a href="mailto:info@creativedrop.com" class="btn web-btn web-btn-white">Email</a>
