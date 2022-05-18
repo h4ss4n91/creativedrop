@@ -210,6 +210,46 @@
             @endforeach
             @endif
 
+            @if( $row_pages->section_no == '21' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '22' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '23' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
+            @if( $row_pages->section_no == '24' )
+            @foreach($page_section as $row_page_section)
+                        @if($row_pages->section == $row_page_section->id)
+                        
+                                @include('section')
+
+                        @endif
+            @endforeach
+            @endif
+
         
 
     @endforeach
