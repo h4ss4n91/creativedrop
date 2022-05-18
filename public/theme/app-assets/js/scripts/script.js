@@ -116,40 +116,22 @@ function third_services_two(ele) {
 
 
 function page_section(ele) {
+    console.log(app_url);
     var class_id = $(ele).attr('id');
     var val = $(`#${class_id}`).find(":selected").text();
     var page_section = $(`#${class_id} option:selected`).val()
     var replace = class_id.replace('page_sections_', '');
     var _token = $('input[name="_token"]').val();
-
+    
     $.ajax({
         type: 'GET',
-        url: 'page_section_id/' + page_section,
+        url: app_url+'/admin/page_section_id/' + page_section,
         success: function(data) {
             console.log(data);
+            
             $(`#page_section_two_${replace}`).html(data);
             $(`#section_no_${replace}`).val(+replace);
         }
     });
 }
 
-
-function edit_page_section(ele) {
-    var class_id = $(ele).attr('id');
-    var value = $(ele).val();
-    var replace = class_id.replace('page_sections_', '');
-
-
-    $.ajax({
-        type: 'GET',
-        url: '../page_section_id/' + value,
-        success: function(data) {
-
-            $(`#edit_page_section_two_${replace}`).html(data);
-
-            $(`#edit_section_no_${replace}`).val(+replace);
-
-
-        }
-    });
-}

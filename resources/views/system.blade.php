@@ -107,7 +107,7 @@
                 <div class="card-body">
                   <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="account-vertical-general_setting" aria-labelledby="account-pill-general" aria-expanded="true">
-                      <h1>General Setting</h1>
+                      <h4>General Setting</h4>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
                       <div class="media">
@@ -121,7 +121,7 @@
                         <div class="row">
                           {{-- <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}"/> --}}
                           <div class="col-md-12">
-                            <h1>Add Social Media</h1>
+                            <h4>Add Social Media</h4>
 
                             <div class="col-12">
                               <script>
@@ -240,7 +240,7 @@
                         <div class="row">
                           {{-- <img style="width:100%" src="{{asset('public/page_sections/slider.png')}}"/> --}}
                           <div class="col-md-4">
-                            <h1>Add Footer Section 1</h1>
+                            <h4>Add Footer Section 1</h4>
 
                             <div class="col-12">
                               <div class="form-group">
@@ -317,7 +317,7 @@
 
 
                           <div class="col-md-4">
-                            <h1>Add Footer Section 2</h1>
+                            <h4>Add Footer Section 2</h4>
 
                             <div class="col-12">
                               <div class="form-group">
@@ -394,7 +394,7 @@
 
 
                           <div class="col-md-4">
-                            <h1>Add Footer Section 3</h1>
+                            <h4>Add Footer Section 3</h4>
 
                             <div class="col-12">
                               <div class="form-group">
@@ -690,7 +690,7 @@
                         </div>
                       </div>
                       <hr>
-                      <h1>Address</h1>
+                      <h4>Address</h4>
                       <form action="{{url('admin/store_footer_bottom')}}" method="POST">
                         @php
                         $footer_bottom = DB::table('footer_bottoms')->first();
