@@ -4,6 +4,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+      form .form-control{
+        border:1px solid #000 !important;    
+      }
+      </style>
 
 @section('content')
  <!-- BEGIN: Content-->
@@ -73,7 +78,7 @@
                                     <div class="media">
                                         
                                         <div style="color:#fff; border-radius:5px; background-color:#00B5B8; padding:10px;" class="media-body mt-75">
-                                            <span style="font-size:29px;"> Page Name : <strong> {{$page[0]->title}} </strong></span>
+                                            <span> Page Name : <strong> {{$page[0]->title}} </strong></span>
                                         </div>
                                     </div>
                                     <hr>
@@ -210,8 +215,8 @@
                                             <div class="col-5">
                                                 <div class="form-group">
                                                     <div class="controls">
-                                                        <label style="font-weight:bold;"for="account-username">Section: {{$row_pages->section_no}} ::: 
-                                                            <span class="badge badge-pill badge-success"  style="font-weight:bold; font-size:21px;">
+                                                        <label for="account-username">Row: {{$row_pages->section_no}} :
+                                                            <span  style="font-weight:bold; font-size:16px;">
                                                                 @foreach($page_section as $row_page_section)
                                                                     @if($row_page_section->id == $row_pages->section)
                                                                         <span> {{$row_page_section->name}} </span>
@@ -237,7 +242,7 @@
                                             <div class="col-5">
                                                 <div class="form-group">
                                                     <div class="controls">
-                                                        <label style="font-weight:bold;"for="account-username">Type Section {{$row_pages->section_no}} ::: <span class="badge badge-pill badge-info" style="font-weight:bold; font-size:21px;">
+                                                        <label for="account-username">Type Section {{$row_pages->section_no}} : <span style="font-weight:bold; font-size:16px;">
                                                             {{$row_pages->section_type}}
                                                         </label>
                                                             <select id="page_section_two_{{$row_pages->section_no}}" class="form-control" name="section_type[]">
@@ -260,8 +265,7 @@
 
                                             <div class="col-1">
                                                 <div class="form-group">
-                                                    <label style="font-weight:bold;"for="account-username">DeleteRow </label>
-                                                    <a class="btn btn-danger" href="{{url('admin/delete_page_content', $row_pages->id)}}">x</a>
+                                                    <a class="btn btn-danger btn-sm" href="{{url('admin/delete_page_content', $row_pages->id)}}">x</a>
                                                 </div>
 
                                             </div>
