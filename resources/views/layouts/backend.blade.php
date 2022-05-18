@@ -66,6 +66,14 @@
 
     <!-- <script src="https://kit.fontawesome.com/869e3d369a.js" crossorigin="anonymous"></script> -->
     <style>
+        
+        .table thead th{
+            background-color: #ffffff;
+        }
+        .card-body{
+            background-color: #d9d9d9;
+            background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+        }
         .admin-edit {
             color: #fff !important;
         }
