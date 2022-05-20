@@ -132,7 +132,7 @@
 
 
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Section 20 </button>
+                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create Section 20 </button>
                                                             <button type="reset" class="btn btn-light">Cancel</button>
                                                         </div>
                                                     </div>
@@ -288,7 +288,7 @@
 
 
                                                                                 <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                    <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Section 20</button>
+                                                                                    <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Edit Section 20</button>
                                                                                     <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                 </div>
                                                                             </div>

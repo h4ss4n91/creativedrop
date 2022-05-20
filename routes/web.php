@@ -19,9 +19,11 @@ Route::get('/admin', function () {
 
 Route::get('/insight/{id}', 'WelcomeController@insight');
 
-Route::get('/', function () {
-    return redirect('/home');
-});
+// Route::get('/', function () {});
+
+Route::get('/', 'WelcomeController@home');
+
+Route::get('/{id}', 'WelcomeController@index')->name('pages');
 
 Auth::routes();
 Route::get('/test', 'WelcomeController@test');
@@ -78,6 +80,8 @@ Route::post('/admin/create_page', 'BackendController@create_page')->name('create
 
 // Main Menu 
 Route::get('/admin/menu', 'BackendController@index')->name('menu');
+Route::get('/admin/second_level_menu', 'BackendController@second_level_menu')->name('second_level_menu');
+Route::get('/admin/third_level_menu', 'BackendController@third_level_menu')->name('third_level_menu');
 Route::post('/admin/store_main_menu', 'BackendController@store_main_menu')->name('store_main_menu');
 Route::post('/admin/edit_main_menu', 'BackendController@edit_main_menu')->name('edit_main_menu');
 Route::get('/admin/delete_main_menu/{id}', 'BackendController@delete_main_menu')->name('delete_main_menu');
