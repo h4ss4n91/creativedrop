@@ -95,9 +95,40 @@ class WelcomeController extends Controller
         return view('case-study', Compact('id','para_style_1', 'case_study', 'case_study_content', 'services', 'main_menus', 'para_style_2', 'main_menu', 'para_style_3', 'para_style_4', 'para_style_5', 'pages','client_and_partner','request','industries','news','case_study','team_section','sliders','videos'));
     }
 
+    
+    public function home()
+    {
+        $pages = DB::table('page')
+            ->join('page_detail', 'page.id', '=', 'page_detail.page_id')
+            ->where('page.slug', '=', 'home')
+            ->orderBy('page_detail.section_no')
+            ->get();
+        $id = 38;
+        $main_menu = DB::table('menus')->where('menu_link','!=','#')->get();
+        $page_section = DB::table('page_section')->get();
+        $main_menus = "";
+        $para_style_1 = "";
+        $para_style_2 = "";
+        $para_style_3 = "";
+        $para_style_4 = "";
+        $para_style_5 = "";
+        $request = "";
+        $industries = "";
+        $news = "";
+        $client_and_partner = "";
+        $case_study = "";
+        $sliders = "";
+        $services = "";
+        $team_section = "";
+        $videos = "";
+        
+        return view('welcome', Compact('id','para_style_1', 'main_menus', 'services', 'page_section', 'para_style_2', 'main_menu', 'para_style_3', 'para_style_4', 'para_style_5', 'pages','client_and_partner','request','industries','news','case_study','team_section','sliders','videos'));
+    }
+
 
     public function index($id)
     {
+        
         
         $pages = DB::table('page')
             ->join('page_detail', 'page.id', '=', 'page_detail.page_id')

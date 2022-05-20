@@ -545,7 +545,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
         <div class="row justify-content-center">
             <div class="text-center">
                 <h4 class="web-h4">Portfolio</h4>
-                <h2 class="web-h2 mb-0">Case Studies</h2>
+                <h2 class="web-h2 mb-0">Case Studies {{request('industry')}}</h2>
 
                 <div class="portfolio-filters">
                 <div class="portfolio-filters">
@@ -3871,5 +3871,9 @@ $section_23 = DB::table('section_24')->get();
 		</div>
 	</div>
 </section>
+
+@else 
+
+<h1>empty Page</h1>
 
 @endif

@@ -166,7 +166,7 @@
                                                         <div class="col-6">
                                     
                                                             <div class="container pt-4">
-                                                                <button class="btn btn-md btn-success" id="caseStudyIndustryaddBtn" type="button"> Add Case Study Industries </button>
+                                                                <button class="btn btn-md btn-primary" id="caseStudyIndustryaddBtn" type="button"> Add Case Study Industries </button>
                                                                 <div class="table-responsive">
                                                                     <table class="table table-bordered">
                                                                         <thead>
@@ -185,7 +185,7 @@
                                                         </div>
                                     
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Case Study</button>
+                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create Case Study</button>
                                                         </div>
                                                     </div>
                                                 </form>

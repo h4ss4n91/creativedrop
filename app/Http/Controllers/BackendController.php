@@ -46,6 +46,30 @@ class BackendController extends Controller {
         return view('menu', Compact('main_menu', 'child_menus', 'sub_child_menus', 'main_menu_two', 'main_menu_four', 'child_menu_four'));
     }
 
+    public function second_level_menu() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
+        $main_menu = $main_menu_two = $main_menu_four = DB::table('menus')->get();
+        $child_menu_four = DB::table('child_menus')->get();
+        $child_menus = DB::table('child_menus')->get();
+        $sub_child_menus = DB::table('sub_child_menus')->get();
+        return view('2nd_level_menu', Compact('main_menu', 'child_menus', 'sub_child_menus', 'main_menu_two', 'main_menu_four', 'child_menu_four'));
+    }
+
+    public function third_level_menu() {
+        if(!Auth::check())
+            {
+                return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
+            }
+        $main_menu = $main_menu_two = $main_menu_four = DB::table('menus')->get();
+        $child_menu_four = DB::table('child_menus')->get();
+        $child_menus = DB::table('child_menus')->get();
+        $sub_child_menus = DB::table('sub_child_menus')->get();
+        return view('3rd_level_menu', Compact('main_menu', 'child_menus', 'sub_child_menus', 'main_menu_two', 'main_menu_four', 'child_menu_four'));
+    }
+
     public function system() {
         if(!Auth::check())
             {
@@ -98,7 +122,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -144,8 +168,8 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function pages() {
@@ -230,7 +254,7 @@ class BackendController extends Controller {
         DB::table('menus')->insert(
                 ['menu_name' => $request->main_menu, 'sorting' => $request->sorting, 'menu_link' => $request->menu_link]
         );
-        $message = 'Main Menu Successfully Inserted';
+        $message = 'Saved Successfully!';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -244,15 +268,15 @@ class BackendController extends Controller {
             'sorting' => $request->sorting
         ]);
 
-        $message = 'Main Menu Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_main_menu($id) {
 
         DB::table('menus')->where('id', '=', $id)->delete();
 
-        $message = 'Successfully Deleted';
+        $message = 'Deleted Successfully';
         return redirect()->back()->with('delete_message', $message);
     }
 
@@ -260,7 +284,7 @@ class BackendController extends Controller {
         DB::table('child_menus')->insert(
                 ['menu_id' => $request->main_menu_id, 'item_name' => $request->child_menu, 'sorting' => $request->sorting, 'featured_service' => $request->featured_service, 'item_link' => $request->child_menu_link]
         );
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -276,15 +300,17 @@ class BackendController extends Controller {
             'item_link' => $request->item_link
         ]);
 
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_child_menu($id) {
 
         DB::table('child_menus')->where('id', '=', $id)->delete();
 
-        return redirect()->back();
+        //return redirect()->back();
+        $message = 'Deleted Successfully';
+        return redirect()->back()->with('delete_message', $message);
     }
 
     // Sub Child Menu
@@ -293,7 +319,7 @@ class BackendController extends Controller {
         DB::table('sub_child_menus')->insert(
                 ['menu_id' => $request->main_menu_id, 'child_menu_id' => $request->child_menu_id, 'sorting' => $request->sorting, 'item_name' => $request->sub_child_item_name, 'item_link' => $request->sub_child_item_link]
         );
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -308,15 +334,15 @@ class BackendController extends Controller {
             'item_link' => $request->edit_sub_child_item_link
         ]);
 
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_sub_child_menu($id) {
 
         DB::table('sub_child_menus')->where('id', '=', $id)->delete();
 
-        $message = 'Child Menu Successfully Deleted';
+        $message = 'Delete Successfully';
         return redirect()->back()->with('delete_message', $message);
     }
 
@@ -349,7 +375,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -363,8 +389,8 @@ class BackendController extends Controller {
                     ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
             );
 
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         } else {
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('slider'), $file_name); // move files to destination folder
@@ -374,14 +400,14 @@ class BackendController extends Controller {
                     ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
             );
 
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         }
     }
 
     public function delete_slider($id) {
         DB::table('sliders')->where('id', '=', $id)->delete();
-        $message = 'Slider Successfully Deleted';
+        $message = 'Deleted Successfully';
         return redirect()->back()->with('delete_message', $message);
     }
 
@@ -399,7 +425,7 @@ class BackendController extends Controller {
             'contact_button_link' => $request->contact_button_link,
             'button_label' => $request->button_label
         ]);
-        $message = 'Video Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -417,15 +443,15 @@ class BackendController extends Controller {
             'contact_button_link' => $request->contact_button_link,
             'button_label' => $request->button_label
         ]);
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_video($id) {
 
         DB::table('videos')->where('id', '=', $id)->delete();
 
-        $message = 'Video Successfully Deleted';
+        $message = 'Deleted Successfully';
         return redirect()->back()->with('delete_message', $message);
     }
 
@@ -521,7 +547,7 @@ class BackendController extends Controller {
         }
 
     }
-    $message = 'Case Study Successfully Inserted';
+    $message = 'Case Study Saved Successfully';
     return redirect()->back()->with('success_message', $message);
     }
 
@@ -571,8 +597,8 @@ class BackendController extends Controller {
             }
     
         }
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_case_study($id) {
@@ -599,7 +625,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -611,8 +637,8 @@ class BackendController extends Controller {
                     ->update(
                     ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, ]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         } else {
             $file = $request->file('clientAndParter_image'); // will get all files
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -622,8 +648,8 @@ class BackendController extends Controller {
                     ->update(
                     ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'page_id' => $request->page_id]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         }
     }
 
@@ -658,7 +684,7 @@ class BackendController extends Controller {
                         'title' => $data['title']
                     ]
             );
-            $message = 'Successfully Inserted';
+            $message = 'Saved Successfully';
             return redirect()->back()->with('success_message', $message);
     }
 
@@ -707,8 +733,8 @@ class BackendController extends Controller {
         }
 
         
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_industry($id) {
@@ -732,7 +758,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -745,8 +771,8 @@ class BackendController extends Controller {
                     ->update(
                     ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         } else {
 
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -756,8 +782,8 @@ class BackendController extends Controller {
                     ->update(
                     ['image' => $file_name, 'page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'name' => $request->team_member_title, 'designation' => $request->team_member_designation]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         }
     }
 
@@ -781,7 +807,7 @@ class BackendController extends Controller {
             'description' => $request->news_short_description,
             'link' => $request->link]
         );
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -799,8 +825,8 @@ class BackendController extends Controller {
                 'description' => $request->news_short_description,
                 'link' => $request->link]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         } else {
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('news_and_opinions'), $file_name); // move files to destination folder
@@ -815,8 +841,8 @@ class BackendController extends Controller {
                 'description' => $request->news_short_description,
                 'link' => $request->link]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         }
     }
 
@@ -845,7 +871,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -862,8 +888,8 @@ class BackendController extends Controller {
             'style' => $request->style,
             'name' => $request->name]
         );
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_request($id) {
@@ -896,7 +922,7 @@ class BackendController extends Controller {
         }
 
         //return dd($data);
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -914,8 +940,8 @@ class BackendController extends Controller {
                 'description' => $request->news_short_description,
                 'link' => $request->link]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         } else {
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('para_style_1'), $file_name); // move files to destination folder
@@ -928,8 +954,8 @@ class BackendController extends Controller {
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         }
     }
 
@@ -963,7 +989,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -983,8 +1009,8 @@ class BackendController extends Controller {
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         } else {
 
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -1000,8 +1026,8 @@ class BackendController extends Controller {
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         }
     }
 
@@ -1033,7 +1059,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1053,8 +1079,8 @@ class BackendController extends Controller {
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         } else {
 
 
@@ -1071,8 +1097,8 @@ class BackendController extends Controller {
                 'paragraph' => $request->paragraph,
                 'link' => $request->link]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         }
     }
 
@@ -1098,7 +1124,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1111,8 +1137,8 @@ class BackendController extends Controller {
             'padding_top' => $request->padding_top, 
             'title' => $request->paragraph]
         );
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_para_style_4($id) {
@@ -1141,7 +1167,7 @@ class BackendController extends Controller {
             );
         
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1160,8 +1186,8 @@ class BackendController extends Controller {
             'text_right' => $request->text_right,
                 ]
         );
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_para_style_5($id) {
@@ -1361,7 +1387,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1380,8 +1406,8 @@ class BackendController extends Controller {
                 'heading1' => $request->heading,
                 'flex_row_reverse' => $request->flex_row_reverse]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         } else {
             $file = $request->file('image'); // will get all files
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -1398,8 +1424,8 @@ class BackendController extends Controller {
                 'heading1' => $request->heading,
                 'flex_row_reverse' => $request->flex_row_reverse]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         }
     }
 
@@ -1432,7 +1458,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1448,8 +1474,8 @@ class BackendController extends Controller {
             'heading' => $request->heading
                 ]
         );
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_section_16($id) {
@@ -1475,7 +1501,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1490,8 +1516,8 @@ class BackendController extends Controller {
             'paragraph' => $request->paragraph
                 ]
         );
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_section_17($id) {
@@ -1523,7 +1549,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1543,8 +1569,8 @@ class BackendController extends Controller {
                 'headingtwo' => $request->headingtwo
                     ]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         } else {
 
 
@@ -1562,8 +1588,8 @@ class BackendController extends Controller {
                 'headingtwo' => $request->headingtwo
                     ]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         }
     }
 
@@ -1592,7 +1618,7 @@ class BackendController extends Controller {
             );
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1646,7 +1672,7 @@ class BackendController extends Controller {
             }
         }
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1667,7 +1693,7 @@ class BackendController extends Controller {
                 ['logo' => $file_name]
         );
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1706,7 +1732,7 @@ class BackendController extends Controller {
 
         
         $message = 'User Updated successfully';
-        return redirect('admin/user_profile/' . $request->user_id)->with('edit_message', $message);
+        return redirect('admin/user_profile/' . $request->user_id)->with('update_message', $message);
     }
 
     public function system_user_profile($id) {
@@ -1729,7 +1755,7 @@ class BackendController extends Controller {
                 ]
         );
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1743,8 +1769,8 @@ class BackendController extends Controller {
             'padding_bottom' => $request->padding_bottom
                 ]
         );
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_section_19($id) {
@@ -1774,7 +1800,7 @@ class BackendController extends Controller {
             );
         
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1792,8 +1818,8 @@ class BackendController extends Controller {
             'btn_label' => $request->btn_label
                 ]
         );
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_section_20($id) {
@@ -1816,7 +1842,7 @@ class BackendController extends Controller {
                 ]
         );
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1832,8 +1858,8 @@ class BackendController extends Controller {
             'video_name' => $request->video_name
                 ]
         );
-        $message = 'Successfully Edited';
-        return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+        return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_section_21($id) {
@@ -1867,7 +1893,7 @@ class BackendController extends Controller {
                 ]
         );
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
     }
 
@@ -1888,8 +1914,8 @@ class BackendController extends Controller {
                 'text' => $request->text
                     ]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         } else {
 
             $file_name = $file->getClientOriginalName(); //Get file original name
@@ -1907,8 +1933,8 @@ class BackendController extends Controller {
                 'text' => $request->text
                     ]
             );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
         }
     }
 
@@ -1949,8 +1975,8 @@ class BackendController extends Controller {
                 ['name' => $request->name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'main_service' => $request->main_service, 'bootstra_class_name' => $request->class_name, 'sub_service' => $request->sub_service, 'sub_service_link' => $request->sub_service_link]
         );
 
-        $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+        $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_service($id) {
@@ -1992,7 +2018,7 @@ class BackendController extends Controller {
                 ]
         );
 
-        $message = 'Successfully Inserted';
+        $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
 
         
@@ -2010,8 +2036,8 @@ class BackendController extends Controller {
                 'title' => $request->title
                     ]
                 );
-            $message = 'Successfully Edited';
-            return redirect()->back()->with('edit_message', $message);
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
     }
 
     public function delete_section_23($id) {
