@@ -128,7 +128,7 @@
                                                             @include('padding_top_and_bottom');
                                             
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Create Video</button>
+                                                                <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create Video</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
                                                             </div>
                                                         </div>
@@ -270,7 +270,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Video</button>
+                                                                                        <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Edit Video</button>
                                                                                         <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-light">Cancel</button>
                                                                                     </div>
                                                                                 </div>

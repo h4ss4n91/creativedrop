@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div style="background-color:#f5f5f5; padding-top:200px; padding-bottom:100px;" class="row">
+<div style="background-color:#f5f5f5; padding-top:100px; padding-bottom:100px;" class="row">
     <div  class="web-container">
         
         <div class="row justify-content-center">

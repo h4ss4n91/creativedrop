@@ -271,7 +271,7 @@
                                                                                             <div class="col-12">
                                 
                                                                                                 <div class="container pt-4">
-                                                                                                    <button class="btn btn-md btn-success" id="edit_caseStudyIndustryaddBtn" type="button"> Edit Case Study Industries </button>
+                                                                                                    <button class="btn btn-md btn-primary" id="edit_caseStudyIndustryaddBtn" type="button"> Edit Case Study Industries </button>
                                                                                                     <div class="table-responsive">
                                                                                                         <table class="table table-bordered">
                                                                                                             <thead>
@@ -311,7 +311,7 @@
 
                                                                                     
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Case Study</button>
+                                                                                        <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Edit Case Study</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -362,7 +362,7 @@
             
                         </div>
                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                            <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Add Case Study Content</button>
+                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Add Case Study Content</button>
                         </div>
                     </div>
                 </div>
@@ -408,7 +408,7 @@
                                             </td>
                                             <td>
                                                 
-                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit_Modal{{$row_case_study_detail->id}}">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_Modal{{$row_case_study_detail->id}}">
                                                     <i style="color:#fff"  class="fa fa-pencil"></i>
                                                   </button><!-- Modal -->
                                                         <div class="modal fade" id="edit_Modal{{$row_case_study_detail->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
