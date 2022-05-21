@@ -55,68 +55,88 @@
                                     @include('backend.flash_message')
                                     <div class="tab-pane active" id="account-vertical-section_19" role="tabpanel" aria-labelledby="account-pill-section_19" aria-expanded="false">
                                         <div class="media">
-                                            <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
-                                                Padding Bottom and Padding TOP
+                                            <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75">
+                                                Padding Bottom and Padding TOP ( Section 19 )
+                                                <span class="btn btn-primary btn-sm" 
+                                                                data-toggle="modal" data-target="#mainMenuModel"
+                                                                class="media-body mt-75"
+                                                                style="border:1px solid #fff; float:right">Create (Section 19) </span>
+                                                    
+
+																					<div class="modal fade" id="mainMenuModel" tabindex="-1" role="dialog" aria-labelledby="mainMenuModel" aria-hidden="true">
+                                                                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+																								<div class="modal-content">
+																										<div class="btn btn-primary modal-header">
+																											<h5 class="modal-title" id="exampleModalLongTitle">Create (Section 19)</h5>
+																											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																												<span aria-hidden="true">&times;</span>
+																											</button>
+																										</div>
+																										<div class="modal-body">
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-6">
+                                                                                                    
+                                                                                                                <form method="POST" action="{{url('admin/store_section_19')}}" enctype="multipart/form-data">
+                                                                                                                    @csrf
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                    
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                    
+                                                                                                    
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Section Name</label>
+                                                                                                                                    <input type="text" name="name" class="form-control" id="account-username" required>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                    
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Padding TOP</label>
+                                                                                                                                    <input type="number" name="padding_top" class="form-control" id="account-username" required>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                    
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Padding Bottom</label>
+                                                                                                                                    <input type="number" name="padding_bottom" class="form-control" id="account-username" required>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                    
+                                                                                                    
+                                                                                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                                                            <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Create Section 19 </button>
+                                                                                                                            <button type="reset" class="btn btn-light">Cancel</button>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </form>
+                                                                                                    
+                                                                                                            </div>
+                                                                                                    
+                                                                                                            <div class="col-6">
+                                                                                                                <img style="width:20%" src="{{asset('public/page_sections/padding.png')}}" />
+                                                                                                            </div>
+                                                                                                    
+                                                                                                        </div>
+																										</div>
+																								</div>
+                                                                                        </div>
+                                                                                    </div>
                                             </div>
                                         </div>
-                                        <hr />
-                                        <div class="row">
-                                            <div class="col-6">
-                                    
-                                                <form method="POST" action="{{url('admin/store_section_19')}}" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                    
-                                    
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-username">Section Name</label>
-                                                                    <input type="text" name="name" class="form-control" id="account-username" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                    
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-username">Padding TOP</label>
-                                                                    <input type="number" name="padding_top" class="form-control" id="account-username" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                    
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-username">Padding Bottom</label>
-                                                                    <input type="number" name="padding_bottom" class="form-control" id="account-username" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                    
-                                    
-                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create Section 19 </button>
-                                                            <button type="reset" class="btn btn-light">Cancel</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                    
-                                            </div>
-                                    
-                                            <div class="col-6">
-                                                <img style="width:20%" src="{{asset('public/page_sections/padding.png')}}" />
-                                            </div>
-                                    
-                                        </div>
+                                      
                                         <hr />
                                         <table class="table table-striped table-bordered dom-jQuery-events">
                                             <thead>
@@ -141,7 +161,7 @@
                                                         {{$row_section_19->padding_bottom}}
                                                     </td>
                                                     </td>
-                                                    <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_19/'.$row_section_19->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> <a class="btn btn-primary" data-toggle="modal" data-target="#row_section_19_ModalCenter{{$row_section_19->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                    <td> <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_19/'.$row_section_19->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a> <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#row_section_19_ModalCenter{{$row_section_19->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                         <div class="modal fade" id="row_section_19_ModalCenter{{$row_section_19->id}}" tabindex="-1" role="dialog" aria-labelledby="row_section_18_ModalCenter{{$row_section_19->id}}" aria-hidden="true">
                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
@@ -193,7 +213,7 @@
                                                                                 </div>
                                     
                                                                                 <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                    <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Edit Section 19</button>
+                                                                                    <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Edit Section 19</button>
                                                                                     <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                 </div>
                                                                             </div>

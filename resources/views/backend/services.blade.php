@@ -58,91 +58,114 @@
                                         <div class="tab-pane active" id="account-vertical-info-services" role="tabpanel" aria-labelledby="account-pill-info-services" aria-expanded="false">
                                             <div class="media">
 
-                                                <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
+                                                <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75">
                                                     Services
+                                                    <span class="btn btn-primary btn-sm" 
+                                                                data-toggle="modal" data-target="#mainMenuModel"
+                                                                class="media-body mt-75"
+                                                                style="border:1px solid #fff; float:right">Create Services </span>
+                                                    
+
+																					<div class="modal fade" id="mainMenuModel" tabindex="-1" role="dialog" aria-labelledby="mainMenuModel" aria-hidden="true">
+                                                                                        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+																								<div class="modal-content">
+																										<div class="btn btn-primary modal-header">
+																											<h5 class="modal-title" id="exampleModalLongTitle">Create Services</h5>
+																											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																												<span aria-hidden="true">&times;</span>
+																											</button>
+																										</div>
+																										<div class="modal-body">
+																										
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-md-4">
+                                                                                                                <img style="width:70%" src="{{asset('public/page_sections/services.png')}}" />
+                                                                                                            </div>
+                                                                                                            <div class="col-md-8">
+                                                                                                                <form method="POST" action="{{url('admin/store_service')}}" enctype="multipart/form-data">
+                                                                                                                    @csrf
+                                                                                                                    <div class="row">
+
+                                                                                                                        {{-- <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Page Name</label>
+                                                                                                                                    <select class="form-control" name="page_id">
+                                                                                                                                        @foreach($pages as $row_page)
+                                                                                                                                        <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
+                                                                                                                                        @endforeach
+                                                                                                                                    </select>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div> --}}
+
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Section Name</label>
+                                                                                                                                    <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">CLASS NAME</label>
+                                                                                                                                    <select class="form-control" name="class_name">
+                                                                                                                                        <option name="section-bg-white">section-bg-white</option>
+                                                                                                                                        <option name="section-bg-white">section-bg-white</option>
+                                                                                                                                        <option name="section-bg-grey-grad">section-bg-grey-grad</option>
+                                                                                                                                    </select>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="row">
+                                                                                                                                @include('padding_top_and_bottom')
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12">
+                                                                                                                            
+                                                                                                                        <div class="container pt-4">
+                                                                                                                                <button class="btn btn-md btn-warning" id="ServiceaddBtn" type="button"> Add Services and Sub Services </button>
+                                                                                                                                <div class="table-responsive">
+                                                                                                                                    <table class="table table-bordered">
+                                                                                                                                        <thead>
+                                                                                                                                            <tr>
+                                                                                                                                                <th class="text-center">Main Service</th>
+                                                                                                                                                <th class="text-center">2nd Level Service</th>
+                                                                                                                                                <th class="text-center">3rd Level Service</th>
+                                                                                                                                                <th class="text-center"></th>
+                                                                                                                                            </tr>
+                                                                                                                                        </thead>
+                                                                                                                                        <tbody id="Servicetbody">
+                                                                                                                                        </tbody>
+                                                                                                                                    </table>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save</button>
+                                                                                                                            
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </form>
+                                                                                                            </div>
+
+                                                                                                        </div>
+																										</div>
+																								</div>
+                                                                                        </div>
+                                                                                    </div>
+
                                                 </div>
                                             </div>
+                                            <hr/>
 
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <img style="width:70%" src="{{asset('public/page_sections/services.png')}}" />
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <form method="POST" action="{{url('admin/store_service')}}" enctype="multipart/form-data">
-                                                        @csrf
-                                                        <div class="row">
-
-                                                            {{-- <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Page Name</label>
-                                                                        <select class="form-control" name="page_id">
-                                                                            @foreach($pages as $row_page)
-                                                                            <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div> --}}
-
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Section Name</label>
-                                                                        <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">CLASS NAME</label>
-                                                                        <select class="form-control" name="class_name">
-                                                                            <option name="section-bg-white">section-bg-white</option>
-                                                                            <option name="section-bg-white">section-bg-white</option>
-                                                                            <option name="section-bg-grey-grad">section-bg-grey-grad</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12">
-                                                                <div class="row">
-                                                                    @include('padding_top_and_bottom')
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12">
-                                                                
-                                                            <div class="container pt-4">
-                                                                    <button class="btn btn-md btn-warning" id="ServiceaddBtn" type="button"> Add Services and Sub Services </button>
-                                                                    <div class="table-responsive">
-                                                                        <table class="table table-bordered">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th class="text-center">Main Service</th>
-                                                                                    <th class="text-center">2nd Level Service</th>
-                                                                                    <th class="text-center">3rd Level Service</th>
-                                                                                    <th class="text-center"></th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody id="Servicetbody">
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create Services</button>
-                                                                <button type="reset" class="btn btn-light">Cancel</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-
-                                            </div>
 
                                             <div class="row">
 
@@ -161,7 +184,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach($services as $row_services)
+                                                        @foreach($services->unique('name') as $row_services)
                                                         <tr>
                                                             <td>{{$row_services->name}}</td>
                                                             <td>{{$row_services->bootstra_class_name}}</td>
@@ -173,7 +196,9 @@
                                                             <td>Top: {{$row_services->padding_top}} <br/>
                                                                 Bottom: {{$row_services->padding_bottom}} <br/>
                                                             </td>
-                                                            <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_service/'.$row_services->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary" data-toggle="modal" data-target="#serviceModalCenter{{$row_services->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#serviceModalCenter{{$row_services->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                                <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_service/'.$row_services->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  
                                                                 <div class="modal fade" id="serviceModalCenter{{$row_services->id}}" tabindex="-1" role="dialog" aria-labelledby="serviceModalCenter{{$row_services->id}}" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                         <div class="modal-content">
@@ -299,7 +324,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Edit Service</button>
+                                                                                            <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Edit Service</button>
                                                                                             <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                         </div>
                                                                                     </div>

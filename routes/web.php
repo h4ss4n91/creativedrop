@@ -16,6 +16,7 @@ Route::get('/admin', function () {
     return redirect('admin/home');
 });
 
+Route::get('/login', 'Auth\LoginController@showLoginForm');
 
 Route::get('/insight/{id}', 'WelcomeController@insight');
 
@@ -32,6 +33,7 @@ Route::get('/send_email', 'WelcomeController@send_email');
 Route::get('/case-study/{id}', 'WelcomeController@case_study');
 
 Route::get('/admin/home', 'HomeController@index');
+
 
 Route::get('/admin/system', 'BackendController@system');
 

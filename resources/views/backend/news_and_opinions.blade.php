@@ -1,6 +1,6 @@
 <div class="tab-pane fade" id="account-vertical-news" role="tabpanel" aria-labelledby="account-pill-news" aria-expanded="false">
     <div class="media">
-        <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
+        <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75">
             News & Opinions
         </div>
     </div>
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                        <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create News and Opinions </button>
+                        <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Create News and Opinions </button>
                         <button type="reset" class="btn btn-light">Cancel</button>
                     </div>
                 </div>
@@ -164,7 +164,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Edit Slider</button>
+                                                <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Edit Slider</button>
                                                 <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                             </div>
                                         </div>
