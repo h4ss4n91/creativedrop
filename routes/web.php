@@ -33,6 +33,7 @@ Route::get('/case-study/{id}', 'WelcomeController@case_study');
 
 Route::get('/admin/home', 'HomeController@index');
 
+
 Route::get('/admin/system', 'BackendController@system');
 
 
