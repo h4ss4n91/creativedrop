@@ -152,11 +152,11 @@
             </a>
         </li>
 
-        <!-- <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link d-flex @if(last(request()->segments()) == 'section_23') active @endif" href="{{url('admin/page_sections/section_23')}}">
                 <i class="feather icon-type"></i> Left Text Heading and Right Image
             </a>
-        </li> -->
+        </li>
 
         <!-- <li class="nav-item">
             <a class="nav-link d-flex @if(last(request()->segments()) == 'section_24') active @endif" href="{{url('admin/page_sections/section_24')}}">

@@ -2044,4 +2044,56 @@ class BackendController extends Controller {
     }
 
 
+    
+    // 23  Section Headings
+    public function store_section_heading(Request $request) {
+        $data = $request->all();
+
+        if (!empty($request->file('image'))) {
+            $file = $request->file('image'); // will get all files
+            $file_name = $file->getClientOriginalName(); //Get file original name
+            $file->move(public_path('section_23'), $file_name); // move files to destination folder
+        } else {
+            $file_name = "";
+        }
+
+        DB::table('headings')->insert(
+                [
+                    'name' => $request->name,
+                    'padding_bottom' => $request->padding_bottom,
+                    'padding_top' => $request->padding_top, 
+                    'heading' => $data['heading'],
+                    'title' => $data['title']
+                ]
+        );
+
+        $message = 'Saved Successfully';
+        return redirect()->back()->with('success_message', $message);
+
+        
+    }
+
+    public function edit_section_heading(Request $request) {
+        
+            $affected = DB::table('headings')
+            ->where('id', $request->id)
+            ->update([
+                'name' => $request->name,
+                'padding_bottom' => $request->padding_bottom,
+                'padding_top' => $request->padding_top, 
+                'heading' => $request->heading,
+                'title' => $request->title
+                    ]
+                );
+            $message = 'Updated Successfully';
+            return redirect()->back()->with('update_message', $message);
+    }
+
+    public function delete_section_heading($id) {
+        DB::table('headings')->where('id', '=', $id)->delete();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
+    }
+
+
 }

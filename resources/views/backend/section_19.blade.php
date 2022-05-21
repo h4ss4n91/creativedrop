@@ -117,8 +117,8 @@
                                                                                                     
                                                                                                     
                                                                                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                                                            <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Create Section 19 </button>
-                                                                                                                            <button type="reset" class="btn btn-light">Cancel</button>
+                                                                                                                            <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Save </button>
+                                                                                                                            
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </form>

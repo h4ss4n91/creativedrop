@@ -303,118 +303,64 @@
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <form method="POST" action="{{url('admin/edit_slider')}}" enctype="multipart/form-data">
-                                                                                @csrf
-                                                                                <input type="hidden" value="{{$row_sliders->id}}" name="id">
+                                                                        <form method="POST" action="{{url('admin/store_slider')}}" enctype="multipart/form-data">
+																												@csrf
+																												<div class="row">
+																													<div class="col-md-6">
+																														<img style="width:100%" src="{{asset('public/page_sections/slider.png')}}" />
+																													</div>
+																													<div class="col-md-6">
+																														<div class="col-md-12">
+																																<div class="row">
+																																	<div class="col-md-12">
+																																		<div class="form-group">
+																																			<div class="controls">
+																																				<label for="account-username">Slider Name</label>
+																																				<input type="text" name="name" class="form-control" id="account-username" value="{{$row_sliders->name}}">
+																																			</div>
+																																		</div>
+																																	</div>
+																																</div>
+																															<div class="row">
+																																@include('padding_top_and_bottom')
+																															</div>
+																														</div>
+																													</div>
+																												</div>
+																												<div class="row">
+																													<div class="col-md-12">
+																														
+																														<div class="container pt-4">
+																															<button class="btn btn-md btn-primary" id="slideraddBtn" type="button"> Add new Slider Row </button>
+																															<div class="table-responsive">
+																																<table class="table table-bordered">
+																																	<thead>
+																																		<tr>
+																																			<th class="text-center">Slider Image</th>
+																																			<th class="text-center">Heading 1</th>
+																																			<th class="text-center">Heading 2</th>
+																																			<th class="text-center">Button Link</th>
+																																			<th class="text-center">Button Style</th>
+																																			<th class="text-center">Status</th>
+																																			<th class="text-center">Remove Row</th>
+																																		</tr>
+																																	</thead>
+																																	<tbody id="slidertbody">
 
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
+																																	</tbody>
+																																</table>
+																															</div>
 
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Slider Name</label>
-                                                                                                <input type="text" name="name" value="{{$row_sliders->name}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
+																														</div>
+																													</div>
 
-                                                                                    <div class="col-8">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Slider Image : {{$row_sliders->image}}</label>
-                                                                                                <input type="file" name="slider_image" class="form-control" id="account-username" data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-4">
-                                                                                        <img style="width:100px" src="{{asset('public/slider/'.$row_sliders->image)}}" />
-                                                                                    </div>
 
-                                                                                    <div class="col-md-4">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Status</label>
-                                                                                                <input type="text" name="status" class="form-control" value="{{$row_sliders->status}}" id="account-username" data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div class="col-md-8">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <div class="col-6">
-                                                                                                    <div class="form-group">
-                                                                                                        <div class="controls">
-                                                                                                            <label for="account-username">Padding TOP  </label>
-                                                                                                            <select name="padding_top" class="form-control">
-                                                                                                                <option value="{{$row_sliders->padding_top}}"> {{$row_sliders->padding_top}} </option>
-                                                                                                                <option value="0"> 0 </option>
-                                                                                                                <option value="30"> 30 </option>
-                                                                                                                <option value="50"> 50 </option>
-                                                                                                                <option value="70"> 70 </option>
-                                                                                                                <option value="100"> 100 </option>
-                                                                                                            </select>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                
-                                                                                                <div class="col-6">
-                                                                                                    <div class="form-group">
-                                                                                                        <div class="controls">
-                                                                                                            <label for="account-username">Padding BOTTOM  </label>
-                                                                                                            <select name="padding_bottom" class="form-control">
-                                                                                                                <option value="{{$row_sliders->padding_bottom}}"> {{$row_sliders->padding_bottom}} </option>
-                                                                                                                <option value="0"> 0 </option>
-                                                                                                                <option value="30"> 30 </option>
-                                                                                                                <option value="50"> 50 </option>
-                                                                                                                <option value="70"> 70 </option>
-                                                                                                                <option value="100"> 100 </option>
-                                                                                                            </select>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Heading One</label>
-                                                                                                <input type="text" name="text1" class="form-control" value="{{$row_sliders->text1}}" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username">Heading Two</label>
-                                                                                                <input type="text" name="text2" value="{{$row_sliders->text2}}" class="form-control" value="heading2" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <div class="controls">
-                                                                                                <label for="account-username"> Button Link</label>
-                                                                                                <input type="text" name="contact_button_link" value="{{$row_sliders->contact_button_link}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Edit Slider</button>
-                                                                                        <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </form>
+																													<div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
+																														<button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Save</button>
+																														
+																													</div>
+																												</div>
+																											</form>
                                                                         </div>
 
                                                                     </div>
