@@ -55,7 +55,7 @@
 
                                     <div class="tab-pane active" id="account-vertical-section_22" role="tabpanel" aria-labelledby="account-pill-section_22" aria-expanded="false">
                                         <div class="media">
-                                            <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
+                                            <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75">
                                             Left Text Heading and Right Image
                                             </div>
                                         </div>
@@ -139,7 +139,7 @@
                                     
                                     
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create Section 23</button>
+                                                            <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Create Section 23</button>
                                                             <button type="reset" class="btn btn-light">Cancel</button>
                                                         </div>
                                                     </div>
@@ -178,8 +178,8 @@
                                                     </td>
                                                     <td>
                                     
-                                                        <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#section_22_ModalCenter{{$row_section_22->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> 
-                                                        <a class="btn btn-danger  btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_22/'.$row_section_22->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                        <a class="btn btn-primary btn-sm btn-sm" data-toggle="modal" data-target="#section_22_ModalCenter{{$row_section_22->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> 
+                                                        <a class="btn btn-danger btn-sm  btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_22/'.$row_section_22->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                     
                                                         <!-- Modal -->
                                                         <div class="modal fade" id="section_22_ModalCenter{{$row_section_22->id}}" tabindex="-1" role="dialog" aria-labelledby="section_22_ModalCenter{{$row_section_22->id}}" aria-hidden="true">
@@ -291,7 +291,7 @@
                                     
                                     
                                                                                 <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                    <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Edit Section 22</button>
+                                                                                    <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Edit Section 22</button>
                                                                                     <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                 </div>
                                                                             </div>

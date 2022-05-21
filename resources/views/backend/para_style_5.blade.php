@@ -52,118 +52,138 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-
+                                @include('backend.flash_message')
                                     <div class="tab-pane active" id="account-vertical-style_4" role="tabpanel" aria-labelledby="account-pill-style_4" aria-expanded="false">
                                         <div class="media">
-                                            <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
+                                            <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75">
                                                 Para Style 5
-                                            </div>
-                                        </div>
-                                        <hr />
-                                    
-                                        <div class="row">
-                                            <div class="col-6">
-                                                @include('backend.flash_message')
-                                                <form method="POST" action="{{url('admin/store_para_style_5')}}" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                    
-                                    
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-username">Section Name</label>
-                                                                    <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="row">
-                                                                    <select name="style" id="para_style_5_style" class="form-control">
-                                                                            <option value="">--- Select Style ---</option>
-                                                                            <option value="style1">Style 1</option>
-                                                                            <option value="style2">Style 2</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div> <br/>
-                                                            
-                                                                <div class="row">
-                                                                    @include('padding_top_and_bottom')
-                                                                </div>
-                                                            
-                                                            
-                                                            <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Top Paragraph</label>
-                                                                        <textarea name="heading" class="form-control">
 
-                                                                        </textarea>
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Left Paragraph</label>
-                                                                        <textarea name="text_left" class="form-control"></textarea>
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-username">Right Paragraph</label>
-                                                                    
-                                                                    <textarea name="text_right" class="form-control"></textarea>
-                                                                </div>
-                                                            </div>
-                                                            
-                                                        </div>
-                                    
-                                    
-                                                        {{-- <div class="col-12">
-                                                            
-                                                            <div class="container pt-4">
-                                                                <button class="btn btn-md btn-primary" id="paraStyleFouraddBtn" type="button"> Add Para Style Four </button>
-                                                                <div class="table-responsive">
-                                                                    <table class="table table-bordered">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th class="text-center">TEXT</th>
-                                                                                <th class="text-center">Remove Row</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody id="paraStyleFourtbody">
-                                    
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                    
-                                                            </div>
-                                                        </div> --}}
-                                    
-                                    
-                                    
-                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create Paragraph style 5 </button>
-                                                            <button type="reset" class="btn btn-light">Cancel</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                    
+                                                <span class="btn btn-primary btn-sm" 
+                                                                data-toggle="modal" data-target="#mainMenuModel"
+                                                                class="media-body mt-75"
+                                                                style="border:1px solid #fff; float:right">Create ( Para Style 5) </span>
+                                                    
+
+																					<div class="modal fade" id="mainMenuModel" tabindex="-1" role="dialog" aria-labelledby="mainMenuModel" aria-hidden="true">
+                                                                                        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+																								<div class="modal-content">
+																										<div class="btn btn-primary modal-header">
+																											<h5 class="modal-title" id="exampleModalLongTitle">Create Para Style 5</h5>
+																											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																												<span aria-hidden="true">&times;</span>
+																											</button>
+																										</div>
+																										<div class="modal-body">
+																										<div class="row">
+                                                                                                            <div class="col-6">
+                                                                                                                
+                                                                                                                <form method="POST" action="{{url('admin/store_para_style_5')}}" enctype="multipart/form-data">
+                                                                                                                    @csrf
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                    
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                    
+                                                                                                    
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Section Name</label>
+                                                                                                                                    <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                            <div class="col-12">
+                                                                                                                                <div class="row">
+                                                                                                                                    <select name="style" id="para_style_5_style" class="form-control">
+                                                                                                                                            <option value="">--- Select Style ---</option>
+                                                                                                                                            <option value="style1">Style 1</option>
+                                                                                                                                            <option value="style2">Style 2</option>
+                                                                                                                                    </select>
+                                                                                                                                </div>
+                                                                                                                            </div> <br/>
+                                                                                                                            
+                                                                                                                                <div class="row">
+                                                                                                                                    @include('padding_top_and_bottom')
+                                                                                                                                </div>
+                                                                                                                            
+                                                                                                                            
+                                                                                                                            <div class="form-group">
+                                                                                                                                    <div class="controls">
+                                                                                                                                        <label for="account-username">Top Paragraph</label>
+                                                                                                                                        <textarea name="heading" class="form-control">
+
+                                                                                                                                        </textarea>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            
+                                                                                                                                <div class="form-group">
+                                                                                                                                    <div class="controls">
+                                                                                                                                        <label for="account-username">Left Paragraph</label>
+                                                                                                                                        <textarea name="text_left" class="form-control"></textarea>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Right Paragraph</label>
+                                                                                                                                    
+                                                                                                                                    <textarea name="text_right" class="form-control"></textarea>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                            
+                                                                                                                        </div>
+                                                                                                    
+                                                                                                    
+                                                                                                                        {{-- <div class="col-12">
+                                                                                                                            
+                                                                                                                            <div class="container pt-4">
+                                                                                                                                <button class="btn btn-md btn-primary" id="paraStyleFouraddBtn" type="button"> Add Para Style Four </button>
+                                                                                                                                <div class="table-responsive">
+                                                                                                                                    <table class="table table-bordered">
+                                                                                                                                        <thead>
+                                                                                                                                            <tr>
+                                                                                                                                                <th class="text-center">TEXT</th>
+                                                                                                                                                <th class="text-center">Remove Row</th>
+                                                                                                                                            </tr>
+                                                                                                                                        </thead>
+                                                                                                                                        <tbody id="paraStyleFourtbody">
+                                                                                                    
+                                                                                                                                        </tbody>
+                                                                                                                                    </table>
+                                                                                                                                </div>
+                                                                                                    
+                                                                                                                            </div>
+                                                                                                                        </div> --}}
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                                                            <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Create Paragraph style 5 </button>
+                                                                                                                            <button type="reset" class="btn btn-light">Cancel</button>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </form>
+                                                                                                    
+                                                                                                            </div>
+                                                                                                    
+                                                                                                            <div class="col-6">
+                                                                                                                {{-- <img style="width:100%" src="{{asset('public/page_sections/section_22_style2.png')}}" /> --}}
+                                                                                                                
+                                                                                                                <div id="para_style_5_style_content"> </div>
+                                                                                                            </div>
+                                                                                                    
+                                                                                                        </div>
+																										</div>
+																								</div>
+                                                                                        </div>
+                                                                                    </div>
                                             </div>
-                                    
-                                            <div class="col-6">
-                                                {{-- <img style="width:100%" src="{{asset('public/page_sections/section_22_style2.png')}}" /> --}}
-                                                
-                                                <div id="para_style_5_style_content"> </div>
-                                            </div>
-                                    
                                         </div>
+                                        
                                     
                                         <hr />
                                         <table class="table table-striped table-bordered dom-jQuery-events">
@@ -301,7 +321,7 @@
                                                                                     </div>
                                                                 
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create Paragraph style 5 </button>
+                                                                                        <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Create Paragraph style 5 </button>
                                                                                         <button type="reset" class="btn btn-light">Cancel</button>
                                                                                     </div>
                                                                                 </div>

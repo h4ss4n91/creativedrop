@@ -37,7 +37,7 @@
                                             </div>
                                             <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                                             </div>
                                         </div>
                                         </div>
@@ -93,7 +93,7 @@
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Add New Component</button>
+                                        <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                                         </div>
                                     </div>
                                     </div>
@@ -174,7 +174,7 @@
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -197,7 +197,7 @@
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                             </div>
                         </div>
                         </div>
@@ -253,7 +253,7 @@
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add New Component</button>
+                        <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                         </div>
                     </div>
                     </div>
@@ -310,7 +310,7 @@ $team_section = DB::table('teams')->where('section_name', '=', $row_pages->secti
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -333,7 +333,7 @@ $team_section = DB::table('teams')->where('section_name', '=', $row_pages->secti
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -389,7 +389,7 @@ $team_section = DB::table('teams')->where('section_name', '=', $row_pages->secti
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -455,7 +455,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -478,7 +478,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -534,7 +534,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -759,7 +759,7 @@ $client_and_partner = DB::table('clientandparterimage')->where('name', '=', $row
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -782,7 +782,7 @@ $client_and_partner = DB::table('clientandparterimage')->where('name', '=', $row
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -838,7 +838,7 @@ $client_and_partner = DB::table('clientandparterimage')->where('name', '=', $row
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -947,7 +947,7 @@ $news = DB::table('news_and_opinions')->where('name', '=', $row_pages->section_t
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -970,7 +970,7 @@ $news = DB::table('news_and_opinions')->where('name', '=', $row_pages->section_t
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -1033,7 +1033,7 @@ $news = DB::table('news_and_opinions')->where('name', '=', $row_pages->section_t
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -1105,7 +1105,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                 </div>
             </div>
             </div>
@@ -1128,7 +1128,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -1191,7 +1191,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add New Component</button>
+                <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                 </div>
             </div>
             </div>
@@ -1236,7 +1236,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                 </div>
             </div>
             </div>
@@ -1259,7 +1259,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -1315,7 +1315,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add New Component</button>
+                <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                 </div>
             </div>
             </div>
@@ -1363,7 +1363,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -1386,7 +1386,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -1442,7 +1442,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -1487,7 +1487,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -1510,7 +1510,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -1566,7 +1566,7 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -1616,7 +1616,7 @@ $para_style_1 = DB::table('para_style_1')->where('name', '=', $row_pages->sectio
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -1639,7 +1639,7 @@ $para_style_1 = DB::table('para_style_1')->where('name', '=', $row_pages->sectio
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -1695,7 +1695,7 @@ $para_style_1 = DB::table('para_style_1')->where('name', '=', $row_pages->sectio
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -1748,7 +1748,7 @@ $para_style_2 = DB::table('para_style_2')->where('name', '=', $row_pages->sectio
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -1771,7 +1771,7 @@ $para_style_2 = DB::table('para_style_2')->where('name', '=', $row_pages->sectio
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -1827,7 +1827,7 @@ $para_style_2 = DB::table('para_style_2')->where('name', '=', $row_pages->sectio
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -1908,7 +1908,7 @@ $para_style_4 = DB::table('para_style_4')->where('name', '=', $row_pages->sectio
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -1931,7 +1931,7 @@ $para_style_4 = DB::table('para_style_4')->where('name', '=', $row_pages->sectio
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -1987,7 +1987,7 @@ $para_style_4 = DB::table('para_style_4')->where('name', '=', $row_pages->sectio
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -2042,7 +2042,7 @@ $para_style_5 = DB::table('para_style_5')->where('name', '=', $row_pages->sectio
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -2065,7 +2065,7 @@ $para_style_5 = DB::table('para_style_5')->where('name', '=', $row_pages->sectio
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -2121,7 +2121,7 @@ $para_style_5 = DB::table('para_style_5')->where('name', '=', $row_pages->sectio
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -2177,7 +2177,7 @@ $para_style_5 = DB::table('para_style_5')->where('name', '=', $row_pages->sectio
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -2200,7 +2200,7 @@ $para_style_5 = DB::table('para_style_5')->where('name', '=', $row_pages->sectio
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -2256,7 +2256,7 @@ $para_style_5 = DB::table('para_style_5')->where('name', '=', $row_pages->sectio
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -2322,7 +2322,7 @@ $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -2345,7 +2345,7 @@ $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_ty
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -2401,7 +2401,7 @@ $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -2455,7 +2455,7 @@ $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -2478,7 +2478,7 @@ $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_ty
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -2534,7 +2534,7 @@ $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -2590,7 +2590,7 @@ $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -2613,7 +2613,7 @@ $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_ty
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -2669,7 +2669,7 @@ $section_15 = DB::table('section_15')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -2727,7 +2727,7 @@ $section_16 = DB::table('section_16')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -2750,7 +2750,7 @@ $section_16 = DB::table('section_16')->where('name', '=', $row_pages->section_ty
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -2806,7 +2806,7 @@ $section_16 = DB::table('section_16')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -2866,7 +2866,7 @@ $section_17 = DB::table('section_17')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -2889,7 +2889,7 @@ $section_17 = DB::table('section_17')->where('name', '=', $row_pages->section_ty
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -2945,7 +2945,7 @@ $section_17 = DB::table('section_17')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -2995,7 +2995,7 @@ $section_18 = DB::table('section_18')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -3018,7 +3018,7 @@ $section_18 = DB::table('section_18')->where('name', '=', $row_pages->section_ty
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -3074,7 +3074,7 @@ $section_18 = DB::table('section_18')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -3147,7 +3147,7 @@ $section_19 = DB::table('section_19')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -3170,7 +3170,7 @@ $section_19 = DB::table('section_19')->where('name', '=', $row_pages->section_ty
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -3226,7 +3226,7 @@ $section_19 = DB::table('section_19')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -3270,7 +3270,7 @@ $section_20 = DB::table('section_20')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -3293,7 +3293,7 @@ $section_20 = DB::table('section_20')->where('name', '=', $row_pages->section_ty
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -3349,7 +3349,7 @@ $section_20 = DB::table('section_20')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>
@@ -3404,7 +3404,7 @@ $videos = DB::table('videos')->where('name', '=', $section_21[0]->video_name)->g
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -3427,7 +3427,7 @@ $videos = DB::table('videos')->where('name', '=', $section_21[0]->video_name)->g
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                             </div>
                         </div>
                         </div>
@@ -3483,7 +3483,7 @@ $videos = DB::table('videos')->where('name', '=', $section_21[0]->video_name)->g
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add New Component</button>
+                        <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                         </div>
                     </div>
                     </div>
@@ -3587,7 +3587,7 @@ $section_22 = DB::table('section_22')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
                 </div>
                 </div>
@@ -3610,7 +3610,7 @@ $section_22 = DB::table('section_22')->where('name', '=', $row_pages->section_ty
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -3666,7 +3666,7 @@ $section_22 = DB::table('section_22')->where('name', '=', $row_pages->section_ty
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New Component</button>
+                    <button type="button" class="btn btn-primary btn-sm">Add New Component</button>
                     </div>
                 </div>
                 </div>

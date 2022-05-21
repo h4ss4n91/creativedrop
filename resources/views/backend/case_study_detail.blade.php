@@ -157,7 +157,7 @@
                                                                                                             $('#edit_caseStudyServicestbody').append(`<tr id="R${++caseStudyServicesrowIdx}">
                                                                                                             <td class="row-index text-center"><select id="service${caseStudyServicesrowIdx}" name="service[]" onchange="case_study_main_service_edit(this);" class="form-control service${caseStudyServicesrowIdx}"><option>--select service--</option>@foreach($service as $row_service)<option value="{{$row_service->id}}">{{$row_service->menu_name}}</option>@endforeach</select></td>
                                                                                                             <td class="row-index text-center"><select  id="dependent_page_sections_edit${caseStudyServicesrowIdx}" name="sub_category[]" class="form-control"><option>--Select Sub Category--</option></select></td>
-                                                                                                            <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                                                            <td class="text-center"><button class="btn btn-danger btn-sm remove" type="button">x</button></td>
                                                                                                             </tr>`);
                                                                                                     });
                                                                                                     // jQuery button click event to remove a row.
@@ -202,7 +202,7 @@
                                                                                                                 <option value="{{$row_ind->id}}">{{$row_ind->title}}</option>
                                                                                                             @endforeach
                                                                                                             </select></td>
-                                                                                                        <td class="text-center"><button class="btn btn-danger remove_two" type="button">x</button></td>
+                                                                                                        <td class="text-center"><button class="btn btn-danger btn-sm remove_two" type="button">x</button></td>
                                                                                                         </tr>`);
                                                                                                     });
                                                                                             
@@ -257,7 +257,7 @@
                                                                                                                         {{$row_case_study_services->menu_name}}
                                                                                                                     </td>
 
-                                                                                                                    <td class="text-center"><button class="btn btn-danger remove" type="button">x</button></td>
+                                                                                                                    <td class="text-center"><button class="btn btn-danger btn-sm remove" type="button">x</button></td>
                                                                                                                 </tr>
                                                                                                                 
                                                                                                                 @endforeach
@@ -291,7 +291,7 @@
                                                                                                                     
 
 
-                                                                                                                    <td class="text-center"><button class="btn btn-danger remove_two" type="button">x</button></td>
+                                                                                                                    <td class="text-center"><button class="btn btn-danger btn-sm remove_two" type="button">x</button></td>
                                                                                                                 </tr>
 
                                                                                                                 
@@ -311,7 +311,7 @@
 
                                                                                     
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Edit Case Study</button>
+                                                                                        <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Edit Case Study</button>
                                                                                         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                     </div>
                                                                                 </div>
@@ -362,7 +362,7 @@
             
                         </div>
                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Add Case Study Content</button>
+                            <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Add Case Study Content</button>
                         </div>
                     </div>
                 </div>
@@ -408,7 +408,7 @@
                                             </td>
                                             <td>
                                                 
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_Modal{{$row_case_study_detail->id}}">
+                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_Modal{{$row_case_study_detail->id}}">
                                                     <i style="color:#fff"  class="fa fa-pencil"></i>
                                                   </button><!-- Modal -->
                                                         <div class="modal fade" id="edit_Modal{{$row_case_study_detail->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -496,13 +496,13 @@
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-primary">Edit Content</button>
+                                                                <button type="submit" class="btn btn-primary btn-sm">Edit Content</button>
                                                                 </div>
                                                             </form>
                                                             </div>
                                                             </div>
                                                         </div>
-                                                        <button type="button" class="btn btn-danger">
+                                                        <button type="button" class="btn btn-danger btn-sm">
                                                                 <a href="{{url('admin/delete_case_study_content/'.$row_case_study_detail->id)}}"> <i style="color:#fff" class="fa fa-trash-o"></i> </a>
                                                         </button>
                                             </td>

@@ -55,7 +55,7 @@
 
                                     <div class="tab-pane active" id="account-vertical-section_22" role="tabpanel" aria-labelledby="account-pill-section_22" aria-expanded="false">
                                         <div class="media">
-                                            <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
+                                            <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75">
                                             3rd Level Navigation
                                             </div>
                                         </div>
@@ -138,7 +138,7 @@
                                     
                                     
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create Section 23</button>
+                                                            <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Create Section 23</button>
                                                             <button type="reset" class="btn btn-light">Cancel</button>
                                                         </div>
                                                     </div>

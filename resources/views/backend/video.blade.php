@@ -52,95 +52,120 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
+                                @include('backend.flash_message')
                                         <div class="tab-pane active " id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
                                             <!-- BEGIN: Content-->
                                             <div class="media">
 
-                                                <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
+                                                <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75">
                                                     Create Video Section
+
+                                                    <span class="btn btn-primary btn-sm" 
+                                                                data-toggle="modal" data-target="#mainMenuModel"
+                                                                class="media-body mt-75"
+                                                                style="border:1px solid #fff; float:right">Create Video </span>
+                                                    
+
+																					<div class="modal fade" id="mainMenuModel" tabindex="-1" role="dialog" aria-labelledby="mainMenuModel" aria-hidden="true">
+                                                                                        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+																								<div class="modal-content">
+																										<div class="btn btn-primary modal-header">
+																											<h5 class="modal-title" id="exampleModalLongTitle">Create Video</h5>
+																											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																												<span aria-hidden="true">&times;</span>
+																											</button>
+																										</div>
+																										<div class="modal-body">
+																										<div class="row">
+                                                                                                            
+                                                                                                            <div class="col-6">
+                                                                                                                <form method="POST" action="{{url('admin/store_video')}}">
+                                                                                                                    @csrf
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Page Name</label>
+                                                                                                                                    <select class="form-control" name="page_id">
+                                                                                                                                        @foreach($pages as $row_page)
+                                                                                                                                        <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
+                                                                                                                                        @endforeach
+                                                                                                                                    </select>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Video Name</label>
+                                                                                                                                    <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Video Title</label>
+                                                                                                                                    <input type="text" name="video_title" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Video Link</label>
+                                                                                                                                    <input type="text" name="video_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Button Label</label>
+                                                                                                                                    <input type="text" name="contact_button_label" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Button Link</label>
+                                                                                                                                    <input type="text" name="contact_button_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                            
+                                                                                                                        @include('padding_top_and_bottom');
+                                                                                                        
+                                                                                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save</button>
+                                                                                                                            
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </form>
+                                                                                                                <hr />
+                                                                                                            </div>
+
+                                                                                                            <div class="col-6">
+                                                                                                                <img style="width:100%" src="{{asset('public/page_sections/video.png')}}" />
+                                                                                                            </div>
+
+                                                                                                        </div>
+																										</div>
+																								</div>
+                                                                                        </div>
+                                                                                    </div>
+
+
                                                 </div>
                                             </div>
                                             <hr>
-                                            <div class="row">
-                                                @include('backend.flash_message')
-                                                <div class="col-6">
-                                                    <form method="POST" action="{{url('admin/store_video')}}">
-                                                        @csrf
-                                                        <div class="row">
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Page Name</label>
-                                                                        <select class="form-control" name="page_id">
-                                                                            @foreach($pages as $row_page)
-                                                                            <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Video Name</label>
-                                                                        <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Video Title</label>
-                                                                        <input type="text" name="video_title" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Video Link</label>
-                                                                        <input type="text" name="video_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Button Label</label>
-                                                                        <input type="text" name="contact_button_label" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12">
-                                                                <div class="form-group">
-                                                                    <div class="controls">
-                                                                        <label for="account-username">Button Link</label>
-                                                                        <input type="text" name="contact_button_link" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                                
-                                                            @include('padding_top_and_bottom');
                                             
-                                                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Create Video</button>
-                                                                <button type="reset" class="btn btn-light">Cancel</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                    <hr />
-                                                </div>
-
-                                                <div class="col-6">
-                                                    <img style="width:100%" src="{{asset('public/page_sections/video.png')}}" />
-                                                </div>
-
-                                            </div>
 
                                             <table class="table table-striped table-bordered dom-jQuery-events">
                                                 <thead>
@@ -167,8 +192,8 @@
                                                             Bottom: {{$row_videos->padding_bottom}} <br/>
                                                         </td>
                                                         <td>
-                                                            <a class="btn btn-primary" data-toggle="modal" data-target="#videoModalCenter{{$row_videos->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> 
-                                                            <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_video/'.$row_videos->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                            <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#videoModalCenter{{$row_videos->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> 
+                                                            <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_video/'.$row_videos->id)}} "> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="videoModalCenter{{$row_videos->id}}" tabindex="-1" role="dialog" aria-labelledby="videoModalCenter{{$row_videos->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -270,7 +295,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                        <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Edit Video</button>
+                                                                                        <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Edit Video</button>
                                                                                         <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-light">Cancel</button>
                                                                                     </div>
                                                                                 </div>
