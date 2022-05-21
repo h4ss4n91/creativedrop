@@ -1150,7 +1150,6 @@ class BackendController extends Controller {
     // Para Style 5  Section
     public function store_para_style_5(Request $request) {
         $data = $request->all();
-
         
             DB::table('para_style_5')->insert(
                     [
@@ -2011,10 +2010,8 @@ class BackendController extends Controller {
                     'name' => $request->name,
                     'padding_bottom' => $request->padding_bottom,
                     'padding_top' => $request->padding_top, 
-                    'heading_1' => $data['heading_1'],
-                    'image' => $file_name,
-                    'video' => $data['video'],
-                    'text' => $data['text']
+                    'heading' => $data['heading'],
+                    'title' => $data['title']
                 ]
         );
 

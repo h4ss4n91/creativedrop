@@ -52,81 +52,101 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-
+                                @include('backend.flash_message')
                                     <!-- team -->
                                     <div class="tab-pane active" id="account-vertical-info-team" role="tabpanel" aria-labelledby="account-pill-info-team" aria-expanded="false">
                                         <div class="media">
 
-                                            <div style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75">
-                                                Create Team Member
+                                            <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75">
+                                                Team List
+
+                                                <span class="btn btn-primary btn-sm" 
+                                                                data-toggle="modal" data-target="#mainMenuModel"
+                                                                class="media-body mt-75"
+                                                                style="border:1px solid #fff; float:right">Create Team </span>
+                                                    
+
+																					<div class="modal fade" id="mainMenuModel" tabindex="-1" role="dialog" aria-labelledby="mainMenuModel" aria-hidden="true">
+                                                                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+																								<div class="modal-content">
+																										<div class="btn btn-primary modal-header">
+																											<h5 class="modal-title" id="exampleModalLongTitle">Create Team</h5>
+																											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																												<span aria-hidden="true">&times;</span>
+																											</button>
+																										</div>
+																										<div class="modal-body">
+                                                                                                        <div class="row">
+                                                                                                            
+                                                                                                            <div class="col-12">
+
+                                                                                                                <form method="POST" action="{{url('admin/store_team')}}" enctype="multipart/form-data">
+                                                                                                                    @csrf
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-6">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <div class="controls">
+                                                                                                                                    <label for="account-username">Name Section</label>
+                                                                                                                                    <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                            <div class="col-12">
+                                                                                                                                <div class="row">
+                                                                                                                                    @include('padding_top_and_bottom')
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        
+                                                                                                                        <div class="col-6">
+                                                                                                                            <img style="width:100%" src="{{asset('public/page_sections/team.png')}}" />
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12">
+
+                                                                                                                            <div class="container pt-4">
+                                                                                                                                <button class="btn btn-md btn-primary" id="teamaddBtn" type="button"> Add Team Member </button>
+                                                                                                                                <div class="table-responsive">
+                                                                                                                                    <table class="table table-bordered">
+                                                                                                                                        <thead>
+                                                                                                                                            <tr>
+                                                                                                                                                <th class="text-center">Profile Image</th>
+                                                                                                                                                <th class="text-center">Name</th>
+                                                                                                                                                <th class="text-center">Designation</th>
+                                                                                                                                                <th class="text-center">Remove Row</th>
+                                                                                                                                            </tr>
+                                                                                                                                        </thead>
+                                                                                                                                        <tbody id="teamtbody">
+
+                                                                                                                                        </tbody>
+                                                                                                                                    </table>
+                                                                                                                                </div>
+
+                                                                                                                            </div>
+                                                                                                                        </div>
+
+                                                                                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save</button>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </form>
+                                                                                                            </div>
+                                                                                                        </div>
+																										</div>
+																								</div>
+                                                                                        </div>
+                                                                                    </div>
                                             </div>
                                         </div>
                                         <hr>
-                                        <div class="row">
-                                            @include('backend.flash_message')
-                                            <div class="col-12">
-
-                                                <form method="POST" action="{{url('admin/store_team')}}" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-6">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-username">Name Section</label>
-                                                                    <input type="text" name="name" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="row">
-                                                                    @include('padding_top_and_bottom')
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="col-6">
-                                                            <img style="width:100%" src="{{asset('public/page_sections/team.png')}}" />
-                                                        </div>
-
-                                                        <div class="col-12">
-
-                                                            <div class="container pt-4">
-                                                                <button class="btn btn-md btn-primary" id="teamaddBtn" type="button"> Add Team Member </button>
-                                                                <div class="table-responsive">
-                                                                    <table class="table table-bordered">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th class="text-center">Team Member Image</th>
-                                                                                <th class="text-center">Team Member Name</th>
-                                                                                <th class="text-center">Team Member Designation</th>
-                                                                                <th class="text-center">Remove Row</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody id="teamtbody">
-
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Add Team Member Info</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-
-                                        <hr />
+                                       
                                         <table class="table table-striped table-bordered dom-jQuery-events">
                                             <thead>
                                                 <tr>
@@ -139,7 +159,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($team as $case_study_row)
+                                                @foreach($team->unique('section_name') as $case_study_row)
                                                 <tr>
                                                     <td>{{$case_study_row->section_name}}</td>
                                                     <td>
@@ -150,7 +170,7 @@
                                                     <td>Top: {{$case_study_row->padding_top}} <br/>
                                                         Bottom: {{$case_study_row->padding_bottom}} <br/>
                                                     </td>
-                                                    <td> <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_team/'.$case_study_row->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary" data-toggle="modal" data-target="#teamStudyModalCenter{{$case_study_row->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                    <td> <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_team/'.$case_study_row->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#teamStudyModalCenter{{$case_study_row->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                         <div class="modal fade" id="teamStudyModalCenter{{$case_study_row->id}}" tabindex="-1" role="dialog" aria-labelledby="teamStudyModalCenter{{$case_study_row->id}}" aria-hidden="true">
                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
@@ -244,7 +264,7 @@
 
 
                                                                                 <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                                                    <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Edit Team</button>
+                                                                                    <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Edit Team</button>
                                                                                     <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
                                                                                 </div>
                                                                             </div>

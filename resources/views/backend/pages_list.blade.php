@@ -84,7 +84,7 @@
                                                                                 <div class="col-12">
                                                                                     <div class="card">
                                                                                         <div class="card-header">
-                                                                                            <h4 style="color:#fff; border-radius:5px; background-color:#31036e; padding:10px;" class="media-body mt-75" class="card-title">Pages List</h4>
+                                                                                            <h4 style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75" class="card-title">Pages List</h4>
                                                                                         </div>
                                                                                         <div class="card-content collapse show">
                                                                                             <div class="card-body card-dashboard">
@@ -104,7 +104,7 @@
                                                                                                             <td>{{$row_pages->slug}}</td>
                                                                                                             <td>{{$row_pages->status}}</td>
                                                                                                             <td>
-                                                                                                                <a class="btn btn-primary" href="{{url('admin/edit_page_content',$row_pages->id)}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>  <a class="btn btn-danger" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_page',$row_pages->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>
+                                                                                                                <a class="btn btn-primary btn-sm" href="{{url('admin/edit_page_content',$row_pages->id)}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>  <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_page',$row_pages->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i> </a>
                                                                                                             </td>
                                                                                                             <!-- Modal -->
                                                                                                         </tr>

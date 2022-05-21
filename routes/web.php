@@ -16,6 +16,7 @@ Route::get('/admin', function () {
     return redirect('admin/home');
 });
 
+Route::get('/login', 'Auth\LoginController@showLoginForm');
 
 Route::get('/insight/{id}', 'WelcomeController@insight');
 

@@ -2,7 +2,6 @@
 @section('content')
 
  
- 
 <section class="section-bg-grey section-padtop-100 section-padbottom-100 portfolio">
     <div class="web-container-fluid">
         <div class="row justify-content-center">
