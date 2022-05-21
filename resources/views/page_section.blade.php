@@ -322,7 +322,37 @@
 																																	</div>
 																																</div>
 																															<div class="row">
-																																@include('padding_top_and_bottom')
+                                                                                                                            <div class="col-6">
+                                                                                                                                <div class="form-group">
+                                                                                                                                    <div class="controls">
+                                                                                                                                        <label for="account-username">Padding TOP  </label>
+                                                                                                                                        <select name="padding_top" class="form-control">
+                                                                                                                                            <option value="{{$row_sliders->padding_top}}">{{$row_sliders->padding_top}}</option>
+                                                                                                                                            <option value="0"> 0 </option>
+                                                                                                                                            <option value="30"> 30 </option>
+                                                                                                                                            <option value="50"> 50 </option>
+                                                                                                                                            <option value="70"> 70 </option>
+                                                                                                                                            <option value="100"> 100 </option>
+                                                                                                                                        </select>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+
+                                                                                                                            <div class="col-6">
+                                                                                                                                <div class="form-group">
+                                                                                                                                    <div class="controls">
+                                                                                                                                        <label for="account-username">Padding BOTTOM  </label>
+                                                                                                                                        <select name="padding_bottom" class="form-control">
+                                                                                                                                        <option value="{{$row_sliders->padding_bottom}}">{{$row_sliders->padding_bottom}}</option>
+                                                                                                                                            <option value="0"> 0 </option>
+                                                                                                                                            <option value="30"> 30 </option>
+                                                                                                                                            <option value="50"> 50 </option>
+                                                                                                                                            <option value="70"> 70 </option>
+                                                                                                                                            <option value="100"> 100 </option>
+                                                                                                                                        </select>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
 																															</div>
 																														</div>
 																													</div>
@@ -346,6 +376,23 @@
 																																		</tr>
 																																	</thead>
 																																	<tbody id="slidertbody">
+                                                                                                                                        @php
+                                                                                                                                            $content = DB::table('sliders')->where('name','=',$row_sliders->name)->get();
+                                                                                                                                        @endphp
+                                                                                                                                        @foreach($content as $row_content)
+                                                                                                                                        <tr>
+																																			<td class="text-center">Slider Image</td>
+																																			<td class="text-center">Heading 1</td>
+																																			<td class="text-center">Heading 2</td>
+																																			<td class="text-center">Button Link</td>
+																																			<td class="text-center">Button Style</td>
+																																			<td class="text-center">Status</td>
+																																			<td class="text-center">Remove Row</td>
+																																		</tr>
+                                                                                                                                        @endforeach
+                                                                                                                                        
+
+
 
 																																	</tbody>
 																																</table>
@@ -356,7 +403,7 @@
 
 
 																													<div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
-																														<button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Save</button>
+																														<!-- <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Save</button> -->
 																														
 																													</div>
 																												</div>
