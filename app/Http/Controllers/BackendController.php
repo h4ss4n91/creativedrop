@@ -385,6 +385,7 @@ class BackendController extends Controller {
 
             $affected = DB::table('sliders')
                     ->where('id', $request->id)
+                    ->where('name', $request->name)
                     ->update(
                     ['page_id' => $request->page_id, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
             );
@@ -396,6 +397,7 @@ class BackendController extends Controller {
             $file->move(public_path('slider'), $file_name); // move files to destination folder
             $affected = DB::table('sliders')
                     ->where('id', $request->id)
+                    ->where('name', $request->name)
                     ->update(
                     ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top, 'page_id' => $request->page_id, 'name' => $request->name, 'status' => $request->status, 'text1' => $request->text1, 'text2' => $request->text2, 'contact_button_link' => $request->contact_button_link]
             );

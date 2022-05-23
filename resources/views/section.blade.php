@@ -17,8 +17,6 @@
                                 <button type="button" data-toggle="modal" data-target="#lineheightModal{{$row_pages->id}}">
                                     <i class="fa fa-bars"></i>
                                 </button>
-                                
-
                                 <button type="button" data-toggle="modal" data-target="#exampleModal{{$row_pages->id}}">
                                     <i class="fa fa-edit"></i>
                                   </button>
