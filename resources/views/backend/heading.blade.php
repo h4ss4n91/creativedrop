@@ -72,11 +72,11 @@
 																										</div>
 																										<div class="modal-body">
                                                                                                         <div class="row">
-                                                                                                            <div class="col-md-6">
+                                                                                                            <div class="col-md-4">
                                                                                                                 <img style="width:100%" src="{{asset('public/page_sections/heading.png')}}" />
                                                                                                             </div>
-                                                                                                            <div class="col-md-6">
-                                                                                                                <form method="POST" action="{{url('admin/store_section_23')}}" enctype="multipart/form-data">
+                                                                                                            <div class="col-md-8">
+                                                                                                                <form method="POST" action="{{url('admin/store_section_heading')}}" enctype="multipart/form-data">
                                                                                                                     @csrf
                                                                                                                     <div class="row">
 
@@ -161,7 +161,7 @@
 
                                                     <td>
                                                         <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#section_23_ModalCenter{{$row_section_23->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a> 
-                                                        <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_23/'.$row_section_23->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+                                                        <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_section_heading/'.$row_section_23->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
 
                                                         <!-- Modal -->
                                                         <div class="modal fade" id="section_23_ModalCenter{{$row_section_23->id}}" tabindex="-1" role="dialog" aria-labelledby="section_23_ModalCenter{{$row_section_23->id}}" aria-hidden="true">
@@ -172,7 +172,7 @@
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        <form method="POST" action="{{url('admin/edit_section_23')}}" enctype="multipart/form-data">
+                                                                        <form method="POST" action="{{url('admin/edit_section_heading')}}" enctype="multipart/form-data">
                                                                             @csrf
                                                                             <input type="hidden" value="{{$row_section_23->id}}" name="id">
 

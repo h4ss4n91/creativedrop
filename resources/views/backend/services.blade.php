@@ -197,8 +197,145 @@
                                                                 Bottom: {{$row_services->padding_bottom}} <br/>
                                                             </td>
                                                             <td>
-                                                                <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#serviceModalCenter{{$row_services->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewsliderModalCenter{{$row_services->id}}"> <i class="fa fa-eye admin-edit"></i></a>     
+                                                            <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#serviceModalCenter{{$row_services->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                                 <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_service/'.$row_services->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  
+                                                                <div class="modal fade" id="viewsliderModalCenter{{$row_services->id}}" tabindex="-1" role="dialog" aria-labelledby="serviceModalCenter{{$row_services->id}}" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLongTitle">Testing</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <form method="POST" action="{{url('admin/edit_service')}}" enctype="multipart/form-data">
+                                                                                    @csrf
+                                                                                    <input type="hidden" value="{{$row_services->id}}" name="id">
+
+                                                                                    <div class="row">
+                                                                                        <div class="col-12">
+                                                                                            <div class="form-group">
+                                                                                                <div class="controls">
+                                                                                                    <label for="account-username">Page Name</label>
+                                                                                                    <select class="form-control" name="page_id">
+                                                                                                        @foreach($pages as $row_page)
+                                                                                                                <option value="{{$row_page->id}}"> {{$row_page->title}} </option>
+                                                                                                        @endforeach
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-12">
+                                                                                            <div class="form-group">
+                                                                                                <div class="controls">
+                                                                                                    <label for="account-username">Section Name</label>
+                                                                                                    <input type="text" name="name" class="form-control" value="{{$row_services->name}}">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-12">
+                                                                                            <div class="form-group">
+                                                                                                <div class="controls">
+                                                                                                    <label for="account-username">CLASS NAME</label>
+                                                                                                    <select class="form-control" name="class_name">
+                                                                                                        <option name="section-bg-white">section-bg-white</option>
+                                                                                                        <option name="section-bg-white">section-bg-white</option>
+                                                                                                        <option name="section-bg-grey-grad">section-bg-grey-grad</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-12">
+                                                                                            <div class="form-group">
+                                                                                                <div class="controls">
+                                                                                                    <label for="account-username">Main Service</label>
+                                                                                                    <select name="main_service" class="form-control">
+                                                                                                        <option value="{{$row_services->main_service}}">{{$row_services->first_level_menu_name}} </option>
+                                                                                                        @php
+                                                                                                            $_menus = DB::table('menus')->get();
+                                                                                                        @endphp
+                                                                                                        @foreach($_menus as $row_menu)
+                                                                                                            <option value="{{$row_menu->id}}"> {{$row_menu->menu_name}}</option>
+                                                                                                        @endforeach
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-12">
+                                                                                            <div class="form-group">
+                                                                                                <div class="controls">
+                                                                                                    <label for="account-username">Sub Service</label>
+                                                                                                    <select name="sub_service" class="form-control">
+                                                                                                        <option value="{{$row_services->sub_service}}">{{$row_services->second_level_menu_name}} </option>
+                                                                                                        @php
+                                                                                                            $_child_menus = DB::table('child_menus')->get();
+                                                                                                        @endphp
+                                                                                                        @foreach($_child_menus as $row_child_menu)
+                                                                                                            <option value="{{$row_child_menu->id}}"> {{$row_child_menu->item_name}}</option>
+                                                                                                        @endforeach
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-12">
+                                                                                            <div class="form-group">
+                                                                                                <div class="controls">
+                                                                                                    <label for="account-username"> Sub Service Link</label>
+                                                                                                    <input type="text" name="sub_service_link" value="{{$row_services->sub_service_link}}" class="form-control" id="account-username" required data-validation-required-message="This username field is required">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-12">
+                                                                                            <div class="row">
+                                                                                                <div class="col-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <div class="controls">
+                                                                                                            <label for="account-username">Padding TOP  </label>
+                                                                                                            <select name="padding_top" class="form-control">
+                                                                                                                <option value="{{$row_services->padding_top}}"> {{$row_services->padding_top}} </option>
+                                                                                                                <option value="0"> 0 </option>
+                                                                                                                <option value="30"> 30 </option>
+                                                                                                                <option value="50"> 50 </option>
+                                                                                                                <option value="70"> 70 </option>
+                                                                                                                <option value="100"> 100 </option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                
+                                                                                                <div class="col-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <div class="controls">
+                                                                                                            <label for="account-username">Padding BOTTOM  </label>
+                                                                                                            <select name="padding_bottom" class="form-control">
+                                                                                                                <option value="{{$row_services->padding_bottom}}"> {{$row_services->padding_bottom}} </option>
+                                                                                                                <option value="0"> 0 </option>
+                                                                                                                <option value="30"> 30 </option>
+                                                                                                                <option value="50"> 50 </option>
+                                                                                                                <option value="70"> 70 </option>
+                                                                                                                <option value="100"> 100 </option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                                            <button type="submit" class="btn btn-primary btn-sm mr-sm-1 mb-1 mb-sm-0">Edit Service</button>
+                                                                                            <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
                                                                 <div class="modal fade" id="serviceModalCenter{{$row_services->id}}" tabindex="-1" role="dialog" aria-labelledby="serviceModalCenter{{$row_services->id}}" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                         <div class="modal-content">

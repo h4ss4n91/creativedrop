@@ -70,10 +70,17 @@
         .table thead th{
             background-color: #ffffff;
         }
-        .card-body{
-            background-color: #d9d9d9;
-            background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+        .modal-header{
+            background: #36D1DC;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color:#ffffff;
+            font-weight:bold;
         }
+        .card-body{
+            
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            }
         .admin-edit {
             color: #fff !important;
         }
