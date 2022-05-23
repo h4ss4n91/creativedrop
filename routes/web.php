@@ -217,6 +217,11 @@ Route::post('/admin/store_section_23', 'BackendController@store_section_23')->na
 Route::post('/admin/edit_section_23', 'BackendController@edit_section_23')->name('edit_section_23');
 Route::get('/admin/delete_section_23/{id}', 'BackendController@delete_section_23')->name('delete_section_23');
 
+// Section Heading
+Route::post('/admin/store_section_heading', 'BackendController@store_section_heading')->name('store_section_heading');
+Route::post('/admin/edit_section_heading', 'BackendController@edit_section_heading')->name('edit_section_heading');
+Route::get('/admin/delete_section_heading/{id}', 'BackendController@delete_section_heading')->name('delete_section_heading');
+
 
 // Social Media
 Route::post('/admin/store_social_media', 'BackendController@store_social_media')->name('store_social_media');

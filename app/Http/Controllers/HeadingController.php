@@ -21,7 +21,7 @@ class HeadingController extends Controller
             {
                 return Redirect::route('login')->withInput()->with('errmessage', 'Please Login.');
             }
-        $section_23 = DB::table('section_23')->get();
+        $section_23 = DB::table('headings')->get();
         return view('backend.heading',compact('section_23'));
     }
 

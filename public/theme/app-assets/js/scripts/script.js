@@ -116,7 +116,7 @@ function third_services_two(ele) {
 
 
 function page_section(ele) {
-    console.log(app_url);
+    // console.log(app_url);
     var class_id = $(ele).attr('id');
     var val = $(`#${class_id}`).find(":selected").text();
     var page_section = $(`#${class_id} option:selected`).val()
