@@ -177,7 +177,12 @@
                                                         Bottom: {{$row_section_16->padding_bottom}}
                                                     </td>
                                     
-                                                    <td> <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_16/'.$row_section_16->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a>  <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#section_15_ModalCenter{{$row_section_16->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
+                                                    <td>
+                                                    <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewFirstModal1"> <i class="fa fa-eye admin-edit"></i></a> 
+                                                              @include('modal.first_modal')
+                                                               <!-- Modal -->
+                                                              @include('modal.second_modal')  
+                                                        <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_section_16/'.$row_section_16->id)}}"><i class="fa fa-trash-o admin-delete text-danger"></i> </a>  <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#section_15_ModalCenter{{$row_section_16->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                         <div class="modal fade" id="section_15_ModalCenter{{$row_section_16->id}}" tabindex="-1" role="dialog" aria-labelledby="section_15_ModalCenter{{$row_section_16->id}}" aria-hidden="true">
                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
