@@ -1,9 +1,6 @@
 @extends('layouts.frontend')
 
 @section('content')
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
-<link rel="stylesheet" href="{{ asset('public/login/dist/style.css')}}">
 
 <!-- partial:index.partial.html -->
 <div class="container">
@@ -46,9 +43,5 @@
 	</div>
 </div>
 <!-- partial -->
-
-
-
-
 
 @endsection
