@@ -52,12 +52,9 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-                                        
                                     @include('backend.flash_message')
-
                                         <div class="tab-pane active" id="account-vertical-info-services" role="tabpanel" aria-labelledby="account-pill-info-services" aria-expanded="false">
                                             <div class="media">
-
                                                 <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75">
                                                     Services
                                                     <span class="btn btn-primary btn-sm" 
@@ -197,7 +194,11 @@
                                                                 Bottom: {{$row_services->padding_bottom}} <br/>
                                                             </td>
                                                             <td>
-                                                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewsliderModalCenter{{$row_services->id}}"> <i class="fa fa-eye admin-edit"></i></a>     
+                                                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewFirstModal1"> <i class="fa fa-eye admin-edit"></i></a> 
+                                                              @include('modal.first_modal')
+                                                               <!-- Modal -->
+                                                              @include('modal.second_modal')
+
                                                             <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#serviceModalCenter{{$row_services->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                                 <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_service/'.$row_services->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  
                                                                 <div class="modal fade" id="viewsliderModalCenter{{$row_services->id}}" tabindex="-1" role="dialog" aria-labelledby="serviceModalCenter{{$row_services->id}}" aria-hidden="true">

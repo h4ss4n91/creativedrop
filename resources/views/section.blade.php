@@ -714,7 +714,13 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                                     ->where('id', '=', $third_row->third_service)
                                     ->get();
                             @endphp
+                            @if(!$third_row)
                             <li><a href="{{url($third_row->third_service_link)}}">{{$sub_child_menu[0]->item_name}}</a></li>
+                            @else
+
+                            
+                            @endif
+                            
                         @endforeach
                         
                     </ul>
@@ -1078,6 +1084,9 @@ $news = DB::table('news_and_opinions')->where('name', '=', $row_pages->section_t
 @php
 $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)->get();
 @endphp
+@if(!$requests->isEmpty())
+
+
 @if($requests[0]->style == 'style1')
 <div class="web-container">
     @guest
@@ -1583,6 +1592,9 @@ $requests = DB::table('requests')->where('name', '=', $row_pages->section_type)-
     </div>
 </section>
 @endif
+
+@endif
+
 @elseif( $row_pages->section== '10' )
 @php
 $para_style_1 = DB::table('para_style_1')->where('name', '=', $row_pages->section_type)->get();

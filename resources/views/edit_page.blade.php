@@ -93,11 +93,16 @@
                                                                         $menus = DB::table('menus')->where('id', '=', $page[0]->menu_id)->get();
                                                                 @endphp
                                                                     <option value="{{$page[0]->menu_id}}">  
+                                                                    @if(!$menus->isEmpty())
+
                                                                         @if($page[0]->menu_id != '#')
                                                                             @if($menus[0]->id == $page[0]->menu_id)
                                                                             {{$menus[0]->menu_name}}
                                                                             @endif
                                                                         @endif
+
+                                                                    @endif
+                                                                    
                                                                         
                                                                         </option>
                                                                     @foreach($main_menu as $row_main_menu)
