@@ -164,12 +164,12 @@
                                                         </td>
                                                         <td>
                                                             <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewsliderModalCenter{{$row_sliders->id}}"> <i class="fa fa-eye admin-edit"></i></a> 
-                                                            
-                                                            <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
-
                                                                 @include('modal.slider_first_modal')
                                                                <!-- Modal -->
                                                               @include('modal.slider_second_modal')
+                                                            <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
+
+                                                            
 
                                                         </td>
                                                     </tr>
