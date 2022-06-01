@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous" />
   
   <link rel="stylesheet" href="{{ asset('public/front_theme/css/theme.css')}}">
+
+  <link rel="stylesheet" href="{{ asset('public/login/dist/style.css')}}"/>
+
   
   <style>
 
