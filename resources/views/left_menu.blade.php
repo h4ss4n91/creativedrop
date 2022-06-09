@@ -1,4 +1,12 @@
-
+<style>
+    .nav-item:hover{
+        background-color:#fff;
+        color:#000 !important;
+    }
+    .nav-item > a:hover{
+        color:#000 !important;
+    }
+    </style>
     <ul class="nav nav-pills flex-column mt-md-0 mt-1">
         <li class="nav-item">
             <a class="nav-link d-flex @if(last(request()->segments()) == 'heading') active @endif"  href="{{url('admin/page_sections/heading')}}">

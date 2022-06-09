@@ -349,31 +349,61 @@ class BackendController extends Controller {
     public function store_slider(Request $request) {
 
         $data = $request->all();
+        $check_slider_exist = DB::table('sliders')->where('name', '=', $request->name)->first();
 
-        $parent_id = DB::table('sliders')->insertGetId(
-            [
-                'name' => $data['name'],
-                'padding_top' => $data['padding_top'],
-                'padding_bottom' => $data['padding_bottom']
-            ]
-        );
+        if($check_slider_exist){
+            for ($i = 0; $i < count($request->text_1); $i++) {
+                $file = $data['slider_image'][$i]; // will get all files
+                $file_name = $file->getClientOriginalName(); //Get file original name
+                $file->move(public_path('slider'), $file_name); // move files to destination folder
+                DB::table('sliders')->insert(
+                        [
+                            'image' => $file_name,
+                            'name' => $request->name,
+                            'parent' => $check_slider_exist->id,
+                            'status' => $data['status'][$i],
+                                'text1' => $data['text_1'][$i],
+                            'link' => $data['link'][$i],
+                            'style' => $data['btn_style'][$i],
+                            'text2' => $data['text_2'][$i],
+                            'contact_button_link' => $data['link'][$i]]
+                );
+            }
+        }else{
+            $parent_id = DB::table('sliders')->insertGetId(
+                [
+                    'name' => $request->name,
+                    'paddingTop' => $request->padding_top,
+                    'paddingBottom' => $request->padding_bottom
+                ]
+            );    
 
-        for ($i = 0; $i < count($request->text_1); $i++) {
-            $file = $data['slider_image'][$i]; // will get all files
-            $file_name = $file->getClientOriginalName(); //Get file original name
-            $file->move(public_path('slider'), $file_name); // move files to destination folder
-            DB::table('sliders')->insert(
-                    [
-                        'image' => $file_name,
-                        'parent' => $parent_id,
-                        'status' => $data['status'][$i],
-                        'text1' => $data['text_1'][$i],
-                        'link' => $data['link'][$i],
-                        'style' => $data['btn_style'][$i],
-                        'text2' => $data['text_2'][$i],
-                        'contact_button_link' => $data['link'][$i]]
-            );
+            for ($i = 0; $i < count($request->text_1); $i++) {
+                $file = $data['slider_image'][$i]; // will get all files
+                $file_name = $file->getClientOriginalName(); //Get file original name
+                $file->move(public_path('slider'), $file_name); // move files to destination folder
+                DB::table('sliders')->insert(
+                        [
+                            'image' => $file_name,
+                            'name' => $request->name,
+                            'parent' => $parent_id,
+                            'status' => $data['status'][$i],
+                                'text1' => $data['text_1'][$i],
+                            'link' => $data['link'][$i],
+                            'style' => $data['btn_style'][$i],
+                            'text2' => $data['text_2'][$i],
+                            'contact_button_link' => $data['link'][$i]]
+                );
+            }
         }
+
+        
+        
+        
+
+        
+
+        
 
         $message = 'Saved Successfully';
         return redirect()->back()->with('success_message', $message);
@@ -408,7 +438,9 @@ class BackendController extends Controller {
     }
 
     public function delete_slider($id) {
-        DB::table('sliders')->where('id', '=', $id)->delete();
+        DB::table('sliders')->where('name', '=', $id)->delete();
+        DB::table('page_detail')->where('section_type', '=', $id)->delete();
+        DB::table('section_21')->where('slider_name', '=', $id)->delete();
         $message = 'Deleted Successfully';
         return redirect()->back()->with('delete_message', $message);
     }
@@ -452,7 +484,7 @@ class BackendController extends Controller {
     public function delete_video($id) {
 
         DB::table('videos')->where('id', '=', $id)->delete();
-
+        DB::table('page_detail')->where('section_type', '=', $id)->delete();
         $message = 'Deleted Successfully';
         return redirect()->back()->with('delete_message', $message);
     }
@@ -751,12 +783,11 @@ class BackendController extends Controller {
         $data = $request->all();
 
         for ($i = 0; $i < count($request->team_member_title); $i++) {
-
             $file = $data['team_member_image'][$i]; // will get all files
             $file_name = $file->getClientOriginalName(); //Get file original name
             $file->move(public_path('team'), $file_name); // move files to destination folder
             DB::table('teams')->insert(
-                    ['image' => $file_name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'section_name' => $data['name'], 'name' => $data['team_member_title'][$i], 'designation' => $data['team_member_designation'][$i]]
+                    ['image' => $file_name,'section_name' => $request->name, 'padding_bottom' => $request->padding_bottom, 'padding_top' => $request->padding_top,  'section_name' => $data['name'], 'name' => $data['team_member_title'][$i], 'designation' => $data['team_member_designation'][$i]]
             );
         }
 
@@ -791,6 +822,7 @@ class BackendController extends Controller {
 
     public function delete_team($id) {
         DB::table('teams')->where('id', '=', $id)->delete();
+
         $message = 'Successfully Deleted';
         return redirect()->back()->with('delete_message', $message);
     }
@@ -2097,5 +2129,50 @@ class BackendController extends Controller {
         return redirect()->back()->with('delete_message', $message);
     }
 
+    public function slider_innerpage($id){
+        
+        $row_sliders = DB::table('sliders')->where('id','=',$id)->first();
+
+        if($row_sliders == null){
+            return redirect('admin/page_sections');
+        }
+        
+        
+        return view('backend.slider_detail', Compact('row_sliders'));
+    }
+
+    public function slide_delete($id){
+
+        
+        DB::table('sliders')->where('id', '=', $id)->delete();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
+    }
+
+    
+
+
+    public function team_innerpage($id){
+        
+        $row_team = DB::table('teams')->where('id','=',$id)->first();
+
+        if($row_team == null){
+            return redirect('admin/page_sections/team');
+        }
+        
+        
+        return view('backend.team_detail', Compact('row_team'));
+    }
+
+    public function team_delete($id){
+
+        
+        DB::table('team')->where('id', '=', $id)->delete();
+        $message = 'Successfully Deleted';
+        return redirect()->back()->with('delete_message', $message);
+    }
+
 
 }
+
+

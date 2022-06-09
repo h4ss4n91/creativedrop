@@ -1,7 +1,7 @@
 @if( $row_pages->section== '1' )
 <section class="banner-with-video">
     @php
-    $sliders = DB::table('sliders')->where('name', '=', $row_pages->section_type)->get();
+    $sliders = DB::table('sliders')->where('parent','!=',NULL)->where('name', '=', $row_pages->section_type)->get();
     @endphp
     <div class="main-wrap">
             <section class="home-slider section-bg-black creative-banner">
@@ -3383,7 +3383,7 @@ $section_20 = DB::table('section_20')->where('name', '=', $row_pages->section_ty
 
 @php
 $section_21 = DB::table('section_21')->where('name', '=', $row_pages->section_type)->get();
-$sliders = DB::table('sliders')->where('name', '=', $section_21[0]->slider_name)->get();
+$sliders = DB::table('sliders')->where('parent','!=',NULL)->where('name', '=', $section_21[0]->slider_name)->get();
 $videos = DB::table('videos')->where('name', '=', $section_21[0]->video_name)->get();
 @endphp
 <div class="main-wrap">

@@ -44,11 +44,11 @@
             <section id="page-account-settings">
                 <div class="row">
                     <!-- left menu section -->
-                <div class="col-md-2 mb-2 mb-md-0">
+                <div class="col-md-3 mb-2 mb-md-0">
                    @include('left_menu')
                 </div>
                     <!-- right content section -->
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
@@ -184,7 +184,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($section_22->unique('name') as $row_section_22)
+                                                @foreach($section_22 as $row_section_22)
                                                 <tr>
                                                     <td>{{$row_section_22->name}}</td>
                                     

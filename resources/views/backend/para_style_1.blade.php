@@ -44,11 +44,11 @@
             <section id="page-account-settings">
                 <div class="row">
                     <!-- left menu section -->
-                <div class="col-md-2 mb-2 mb-md-0">
+                <div class="col-md-3 mb-2 mb-md-0">
                    @include('left_menu')
                 </div>
                     <!-- right content section -->
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
@@ -177,7 +177,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($para_style_1->unique('name') as $row_para_style_1)
+                                                @foreach($para_style_1 as $row_para_style_1)
                                                 <tr>
                                     
                                                     <td>
@@ -286,7 +286,7 @@
                                                                                 <div class="col-6">
                                                                                     <div class="form-group">
                                                                                         <div class="controls">
-                                                                                            <img class="img-responsive" src="{{asset('public/para_style_1/'.$row_para_style_1->image)}}" />
+                                                                                            <img style="width:100%" class="img-responsive" src="{{asset('public/para_style_1/'.$row_para_style_1->image)}}" />
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>

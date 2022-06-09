@@ -24,9 +24,6 @@
   
   <link rel="stylesheet" href="{{ asset('public/front_theme/css/theme.css')}}">
 
-  <link rel="stylesheet" href="{{ asset('public/login/dist/style.css')}}"/>
-
-  
   <style>
 
 @font-face {

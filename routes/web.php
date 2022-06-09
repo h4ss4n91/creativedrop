@@ -16,7 +16,11 @@ Route::get('/admin', function () {
     return redirect('admin/home');
 });
 
-Route::get('/login', 'Auth\LoginController@showLoginForm');
+Route::get('/login', function () {
+    return redirect('admin/login');
+});
+
+Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
 
 Route::get('/insight/{id}', 'WelcomeController@insight');
 
@@ -266,12 +270,23 @@ Route::get('/admin/delete_service/{id}', 'BackendController@delete_service')->na
 Route::post('/admin/store_footer_bottom', 'BackendController@store_footer_bottom')->name('store_footer_bottom');
 
 Route::get('/admin/page_sections', 'BackendController@page_sections')->name('page_sections');
+Route::get('/admin/slider/slider_innerpage/{id}', 'BackendController@slider_innerpage')->name('slider_innerpage');
+
+Route::get('/admin/slider/slide_delete/{id}', 'BackendController@slide_delete')->name('slide_delete');
+
 Route::get('/admin/page_sections/slider', 'BackendController@page_sections')->name('page_sections');
 Route::get('/admin/page_sections/heading', 'HeadingController@index')->name('heading');
 Route::get('/admin/page_sections/video', 'VideoController@index')->name('video');
 Route::get('/admin/page_sections/services', 'ServicesController@index')->name('services');
 Route::get('/admin/page_sections/industries', 'IndustriesController@index')->name('industries');
+
+
+
 Route::get('/admin/page_sections/team', 'TeamController@index')->name('team');
+Route::get('/admin/page_sections/team_innerpage/{id}', 'BackendController@team_innerpage')->name('team_innerpage');
+Route::get('/admin/page_sections/team_delete/{id}', 'BackendController@team_delete')->name('team_delete');
+
+
 Route::get('/admin/page_sections/request', 'RequestController@index')->name('request');
 Route::get('/admin/page_sections/client_and_partner', 'Client_and_partnerController@index')->name('client_and_partner');
 Route::get('/admin/page_sections/case_study', 'Case_StudyController@index')->name('case_study');
@@ -292,5 +307,6 @@ Route::get('/admin/page_sections/section_23', 'Section_23Controller@index')->nam
 Route::get('/admin/page_sections/section_24', 'Section_24Controller@index')->name('section_24');
 Route::get('/admin/page_sections/section_25', 'Section_25Controller@index')->name('section_25');
 Route::get('/admin/pages_list', 'PagesController@index')->name('pages_list');
+
 
 
