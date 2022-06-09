@@ -11,7 +11,6 @@
     .form-control {
         padding: 7px !important;
     }
-
     .table td,
     .table th {
         padding: 7px !important;

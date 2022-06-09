@@ -174,7 +174,6 @@
                                                         <th>Video Title</th>
                                                         <th>Video Link</th>
                                                         <th>Button Label</th>
-                                                        
                                                         <th>Padding</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -184,7 +183,6 @@
                                                     <tr>
                                                         <td>{{$row_videos->name}}</td>
                                                         <td>{{$row_videos->video_title}}</td>
-
                                                         <td>{{$row_videos->video_link}}</td>
                                                         <td>{{$row_videos->button_label}}<br/>
                                                             Link: {{$row_videos->contact_button_link}}
