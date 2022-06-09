@@ -110,11 +110,6 @@ function third_services_two(ele) {
     })
 }
 
-
-
-
-
-
 function page_section(ele) {
     // console.log(app_url);
     var class_id = $(ele).attr('id');
@@ -127,7 +122,11 @@ function page_section(ele) {
         type: 'GET',
         url: app_url+'/admin/page_section_id/' + page_section,
         success: function(data) {
-            console.log(data);
+            if(page_section == 1){
+                $(`#section_image`).html('Hello Slider');    
+            }else if(page_section == 2){
+                $(`#section_image`).html('Hello Video Section');    
+            }
             
             $(`#page_section_two_${replace}`).html(data);
             $(`#section_no_${replace}`).val(+replace);

@@ -36,7 +36,7 @@
             <section id="page-account-settings">
                 <div class="row">
                     <!-- left menu section -->
-                    <div class="col-md-2 mb-2 mb-md-0">
+                    <div class="col-md-3 mb-2 mb-md-0">
                         <ul class="nav nav-pills flex-column mt-md-0 mt-1">
                             <li class="nav-item">
                                 
@@ -61,7 +61,7 @@
                         </ul>
                     </div>
                     <!-- right content section -->
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-content">
                             @if ($message = Session::get('success_message'))

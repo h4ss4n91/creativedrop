@@ -44,11 +44,11 @@
             <section id="page-account-settings">
                 <div class="row">
                     <!-- left menu section -->
-                <div class="col-md-2 mb-2 mb-md-0">
+                <div class="col-md-3 mb-2 mb-md-0">
                    @include('left_menu')
                 </div>
                     <!-- right content section -->
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
@@ -166,10 +166,7 @@
                                                         </td>
 
                                                         <td>
-                                                        <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewFirstModal1"> <i class="fa fa-eye admin-edit"></i></a> 
-                                                              @include('modal.first_modal')
-                                                               <!-- Modal -->
-                                                              @include('modal.second_modal')  
+                                                              
                                                             <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_client_and_partner/'.$row_clientandpartnerimage->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}" tabindex="-1" role="dialog" aria-labelledby="clientAndPartnerModalCenter{{$row_clientandpartnerimage->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

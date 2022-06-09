@@ -44,11 +44,11 @@
             <section id="page-account-settings">
                 <div class="row">
                     <!-- left menu section -->
-                <div class="col-md-2 mb-2 mb-md-0">
+                <div class="col-md-3 mb-2 mb-md-0">
                    @include('left_menu')
                 </div>
                     <!-- right content section -->
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
@@ -160,8 +160,6 @@
 																								</div>
                                                                                         </div>
                                                                                     </div>
-
-
                                                 </div>
                                             </div>
                                             <hr>
@@ -174,7 +172,6 @@
                                                         <th>Video Title</th>
                                                         <th>Video Link</th>
                                                         <th>Button Label</th>
-                                                        <th>Button Link</th>
                                                         <th>Padding</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -184,10 +181,13 @@
                                                     <tr>
                                                         <td>{{$row_videos->name}}</td>
                                                         <td>{{$row_videos->video_title}}</td>
-
                                                         <td>{{$row_videos->video_link}}</td>
-                                                        <td>{{$row_videos->button_label}}</td>
-                                                        <td>{{$row_videos->contact_button_link}}</td>
+                                                        <td>{{$row_videos->button_label}}<br/>
+                                                            Link: {{$row_videos->contact_button_link}}
+
+
+                                                        </td>
+                                                        
                                                         <td>Top: {{$row_videos->padding_top}} <br/>
                                                             Bottom: {{$row_videos->padding_bottom}} <br/>
                                                         </td>
