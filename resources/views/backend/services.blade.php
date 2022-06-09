@@ -44,11 +44,11 @@
             <section id="page-account-settings">
                 <div class="row">
                     <!-- left menu section -->
-                <div class="col-md-2 mb-2 mb-md-0">
+                <div class="col-md-3 mb-2 mb-md-0">
                    @include('left_menu')
                 </div>
                     <!-- right content section -->
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
@@ -170,34 +170,33 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Section Name</th>
-                                                            <th>CSS Class Name</th>
                                                             <th>Main Service</th>
-                                                            <th>2nd Level Service</th>
-                                                            <th>2nd Level Service Link</th>
-                                                            <th>3rd Level Service</th>
-                                                            <th>3rd Level Service Link</th>
+                                                            <th>2nd Service</th>
+                                                            <th>3rd Service</th>
                                                             <th>Padding</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach($services->unique('name') as $row_services)
+                                                        @foreach($services as $row_services)
                                                         <tr>
                                                             <td>{{$row_services->name}}</td>
                                                             <td>{{$row_services->bootstra_class_name}}</td>
                                                             <td>{{$row_services->first_level_menu_name}}</td>
-                                                            <td>{{$row_services->second_level_menu_name}}</td>
-                                                            <td>{{$row_services->second_level_menu_link}}</td>
-                                                            <td>{{$row_services->third_level_menu_name}}</td>
-                                                            <td>{{$row_services->third_level_menu_link}}</td>
+                                                            <td>{{$row_services->second_level_menu_name}} <br/>
+
+                                                            <strong>Link : </strong>{{$row_services->second_level_menu_link}}
+                                                            </td>
+                                                            
+                                                            <td>{{$row_services->third_level_menu_name}} <br/>
+
+                                                            <strong>Link : </strong> {{$row_services->third_level_menu_link}}
+                                                            </td>
+                                                            
                                                             <td>Top: {{$row_services->padding_top}} <br/>
                                                                 Bottom: {{$row_services->padding_bottom}} <br/>
                                                             </td>
                                                             <td>
-                                                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewFirstModal1"> <i class="fa fa-eye admin-edit"></i></a> 
-                                                              @include('modal.first_modal')
-                                                               <!-- Modal -->
-                                                              @include('modal.second_modal')
 
                                                             <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#serviceModalCenter{{$row_services->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                                 <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_service/'.$row_services->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  
@@ -474,19 +473,14 @@
                                                                 </div>
                                                             </td>
                                                         </tr>
-
                                                         @endforeach
-
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
                                                         <th>Section Name</th>
-                                                            <th>CSS Class Name</th>
                                                             <th>Main Service</th>
-                                                            <th>2nd Level Service</th>
-                                                            <th>2nd Level Service Link</th>
-                                                            <th>3rd Level Service</th>
-                                                            <th>3rd Level Service Link</th>
+                                                            <th>2nd Service</th>
+                                                            <th>3rd Service</th>
                                                             <th>Padding</th>
                                                             <th>Action</th>
                                                         </tr>

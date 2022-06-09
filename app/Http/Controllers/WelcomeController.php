@@ -128,8 +128,6 @@ class WelcomeController extends Controller
 
     public function index($id)
     {
-        
-        
         $pages = DB::table('page')
             ->join('page_detail', 'page.id', '=', 'page_detail.page_id')
             ->where('page.slug', '=', $id)

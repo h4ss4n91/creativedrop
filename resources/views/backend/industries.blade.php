@@ -44,11 +44,11 @@
             <section id="page-account-settings">
                 <div class="row">
                     <!-- left menu section -->
-                <div class="col-md-2 mb-2 mb-md-0">
+                <div class="col-md-3 mb-2 mb-md-0">
                    @include('left_menu')
                 </div>
                     <!-- right content section -->
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
@@ -152,7 +152,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($industries->unique('name') as $row_industries)
+                                                    @foreach($industries as $row_industries)
                                                     <tr>
                                                         <td>
                                                             {{$row_industries->name}}
@@ -174,9 +174,7 @@
                                                         
                                                         <td>
                                                         <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewFirstModal1"> <i class="fa fa-eye admin-edit"></i></a> 
-                                                              @include('modal.first_modal')
-                                                               <!-- Modal -->
-                                                              @include('modal.second_modal')
+                                                              
                                                         <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('admin/delete_industry/'.$row_industries->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>  <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#industryModalCenter{{$row_industries->id}}"> <i class="fa fa-pencil-square-o admin-edit"></i></a>
                                                             <div class="modal fade" id="industryModalCenter{{$row_industries->id}}" tabindex="-1" role="dialog" aria-labelledby="industryModalCenter{{$row_industries->id}}" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

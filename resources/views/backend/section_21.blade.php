@@ -44,11 +44,11 @@
             <section id="page-account-settings">
                 <div class="row">
                     <!-- left menu section -->
-                <div class="col-md-2 mb-2 mb-md-0">
+                <div class="col-md-3 mb-2 mb-md-0">
                    @include('left_menu')
                 </div>
                     <!-- right content section -->
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
@@ -250,7 +250,7 @@
                                                                                         <div class="controls">
                                                                                             <label for="account-username">Slider Name</label> @php $slider_name = DB::table('sliders')->get(); @endphp
                                                                                             <select class="form-control" name="slider_name">
-                                                                                                @foreach($slider_name->unique('name') as $row_slider_name)
+                                                                                                @foreach($slider_name as $row_slider_name)
                                                                                                 @if($row_section_21->slider_name == $row_slider_name->name)
                                                                                                 <option selected value="{{$row_slider_name->name}}">{{$row_slider_name->name}} </option>
                                                                                                 @endif

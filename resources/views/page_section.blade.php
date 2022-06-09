@@ -8,6 +8,9 @@
 @section('content')
 <!-- BEGIN: Content-->
 <style>
+    .slider_image{
+        width:100%;
+    }
     .form-control {
         padding: 7px !important;
     }
@@ -44,22 +47,22 @@
             <section id="page-account-settings">
                 <div class="row">
                     <!-- left menu section -->
-                <div class="col-md-2 mb-2 mb-md-0">
+                <div class="col-md-3 mb-2 mb-md-0">
                    @include('left_menu')
                 </div>
                     <!-- right content section -->
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
-                                                <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:10px;" class="media-body mt-75">
+                                                <div style="color:#fff; border-radius:5px; background-color:#0F69C9; padding:20px;" class="media-body">
                                                     Slider List
-                                                    <span class="btn btn-primary btn-sm" 
+                                                    <span class="btn btn-primary" 
                                                                 data-toggle="modal" data-target="#mainMenuModel"
                                                                 class="media-body mt-75"
-                                                                style="border:1px solid #fff; float:right">Create Slider </span>
+                                                                style="color:#fff; border:1px solid #fff; float:right">Create Slider </span>
                                                     
 
 																					<div class="modal fade" id="mainMenuModel" tabindex="-1" role="dialog" aria-labelledby="mainMenuModel" aria-hidden="true">
@@ -102,6 +105,7 @@
 																														
 																														<div class="container pt-4">
 																															<button class="btn btn-md btn-primary" id="slideraddBtn" type="button"> Add new Slider Row </button>
+                                                                                                                            
 																															<div class="table-responsive">
 																																<table class="table table-bordered">
 																																	<thead>
@@ -127,7 +131,7 @@
 
 																													<div class="col-md-12 d-flex flex-sm-row flex-column justify-content-end">
 																														<button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Save</button>
-																														<button type="reset" class="btn btn-light">Cancel</button>
+																														
 																													</div>
 																												</div>
 																											</form>
@@ -141,11 +145,9 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Slider Name</th>
-                                                        <th>Slider Image</th>
-                                                        <th>Slider Heading 1</th>
-                                                        <th>Slider Heading 2</th>
-                                                        <th>Status</th>
-                                                        <th>Padding</th>
+                                                        
+                                                        <th>Padding Top</th>
+                                                        <th>Padding Bottom</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -153,24 +155,13 @@
                                                     @foreach($sliders->unique('name') as $row_sliders)
                                                     <tr>
                                                         <td>{{$row_sliders->name}}</td>
+                                                        
+                                                        <td>{{$row_sliders->paddingTop}}</td>
+                                                        <td>{{$row_sliders->paddingBottom}}</td>
                                                         <td>
-                                                            <img style="width:100px" src="{{asset('public/slider/'.$row_sliders->image)}}" />
-                                                        </td>
-                                                        <td>{{$row_sliders->text1}}</td>
-                                                        <td>{{$row_sliders->text2}}</td>
-                                                        <td>{{$row_sliders->status}}</td>
-                                                        <td>Top: {{$row_sliders->padding_top}} <br/>
-                                                            Bottom: {{$row_sliders->padding_bottom}} <br/>
-                                                        </td>
-                                                        <td>
-                                                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewsliderModalCenter{{$row_sliders->id}}"> <i class="fa fa-eye admin-edit"></i></a> 
-                                                                @include('modal.slider_first_modal')
+                                                            <a href="{{url('admin/slider/slider_innerpage',$row_sliders->id)}}" class="btn btn-info btn-sm"> <i class="fa fa-eye admin-edit"></i></a> 
                                                                <!-- Modal -->
-                                                              @include('modal.slider_second_modal')
-                                                            <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->id)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
-
-                                                            
-
+                                                            <a class="btn btn-danger btn-sm" onclick='return confirm("Are you sure? You want to delete this Record")' href="{{url('/admin/delete_slider/'.$row_sliders->name)}}"> <i class="fa fa-trash-o admin-delete text-danger"></i></a>
                                                         </td>
                                                     </tr>
 
@@ -179,12 +170,11 @@
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-
+                                                        
                                                         <th>Slider Name</th>
-                                                        <th>Slider Image</th>
-                                                        <th>Slider Heading 1</th>
-                                                        <th>Slider Heading 2</th>
-                                                        <th>Status</th>
+                                                        
+                                                        <th>Padding Top</th>
+                                                        <th>Padding Bottom</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </tfoot>
