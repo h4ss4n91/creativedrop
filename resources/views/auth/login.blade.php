@@ -3,6 +3,15 @@
 
 <link rel="stylesheet" href="{{asset('login_css/style.css')}}">
 
+<link rel="stylesheet" href="{{asset('login_css/style.css')}}">
+
+<div style="background-color:#f5f5f5; padding-top:100px; padding-bottom:200px;" class="row">
+    <div  class="web-container">
+        
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
 <div class="container">
 	<div class="screen">
 		<div class="screen__content">
@@ -46,5 +55,3 @@
 		</div>		
 	</div>
 </div>
-
-@endsection
