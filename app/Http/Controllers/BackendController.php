@@ -144,6 +144,30 @@ class BackendController extends Controller {
         $id = $request->id;
         $data = $request->all();
         DB::table('page_detail')->where('page_id', '=', $id)->delete();
+        if($request->child_menu_id == NULL){
+            $child_menus = DB::table('child_menus')->where('id', '=', $request->sub_menu_id)->first();
+            if($child_menus != NULL){
+
+                $affected = DB::table('child_menus')
+                ->where('id', $child_menus->id)
+                ->update([
+            'item_name' => $request->title,
+            'item_link' => $request->slug]);
+            }
+        }else{
+            $sub_child_menus = DB::table('sub_child_menus')->where('id', '=', $request->child_menu_id)->first();
+            if($sub_child_menus != NULL){
+
+                $affected = DB::table('sub_child_menus')
+                ->where('id', $sub_child_menus->id)
+                ->update([
+            'item_name' => $request->title,
+            'item_link' => $request->slug]);
+            }
+        }
+
+        
+        DB::table('page_detail')->where('page_id', '=', $id)->delete();
 
         $affected = DB::table('page')
                 ->where('id', $request->id)
@@ -324,6 +348,21 @@ class BackendController extends Controller {
     }
 
     public function edit_sub_child_menu(Request $request) {
+
+        
+        $child_menus_for_page = DB::table('page')
+                        ->where('child_menu_id', '=', $request->id)
+                        ->first();
+            if($child_menus_for_page != NULL){
+
+                $affected = DB::table('page')
+                ->where('child_menu_id', $request->id)
+                ->update([
+            'title' => $request->edit_sub_child_item_name,
+            'slug' => $request->edit_sub_child_item_link]);
+            }
+        
+
 
         $affected = DB::table('sub_child_menus')
                 ->where('id', $request->id)

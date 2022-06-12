@@ -162,7 +162,7 @@
                                                 <div class="form-group">
                                                     <div class="controls">
                                                         <label style="font-weight:bold;"for="account-username">Page Title</label>
-                                                        <input type="text" value="{{$page[0]->title}}" name="title" class="form-control" id="account-username" required
+                                                        <input type="text" value="{{$page[0]->title}}" id="edit_page_title" name="title" class="form-control"  required
                                                             data-validation-required-message="This username field is required">
                                                     </div>
                                                 </div>
@@ -172,7 +172,7 @@
                                                 <div class="form-group">
                                                     <div class="controls">
                                                         <label style="font-weight:bold;"for="account-username">Page Slug</label>
-                                                        <input type="text" name="slug" value="{{$page[0]->slug}}" class="form-control" id="account-username" required
+                                                        <input type="text" name="slug" id="edit_page_slug" value="{{$page[0]->slug}}" class="form-control" required
                                                             data-validation-required-message="This username field is required">
                                                     </div>
                                                 </div>
@@ -182,8 +182,7 @@
                                                 <div class="form-group">
                                                     <div class="controls">
                                                         <label style="font-weight:bold;"for="account-username">Meta Keywords</label>
-                                                        <input type="text" value="{{$page[0]->meta_keyword}}" name="meta_keyword" class="form-control" id="account-username" required
-                                                            data-validation-required-message="This username field is required">
+                                                        <input type="text" value="{{$page[0]->meta_keyword}}" name="meta_keyword" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -567,7 +566,7 @@ $('#edit_page_section').change(function() {
         var dependent = $(this).data('dependent');
         var _token = $('input[name="_token"]').val();
         $.ajax({
-            url: "../services_by_id/" + value,
+            url: app_url+"/services_by_id/" + value,
             method: "GET",
             success: function(result) {
                 console.log(result);
@@ -591,7 +590,7 @@ $('#edit_dependent_page_sections').change(function() {
         var dependent_page_sections = $(this).data('dependent');
         var _token = $('input[name="_token"]').val();
         $.ajax({
-            url: "../get_3rd_level_menu/" + value,
+            url: app_url+"/admin/get_3rd_level_menu/" + value,
             method: "GET",
             success: function(result) {
                 console.log(result);
@@ -601,6 +600,35 @@ $('#edit_dependent_page_sections').change(function() {
         })
     }
     
+
+
+    $('#edit_child_dependent_page_sections').change(function() {
+        if ($(this).val() != '') {
+            var select = $(this).attr("id");
+            var value = $(this).val();
+
+            var dependent_page_sections = $(this).data('dependent');
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url: app_url+"/admin/get_page_title_and_slug/" + value,
+                method: "GET",
+                success: function(result) {
+                    console.log(result);
+                    $('#edit_page_title').val(result['page_title']);
+                    $('#edit_page_slug').val(result['page_link']);
+                }
+
+            })
+        }
+    });
+
+
+    $("#edit_page_title").click(function() {
+    var Text = $(this).val();
+    Text = Text.toLowerCase();
+    Text = Text.replace(/[^a-zA-Z0-9]+/g, '-');
+    $("#edit_page_slug").val(Text);
+});
 });
 
   </script>
