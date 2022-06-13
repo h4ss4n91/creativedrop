@@ -700,6 +700,7 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
             <div class="col-6 col-md-6 col-lg-3">
                 <div class="service-links mt-5">
                     <h6 class="web-h6 web-border-bottom pb-4 mb-0">{{$row->second_level_menu_name}}</h6>
+                    
                     <ul class="mt-3">
                         @php
                                 $third_level_services = DB::table('services')
@@ -714,12 +715,9 @@ $case_study = DB::table('case_study')->where('name', '=', $row_pages->section_ty
                                     ->where('id', '=', $third_row->third_service)
                                     ->get();
                             @endphp
-                            @if(!$third_row)
-                            <li><a href="{{url($third_row->third_service_link)}}">{{$sub_child_menu[0]->item_name}}</a></li>
-                            @else
-
                             
-                            @endif
+                            <li><a href="{{url($third_row->third_service_link)}}">{{$sub_child_menu[0]->item_name}}</a></li>
+                            
                             
                         @endforeach
                         

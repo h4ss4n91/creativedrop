@@ -211,68 +211,6 @@
                                                 </div>
                                             </div>
 
-                                            @foreach($page as $row_pages)
-                                            <div class="col-5">
-                                                <div class="form-group">
-                                                    <div class="controls">
-                                                        <label for="account-username">Row: {{$row_pages->section_no}} :
-                                                            <span  style="font-weight:bold; font-size:16px;">
-                                                                @foreach($page_section as $row_page_section)
-                                                                    @if($row_page_section->id == $row_pages->section)
-                                                                        <span> {{$row_page_section->name}} </span>
-                                                                    @endif
-                                                                @endforeach
-                                                                </span>
-                                                            </label>
-                                                            <select onchange="page_section(this);" id="page_section_two_{{$row_pages->section_no}}" class="form-control" name="section[]">
-                                                                @foreach($page_section as $row_page_section)
-                                                                    @if($row_page_section->id == $row_pages->section)
-                                                                        <option value="{{$row_pages->section}}">  {{$row_page_section->name}} </option>
-                                                                    @endif
-                                                                @endforeach
-                                                                
-                                                                @foreach($page_section as $row_page_section)
-                                                                    <option value="{{$row_page_section->id}}"> {{$row_page_section->name}} </option>
-                                                                @endforeach
-                                                            </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-5">
-                                                <div class="form-group">
-                                                    <div class="controls">
-                                                        <label for="account-username">Type Section {{$row_pages->section_no}} : <span style="font-weight:bold; font-size:16px;">
-                                                            {{$row_pages->section_type}}
-                                                        </label>
-                                                            <select id="page_section_two_{{$row_pages->section_no}}" class="form-control" name="section_type[]">
-                                                                <option value="{{$row_pages->section_type}}"> {{$row_pages->section_type}} </option>
-                                                            </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-1">
-                                                <div class="form-group">
-                                                    <div class="controls">
-                                                        <label style="font-weight:bold;"for="account-username">Row {{$row_pages->section_no}} </label>
-                                                            <input type="text" class="form-control" name="section_no[]" value="{{$row_pages->section_no}}"/>
-                                                    </div>
-                                                    
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-1">
-                                                <div class="form-group">
-                                                    <a class="btn btn-danger btn-sm" href="{{url('admin/delete_page_content', $row_pages->id)}}">x</a>
-                                                </div>
-
-                                            </div>
-
-                                            @endforeach
-
-
                                             <div class="col-12">
                                                 <script>
                                                 $(document).ready(function () {
