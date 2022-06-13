@@ -180,8 +180,10 @@
                                                     <tbody>
                                                         @foreach($services as $row_services)
                                                         <tr>
-                                                            <td>{{$row_services->name}}</td>
-                                                            <td>{{$row_services->bootstra_class_name}}</td>
+                                                            <td>{{$row_services->name}} <br/>
+                                                                BG: {{$row_services->bootstra_class_name}}
+                                                            </td>
+                                                            
                                                             <td>{{$row_services->first_level_menu_name}}</td>
                                                             <td>{{$row_services->second_level_menu_name}} <br/>
 
